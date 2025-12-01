@@ -1,5 +1,5 @@
 {
-    "name": "alexssdd/marwin-crm",
+    "name": "alexssdd/qda-crm",
     "minimum-stability": "stable",
     "require": {
         "php": ">=8.2",
@@ -19,8 +19,7 @@
         "bower-asset/animate.css": "*"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.1.0",
-        "yiisoft/yii2-gii": "~2.1.0"
+        "yiisoft/yii2-debug": "~2.1.0"
     },
     "config": {
         "process-timeout": 1800,
