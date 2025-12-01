@@ -1,0 +1,41 @@
+<?php
+
+use yii\helpers\Url;
+
+/** @var $data [] */
+
+?>
+<?php if ($data['count']) : ?>
+    <div class="chart-circle">
+        <div class="chart-circle__info">
+            <div class="chart-circle__left">
+                <div class="chart-circle__value"><?= $data['count'] ?></div>
+            </div>
+            <div class="cart-circle__right">
+                <div class="chart-circle__legends">
+                    <div class="chart-circle__legend">
+                        <div class="chart-circle__legend-value"><?= $data['count_1'] ?></div>
+                        <div class="chart-circle__legend-key">более</div>
+                        <div class="chart-circle__legend-time">1 часа</div>
+                    </div>
+                    <div class="chart-circle__legend">
+                        <div class="chart-circle__legend-value"><?= $data['count_1_5'] ?></div>
+                        <div class="chart-circle__legend-key">более</div>
+                        <div class="chart-circle__legend-time">1.5 часа</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-circle__buttons">
+            <?php foreach ($data['orders'] as $order) : ?>
+                <a target="_blank" href="<?= Url::to(['/order/index', 'id' => $order['id']]) ?>" class="chart-circle__button">
+                    <?= $order['number'] ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php else : ?>
+    <div class="chart-success">
+        <i class="icon-check chart-success__icon"></i>
+    </div>
+<?php endif; ?>

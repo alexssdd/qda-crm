@@ -1,0 +1,30 @@
+/* Dashboard
+----------------------------------------*/
+.dashboard__box{
+    padding: 15px;
+    background-color: #fff;
+}
+
+/* Dashboard table
+----------------------------------------*/
+.dashboard-table__th,
+.dashboard-table__td{
+    padding: 7px 5px;
+    border: 1px solid #888;
+}
+.dashboard-table__th--yellow {
+    background-color: #fff2ce;
+}
+.dashboard-table__th--orange {
+    background-color: #fbe5d6;
+}
+.dashboard-table__tr--group .dashboard-table__td{
+    background-color: #ddd;
+    font-weight: 700;
+}
+.dashboard-table tr:not(.dashboard-table__tr--group):hover td{
+    background-color: #eee;
+}
+.dashboard-table__link:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,1002 @@
+/* Tags options
+----------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html,
+body{
+    height: 100%;
+}
+body{
+    color: #fff;
+    font-size: 14px;
+    background-color: #2F3136;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Scroll bar
+----------------------------------------*/
+::-webkit-scrollbar{
+    width: 3px;
+    height: 3px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background: transparent;
+}
+*:hover::-webkit-scrollbar-thumb{
+    background: #535353;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #fff;
+}
+
+/* Helper classes
+----------------------------------------*/
+.transition,
+.dropdown__block{
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+/* Header
+----------------------------------------*/
+.header{
+    background-color: #202225;
+    height: 60px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+.header__logo{
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.header__slogan{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Main
+----------------------------------------*/
+.main{
+    padding: 15px;
+}
+
+/* Dropdown
+----------------------------------------*/
+.dropdown{
+    position: relative;
+}
+.dropdown__toggle{
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.dropdown__block{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    right: 0;
+    max-width: 265px;
+    white-space: nowrap;
+    padding: 20px;
+    background-color: #2F3136;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    margin-top: 15px;
+}
+.dropdown--open .dropdown__block{
+    filter: alpha(opacity=100);
+    opacity: 1;
+    pointer-events: auto;
+}
+.dropdown__menu{
+    list-style: none;
+}
+.dropdown__item{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    cursor: pointer;
+}
+.dropdown__item:not(:last-child){
+    margin-bottom: 15px;
+}
+.dropdown__item:hover{
+    color: #03a9f4;
+}
+
+/* Chart header
+----------------------------------------*/
+.chart-header{
+    display: flex;
+    align-items: center;
+}
+.chart-header__left{
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 39px;
+    justify-content: center;
+    align-items: flex-start;
+}
+.chart-header__heading{
+    font-weight: 700;
+}
+
+/* Chart period
+----------------------------------------*/
+.chart-period{
+    position: relative;
+}
+.chart-period__label{
+    line-height: 1;
+    padding-top: 3px;
+    display: block;
+}
+.chart-period__value{
+    font-size: 12px;
+    color: #AEAEAE;
+    cursor: pointer;
+}
+.chart-period__value:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.chart-period__input{
+    display: none;
+}
+.chart-period .daterangepicker{
+    width: 627px;
+    margin-top: 12px;
+    color: #53555f;
+}
+.chart-period .daterangepicker.opensright{
+    left: 0 !important;
+}
+.chart-period .daterangepicker.opensleft{
+    right: 0 !important;
+}
+.chart-period .daterangepicker:not(.drop-up){
+    top: 100% !important;
+}
+.chart-period .daterangepicker.drop-up{
+    top: auto !important;
+    bottom: 100% !important;
+}
+
+/* Chart grid
+----------------------------------------*/
+.chart-grid{
+    grid-gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.chart-grid:not(:last-child){
+    margin-bottom: 15px;
+}
+
+/* Chart box
+----------------------------------------*/
+.chart-box{
+    background-color: #202225;
+    border-radius: 8px;
+}
+.chart-box:not(:last-child){
+    margin-bottom: 15px;
+}
+.chart-box__head{
+    padding: 10px 15px;
+    border-bottom: 1px solid #535353;
+}
+.chart-box__head--border{
+    border-bottom: 1px solid #535353;
+}
+.chart-box__head .dropdown__block{
+    padding: 15px;
+    margin-top: 10px;
+}
+.chart-box__heading{
+    flex: auto;
+    font-weight: 700;
+    padding-right: 20px;
+}
+.chart-box__toggle{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 18px;
+}
+.chart-box__arrow{
+    font-size: 16px;
+    margin-left: 5px;
+}
+.chart-box__dots{
+    font-size: 20px;
+    position: relative;
+    top: -5px;
+    letter-spacing: 2px;
+}
+.chart-box__body{
+    padding: 15px;
+    position: relative;
+}
+.chart-box__statuses{
+    display: flex;
+    align-items: center;
+}
+.chart-box__status{
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+.chart-box__status:not(:last-child){
+    margin-right: 20px;
+}
+.chart-box__status:before{
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.chart-box__status--blue:before{
+    background-color: #4272A7;
+}
+.chart-box__status--red:before{
+    background-color: #D84538;
+}
+.chart-box__status--green:before{
+    background-color: #C4D55A;
+}
+
+/* Chart success
+----------------------------------------*/
+.chart-success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chart-success__icon {
+    font-size: 40px;
+    color: #bfd73e;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chart table
+----------------------------------------*/
+.chart-table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 12px;
+}
+.chart-table thead th{
+    color: #B9B9B9;
+    font-weight: 400;
+    padding-bottom: 5px;
+    line-height: 1;
+    height: 20px;
+}
+.chart-table tbody td{
+    padding: 13px 0;
+}
+.chart-table--only-body tbody tr:first-child td{
+    padding-top: 0;
+}
+.chart-table tbody tr:not(:last-child) td{
+    border-bottom: 1px solid #535353;
+}
+.chart-table tbody tr:last-child td{
+    padding-bottom: 8px;
+}
+.chart-table__name{
+    font-weight: 700;
+}
+.chart-table__category{
+    color: #B9B9B9;
+}
+.chart-table__category:not(:empty){
+    padding-top: 4px;
+}
+.chart-table__container{
+    max-height: 250px;
+    overflow-y: auto;
+    margin-right: -3px;
+}
+.chart-table__container--right{
+    margin-right: 0;
+}
+.chart-table__right{
+    text-align: right;
+}
+.chart-table a{
+    color: #fff;
+    text-decoration: underline;
+}
+.chart-table a:hover{
+    text-decoration: none;
+}
+
+/* Chart tube
+----------------------------------------*/
+.chart-tube{
+    text-align: center;
+}
+.chart-tube__list{
+    grid-gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.chart-tube__top{
+    height: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 5px;
+}
+.chart-tube__bar{
+    background-color: #444548;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 15px;
+}
+.chart-tube__item--top .chart-tube__bar{
+    background-color: #bfd73e;
+    color: #53555f;
+}
+.chart-tube__count{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    line-height: 1;
+    font-size: 12px;
+}
+.chart-tube__name{
+    line-height: 20px;
+}
+
+/* Chart radial
+----------------------------------------*/
+.chart-radial{
+    position: relative;
+}
+.chart-radial__chart{
+    height: 120px !important;
+    min-height: 120px !important;
+    overflow-y: hidden;
+}
+.chart-radial__legends{
+    width: 140px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.chart-radial__legend{
+    position: relative;
+    padding-left: 25px;
+}
+.chart-radial__legend:not(:last-child){
+    margin-bottom: 10px;
+}
+.chart-radial .apexcharts-inner.apexcharts-graphical{
+    -webkit-transform: translate(-13px, -13px);
+    -moz-transform: translate(-13px, -13px);
+    -o-transform: translate(-13px, -13px);
+    -ms-transform: translate(-13px, -13px);
+    transform: translate(-13px, -13px);
+}
+.chart-radial__marker{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #C4C4C4;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+.chart-radial__legend--green .chart-radial__marker{
+    border-color: #bfd73e;
+}
+.chart-radial__legend--red .chart-radial__marker{
+    border-color: #CB544D;
+}
+.chart-radial__value {
+    font-size: 20px;
+    color: #C4C4C4;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+.chart-radial__legend--green .chart-radial__value{
+    color: #bfd73e;
+}
+.chart-radial__legend--red .chart-radial__value{
+    color: #CB544D;
+}
+
+/* Chart star
+----------------------------------------*/
+.chart-star{
+    padding: 5px 0;
+    text-align: center;
+}
+.chart-star__value{
+    font-size: 34px;
+    color: #bfd73e;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 44px;
+}
+.chart-star__icon{
+    font-size: 20px;
+    margin: 0 4px;
+    color: #C4C4C4;
+}
+.chart-star__icon--green{
+    color: #bfd73e;
+}
+
+/* Chart text
+----------------------------------------*/
+.chart-text{
+    padding: 5px 0;
+    text-align: center;
+}
+.chart-text__value{
+    font-size: 24px;
+    line-height: 35px;
+}
+
+/* Chart count
+----------------------------------------*/
+.chart-count__list{
+    display: flex;
+    text-align: center;
+}
+.chart-count__item{
+    width: 100%;
+    padding: 10px 0;
+}
+.chart-count__item:not(:last-child){
+    border-right: 1px solid #535353;
+}
+.chart-count__label{
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.chart-count__value{
+    font-size: 20px;
+    line-height: 26px;
+}
+.chart-count__item--green .chart-count__value{
+    color: #bfd73e;
+}
+.chart-count__buttons {
+    max-height: 100px;
+    overflow-y: auto;
+    grid-gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+}
+.chart-count__button {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 4px 3px;
+    border: 1px solid;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+.chart-count__button:hover{
+    background-color: #fff;
+    color: #202225;
+}
+.chart-count__circle{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0 30px 0;
+}
+.chart-count__circle-value{
+    font-size: 26px;
+    color: #f44336;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chart indicators
+----------------------------------------*/
+.chart-indicators__item{
+    display: flex;
+    align-items: center;
+}
+.chart-indicators__item:not(:last-child){
+    margin-bottom: 15px;
+}
+.chart-indicators__name{
+    flex: auto;
+}
+.chart-indicators__value{
+    color: #bfd73e;
+    font-size: 18px;
+}
+
+/* Chart circle
+----------------------------------------*/
+.chart-circle__info {
+    display: flex;
+    padding: 15px 0 30px 0;
+    justify-content: space-around;
+}
+.chart-circle__value {
+    font-size: 26px;
+    color: #f44336;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chart-circle__legend {
+    position: relative;
+    padding-left: 30px;
+}
+.chart-circle__legend:not(:last-child) {
+    margin-bottom: 15px;
+}
+.chart-circle__legend-value {
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 2px;
+    color: #f44336;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -13px;
+}
+.chart-circle__legend-key {
+    font-size: 10px;
+    color: #ccc;
+}
+.chart-circle__legend-time {
+    font-size: 12px;
+}
+.chart-circle__buttons {
+    max-height: 100px;
+    overflow-y: auto;
+    grid-gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+}
+.chart-circle__button {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 4px 3px;
+    border: 1px solid;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+.chart-circle__button:hover {
+    background-color: #fff;
+    color: #202225;
+}
+
+/* Chart progress
+----------------------------------------*/
+.chart-progress__item{
+    position: relative;
+    padding-right: 50px;
+}
+.chart-progress__item:not(:last-child){
+    margin-bottom: 15px;
+}
+.chart-progress__track{
+    height: 6px;
+    background-color: #535353;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.chart-progress__bar{
+    height: 6px;
+    background-color: #bfd73e;
+    border-radius: 4px;
+}
+.chart-progress__item--red .chart-progress__bar{
+    background-color: #CB544D;
+}
+.chart-progress__name{
+    color: #AEAEAE;
+    font-size: 12px;
+}
+.chart-progress__value{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Chart loading
+----------------------------------------*/
+.chart-loader{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    min-height: 100px;
+}
+.chart-loader:before{
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: #bfd73e transparent #bfd73e transparent;
+    animation: animation-ring 1.5s linear infinite;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+}
+.chart-loader--sm:before{
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+}
+@keyframes animation-ring{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* Chart tags
+----------------------------------------*/
+.chart-tags__items {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 7px;
+}
+.chart-tags__item {
+    border: 1px solid #fff;
+    padding: 5px 7px;
+    border-radius: 4px;
+}
+
+/* Customer new
+----------------------------------------*/
+.customer-new__body{
+    min-height: 170px;
+    position: relative;
+}
+
+/* Customer count
+----------------------------------------*/
+.customer-count__chart{
+    min-height: 225px;
+}
+
+/* Sale channels
+----------------------------------------*/
+.sale-channels__body{
+    min-height: 225px;
+    position: relative;
+}
+.sale-channels .chart-table__container{
+    max-height: 205px;
+}
+
+/* Sale operator
+----------------------------------------*/
+.sale-operator__body{
+    min-height: 190px;
+    position: relative;
+}
+.sale-operator .chart-table__container{
+    max-height: 170px;
+}
+
+/* Sale indicators
+----------------------------------------*/
+.sale-indicators__body{
+    min-height: 105px;
+    position: relative;
+}
+
+/* Sale fact
+----------------------------------------*/
+.sale-fact .apexcharts-datalabel-value{
+    fill: #bfd73e;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Sale daily
+----------------------------------------*/
+.sale-daily__chart{
+    min-height: 205px;
+}
+
+/* Sale status
+----------------------------------------*/
+.sale-status__chart{
+    min-height: 225px;
+}
+
+/* Sale fact
+----------------------------------------*/
+.sale-fact__chart{
+    min-height: 153px;
+}
+
+/* Sale month
+----------------------------------------*/
+.sale-month__chart{
+    min-height: 190px;
+}
+.sale-month__chart.chart-loader{
+    min-height: 190px !important;
+}
+
+/* Order payment
+----------------------------------------*/
+.order-payment__body{
+    height: 225px;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* Order average handle
+----------------------------------------*/
+.order-average-handle__body{
+    min-height: 45px;
+    position: relative;
+}
+
+/* Order cancel reason
+----------------------------------------*/
+.order-cancel-reason__chart{
+    min-height: 170px;
+}
+.order-cancel-reason__chart.chart-loader{
+    min-height: 170px !important;
+}
+.order-cancel-reason .apexcharts-inner{
+    transform: translate(0, 0) !important;
+}
+.order-cancel-reason .apexcharts-pie > g{
+    transform: translate(0, 20px) scale(0.8) !important;
+}
+
+/* Order status
+----------------------------------------*/
+.order-status{
+    min-height: 160px;
+}
+.order-status__chart.chart-loader{
+    min-height: 160px !important;
+}
+.order-status .apexcharts-inner{
+    transform: translate(0, 0) !important;
+}
+.order-status .apexcharts-pie > g{
+    transform: translate(0, 5px) !important;
+}
+
+/* Order handler
+----------------------------------------*/
+.order-handler__body{
+    height: 120px;
+    position: relative;
+    overflow-y: auto;
+}
+.order-handler__body.chart-loader .chart-radial{
+    display: none;
+}
+
+/* Order completed
+----------------------------------------*/
+.order-completed__body{
+    height: 120px;
+    position: relative;
+    overflow-y: auto;
+}
+.order-completed__body.chart-loader .chart-radial{
+    display: none;
+}
+
+/* Chat count
+----------------------------------------*/
+.chat-count__body{
+    min-height: 75px;
+    position: relative;
+}
+
+/* Chart NPS
+----------------------------------------*/
+.chat-nps__chart{
+    min-height: 145px;
+}
+
+/* Product category
+----------------------------------------*/
+.product-category__chart{
+    min-height: 190px;
+}
+.product-category__chart.chart-loader{
+    min-height: 190px !important;
+}
+.product-category .apexcharts-inner{
+    transform: translate(0, 0) !important;
+}
+.product-category .apexcharts-pie > g{
+    transform: translate(0, 20px) scale(0.8) !important;
+}
+
+/* Product top
+----------------------------------------*/
+.product-top__body{
+    min-height: 282px;
+    position: relative;
+}
+.product-top .chart-table__container{
+    max-height: 250px;
+}
+
+/* Delivery average
+----------------------------------------*/
+.delivery-average__body{
+    min-height: 200px;
+    position: relative;
+}
+.delivery-average .chart-table__container{
+    max-height: 200px;
+}
+
+/* Long handle
+----------------------------------------*/
+.long-handle__body{
+    min-height: 225px;
+    position: relative;
+}
+.long-handle .chart-table__container{
+    max-height: 205px;
+}
+
+/* Without attention
+----------------------------------------*/
+.without-attention__body{
+    min-height: 225px;
+}
+
+/* Express search
+----------------------------------------*/
+.express-search__body{
+    min-height: 225px;
+}
+
+/* Express long
+----------------------------------------*/
+.express-long__body{
+    min-height: 225px;
+}
+
+/* Standard long
+----------------------------------------*/
+.standard-long__body{
+    min-height: 225px;
+}
+
+/* Apexcharts
+----------------------------------------*/
+.apexcharts-legend{
+    top: 0 !important;
+    right: 0 !important;
+    padding: 0 !important;
+}
+.apexcharts-legend-series{
+    position: relative;
+    padding-left: 17px;
+    margin: 0 !important;
+}
+.apexcharts-legend-series:not(:last-child){
+    margin-bottom: 8px !important;
+}
+.apexcharts-legend-marker{
+    width: 8px !important;
+    height: 8px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    margin-top: -4px !important;
+}
+.apexcharts-legend-text{
+    color: #fff !important;
+    display: block;
+}
+.apexcharts-tooltip-text-value{
+    display: block !important;
+    margin: 0 !important;
+    padding-top: 5px;
+}
+.apexcharts-datalabel-label{
+    font-size: 30px !important;
+}
+.apexcharts-yaxis-label{
+    fill: #fff;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.apexcharts-xaxis-label{
+    fill: #fff;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title{
+    color: #53555f !important;
+}
+.apexcharts-tooltip-y-group{
+    color: #53555f !important;
+}

@@ -1,0 +1,107 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+body {
+    /*font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: tahoma, arial, verdana, sans-serif;
+    font-size: 13px;
+    color: #53555f;
+    /*background: #f7fafb;*/
+    background: #f3f6ff;
+    line-height: 1.42857143;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    background: radial-gradient(circle, #36383f, #202125);
+}
+button {
+    font-family: tahoma, arial, verdana, sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+}
+
+/* Layouts
+--------------------------------------*/
+.wrp {
+    position: relative;
+    height: 100%;
+}
+.container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 2px;
+    width: 340px;
+}
+
+/* Logo
+--------------------------------------*/
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.logo__image {
+    vertical-align: top;
+    max-height: 50px;
+    max-width: 100%;
+}
+
+/* Login Form
+--------------------------------------*/
+.login-form {
+    padding: 20px;
+    background: #363842;
+    border-radius: 2px;
+}
+.login-form__group {
+    margin-bottom: 10px;
+}
+.login-form__group.has-error .login-form__input {
+    box-shadow: 0 0 0 3px #F44336
+}
+.login-form__input {
+    width: 100%;
+    height: 42px;
+    font-size: 13px;
+    padding: 5px 12px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background-color: #2e2f35;
+    color: #fff;
+}
+.login-form__input:focus {
+    box-shadow: 0 0 0 2px #0066ff;
+    outline: none;
+    background-color: #2e2f35;
+    color: #fff;
+}
+.login-form__btn {
+    display: inline-block;
+    width: 100%;
+    background: #2c64ff;
+    color: #fff;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    margin-top: 10px;
+}

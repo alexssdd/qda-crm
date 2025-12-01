@@ -1,0 +1,104 @@
+/* Appeal
+----------------------------------------*/
+.appeal .form-group{
+    margin-bottom: 0;
+}
+
+/* Appeal header
+----------------------------------------*/
+.appeal-header{
+    display: flex;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+.appeal-header__item{
+    flex: 1;
+}
+
+/* Appeal info
+----------------------------------------*/
+.appeal-info {
+    margin-bottom: 10px;
+}
+.appeal-info__label {
+    background: #eee;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #333;
+    font-weight: 700;
+}
+.appeal-info__textarea{
+    height: 215px;
+}
+
+/* Appeal actions
+----------------------------------------*/
+.appeal-actions{
+    display: flex;
+    grid-gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Appeal body
+----------------------------------------*/
+.appeal-body{
+    display: flex;
+}
+.appeal-body__left{
+    padding-right: 10px;
+}
+
+/* Appeal form
+----------------------------------------*/
+.appeal-form__item{
+    display: flex;
+}
+.appeal-form__item:not(:last-child){
+    margin-bottom: 10px;
+}
+.appeal-form__label{
+    width: 175px;
+    display: block;
+    font-weight: 600;
+    color: var(--color-nice);
+    padding-top: 6px;
+}
+.appeal-form__item.required .appeal-form__label:after{
+    content: " *";
+    color: var(--color-red);
+}
+.appeal-form__block{
+    flex: 1;
+    padding-left: 10px;
+    position: relative;
+}
+.appeal-form__block .form-control{
+    width: 200px;
+}
+.appeal-form__block--group{
+    display: flex;
+    grid-gap: 10px;
+}
+.appeal-form__address{
+    display: none;
+}
+.appeal-form__store{
+    display: none;
+}
+.appeal-form__link{
+    display: inline-block;
+    margin-top: 2px;
+}
+.appeal-form__link:hover{
+    text-decoration: underline;
+}
+
+/* Appeal customer modal
+----------------------------------------*/
+.appeal-customer-modal tbody{
+    width: 573px !important;
+}
+.appeal-customer-modal .stock-available__city,
+.appeal-customer-modal .stock-available__city_label{
+    width: 240px;
+}

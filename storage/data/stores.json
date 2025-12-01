@@ -1,0 +1,1892 @@
+[
+  {
+    "name": "МЕЛОМАН-MARWIN на Гоголя (Grand)",
+    "code_ax": "АА_Р_01",
+    "name_ax": "МЕЛОМАН АА Grand",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "ул. Гоголя, 58",
+    "landmark": "угол ул. Панфилова",
+    "coordinates": {
+      "lat": 43.259664,
+      "lng": 76.943117
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1503"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Гоголя Grand",
+    "hours": {
+      "mo": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      },
+      "tu": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      },
+      "we": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      },
+      "th": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      },
+      "fr": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      },
+      "sa": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      },
+      "su": {
+        "open_time": "00:00",
+        "close_time": "24:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «MEGA Alma-Ata»",
+    "code_ax": "АА_Р_15",
+    "name_ax": "MARWIN АА Мега1",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "ул. Розыбакиева 247, 2 этаж",
+    "landmark": "возле кинотеатра в старом крыле",
+    "coordinates": {
+      "lat": 43.202936,
+      "lng": 76.892436
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1526,"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "MEGA Alma-Ata",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ  «АДК»",
+    "code_ax": "АА_Р_119",
+    "name_ax": "MARWIN АА АДК",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "ул. Сатпаева, 90, 2 этаж",
+    "landmark": "возле кинотеатра Chaplin Cinema",
+    "coordinates": {
+      "lat": 43.23231,
+      "lng": 76.879366
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1250"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "АДК",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «MEGA Park»",
+    "code_ax": "АА_Р_175",
+    "name_ax": "MARWIN АА МегаПарк",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "ул. Сейфулина 483, 2 этаж",
+    "landmark": "угол ул. Макатаева",
+    "coordinates": {
+      "lat": 43.2644,
+      "lng": 76.930027
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1236"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "MEGA Park",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «Dostyk Plaza»",
+    "code_ax": "АА_Р_176",
+    "name_ax": "MARWIN АА Достык Плаза",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "Самал-2, 111, 3 этаж",
+    "landmark": "проспект Достык, угол ул. Жолдасбекова",
+    "coordinates": {
+      "lat": 43.2331407,
+      "lng": 76.95657310000001
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1217"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Dostyk Plaza",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "Меломан ТРЦ «Esentai Mall»",
+    "code_ax": "АА_Р_183",
+    "name_ax": "МЕЛОМАН АА Есентай",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "пр. Аль-Фараби, 77/8, 3 Этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 43.21833990763525,
+      "lng": 76.92794993519783
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1519"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Меломан Esentai Mall",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТЦ «Москва»",
+    "code_ax": "АА_Р_188",
+    "name_ax": "MARWIN АА ТРЦ Москва",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "Микрорайон 8 дом 37/1, 3 этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 43.226699,
+      "lng": 76.863251
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1568"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "ТЦ Москва",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN Молл Апорт",
+    "code_ax": "АА_Р_07",
+    "name_ax": "MARWIN АА Молл Апорт",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": "Ташкентский тракт, 17к (1 этаж)",
+    "landmark": null,
+    "coordinates": {
+      "lat": 43.2423401,
+      "lng": 76.8240169
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1163"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": "Молл Апорт",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ЖК Шахристан",
+    "code_ax": "АА_Р_34",
+    "name_ax": "MARWIN АА ЖК Шахристан",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Алматы",
+    "address": " ул. Навои 208",
+    "landmark": null,
+    "coordinates": {
+      "lat": 43.207091,
+      "lng": 76.885061
+    },
+    "primary_phone": {
+      "formatted": "8(727)338-36-96",
+      "extension": "1163"
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": "ЖК Шахристан",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN KeruenCity Aktobe",
+    "code_ax": "АК_Р_01",
+    "name_ax": "MARWIN АКБ Мега",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Актобе",
+    "address": "ул. М. Маметовой, д. 4, бутик C3, 3 этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 50.289293,
+      "lng": 57.193629
+    },
+    "primary_phone": {
+      "formatted": "8(701)874-02-24",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "KeruenCity Aktobe",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "Пункт Выдачи Заказов ТРК Арсенал",
+    "code_ax": "АС_Р_01",
+    "name_ax": "МЕЛОМАН АСТ Арсенал",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "Алтынсарина 4, ТРК Арсенал, 1 этаж, парк Arsenal Kids",
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": "Пункт Выдачи Заказов ТРК Арсел",
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": "Меломан \"Проспект Республики\"",
+    "code_ax": "АС_Р_02",
+    "name_ax": "МЕЛОМАН АСТ Акжол",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "пр. Республики, 17/1",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.162507,
+      "lng": 71.427608
+    },
+    "primary_phone": {
+      "formatted": "8(701)761-50-80",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Меломан \"Проспект Республики\"",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «Керуен» Астана",
+    "code_ax": "АС_Р_153",
+    "name_ax": "MARWIN АСТ Керуен",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "ул. Достык, 9. 1 этаж, бутик 31, 32, 33",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.127191,
+      "lng": 71.425333
+    },
+    "primary_phone": {
+      "formatted": "8(702)889-07-25",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Керуен Аста",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «Сары Арка» ",
+    "code_ax": "АС_Р_155",
+    "name_ax": "MARWIN АСТ Сары Арка",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "пр. Туран 24, уг. ул. Сарайшык, ТРЦ «Сары Арка» 2 этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.138427,
+      "lng": 71.41053299999999
+    },
+    "primary_phone": {
+      "formatted": "8(701)029-21-72",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Сары Арка",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «MEGA SilkWay»",
+    "code_ax": "АС_Р_157",
+    "name_ax": "MARWIN АСТ Мега Силквей",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "ул. Кабанбай Батыра 62, 2 этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.0838166,
+      "lng": 71.4006812
+    },
+    "primary_phone": {
+      "formatted": "8(771)051-04-88",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "MEGA SilkWay",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "МЕЛОМАН ТРЦ «KeruenCity»",
+    "code_ax": "АС_Р_19",
+    "name_ax": "МЕЛОМАН АСТ KeruenCity",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "пересечение Кургальджинского шоссе и пр. Туран, строение 1, бутик B5, 2 этаж ",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.14546305574003,
+      "lng": 71.41494154930115
+    },
+    "primary_phone": {
+      "formatted": "8(701)513-91-02",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "МЕЛОМАН KeruenCity",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "Пункт выдачи заказов \"Интерфуд\"",
+    "code_ax": "АС_Р_25",
+    "name_ax": "МЕЛОМАН АСТ Интерфуд",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "ул. Кошкарбаева 8, супермаркет Interfood",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.163066,
+      "lng": 71.43878
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": "Пункт выдачи заказов \"Интерфуд\"",
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": "MARWIN «High Vill Kazakhstan»",
+    "code_ax": "АС_Р_28",
+    "name_ax": "МЕЛОМАН АСТ Хайвилл",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "ул. Кошкарбаева 8, 1 этаж ",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.1282167,
+      "lng": 71.461561
+    },
+    "primary_phone": {
+      "formatted": "8(771)051-04-87",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "High Vill Kazakhstan",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ Green Mall",
+    "code_ax": "АС_Р_32",
+    "name_ax": "MARWIN АСТ Грин",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "Зеленый квартал, ул. Е10, д. 17Б",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.130279,
+      "lng": 71.389747
+    },
+    "primary_phone": {
+      "formatted": "8(702)776-83-45",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Green Mall",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ «Хан Шатыр»",
+    "code_ax": "АС_Р_71",
+    "name_ax": "МЕЛОМАН АСТ Хан Шатары",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Астана",
+    "address": "ТРЦ «Хан Шатыр», пр. Туран 37 , 1 этаж , бутик 1-02-А",
+    "landmark": null,
+    "coordinates": {
+      "lat": 51.13273694121662,
+      "lng": 71.40312910079956
+    },
+    "primary_phone": {
+      "formatted": "8(701)252-40-54",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Хан Шатыр",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN на Сатпаева",
+    "code_ax": "АТ_Р_23",
+    "name_ax": "MARWIN АТР Сары Арка",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Атырау",
+    "address": "ул. Сатпаева 13Б, 2 этаж, БЦ \"Сары Арка\"",
+    "landmark": null,
+    "coordinates": {
+      "lat": 47.10561319685967,
+      "lng": 51.905545592308044
+    },
+    "primary_phone": {
+      "formatted": "8(712)276-36-86",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Сатпаева",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРК Актау",
+    "code_ax": "АУ_Р_01",
+    "name_ax": "MARWIN ААУ ТЦ Актау",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Актау",
+    "address": "16-й микрорайон, 2-й этаж, бутик А1",
+    "landmark": null,
+    "coordinates": {
+      "lat": 43.66717359116748,
+      "lng": 51.1520079375623
+    },
+    "primary_phone": {
+      "formatted": "8(702)210-87-64",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "ТРК Актау",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "Меломан ТЦ МЕЧТА",
+    "code_ax": "КА_Р_01",
+    "name_ax": "МЕЛОМАН КГД Мечта",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Караганда",
+    "address": null,
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": "Меломан ТЦ МЕЧТА",
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": "MARWIN ТРЦ \"CITY MALL\"",
+    "code_ax": "КА_Р_04",
+    "name_ax": "MARWIN КГД Сити Молл",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Караганда",
+    "address": "проспект Бухар-Жырау, 59/2, 3 этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 49.800205,
+      "lng": 73.087701
+    },
+    "primary_phone": {
+      "formatted": "8(721)291-05-10",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "\"CITY MALL\"",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN на Аль-Фараби",
+    "code_ax": "КО_Р_01",
+    "name_ax": "MARWIN КТН Аль-Фараби",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Костанай",
+    "address": "Аль-Фараби 88",
+    "landmark": null,
+    "coordinates": {
+      "lat": 53.216366,
+      "lng": 63.62892
+    },
+    "primary_phone": {
+      "formatted": "8(701)529-64-98",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Аль-Фараби",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN на Сатпаева",
+    "code_ax": "ПА_Р_26",
+    "name_ax": "MARWIN ПВЛ Сатпаева",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Павлодар",
+    "address": "ул. Академика Сатпаева, 19",
+    "landmark": null,
+    "coordinates": {
+      "lat": 52.293238,
+      "lng": 76.940915
+    },
+    "primary_phone": {
+      "formatted": "8(701)532-17-83",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Сатпаева",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN в «Dostyq Mall»",
+    "code_ax": "ПТ_Р_01",
+    "name_ax": "MARWIN ППК Dostyq Mall",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Петропавловск",
+    "address": "ул. Магжана Жумабаева 91, ТРЦ Dostyq Mall, 3 этаж, бутик MARWIN",
+    "landmark": null,
+    "coordinates": {
+      "lat": 54.8717938,
+      "lng": 69.1308558
+    },
+    "primary_phone": {
+      "formatted": "8(715)270-53-73",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "в Dostyq Mall",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN Семей Момышулы",
+    "code_ax": "СМ_Р_01",
+    "name_ax": "MARWIN Семей Момышулы",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Семей",
+    "address": "ул. Б. Момышулы, 9",
+    "landmark": null,
+    "coordinates": {
+      "lat": 50.4075637,
+      "lng": 80.2463122
+    },
+    "primary_phone": {
+      "formatted": "8(701)932-78-85",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "Семей Момышулы",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      }
+    }
+  },
+  {
+    "name": null,
+    "code_ax": "СМ_Р_02",
+    "name_ax": "MARWIN Семей Шугаева",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Семей",
+    "address": null,
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": null,
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": "MARWIN, ул. Айтеке Би",
+    "code_ax": "ТА_Р_02",
+    "name_ax": "MARWIN ТРЗ Абая",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Тараз",
+    "address": "ул. Айтеке би, 1",
+    "landmark": null,
+    "coordinates": {
+      "lat": 42.89554229228103,
+      "lng": 71.37600660324097
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": ", ул. Айтеке Би",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "21:00"
+      }
+    }
+  },
+  {
+    "name": "MARWIN УК АДК \"River\"",
+    "code_ax": "УК_Р_03",
+    "name_ax": "MARWIN УК АДК River",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Усть-Каменогорск",
+    "address": "ул. Казахстан, 62, АДК River, 3 этаж",
+    "landmark": null,
+    "coordinates": {
+      "lat": 49.98519,
+      "lng": 82.592408
+    },
+    "primary_phone": {
+      "formatted": "8(701)761-58-49",
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "enabled",
+    "name_short": "УК АДК \"River\"",
+    "hours": {
+      "mo": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "tu": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "we": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "th": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "fr": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "sa": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      },
+      "su": {
+        "open_time": "10:00",
+        "close_time": "22:00"
+      }
+    }
+  },
+  {
+    "name": null,
+    "code_ax": "УК_Р_08",
+    "name_ax": "MARWIN УК ЦУМ",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Усть-Каменогорск",
+    "address": null,
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": "disabled",
+    "name_short": null,
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": null,
+    "code_ax": "УР_Р_03",
+    "name_ax": "MARWIN УРЛ ТЦ Атриум",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Уральск",
+    "address": null,
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": null,
+    "name_short": null,
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": null,
+    "code_ax": "УР_Р_05",
+    "name_ax": "MARWIN УРЛ Сити Центр",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Уральск",
+    "address": null,
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": null,
+    "name_short": null,
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  },
+  {
+    "name": null,
+    "code_ax": "ШМ_Р_03",
+    "name_ax": "MARWIN ШМТ МегаЦентр",
+    "location_type": "Основной",
+    "notes": null,
+    "city": "Шымкент",
+    "address": null,
+    "landmark": null,
+    "coordinates": {
+      "lat": null,
+      "lng": null
+    },
+    "primary_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "additional_phone": {
+      "formatted": null,
+      "extension": null
+    },
+    "status": null,
+    "name_short": null,
+    "hours": {
+      "mo": {
+        "open_time": null,
+        "close_time": null
+      },
+      "tu": {
+        "open_time": null,
+        "close_time": null
+      },
+      "we": {
+        "open_time": null,
+        "close_time": null
+      },
+      "th": {
+        "open_time": null,
+        "close_time": null
+      },
+      "fr": {
+        "open_time": null,
+        "close_time": null
+      },
+      "sa": {
+        "open_time": null,
+        "close_time": null
+      },
+      "su": {
+        "open_time": null,
+        "close_time": null
+      }
+    }
+  }
+]
