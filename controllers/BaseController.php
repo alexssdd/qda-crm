@@ -23,7 +23,7 @@ class BaseController extends Controller
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['login'],
+                        'actions' => ['login', 'login-otp', 'login-password'],
                         'allow' => true,
                     ],
                     [
@@ -36,7 +36,7 @@ class BaseController extends Controller
                         },
                     ],
                     [
-                        'actions' => ['logout', 'index', 'error', 'demo', 'state-online', 'state-offline'],
+                        'actions' => ['logout', 'index', 'error'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

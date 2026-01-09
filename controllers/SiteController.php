@@ -3,20 +3,23 @@
 namespace app\controllers;
 
 use Yii;
-use Exception;
+use Throwable;
+use yii\helpers\Url;
+use DomainException;
 use yii\web\Response;
-use app\forms\LoginForm;
 use app\services\UserService;
 use app\core\helpers\UserHelper;
+use app\modules\auth\enums\AuthMethod;
+use app\modules\auth\forms\LoginOtpForm;
+use app\modules\auth\models\AuthIdentity;
+use app\modules\auth\forms\LoginStartForm;
+use app\modules\auth\forms\LoginPasswordForm;
 
 /**
  * Site controller
  */
 class SiteController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
     public function actions(): array
     {
         return [
@@ -26,9 +29,6 @@ class SiteController extends BaseController
         ];
     }
 
-    /**
-     * @return Response
-     */
     public function actionIndex(): Response
     {
         $user = UserHelper::getIdentity();
@@ -40,44 +40,101 @@ class SiteController extends BaseController
         }
     }
 
-    /**
-     * @return string
-     */
-    public function actionDemo(): string
-    {
-        return $this->render('demo');
-    }
-
-    /**
-     * @return string|Response
-     * @throws Exception
-     */
-    public function actionLogin()
+    public function actionLogin(): Response|string
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $this->layout = 'empty';
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            // State online
-            (new UserService())->stateOnline(UserHelper::getIdentity());
+        $model = new LoginStartForm();
 
-            return $this->redirect(['site/index']);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $user = $model->getUser();
+
+            $hasPassword = AuthIdentity::find()
+                ->andWhere([
+                    'user_id' => $user->id,
+                    'type' => AuthMethod::PASSWORD->value
+                ])
+                ->exists();
+
+            if ($hasPassword) {
+                return $this->asJson([
+                    'success' => true,
+                    'html' => $this->renderAjax('_login_password', [
+                        'model' => new LoginPasswordForm(),
+                        'phone' => $user->phone
+                    ])
+                ]);
+            }
+
+            return $this->asJson([
+                'success' => true,
+                'html' => $this->renderAjax('_login_otp', [
+                    'model' => new LoginOtpForm(),
+                    'phone' => $user->phone
+                ])
+            ]);
         }
 
-        $model->password = '';
-
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        return $this->render('login-start', ['model' => $model]);
     }
 
-    /**
-     * @return Response
-     * @throws Exception
-     */
+    public function actionLoginPassword(): Response
+    {
+        $form = new LoginPasswordForm();
+        $form->load(Yii::$app->request->post());
+
+        try {
+            if (!$form->login()) {
+                throw new DomainException($form->getErrorMessage());
+            }
+
+            return $this->asJson([
+                'success' => true,
+                'redirect' => Url::to(['site/index'])
+            ]);
+        } catch (DomainException $e) {
+            return $this->asJson([
+                'success' => false,
+                'error' => $e->getMessage()
+            ]);
+        } catch (Throwable $e) {
+            return $this->asJson([
+                'success' => false,
+                'error' => 'Internal server error'
+            ]);
+        }
+    }
+
+    public function actionLoginOtp(): Response
+    {
+        $form = new LoginOtpForm();
+        $form->load(Yii::$app->request->post());
+
+        try {
+            if (!$form->login()) {
+                throw new DomainException($form->getErrorMessage());
+            }
+
+            return $this->asJson([
+                'success' => true,
+                'redirect' => Url::to(['site/index'])
+            ]);
+        } catch (DomainException $e) {
+            return $this->asJson([
+                'success' => false,
+                'error' => $e->getMessage()
+            ]);
+        } catch (Throwable $e) {
+            return $this->asJson([
+                'success' => false,
+                'error' => 'Internal server error'
+            ]);
+        }
+    }
+
     public function actionLogout(): Response
     {
         // State offline
@@ -86,25 +143,5 @@ class SiteController extends BaseController
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    /**
-     * @return void
-     * @throws Exception
-     */
-    public function actionStateOnline(): void
-    {
-        // State online
-        (new UserService())->stateOnline(UserHelper::getIdentity());
-    }
-
-    /**
-     * @return void
-     * @throws Exception
-     */
-    public function actionStateOffline(): void
-    {
-        // State offline
-        (new UserService())->stateOffline(UserHelper::getIdentity());
     }
 }
