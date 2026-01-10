@@ -10,8 +10,8 @@ use app\core\helpers\UserHelper;
 
 // Variables
 $user = UserHelper::getIdentity();
-$isOperator = UserHelper::isOperator();
-$isOnline = $user->state == UserHelper::STATE_ONLINE;
+$isOperator = false;
+$isOnline = false
 
 ?>
 <header class="header">
@@ -127,7 +127,7 @@ $isOnline = $user->state == UserHelper::STATE_ONLINE;
         </div>
         <div class="header-user">
             <div class="header-user__info" onclick="Header.userBlockToggle()">
-                <div class="header-user__name"><?= $user->full_name ?></div>
+                <div class="header-user__name"><?= $user->name ?></div>
                 <i class="header-user__arrow icon-keyboard_arrow_down"></i>
                 <i class="header-user__icon icon-person"></i>
             </div>

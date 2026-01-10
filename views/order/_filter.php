@@ -2,15 +2,12 @@
 
 use yii\helpers\Html;
 use app\search\OrderSearch;
-use app\core\helpers\UserHelper;
 use app\core\helpers\DataHelper;
 use app\core\helpers\OrderHelper;
 use app\core\helpers\StoreHelper;
 use app\core\helpers\PaymentHelper;
-use app\modules\wb\helpers\WbHelper;
 use app\core\helpers\DeliveryHelper;
 use app\core\helpers\OrderEventHelper;
-use app\modules\ozon\helper\OzonHelper;
 
 /** @var $searchModel OrderSearch */
 
@@ -77,7 +74,7 @@ $statuses['Расширенные'] = [
                 </div>
                 <div class="form-group">
                     <label class="control-label"><?= $searchModel->getAttributeLabel('handler_id') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->handler_id, UserHelper::getSelectArray(), [
+                    <?= Html::dropDownList(null, $searchModel->handler_id, [], [
                         'prompt' => Yii::t('app', 'All'),
                         'data-input' => Html::getInputId($searchModel, 'handler_id')
                     ]) ?>
@@ -143,30 +140,6 @@ $statuses['Расширенные'] = [
                 </div>
             </div>
             <div class="modal-form__row modal-form__row--3">
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('store_id') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->store_id, StoreHelper::getSelectArray(), [
-                        'prompt' => Yii::t('app', 'All'),
-                        'data-input' => Html::getInputId($searchModel, 'store_id')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'store_id') ?>
-                </div>
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('account_wb') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->account_wb, WbHelper::getAccountArray(), [
-                        'prompt' => Yii::t('app', 'All'),
-                        'data-input' => Html::getInputId($searchModel, 'account_wb')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'account_wb') ?>
-                </div>
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('account_ozon') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->account_ozon, OzonHelper::getAccountArray(), [
-                        'prompt' => Yii::t('app', 'All'),
-                        'data-input' => Html::getInputId($searchModel, 'account_ozon')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'account_ozon') ?>
-                </div>
             </div>
             <div class="modal-form__row modal-form__row--3">
                 <div class="form-group">

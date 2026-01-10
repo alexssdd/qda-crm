@@ -5,8 +5,6 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use app\entities\Order;
 use app\core\rules\OrderRules;
-use app\core\helpers\LeadHelper;
-use app\core\helpers\PhoneHelper;
 use app\core\helpers\OrderHelper;
 use app\core\helpers\AddressSelectHelper;
 
@@ -81,15 +79,6 @@ $lead = OrderHelper::getLead($order);
                 <?= Html::textarea('comment', $order->comment, ['class' => 'order-body__input order-body__comment', 'readonly' => true])?>
             </div>
         </div>
-        <?php if ($lead) : ?>
-        <div class="order-body__item">
-            <label class="order-body__label">Лид</label>
-            <div class="order-body__block order-body__block--group">
-                <?= Html::textInput(null, LeadHelper::getTitle($lead), ['class' => 'order-body__input', 'readonly' => true])?>
-                <a href="<?= Url::to(['/lead/index', 'id' => $lead->id]) ?>" class="order-body__detail transition" target="_blank" data-pjax="0">Детали</a>
-            </div>
-        </div>
-        <?php endif; ?>
         <div class="order-body__item">
             <label class="order-body__label">Статус</label>
             <div class="order-body__block">

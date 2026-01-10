@@ -3,13 +3,13 @@
 namespace app\modules\auth\forms;
 
 use Yii;
-use yii\base\Model;
+use app\core\forms\Form;
 use app\modules\auth\models\User;
 use app\core\helpers\PhoneHelper;
 use app\modules\auth\enums\AuthMethod;
 use app\modules\auth\models\AuthIdentity;
 
-class LoginPasswordForm extends Model
+class LoginPasswordForm extends Form
 {
     public $phone;
     public $password;

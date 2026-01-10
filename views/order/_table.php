@@ -81,9 +81,9 @@ use app\core\helpers\OrderHistoryHelper;
             'attribute' => 'city_id',
             'label' => 'Город',
             'options' => ['width' => 120],
-            'filter' => CityHelper::getSelectArray(),
+            'filter' => [],
             'value' => function (Order $model) {
-                return $model->city ? $model->city->name : '';
+                return '';
             }
         ],
         [

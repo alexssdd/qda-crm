@@ -137,9 +137,6 @@ class SiteController extends BaseController
 
     public function actionLogout(): Response
     {
-        // State offline
-        (new UserService())->stateOffline(UserHelper::getIdentity());
-
         Yii::$app->user->logout();
 
         return $this->goHome();
