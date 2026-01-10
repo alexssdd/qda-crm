@@ -7,7 +7,6 @@ use Throwable;
 use yii\helpers\Url;
 use DomainException;
 use yii\web\Response;
-use app\services\UserService;
 use app\core\helpers\UserHelper;
 use app\modules\auth\enums\AuthMethod;
 use app\modules\auth\forms\LoginOtpForm;
@@ -78,7 +77,7 @@ class SiteController extends BaseController
             ]);
         }
 
-        return $this->render('login-start', ['model' => $model]);
+        return $this->render('login', ['model' => $model]);
     }
 
     public function actionLoginPassword(): Response

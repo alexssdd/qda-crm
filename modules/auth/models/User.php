@@ -12,23 +12,13 @@ use app\modules\auth\helpers\UserHelper;
 /**
  * User model
  *
- * @property integer $id
+ * @property int $id
  * @property string $role
- * @property string $country
  * @property string $phone
+ * @property string $country
  * @property string $name
- * @property string|null $email
- * @property string|null $full_name
- * @property string $avatar
- * @property string $auth_key
- * @property string $password_hash
- * @property string $password_reset_token
- * @property string $verification_token
- * @property array|null $config
- * @property integer $status
- * @property integer|null $state
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $created_at
+ * @property int $status
  * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
@@ -72,9 +62,9 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function getAuthKey(): string
+    public function getAuthKey(): ?string
     {
-        return $this->auth_key;
+        return null;
     }
 
     /**
@@ -82,7 +72,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validateAuthKey($authKey): bool
     {
-        return $this->getAuthKey() === $authKey;
+        return false;
     }
 
     public static function findIdentityByAccessToken($token, $type = null)

@@ -19,23 +19,25 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'id' => 'login-password-form',
         'action' => ['login-password'],
-        'enableClientValidation' => false,
+        'validateOnChange' => false,
+        'validateOnBlur' => false,
+        'validateOnSubmit' => true,
+        'fieldConfig' => [
+            'options' => ['class' => 'login-form__group'],
+            'template' => "{input}\n{hint}",
+            'inputOptions' => ['class' => 'login-form__input']
+        ]
     ]); ?>
 
     <?= $form->field($model, 'phone')->hiddenInput(['value' => $phone])->label(false) ?>
 
-    <div style="position: relative; padding-bottom: 15px">
-        <?= $form->field($model, 'password', [
-            'template' => "{input}\n{error}",
-            'options' => ['class' => 'mb-3'],
-        ])->passwordInput([
-            'class' => 'login-form__input',
+    <div style="position: relative;">
+        <?= $form->field($model, 'password')->passwordInput([
             'placeholder' => 'Введите ваш пароль',
             'autocomplete' => 'current-password',
             'id' => 'password-input', // ID для JS
             'style' => 'padding-right: 40px;' // Отступ для иконки глаза
         ])->label(false) ?>
-
         <div id="toggle-password" style="position: absolute; right: 15px; top: 13px; cursor: pointer; color: #666;">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -43,8 +45,6 @@ use yii\widgets\ActiveForm;
             </svg>
         </div>
     </div>
-
-    <div class="text-danger password-error"></div>
 
     <?= Html::submitButton('Войти в аккаунт', ['class' => 'login-form__btn']) ?>
     <div class="login__footer">
@@ -62,14 +62,11 @@ $script = <<<JS
     const toggleBtn = $('#toggle-password');
     const form = $('#login-password-form');
     const errorBlock = form.find('.password-error');
-
-    // 1. АВТОФОКУС (Работает для AJAX контента)
-    // Небольшая задержка нужна, чтобы анимация появления модалки/блока не сбила фокус
+    
     setTimeout(() => {
         passInput.focus();
     }, 150);
-
-    // 2. ПОКАЗАТЬ / СКРЫТЬ ПАРОЛЬ
+    
     toggleBtn.on('click', function() {
         const type = passInput.attr('type') === 'password' ? 'text' : 'password';
         passInput.attr('type', type);
@@ -77,13 +74,10 @@ $script = <<<JS
         // Меняем цвет иконки, чтобы показать активность
         $(this).css('color', type === 'text' ? '#3b82f6' : '#666');
     });
-
-    // 3. УБИРАЕМ ОШИБКУ ПРИ ВВОДЕ
+    
     passInput.on('input', function() {
-        errorBlock.text('');
-        passInput.removeClass('is-invalid'); // Если используешь Bootstrap классы ошибок
+        form.find('.field-password-input').removeClass('has-error'); 
     });
-
 })();
 JS;
 $this->registerJs($script);

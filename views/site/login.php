@@ -21,7 +21,7 @@ $this->title = Yii::t('app', 'Login page');
             <div class="login__desc">Введите номер телефона, чтобы войти</div>
             <?php $form = ActiveForm::begin([
                 'id' => 'login-form',
-                'action' => ['login'], // Явно указываем экшен (или validate-phone, если разделили)
+                'action' => ['login'],
                 'validateOnChange' => false,
                 'validateOnBlur' => false,
                 'fieldConfig' => [
@@ -57,7 +57,6 @@ $(document).on('submit', '#auth-content form', function(e) {
     
     var form = $(this);
     var btn = form.find('button[type="submit"]');
-    var originalText = btn.text();
     
     // Блокируем кнопку
     btn.prop('disabled', true);
@@ -71,7 +70,6 @@ $(document).on('submit', '#auth-content form', function(e) {
             btn.prop('disabled', false);
 
             if (response.success) {
-                // 1. УСПЕХ
                 if (response.redirect) {
                     window.location.href = response.redirect;
                 } else if (response.html) {
@@ -79,21 +77,14 @@ $(document).on('submit', '#auth-content form', function(e) {
                 }
             } else {
                 if (response.error) {
-                    var errorBlock = form.find('.text-danger');
-                    var otpInputs = form.find('.otp-digit');
-
-                    // Логика: Если есть блок ошибки - пишем туда.
-                    // Если блока нет, но есть OTP-поля - молчим (будет только визуальный эффект).
-                    // Если нет ни того, ни другого - алерт (фоллбэк).
-                    
-                    if (errorBlock.length) {
-                        errorBlock.text(response.error).show();
-                    } else if (otpInputs.length === 0) {
-                         // Показываем алерт только если это НЕ форма OTP (где мы удалили текст)
-                        alert(response.error);
+                    // Pass
+                    var passInput = form.find('#password-input');
+                    if (passInput.length) {
+                        form.find('.field-password-input').addClass('has-error');
                     }
 
-                    // Красим квадратики (визуализация ошибки)
+                    // Otp
+                    var otpInputs = form.find('.otp-digit');
                     if (otpInputs.length) {
                         otpInputs.addClass('otp-error');
                         otpInputs.val(''); 
@@ -101,20 +92,7 @@ $(document).on('submit', '#auth-content form', function(e) {
                         otpInputs.first().focus();
                     }
                 }
-                // Б) Если пришли ошибки валидации (старый формат, на всякий случай)
-                else if (response.errors) {
-                    form.yiiActiveForm('updateMessages', response.errors, true);
-                }
             }
-        },
-        error: function(jqXHR) {
-            btn.prop('disabled', false);
-            // Обработка редиректа сессии (если вдруг 302 проскочил как 200 HTML)
-            if (jqXHR.status === 200 && jqXHR.responseText.indexOf('<!DOCTYPE html>') !== -1) {
-                window.location.reload();
-                return;
-            }
-            alert('Ошибка сервера: ' + jqXHR.statusText);
         }
     });
     

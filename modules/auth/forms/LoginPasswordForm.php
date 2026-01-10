@@ -13,7 +13,6 @@ class LoginPasswordForm extends Form
 {
     public $phone;
     public $password;
-    public $rememberMe = true;
 
     private $_user = null;
 
@@ -26,13 +25,8 @@ class LoginPasswordForm extends Form
                 return PhoneHelper::getCleanNumber($value);
             }],
 
-            // Сначала ищем юзера
             ['phone', 'validateUser'],
-
-            // Потом проверяем пароль
             ['password', 'validatePassword'],
-
-            ['rememberMe', 'boolean'],
         ];
     }
 
@@ -74,7 +68,7 @@ class LoginPasswordForm extends Form
     public function login(): bool
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->_user, $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->user->login($this->_user);
         }
         return false;
     }
