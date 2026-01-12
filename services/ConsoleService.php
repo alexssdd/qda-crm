@@ -33,20 +33,4 @@ class ConsoleService
 
         $client->run($cmd);
     }
-
-    /**
-     * @param $cmd
-     * @param array $params
-     * @return void
-     */
-    public function runApi($cmd, array $params = []): void
-    {
-        $client = new ConsoleRunner(['file' => '/home/app/web/api.servicemarwin.com/public_html/yii']);
-
-        if ($params){
-            $cmd .= ' ' . implode(' ', $params);
-        }
-
-        $client->run($cmd);
-    }
 }

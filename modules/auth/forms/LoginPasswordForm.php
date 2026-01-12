@@ -39,7 +39,7 @@ class LoginPasswordForm extends Form
             $this->_user = User::findByPhone($this->phone);
 
             if (!$this->_user) {
-                $this->addError($attribute, 'Пользователь не найден.');
+                $this->addError($attribute, 'ERROR_USER_NOT_FOUND_OR_WRONG_PASSWORD');
             }
         }
     }
@@ -60,7 +60,7 @@ class LoginPasswordForm extends Form
             ]);
 
             if (!$identity || !Yii::$app->security->validatePassword($this->password, $identity->credential)) {
-                $this->addError($attribute, 'Неверный пароль.');
+                $this->addError($attribute, 'ERROR_USER_NOT_FOUND_OR_WRONG_PASSWORD');
             }
         }
     }

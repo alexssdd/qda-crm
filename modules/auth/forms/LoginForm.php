@@ -1,12 +1,12 @@
 <?php
 namespace app\modules\auth\forms;
 
-use yii\base\Model;
+use app\core\forms\Form;
 use app\modules\auth\models\User;
 use app\core\helpers\PhoneHelper;
 use app\core\validators\PhoneValidator;
 
-class LoginStartForm extends Model
+class LoginForm extends Form
 {
     public $phone;
     private $_user;
@@ -16,15 +16,7 @@ class LoginStartForm extends Model
         return [
             ['phone', 'required'],
             ['phone', PhoneValidator::class],
-            ['phone', 'validateUserExists'],
         ];
-    }
-
-    public function validateUserExists($attribute): void
-    {
-        if (!$this->getUser()) {
-            $this->addError($attribute, 'Пользователь не найден.');
-        }
     }
 
     public function getUser(): ?User

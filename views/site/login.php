@@ -1,14 +1,13 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $model app\modules\auth\forms\LoginStartForm */
-
 use yii\helpers\Html;
 use app\assets\AuthAsset;
 use yii\widgets\ActiveForm;
 use yii\widgets\MaskedInput;
 
+/* @var $this yii\web\View */
+/* @var $form yii\widgets\ActiveForm */
+/* @var $model app\modules\auth\forms\LoginForm */
 // Assets
 AuthAsset::register($this);
 
@@ -58,7 +57,6 @@ $(document).on('submit', '#auth-content form', function(e) {
     var form = $(this);
     var btn = form.find('button[type="submit"]');
     
-    // Блокируем кнопку
     btn.prop('disabled', true);
 
     $.ajax({

@@ -92,7 +92,7 @@ $isOnline = false
                         </a>
                     </li>
                     <li class="header-user-menu__item">
-                        <a class="header-user-menu__link" href="<?= Url::to(['/site/logout']) ?>" data-method="post">
+                        <a class="header-user-menu__link" href="<?= Url::to(['site/logout']) ?>" data-method="post">
                             <i class="header-user-menu__icon icon-logout"></i>
                             <?= Yii::t('app', 'Logout') ?>
                         </a>

@@ -31,7 +31,7 @@ class BaseController extends Controller
                         'allow' => false,
                         'roles' => ['?'],
                         'denyCallback' => function ($rule, $action) {
-                            $action->controller->redirect(Url::to(['site/login']));
+                            $action->controller->redirect(Url::to(['auth/login']));
                             Yii::$app->end();
                         },
                     ],

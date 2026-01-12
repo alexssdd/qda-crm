@@ -3,6 +3,7 @@
 use yii\helpers\ArrayHelper;
 use yii\queue\db\Queue;
 use yii\mutex\MysqlMutex;
+use app\core\bootstrap\ContainerBootstrap;
 
 $params = ArrayHelper::merge(
     require(__DIR__ . '/params.php'),
@@ -18,6 +19,7 @@ return [
     'bootstrap' => [
         'log',
         'queue',
+        ContainerBootstrap::class
     ],
     'aliases' => [
         '@storage' => dirname(__DIR__) . '/storage',
