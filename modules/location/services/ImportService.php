@@ -28,7 +28,7 @@ class ImportService
             $model->pro_api_url = $item['pro_api_url'];
             $model->phone_code = $item['phone_code'];
             $model->phone_mask = $item['phone_mask'];
-
+            $model->extra_fields = ['names' => $item['names']];
             $model->status = CountryHelper::STATUS_ACTIVE;
             $model->updated_at = time();
             $model->created_at = time();
@@ -67,12 +67,7 @@ class ImportService
             // === Импорт региона ===
             $geoRegionDir = "{$regionPath}/region";
             foreach (glob("$geoRegionDir/*.geojson") as $file) {
-                $location = $this->importLocationFile(
-                    $country,
-                    null,
-                    $file,
-                    RegionHelper::TYPE_REGION
-                );
+                $location = $this->importLocationFile($country, null, $file, RegionHelper::TYPE_REGION);
 
                 if ($location) {
                     $count++;
@@ -175,7 +170,7 @@ class ImportService
         $json = json_decode(file_get_contents($file), true);
 
         if (!isset($json['features'][0]['geometry'])) {
-            throw new DomainException("❌ Нет geometry: $file");
+            return null;
         }
 
         $basename = pathinfo($file, PATHINFO_FILENAME);
@@ -185,7 +180,7 @@ class ImportService
         $wkt = $this->geometryToWkt($geometry);
 
         if (!$wkt) {
-            throw new DomainException("❌ Ошибка WKT: {$name}");
+            return null;
         }
 
         $meta = $json['metadata'] ?? [];

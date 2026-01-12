@@ -4,7 +4,7 @@ namespace app\forms;
 
 use Yii;
 use yii\base\Model;
-use app\entities\Country;
+use app\modules\location\models\Country;
 
 /**
  * Country update form

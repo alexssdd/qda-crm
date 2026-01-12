@@ -1,6 +1,7 @@
 <?php
 
 use yii\web\View;
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use app\widgets\GridView;
@@ -20,7 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="page__header">
         <h1 class="page__title"><?= $this->title; ?></h1>
         <div class="page__actions">
-            <a class="btn btn__primary js-view-modal" href="/pharmacy/create">Добавить</a>
+            <a class="btn btn__primary" href="<?= Url::to(['country/import'])?>">Импортировать</a>
+            <a class="btn btn__primary js-view-modal" href="<?= Url::to(['country/create'])?>">Добавить</a>
         </div>
     </div>
     <?php Pjax::begin(); ?>
@@ -45,10 +47,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'options' => ['width' => 200]
             ],
             'phone_code',
-            'client_api_url',
-            'pro_api_url',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'client_api_url',
+                'options' => ['width' => 180]
+            ],
+            [
+                'attribute' => 'pro_api_url',
+                'options' => ['width' => 200]
+            ],
+            [
+                'attribute' => 'updated_at',
+                'format' => 'dateTime',
+                'options' => ['width' => 120]
+            ],
             [
                 'attribute' => 'status',
                 'format' => 'raw',

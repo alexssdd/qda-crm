@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Url;
 use yii\web\View;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -9,6 +10,7 @@ use app\core\helpers\CountryHelper;
 /* @var $this View */
 /* @var $form ActiveForm */
 /* @var $model CountryUpdateForm */
+/* @var $country app\modules\location\models\Country */
 
 ?>
 <div class="modal__container">
@@ -27,8 +29,9 @@ use app\core\helpers\CountryHelper;
         </div>
     </div>
     <div class="modal__footer">
-        <a href="#" class="modal__form_close btn btn--default" onclick="Modal.close()"><?= Yii::t('app', 'Close'); ?></a>
+        <a class="btn btn--primary" href="<?= Url::to(['country/locations', 'code' => $country->code])?>">Импорт Локаций</a>
         <?= Html::submitButton(Yii::t('app', 'Update'), ['class' => 'btn btn--success']) ?>
+        <a href="#" class="modal__form_close btn btn--default" onclick="Modal.close()"><?= Yii::t('app', 'Close'); ?></a>
     </div>
 
     <?php ActiveForm::end(); ?>
