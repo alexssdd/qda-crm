@@ -3,8 +3,8 @@
 namespace app\search;
 
 use yii\base\Model;
-use app\entities\Country;
 use yii\data\ActiveDataProvider;
+use app\modules\location\models\Country;
 
 /**
  * Country search

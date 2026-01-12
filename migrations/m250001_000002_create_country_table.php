@@ -29,8 +29,8 @@ class m250001_000002_create_country_table extends Migration
         ]);
 
         // idx
-        $this->createIndex('{{%idx-country-status}}', $this->tableName, 'status');
         $this->createIndex('{{%idx-country-sort}}', $this->tableName, 'sort');
+        $this->createIndex('{{%idx-country-status}}', $this->tableName, 'status');
     }
 
     public function safeDown(): void

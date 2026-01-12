@@ -1,0 +1,3069 @@
+{
+  "kz": {
+    "almaty": {
+      "type": "region",
+      "names": {
+        "ru": "Алматинская область",
+        "kk": "Алматы облысы",
+        "en": "Almaty Region"
+      },
+      "keywords": [
+        "алматинская область",
+        "алматы облысы",
+        "almaty region",
+        "алматы",
+        "almaty",
+        "алма-ата",
+        "алма ата",
+        "almata",
+        "алматинская",
+        "алматы обл",
+        "алматы регион",
+        "almaty oblast"
+      ],
+      "districts": [
+        {
+          "slug": "aksu",
+          "names": {
+            "ru": "Аксуский район",
+            "kk": "Ақсу ауданы",
+            "en": "Aksu District"
+          },
+          "keywords": [
+            "аксу",
+            "ақсу",
+            "aksu"
+          ]
+        },
+        {
+          "slug": "balkhash",
+          "names": {
+            "ru": "Балхашский район",
+            "kk": "Балқаш ауданы",
+            "en": "Balkhash District"
+          },
+          "keywords": [
+            "балхаш",
+            "балқаш",
+            "balkhash"
+          ]
+        },
+        {
+          "slug": "enbekshikazakh",
+          "names": {
+            "ru": "Енбекшиказахский район",
+            "kk": "Еңбекшіқазақ ауданы",
+            "en": "Enbekshikazakh District"
+          },
+          "keywords": [
+            "енбекшиказах",
+            "еңбекшіқазақ",
+            "enbekshi",
+            "enbekshikazakh"
+          ]
+        },
+        {
+          "slug": "ilim",
+          "names": {
+            "ru": "Илийский район",
+            "kk": "Іле ауданы",
+            "en": "Ili District"
+          },
+          "keywords": [
+            "или",
+            "іле",
+            "ili"
+          ]
+        },
+        {
+          "slug": "karasai",
+          "names": {
+            "ru": "Карасайский район",
+            "kk": "Қарасай ауданы",
+            "en": "Karasai District"
+          },
+          "keywords": [
+            "карасай",
+            "қарасай",
+            "karasai"
+          ]
+        },
+        {
+          "slug": "kerbulak",
+          "names": {
+            "ru": "Кербулакский район",
+            "kk": "Кербұлақ ауданы",
+            "en": "Kerbulak District"
+          },
+          "keywords": [
+            "кербулак",
+            "кербұлақ",
+            "kerbulak"
+          ]
+        },
+        {
+          "slug": "panfilov",
+          "names": {
+            "ru": "Панфиловский район",
+            "kk": "Панфилов ауданы",
+            "en": "Panfilov District"
+          },
+          "keywords": [
+            "панфилов",
+            "panfilov"
+          ]
+        },
+        {
+          "slug": "sarkand",
+          "names": {
+            "ru": "Сарканский район",
+            "kk": "Сарқан ауданы",
+            "en": "Sarkand District"
+          },
+          "keywords": [
+            "саркан",
+            "сарқан",
+            "sarkand"
+          ]
+        },
+        {
+          "slug": "taldykorgan",
+          "names": {
+            "ru": "Талдыкорганский район",
+            "kk": "Талдықорған ауданы",
+            "en": "Taldykorgan District"
+          },
+          "keywords": [
+            "талдыкорган",
+            "талдықорған",
+            "taldykorgan"
+          ]
+        },
+        {
+          "slug": "zhambyl",
+          "names": {
+            "ru": "Жамбылский район",
+            "kk": "Жамбыл ауданы",
+            "en": "Zhambyl District"
+          },
+          "keywords": [
+            "жамбыл",
+            "zhambyl"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "taldykorgan",
+          "names": {
+            "ru": "Талдыкорган",
+            "kk": "Талдықорған",
+            "en": "Taldykorgan"
+          },
+          "keywords": [
+            "талдыкорган",
+            "талдықорған",
+            "taldykorgan"
+          ]
+        },
+        {
+          "slug": "almaty-city",
+          "names": {
+            "ru": "Алматы",
+            "kk": "Алматы",
+            "en": "Almaty"
+          },
+          "keywords": [
+            "алматы",
+            "almati",
+            "almaty"
+          ]
+        }
+      ]
+    },
+    "akmola": {
+      "region": "akmola",
+      "names": {
+        "ru": "Акмолинская область",
+        "kk": "Ақмола облысы",
+        "en": "Akmola Region"
+      },
+      "keywords": [
+        "акмолинская область",
+        "ақмола облысы",
+        "akmola region",
+        "акмола",
+        "akmola",
+        "целиноградская область",
+        "целиноград",
+        "tselinograd",
+        "целиноградская",
+        "акмола обл",
+        "акмола регион",
+        "akmola oblast"
+      ],
+      "districts": [
+        {
+          "slug": "arshaly",
+          "names": {
+            "ru": "Аршалы",
+            "kk": "Аршалы",
+            "en": "Arshaly"
+          },
+          "keywords": [
+            "аршалы", "arshaly", "аршалы ауданы", "arshaly district",
+            "аршалы район"
+          ]
+        },
+        {
+          "slug": "atsbasar",
+          "names": {
+            "ru": "Атбасар",
+            "kk": "Атбасар",
+            "en": "Atsbasar"
+          },
+          "keywords": [
+            "атбасар", "atsbasar", "атбасар ауданы", "atsbasar district",
+            "атбасар район"
+          ]
+        },
+        {
+          "slug": "birzhan-sal",
+          "names": {
+            "ru": "Биржан сал",
+            "kk": "Біржан сал",
+            "en": "Birzhan Sal"
+          },
+          "keywords": [
+            "биржан сал", "birzhan sal", "биржан сал ауданы",
+            "birzhan sal district", "биржан сал район"
+          ]
+        },
+        {
+          "slug": "bulandy",
+          "names": {
+            "ru": "Буланды",
+            "kk": "Бұланды",
+            "en": "Bulandy"
+          },
+          "keywords": [
+            "буланды", "bulandy", "бұланды", "bulandy district"
+          ]
+        },
+        {
+          "slug": "egindikol",
+          "names": {
+            "ru": "Егиндиколь",
+            "kk": "Егіндікөл",
+            "en": "Egindikol"
+          },
+          "keywords": [
+            "егиндиколь", "eginikol", "егіндікөл", "egindikol"
+          ]
+        },
+        {
+          "slug": "esil",
+          "names": {
+            "ru": "Есиль",
+            "kk": "Есіл",
+            "en": "Esil"
+          },
+          "keywords": [
+            "есиль", "esil", "есіл", "esil district"
+          ]
+        },
+        {
+          "slug": "karaganda",
+          "names": {
+            "ru": "Караганда (район)",
+            "kk": "Қарағанды (аудан)",
+            "en": "Karaganda district"
+          },
+          "keywords": [
+            "карагандинский район", "karaganda district", "қарағанды ауданы"
+          ]
+        },
+        {
+          "slug": "sandiktas",
+          "names": {
+            "ru": "Сандыктас",
+            "kk": "Сандықтас",
+            "en": "Sandiktas"
+          },
+          "keywords": [
+            "сандыктас", "sandiktas", "сандықтас", "sandiktas district"
+          ]
+        },
+        {
+          "slug": "shortandy",
+          "names": {
+            "ru": "Шортанды",
+            "kk": "Шортанды",
+            "en": "Shortandy"
+          },
+          "keywords": [
+            "шортанды", "shortandy", "шортанды ауданы", "shortandy district"
+          ]
+        },
+        {
+          "slug": "taiynsha",
+          "names": {
+            "ru": "Тайынша",
+            "kk": "Тайынша",
+            "en": "Taiynsha"
+          },
+          "keywords": [
+            "тайынша", "taiynsha", "тайынша ауданы", "taiynsha district"
+          ]
+        },
+        {
+          "slug": "tselinograd",
+          "names": {
+            "ru": "Целиноград",
+            "kk": "Целиноград",
+            "en": "Tselinograd"
+          },
+          "keywords": [
+            "целиноград", "tselinograd", "целиноградский район"
+          ]
+        },
+        {
+          "slug": "zharkain",
+          "names": {
+            "ru": "Жарқайын",
+            "kk": "Жарқайың",
+            "en": "Zharkain"
+          },
+          "keywords": [
+            "жаркаин", "zharkain", "жарқайың", "zharkayn district"
+          ]
+        },
+        {
+          "slug": "zhasyl-orke",
+          "names": {
+            "ru": "Жасыл өрке",
+            "kk": "Жасыл өрке",
+            "en": "Zhasyl Orke"
+          },
+          "keywords": [
+            "жасыл орке", "zhasyl orke", "жасыл өрке"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "kokshetau",
+          "names": {
+            "ru": "Кокшетау",
+            "kk": "Көкшетау",
+            "en": "Kokshetau"
+          },
+          "keywords": [
+            "кокшетау", "көкшетау", "kokshetau", "kokchetav"
+          ]
+        },
+        {
+          "slug": "stepnogorsk",
+          "names": {
+            "ru": "Степногорск",
+            "kk": "Степногорск",
+            "en": "Stepnogorsk"
+          },
+          "keywords": [
+            "степногорск", "stepnogorsk"
+          ]
+        },
+        {
+          "slug": "shchuchinsk",
+          "names": {
+            "ru": "Щучинск",
+            "kk": "Щучинск",
+            "en": "Shchuchinsk"
+          },
+          "keywords": [
+            "щучинск", "shchuchinsk"
+          ]
+        },
+        {
+          "slug": "astana",
+          "names": {
+            "ru": "Астана",
+            "kk": "Астана",
+            "en": "Astana"
+          },
+          "keywords": [
+            "астана", "astana", "нурсултан", "nur-sultan", "нур султан",
+            "астана город", "астана akmola", "astana city", "астана обл"
+          ]
+        }
+      ]
+    },
+    "aktobe": {
+      "region": "aktobe",
+      "names": {
+        "ru": "Актюбинская область",
+        "kk": "Ақтөбе облысы",
+        "en": "Aktobe Region"
+      },
+      "keywords": [
+        "актюбинская область",
+        "ақтөбе облысы",
+        "aktobe region",
+        "актюбе",
+        "актобе",
+        "актёбе",
+        "aktobe",
+        "aqtoebe",
+        "актюбинская",
+        "актобе обл",
+        "актобе регион",
+        "aktobe oblast"
+      ],
+      "districts": [
+        {
+          "slug": "ayteke-bi",
+          "names": {
+            "ru": "Айтеке би",
+            "kk": "Әйтеке би",
+            "en": "Aiteke Bi"
+          },
+          "keywords": [
+            "айтеке би", "aiteke bi", "айтеке", "айтекеби", "aitekebi",
+            "әйтеке би", "әитеке би", "ayteke", "ayteke-bi district",
+            "айтеке би ауданы", "айтеке би район"
+          ]
+        },
+        {
+          "slug": "bayganin",
+          "names": {
+            "ru": "Байганин",
+            "kk": "Байғанин",
+            "en": "Baiganin"
+          },
+          "keywords": [
+            "байганин", "baiganin", "байғанин", "baiganin district",
+            "байганин ауданы", "байганинский район"
+          ]
+        },
+        {
+          "slug": "karauyt",
+          "names": {
+            "ru": "Карауйт",
+            "kk": "Қарауыт",
+            "en": "Karauyt"
+          },
+          "keywords": [
+            "карауйт", "karauyt", "қарауыт", "karauyt district"
+          ]
+        },
+        {
+          "slug": "kargaly",
+          "names": {
+            "ru": "Каргалы",
+            "kk": "Қарғалы",
+            "en": "Kargaly"
+          },
+          "keywords": [
+            "каргалы", "kargaly", "қарғалы", "kargaly district"
+          ]
+        },
+        {
+          "slug": "khromtau",
+          "names": {
+            "ru": "Хромтау",
+            "kk": "Хромтау",
+            "en": "Khromtau"
+          },
+          "keywords": [
+            "хромтау", "khromtau", "chromtau", "хромтау ауданы"
+          ]
+        },
+        {
+          "slug": "kobda",
+          "names": {
+            "ru": "Кобда",
+            "kk": "Қобда",
+            "en": "Kobda"
+          },
+          "keywords": [
+            "кобда", "kobda", "қобда", "kobda district"
+          ]
+        },
+        {
+          "slug": "martuk",
+          "names": {
+            "ru": "Мартук",
+            "kk": "Мәртөк",
+            "en": "Martuk"
+          },
+          "keywords": [
+            "мартук", "martuk", "мәртөк", "martuk district"
+          ]
+        },
+        {
+          "slug": "mugalzhar",
+          "names": {
+            "ru": "Мугалжар",
+            "kk": "Мұғалжар",
+            "en": "Mugalzhar"
+          },
+          "keywords": [
+            "мугалжар", "mugalzhar", "мұғалжар", "mugaljar",
+            "mugalzhar district"
+          ]
+        },
+        {
+          "slug": "oigur",
+          "names": {
+            "ru": "Ойгур",
+            "kk": "Ұйғыр",
+            "en": "Oigur"
+          },
+          "keywords": [
+            "ойгур", "oigur", "ұйғыр", "uyghur", "oigur district"
+          ]
+        },
+        {
+          "slug": "shalkar",
+          "names": {
+            "ru": "Шалкар",
+            "kk": "Шалқар",
+            "en": "Shalkar"
+          },
+          "keywords": [
+            "шалкар", "shalkar", "шалқар", "shalqar",
+            "shalkar district"
+          ]
+        },
+        {
+          "slug": "temir",
+          "names": {
+            "ru": "Темир",
+            "kk": "Темір",
+            "en": "Temir"
+          },
+          "keywords": [
+            "темир", "temir", "темір", "temir district"
+          ]
+        },
+        {
+          "slug": "yrgyz",
+          "names": {
+            "ru": "Ыргыз",
+            "kk": "Ырғыз",
+            "en": "Yrgys"
+          },
+          "keywords": [
+            "ыргыз", "yrgyz", "yrgys", "ырғыз", "yrgyz district"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "aktobe",
+          "names": {
+            "ru": "Актобе",
+            "kk": "Ақтөбе",
+            "en": "Aktobe"
+          },
+          "keywords": [
+            "актобе", "aktobe", "ақтөбе", "aktobe city", "aktoebe"
+          ]
+        },
+        {
+          "slug": "khromtau",
+          "names": {
+            "ru": "Хромтау",
+            "kk": "Хромтау",
+            "en": "Khromtau"
+          },
+          "keywords": [
+            "хромтау", "khromtau", "chromtau"
+          ]
+        },
+        {
+          "slug": "kandyagash",
+          "names": {
+            "ru": "Кандыагаш",
+            "kk": "Қандыағаш",
+            "en": "Kandyagash"
+          },
+          "keywords": [
+            "кандыагаш", "kandyagash", "қандыағаш", "kandiagash"
+          ]
+        },
+        {
+          "slug": "martuk-city",
+          "names": {
+            "ru": "Мартук",
+            "kk": "Мәртөк",
+            "en": "Martuk"
+          },
+          "keywords": [
+            "мартук", "martuk", "мәртөк"
+          ]
+        }
+      ]
+    },
+    "atyrau": {
+      "region": "atyrau",
+      "names": {
+        "ru": "Атырауская область",
+        "kk": "Атырау облысы",
+        "en": "Atyrau Region"
+      },
+      "keywords": [
+        "атырауская область",
+        "атырау облысы",
+        "atyrau region",
+        "атырау",
+        "atyrau",
+        "атырауская",
+        "атырау обл",
+        "атырау регион",
+        "atyrau oblast"
+      ],
+      "districts": [
+        {
+          "slug": "izhevsk",
+          "names": {
+            "ru": "Ижевск",
+            "kk": "Ижевск",
+            "en": "Izhevsk"
+          },
+          "keywords": [
+            "ижевск", "izhevsk", "ижевск ауданы", "izhevsk district"
+          ]
+        },
+        {
+          "slug": "kulsary",
+          "names": {
+            "ru": "Кульсары",
+            "kk": "Құлсары",
+            "en": "Kulsary"
+          },
+          "keywords": [
+            "кульсары", "kulsary", "құлсары", "qulsary",
+            "kulsary district", "кульсары ауданы"
+          ]
+        },
+        {
+          "slug": "kurmangazy",
+          "names": {
+            "ru": "Курмангазы",
+            "kk": "Құрманғазы",
+            "en": "Kurmangazy"
+          },
+          "keywords": [
+            "курмангазы", "kurmangazy", "құрманғазы", "kurmangazy district",
+            "курмангазы ауданы"
+          ]
+        },
+        {
+          "slug": "kzyl-koga",
+          "names": {
+            "ru": "Кзылкогa",
+            "kk": "Қызылқоға",
+            "en": "Kyzylkoga"
+          },
+          "keywords": [
+            "кзылкога", "kyzylkoga", "қызылқоға", "kzyl koga",
+            "kyzylkoga district", "кызылкога ауданы"
+          ]
+        },
+        {
+          "slug": "makat",
+          "names": {
+            "ru": "Макат",
+            "kk": "Мақат",
+            "en": "Makat"
+          },
+          "keywords": [
+            "макат", "makat", "мақат", "makat district",
+            "макат ауданы"
+          ]
+        },
+        {
+          "slug": "makhambet",
+          "names": {
+            "ru": "Махамбет",
+            "kk": "Махамбет",
+            "en": "Makhambet"
+          },
+          "keywords": [
+            "махамбет", "makhambet", "mahambet", "махамбет ауданы",
+            "makhambet district"
+          ]
+        },
+        {
+          "slug": "zhylyoi",
+          "names": {
+            "ru": "Жылыой",
+            "kk": "Жылыой",
+            "en": "Zhylyoi"
+          },
+          "keywords": [
+            "жылыой", "zhyloi", "zhylyoi", "жылой",
+            "zhylyoi district", "жылыой ауданы"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "atyrau",
+          "names": {
+            "ru": "Атырау",
+            "kk": "Атырау",
+            "en": "Atyrau"
+          },
+          "keywords": [
+            "атырау", "atyrau", "atray", "atirau",
+            "атырау город", "atyrau city"
+          ]
+        },
+        {
+          "slug": "kulsary",
+          "names": {
+            "ru": "Кульсары",
+            "kk": "Құлсары",
+            "en": "Kulsary"
+          },
+          "keywords": [
+            "кульсары", "kulsary", "qulsary", "құлсары"
+          ]
+        },
+        {
+          "slug": "zhylyoi",
+          "names": {
+            "ru": "Жылыой",
+            "kk": "Жылыой",
+            "en": "Zhylyoi"
+          },
+          "keywords": [
+            "жылыой", "zhyloi", "zhylyoi"
+          ]
+        }
+      ]
+    },
+    "abai": {
+      "type": "region",
+      "names": {
+        "ru": "Абайская область",
+        "kk": "Абай облысы",
+        "en": "Abai Region"
+      },
+      "keywords": [
+        "абайская область",
+        "абай облысы",
+        "abai region",
+        "абай",
+        "abai",
+        "абайская",
+        "абай обл",
+        "абай регион",
+        "abai oblast",
+        "семейская область",
+        "семейская",
+        "семипалатинская область",
+        "семипалатинская"
+      ],
+      "districts": [
+        {
+          "slug": "abai",
+          "names": {
+            "ru": "Абайский район",
+            "kk": "Абай ауданы",
+            "en": "Abai District"
+          },
+          "keywords": [
+            "абай","абаи","а бай","abaı","abay",
+            "абай ауданы","район абая",
+            "semey region","қабанбай","күшікбай"
+          ]
+        },
+        {
+          "slug": "ayagoz",
+          "names": {
+            "ru": "Аягозский район",
+            "kk": "Аягөз ауданы",
+            "en": "Ayagoz District"
+          },
+          "keywords": [
+            "аягоз","аягөз","айагоз","aya-goz","ayagoz",
+            "район аякоз","шаған","мышыктын"
+          ]
+        },
+        {
+          "slug": "beskaragay",
+          "names": {
+            "ru": "Бескарагайский район",
+            "kk": "Бесқарағай ауданы",
+            "en": "Beskaragay District"
+          },
+          "keywords": [
+            "бескарагай","бесқарағай","beskaragai",
+            "район бескарагай","осиновка","осиновский"
+          ]
+        },
+        {
+          "slug": "borodbay",
+          "names": {
+            "ru": "Бородулихинский район",
+            "kk": "Бородулиха ауданы",
+            "en": "Borodulikha District"
+          },
+          "keywords": [
+            "бородулиха","бородбай","borodbay","borodulikha",
+            "переменка","новоульбинка"
+          ]
+        },
+        {
+          "slug": "ulken-naryn",
+          "names": {
+            "ru": "Үлкен Нарын",
+            "kk": "Үлкен Нарын",
+            "en": "Ulken Naryn"
+          },
+          "keywords": [
+            "улкен нарын","үлкен нарын","ulken naryn",
+            "катонқарағай","катон-карагай"
+          ]
+        },
+        {
+          "slug": "shark",
+          "names": {
+            "ru": "Шарский район",
+            "kk": "Шар ауданы",
+            "en": "Shar District"
+          },
+          "keywords": [
+            "шар","шарк","shar","shark",
+            "станция шар","шар станциясы"
+          ]
+        },
+        {
+          "slug": "zhanasemey",
+          "names": {
+            "ru": "Жанасемейский район",
+            "kk": "Жанасемей ауданы",
+            "en": "Zhanasemey District"
+          },
+          "keywords": [
+            "жана семей","жанасемей","zhana semey",
+            "новый семей","семипалатинск новый"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "semey",
+          "names": {
+            "ru": "Семей",
+            "kk": "Семей",
+            "en": "Semey"
+          },
+          "keywords": [
+            "семей","семипалатинск","semey","semei",
+            "семей қаласы","семэй","семяй","шульбинск"
+          ]
+        }
+      ]
+    },
+    "west-kazakhstan": {
+      "region": "west-kazakhstan",
+      "names": {
+        "ru": "Западно-Казахстанская область",
+        "kk": "Батыс Қазақстан облысы",
+        "en": "West Kazakhstan Region"
+      },
+      "keywords": [
+        "западно-казахстанская область",
+        "батыс қазақстан облысы",
+        "west kazakhstan region",
+        "западно-казахстанская",
+        "западный казахстан",
+        "западный казахстан обл",
+        "западно-казахстанская обл",
+        "батыс қазақстан",
+        "batys kazakhstan",
+        "batys qazaqstan",
+        "west kazakhstan oblast",
+        "зко"
+      ],
+      "districts": [
+        {
+          "slug": "akzhaik",
+          "names": {
+            "ru": "Ақжайық",
+            "kk": "Ақжайық",
+            "en": "Akzhaik"
+          },
+          "keywords": [
+            "акжайык", "акжаик", "akzhaik", "aqzhaiyq", "ақжайық",
+            "akzhaik district", "акжайык ауданы"
+          ]
+        },
+        {
+          "slug": "batys",
+          "names": {
+            "ru": "Батыс",
+            "kk": "Батыс",
+            "en": "Batys"
+          },
+          "keywords": [
+            "батыс", "batys", "batys district"
+          ]
+        },
+        {
+          "slug": "bayterek",
+          "names": {
+            "ru": "Бәйтерек",
+            "kk": "Бәйтерек",
+            "en": "Baiterek"
+          },
+          "keywords": [
+            "байтерек", "baiterek", "бәйтерек", "baĭterek",
+            "baiterek district"
+          ]
+        },
+        {
+          "slug": "bokey-ordin",
+          "names": {
+            "ru": "Бөкей Ордасы",
+            "kk": "Бөкей Ордасы",
+            "en": "Bokey Orda"
+          },
+          "keywords": [
+            "бокейорда", "bokey orda", "бөкей ордасы", "bokey",
+            "bokey-ordin district"
+          ]
+        },
+        {
+          "slug": "karatau",
+          "names": {
+            "ru": "Қаратау",
+            "kk": "Қаратау",
+            "en": "Karatau"
+          },
+          "keywords": [
+            "каратау", "karatau", "қаратау", "qaratau",
+            "karatau district"
+          ]
+        },
+        {
+          "slug": "kaspir",
+          "names": {
+            "ru": "Каспий",
+            "kk": "Каспий",
+            "en": "Kaspir"
+          },
+          "keywords": [
+            "каспир", "kaspir", "каспий", "kaspiy", "kaspir district"
+          ]
+        },
+        {
+          "slug": "kaztalov",
+          "names": {
+            "ru": "Қазталов",
+            "kk": "Қазталов",
+            "en": "Kaztalov"
+          },
+          "keywords": [
+            "казталов", "kaztalov", "қазталов", "kaztalov district"
+          ]
+        },
+        {
+          "slug": "syrym",
+          "names": {
+            "ru": "Сырым",
+            "kk": "Сырым",
+            "en": "Syrym"
+          },
+          "keywords": [
+            "сырым", "syrym", "сырым ауданы", "syrym district"
+          ]
+        },
+        {
+          "slug": "taskala",
+          "names": {
+            "ru": "Тасқала",
+            "kk": "Тасқала",
+            "en": "Taskala"
+          },
+          "keywords": [
+            "таскала", "taskala", "тасқала", "taskala district"
+          ]
+        },
+        {
+          "slug": "terek",
+          "names": {
+            "ru": "Терек",
+            "kk": "Терек",
+            "en": "Terek"
+          },
+          "keywords": [
+            "терек", "terek", "terek district"
+          ]
+        },
+        {
+          "slug": "zhanghali",
+          "names": {
+            "ru": "Жаңғалы",
+            "kk": "Жаңғалы",
+            "en": "Zhanghali"
+          },
+          "keywords": [
+            "жангалЫ", "zhanghali", "жаңғалы", "zhangaly",
+            "zhanghali district"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "oral",
+          "names": {
+            "ru": "Орал",
+            "kk": "Орал",
+            "en": "Oral"
+          },
+          "keywords": [
+            "орал", "oral", "uralsk", "уральск", "oral city"
+          ]
+        },
+        {
+          "slug": "taschau",
+          "names": {
+            "ru": "Тасшау",
+            "kk": "Тасшау",
+            "en": "Taschau"
+          },
+          "keywords": [
+            "тасшау", "taschau", "tas shau"
+          ]
+        }
+      ]
+    },
+    "zhetisu": {
+      "region": "zhetisu",
+      "names": {
+        "ru": "Жетысуская область",
+        "kk": "Жетісу облысы",
+        "en": "Zhetisu Region"
+      },
+      "keywords": [
+        "жетысуская область",
+        "жетісу облысы",
+        "zhetisu region",
+        "жетысу",
+        "жетісу",
+        "zhetisu",
+        "жетысуская",
+        "жетысу обл",
+        "жетісу обл",
+        "zhetisu oblast",
+        "алакол",
+        "алаколь",
+        "алаколское море",
+        "алакольское море область"
+      ],
+      "districts": [
+        {
+          "slug": "aksu",
+          "names": {
+            "ru": "Аксуский район",
+            "kk": "Ақсу ауданы",
+            "en": "Aksu District"
+          },
+          "keywords": [
+            "аксу", "аксушкии", "aksy", "aqsu", "aksu",
+            "аксу район", "aqsu audany", "aksu district"
+          ]
+        },
+        {
+          "slug": "alka",
+          "names": {
+            "ru": "Алка",
+            "kk": "Алқа",
+            "en": "Alka"
+          },
+          "keywords": [
+            "алка", "alka", "алқа", "alka district"
+          ]
+        },
+        {
+          "slug": "panfilov",
+          "names": {
+            "ru": "Панфиловский район",
+            "kk": "Панфилов ауданы",
+            "en": "Panfilov District"
+          },
+          "keywords": [
+            "панфилов", "panfilov", "панфиловский", "panfilov district",
+            "панфилов ауданы"
+          ]
+        },
+        {
+          "slug": "sarkand",
+          "names": {
+            "ru": "Сарканский район",
+            "kk": "Сарқан ауданы",
+            "en": "Sarkand District"
+          },
+          "keywords": [
+            "саркан", "sarkand", "сарқан", "sarkan",
+            "sarkand district", "саркан район"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "taldykorgan",
+          "names": {
+            "ru": "Талдыкорган",
+            "kk": "Талдықорған",
+            "en": "Taldykorgan"
+          },
+          "keywords": [
+            "талдыкорган", "taldykorgan", "талдықорған", "taldykorgan city"
+          ]
+        }
+      ]
+    },
+    "karaganda": {
+      "region": "karaganda",
+      "names": {
+        "ru": "Карагандинская область",
+        "kk": "Қарағанды облысы",
+        "en": "Karaganda Region"
+      },
+      "keywords": [
+        "карагандинская область",
+        "қарағанды облысы",
+        "karaganda region",
+        "караганда",
+        "қарағанды",
+        "karaganda",
+        "карагандинская",
+        "караганда обл",
+        "қарағанды обл",
+        "karaganda oblast",
+        "карагандинская область кара",
+        "караганда область"
+      ],
+      "districts": [
+        {
+          "slug": "abai",
+          "names": {
+            "ru": "Абайский район",
+            "kk": "Абай ауданы",
+            "en": "Abai District"
+          },
+          "keywords": [
+            "абай", "abai", "абайский район", "abai district",
+            "абай ауданы", "абай караганда", "abai karaganda"
+          ]
+        },
+        {
+          "slug": "bukhar-zhyrau",
+          "names": {
+            "ru": "Бухар-Жырауский район",
+            "kk": "Бұқар жырау ауданы",
+            "en": "Bukhar-Zhyrau District"
+          },
+          "keywords": [
+            "бухар жырау", "bukhar zhyrau", "buhar zhyrau",
+            "бұқар жырау", "bukhar-zhyrau district",
+            "бухар жырау район"
+          ]
+        },
+        {
+          "slug": "karkaraly",
+          "names": {
+            "ru": "Каркаралинский район",
+            "kk": "Қарқаралы ауданы",
+            "en": "Karkaraly District"
+          },
+          "keywords": [
+            "каркаралы", "karkaraly", "каркаралинск", "karkaralinsk",
+            "қарқаралы", "karkaraly district"
+          ]
+        },
+        {
+          "slug": "nura",
+          "names": {
+            "ru": "Нуринский район",
+            "kk": "Нұра ауданы",
+            "en": "Nura District"
+          },
+          "keywords": [
+            "нура", "nura", "нұра", "nura district", "нуринский"
+          ]
+        },
+        {
+          "slug": "oskemen",
+          "names": {
+            "ru": "Осакаровский район",
+            "kk": "Осакаров ауданы",
+            "en": "Osakarov District"
+          },
+          "keywords": [
+            "осакаровка", "osakarovka", "осакаровский район",
+            "osakarov district", "oskemен", "oskemen"
+          ]
+        },
+        {
+          "slug": "shet",
+          "names": {
+            "ru": "Шетский район",
+            "kk": "Шет ауданы",
+            "en": "Shet District"
+          },
+          "keywords": [
+            "шет", "shet", "шетский район", "shet district",
+            "шет ауданы"
+          ]
+        },
+        {
+          "slug": "shtyr",
+          "names": {
+            "ru": "Штыринский район",
+            "kk": "Штыр ауданы",
+            "en": "Shtyr District"
+          },
+          "keywords": [
+            "штыр", "shtyr", "штыр ауданы", "shtyr district"
+          ]
+        },
+        {
+          "slug": "ulken",
+          "names": {
+            "ru": "Ұлкен",
+            "kk": "Үлкен",
+            "en": "Ulken"
+          },
+          "keywords": [
+            "улкен", "ulken", "үлкен", "ulken district"
+          ]
+        },
+        {
+          "slug": "zhanazhol",
+          "names": {
+            "ru": "Жанажол",
+            "kk": "Жаңажол",
+            "en": "Zhanazhol"
+          },
+          "keywords": [
+            "жанажол", "zhanazhol", "жаңажол", "janajol",
+            "zhanazhol district"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "karaganda",
+          "names": {
+            "ru": "Караганда",
+            "kk": "Қарағанды",
+            "en": "Karaganda"
+          },
+          "keywords": [
+            "карагнда", "karaganda", "қарағанды", "karagandy",
+            "karaganda city"
+          ]
+        },
+        {
+          "slug": "balkhash",
+          "names": {
+            "ru": "Балхаш",
+            "kk": "Балқаш",
+            "en": "Balkhash"
+          },
+          "keywords": [
+            "балхаш", "balkhash", "балқаш", "balqash",
+            "balkash"
+          ]
+        },
+        {
+          "slug": "jem",
+          "names": {
+            "ru": "Жем",
+            "kk": "Жем",
+            "en": "Zhem"
+          },
+          "keywords": [
+            "жем", "zhem", "jem"
+          ]
+        },
+        {
+          "slug": "priozersk",
+          "names": {
+            "ru": "Приозерск",
+            "kk": "Приозерск",
+            "en": "Priozersk"
+          },
+          "keywords": [
+            "приозерск", "priozersk", "priozersk city"
+          ]
+        },
+        {
+          "slug": "saran",
+          "names": {
+            "ru": "Сарань",
+            "kk": "Саран",
+            "en": "Saran"
+          },
+          "keywords": [
+            "сарань", "saran", "cаран", "saran city"
+          ]
+        },
+        {
+          "slug": "shakhtinsk",
+          "names": {
+            "ru": "Шахтинск",
+            "kk": "Шахтинск",
+            "en": "Shakhtinsk"
+          },
+          "keywords": [
+            "шахтинск", "shakhtinsk", "shahtinsk"
+          ]
+        },
+        {
+          "slug": "stepnogorsk",
+          "names": {
+            "ru": "Степногорск",
+            "kk": "Степногорск",
+            "en": "Stepnogorsk"
+          },
+          "keywords": [
+            "степногорск", "stepnogorsk"
+          ]
+        },
+        {
+          "slug": "temirtau",
+          "names": {
+            "ru": "Темиртау",
+            "kk": "Теміртау",
+            "en": "Temirtau"
+          },
+          "keywords": [
+            "темиртау", "temirtau", "теміртау", "temirtaw"
+          ]
+        }
+      ]
+    },
+    "kostanay": {
+      "region": "kostanay",
+      "names": {
+        "ru": "Костанайская область",
+        "kk": "Қостанай облысы",
+        "en": "Kostanay Region"
+      },
+      "keywords": [
+        "костанайская область",
+        "қостанай облысы",
+        "kostanay region",
+        "костанай",
+        "қостанай",
+        "kostanay",
+        "костанайская",
+        "костанай обл",
+        "қостанай обл",
+        "kostanay oblast",
+        "костанайская область костанай",
+        "костанай область"
+      ],
+      "districts": [
+        {
+          "slug": "amangeldy",
+          "names": {
+            "ru": "Амангельды",
+            "kk": "Амангелді",
+            "en": "Amangeldy"
+          },
+          "keywords": [
+            "амангельды", "amangeldy", "амангелды", "amangeldi",
+            "аманғелді", "amangeldi district", "амангельды ауданы"
+          ]
+        },
+        {
+          "slug": "arkalyk",
+          "names": {
+            "ru": "Аркалык",
+            "kk": "Арқалық",
+            "en": "Arkalyk"
+          },
+          "keywords": [
+            "аркалык", "arkalyk", "арқалық", "arqalyk",
+            "arkalyk district"
+          ]
+        },
+        {
+          "slug": "auer",
+          "names": {
+            "ru": "Ауэр",
+            "kk": "Ауэр",
+            "en": "Auer"
+          },
+          "keywords": [
+            "ауэр", "auer", "ауер", "auer district"
+          ]
+        },
+        {
+          "slug": "denov",
+          "names": {
+            "ru": "Денов",
+            "kk": "Денов",
+            "en": "Denov"
+          },
+          "keywords": [
+            "денов", "denov", "денов ауданы", "denov district"
+          ]
+        },
+        {
+          "slug": "fedorov",
+          "names": {
+            "ru": "Федоров",
+            "kk": "Федоров",
+            "en": "Fedorov"
+          },
+          "keywords": [
+            "федоров", "fedorov", "федоровский", "fedorov district"
+          ]
+        },
+        {
+          "slug": "karasu",
+          "names": {
+            "ru": "Карасу",
+            "kk": "Қарасу",
+            "en": "Karasu"
+          },
+          "keywords": [
+            "карасу", "karasu", "қарасу", "karasy", "karasu district"
+          ]
+        },
+        {
+          "slug": "karazhal",
+          "names": {
+            "ru": "Каражал",
+            "kk": "Қаражал",
+            "en": "Karazhal"
+          },
+          "keywords": [
+            "каражал", "karazhal", "қаражал", "karajal",
+            "karazhal district"
+          ]
+        },
+        {
+          "slug": "kamysty",
+          "names": {
+            "ru": "Камысты",
+            "kk": "Қамысты",
+            "en": "Kamysty"
+          },
+          "keywords": [
+            "камысты", "kamysty", "қамысты", "qamysty",
+            "kamysty district"
+          ]
+        },
+        {
+          "slug": "kostanay",
+          "names": {
+            "ru": "Костанай",
+            "kk": "Қостанай",
+            "en": "Kostanay"
+          },
+          "keywords": [
+            "костанай", "kostanay", "қостанай", "kostanai",
+            "kostanay district"
+          ]
+        },
+        {
+          "slug": "nauryzum",
+          "names": {
+            "ru": "Наурызым",
+            "kk": "Наурызым",
+            "en": "Nauryzum"
+          },
+          "keywords": [
+            "наурызым", "nauryzum", "nauryz", "nawrızym",
+            "nauryzum district"
+          ]
+        },
+        {
+          "slug": "rutul",
+          "names": {
+            "ru": "Рутул",
+            "kk": "Рутул",
+            "en": "Rutul"
+          },
+          "keywords": [
+            "рутул", "rutul", "рутул ауданы", "rutul district"
+          ]
+        },
+        {
+          "slug": "sarykol",
+          "names": {
+            "ru": "Сарыколь",
+            "kk": "Сарыкөл",
+            "en": "Sarykol"
+          },
+          "keywords": [
+            "сарыколь", "sarykol", "сарыкөл", "sarykol district",
+            "sary-kol"
+          ]
+        },
+        {
+          "slug": "taran",
+          "names": {
+            "ru": "Таран",
+            "kk": "Таран",
+            "en": "Taran"
+          },
+          "keywords": [
+            "таран", "taran", "таран ауданы", "taran district"
+          ]
+        },
+        {
+          "slug": "uzunkol",
+          "names": {
+            "ru": "Узунколь",
+            "kk": "Ұзынкөл",
+            "en": "Uzunkol"
+          },
+          "keywords": [
+            "узунколь", "uzunkol", "ұзынкөл", "uzynkol",
+            "uzunkol district"
+          ]
+        },
+        {
+          "slug": "zhangel",
+          "names": {
+            "ru": "Жангел",
+            "kk": "Жангел",
+            "en": "Zhangel"
+          },
+          "keywords": [
+            "жангэл", "zhangel", "zhangel district"
+          ]
+        },
+        {
+          "slug": "zhitykara",
+          "names": {
+            "ru": "Житикара",
+            "kk": "Жітіқара",
+            "en": "Zhitykara"
+          },
+          "keywords": [
+            "житикара", "zhitikara", "zhitykara", "жітіқара",
+            "zhitykara district"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "kostanay",
+          "names": {
+            "ru": "Костанай",
+            "kk": "Қостанай",
+            "en": "Kostanay"
+          },
+          "keywords": [
+            "костанай", "kostanay", "қостанай", "kostanai",
+            "kostanay city"
+          ]
+        },
+        {
+          "slug": "arkalyk",
+          "names": {
+            "ru": "Аркалык",
+            "kk": "Арқалық",
+            "en": "Arkalyk"
+          },
+          "keywords": [
+            "аркалык", "arkalyk", "arqalyk"
+          ]
+        },
+        {
+          "slug": "lisakovsk",
+          "names": {
+            "ru": "Лисаковск",
+            "kk": "Лисаковск",
+            "en": "Lisakovsk"
+          },
+          "keywords": [
+            "лисаковск", "lisakovsk", "lisakovsk city"
+          ]
+        },
+        {
+          "slug": "rudny",
+          "names": {
+            "ru": "Рудный",
+            "kk": "Рудный",
+            "en": "Rudny"
+          },
+          "keywords": [
+            "рудный", "rudny", "ruudnyi", "rudnii"
+          ]
+        },
+        {
+          "slug": "zhitykara-city",
+          "names": {
+            "ru": "Житикара",
+            "kk": "Жітіқара",
+            "en": "Zhitykara"
+          },
+          "keywords": [
+            "житикара", "zhitykara", "жітіқара"
+          ]
+        }
+      ]
+    },
+    "kyzylorda": {
+      "type": "region",
+      "names": {
+        "ru": "Кызылординская область",
+        "kk": "Қызылорда облысы",
+        "en": "Kyzylorda Region"
+      },
+      "keywords": [
+        "кызылординская область",
+        "қызылорда облысы",
+        "kyzylorda region",
+        "кызылорда",
+        "қызылорда",
+        "kyzylorda",
+        "кызылординская",
+        "кызылорда обл",
+        "қызылорда обл",
+        "kyzylorda oblast",
+        "кызылординская область кызылорда",
+        "кызылорда область"
+      ],
+      "districts": [
+        {
+          "slug": "aran",
+          "names": {
+            "ru": "Аральский район",
+            "kk": "Арал ауданы",
+            "en": "Aral District"
+          },
+          "keywords": [
+            "арал", "аралский район", "арал ауданы",
+            "aral", "aralsk", "aral district"
+          ]
+        },
+        {
+          "slug": "besshoky",
+          "names": {
+            "ru": "Бесшокы район",
+            "kk": "Бесшоқы ауданы",
+            "en": "Besshoky District"
+          },
+          "keywords": [
+            "бесшокы", "бес шокы", "besshoky",
+            "beshshoky", "besshoky district"
+          ]
+        },
+        {
+          "slug": "karmakshy",
+          "names": {
+            "ru": "Кармакшинский район",
+            "kk": "Қармақшы ауданы",
+            "en": "Karmakshy District"
+          },
+          "keywords": [
+            "кармакшы", "karmakshy", "қармақшы",
+            "джусалы", "zhusaly", "karmakshy district"
+          ]
+        },
+        {
+          "slug": "kazaly",
+          "names": {
+            "ru": "Казалинский район",
+            "kk": "Қазалы ауданы",
+            "en": "Kazaly District"
+          },
+          "keywords": [
+            "казалы", "kazaly", "қазалы",
+            "айтекеби кзл", "kazaly district"
+          ]
+        },
+        {
+          "slug": "shiyeli",
+          "names": {
+            "ru": "Шиелийский район",
+            "kk": "Шиелі ауданы",
+            "en": "Shiyeli District"
+          },
+          "keywords": [
+            "шиели", "шиили", "shieli", "shiyeli",
+            "шиели ауданы", "shieli district"
+          ]
+        },
+        {
+          "slug": "syrdarya",
+          "names": {
+            "ru": "Сырдарьинский район",
+            "kk": "Сырдария ауданы",
+            "en": "Syrdarya District"
+          },
+          "keywords": [
+            "сырдарья", "сырдария", "syrdarya", "syrdaria",
+            "теренозек", "terenozek"
+          ]
+        },
+        {
+          "slug": "zhalagash",
+          "names": {
+            "ru": "Жалагашский район",
+            "kk": "Жалағаш ауданы",
+            "en": "Zhalagash District"
+          },
+          "keywords": [
+            "жалагаш", "жалағаш", "zhalagash",
+            "zhalagash district"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "kyzylorda",
+          "names": {
+            "ru": "Кызылорда",
+            "kk": "Қызылорда",
+            "en": "Kyzylorda"
+          },
+          "keywords": [
+            "кызылорда", "kyzylorda", "қызылорда",
+            "kzlorda", "kzyl-orda", "kzylorda",
+            "кызылорда город", "kyzylorda city"
+          ]
+        },
+        {
+          "slug": "aral",
+          "names": {
+            "ru": "Арал",
+            "kk": "Арал",
+            "en": "Aral"
+          },
+          "keywords": [
+            "арал", "aral", "arał",
+            "аральск", "aralsk"
+          ]
+        },
+        {
+          "slug": "zhalagash",
+          "names": {
+            "ru": "Жалагаш",
+            "kk": "Жалағаш",
+            "en": "Zhalagash"
+          },
+          "keywords": [
+            "жалагаш", "жалағаш", "zhalagash"
+          ]
+        }
+      ]
+    },
+    "mangystau": {
+      "type": "region",
+      "names": {
+        "ru": "Мангистауская область",
+        "kk": "Маңғыстау облысы",
+        "en": "Mangystau Region"
+      },
+      "keywords": [
+        "мангистауская область",
+        "маңғыстау облысы",
+        "mangystau region",
+        "мангистау",
+        "маңғыстау",
+        "mangystau",
+        "мангистауская",
+        "мангистау обл",
+        "маңғыстау обл",
+        "mangystau oblast",
+        "мангистауская область мангистау",
+        "мангистау область"
+      ],
+      "districts": [
+        {
+          "slug": "mangystau",
+          "names": {
+            "ru": "Мангистауский район",
+            "kk": "Маңғыстау ауданы",
+            "en": "Mangystau District"
+          },
+          "keywords": [
+            "мангистауский",
+            "мангистау",
+            "mangystau",
+            "манғыстау",
+            "mangistau"
+          ]
+        },
+        {
+          "slug": "munaily",
+          "names": {
+            "ru": "Мунайлинский район",
+            "kk": "Мұнайлы ауданы",
+            "en": "Munaily District"
+          },
+          "keywords": [
+            "мунайлы",
+            "munaily",
+            "munaily district",
+            "мұнайлы",
+            "мунайлинский"
+          ]
+        },
+        {
+          "slug": "tupkaragan",
+          "names": {
+            "ru": "Тупкараганский район",
+            "kk": "Түпқараған ауданы",
+            "en": "Tupkaragan District"
+          },
+          "keywords": [
+            "тупкараган",
+            "tupkaragan",
+            "tupqaragan",
+            "түпқараған",
+            "ф. шевченко район"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "aktau",
+          "names": {
+            "ru": "Актау",
+            "kk": "Ақтау",
+            "en": "Aktau"
+          },
+          "keywords": [
+            "актау",
+            "aqtau",
+            "aktau city",
+            "город актау"
+          ]
+        },
+        {
+          "slug": "fort-shevchenko",
+          "names": {
+            "ru": "Форт-Шевченко",
+            "kk": "Форт-Шевченко",
+            "en": "Fort-Shevchenko"
+          },
+          "keywords": [
+            "форт шевченко",
+            "форт-шевченко",
+            "fort shevchenko"
+          ]
+        }
+      ]
+    },
+    "pavlodar": {
+      "type": "region",
+      "names": {
+        "ru": "Павлодарская область",
+        "kk": "Павлодар облысы",
+        "en": "Pavlodar Region"
+      },
+      "keywords": [
+        "павлодарская область",
+        "павлодар облысы",
+        "pavlodar region",
+        "павлодар",
+        "pavlodar",
+        "павлодарская",
+        "павлодар обл",
+        "павлодар регион",
+        "pavlodar oblast"
+      ],
+      "districts": [
+        {
+          "slug": "akku",
+          "names": {
+            "ru": "Аккуский район",
+            "kk": "Аққу ауданы",
+            "en": "Aqqu District"
+          },
+          "keywords": [
+            "акку",
+            "аққу",
+            "akku",
+            "aqqu"
+          ]
+        },
+        {
+          "slug": "aksu",
+          "names": {
+            "ru": "Аксуский район",
+            "kk": "Ақсу ауданы",
+            "en": "Aksu District"
+          },
+          "keywords": [
+            "аксу район",
+            "ақсу ауданы",
+            "aksu district",
+            "aqsu"
+          ]
+        },
+        {
+          "slug": "ashchekul",
+          "names": {
+            "ru": "Ащекульский район",
+            "kk": "Ащекөл ауданы",
+            "en": "Ashchekul District"
+          },
+          "keywords": [
+            "ащекуль",
+            "ащекөл",
+            "ashchekul",
+            "aschekul"
+          ]
+        },
+        {
+          "slug": "bayanaul",
+          "names": {
+            "ru": "Баянаульский район",
+            "kk": "Баянауыл ауданы",
+            "en": "Bayanaul District"
+          },
+          "keywords": [
+            "баянаул",
+            "баянауыл",
+            "bayanaul",
+            "baianaul"
+          ]
+        },
+        {
+          "slug": "ekibastuz",
+          "names": {
+            "ru": "Экибастузский район",
+            "kk": "Екібастұз ауданы",
+            "en": "Ekibastuz District"
+          },
+          "keywords": [
+            "экибастуз район",
+            "екібастұз",
+            "ekibastuz district"
+          ]
+        },
+        {
+          "slug": "ermentau",
+          "names": {
+            "ru": "Ерментауский район",
+            "kk": "Ерментау ауданы",
+            "en": "Ermentau District"
+          },
+          "keywords": [
+            "ерментау",
+            "ерментау",
+            "ermentau"
+          ]
+        },
+        {
+          "slug": "irbyz",
+          "names": {
+            "ru": "Ирбизский район",
+            "kk": "Ірбіз ауданы",
+            "en": "Irbyz District"
+          },
+          "keywords": [
+            "ирбиз",
+            "ірбіз",
+            "irbyz"
+          ]
+        },
+        {
+          "slug": "pavlodar",
+          "names": {
+            "ru": "Павлодарский район",
+            "kk": "Павлодар ауданы",
+            "en": "Pavlodar District"
+          },
+          "keywords": [
+            "павлодар район",
+            "павлодар ауданы",
+            "pavlodar district"
+          ]
+        },
+        {
+          "slug": "zhelezin",
+          "names": {
+            "ru": "Железинский район",
+            "kk": "Железин ауданы",
+            "en": "Zhelezin District"
+          },
+          "keywords": [
+            "железин",
+            "zhelezin",
+            "железин ауданы"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "pavlodar",
+          "names": {
+            "ru": "Павлодар",
+            "kk": "Павлодар",
+            "en": "Pavlodar"
+          },
+          "keywords": [
+            "павлодар",
+            "pavlodar",
+            "павлодар қаласы",
+            "pavlodar city"
+          ]
+        },
+        {
+          "slug": "ekibastuz",
+          "names": {
+            "ru": "Экибастуз",
+            "kk": "Екібастұз",
+            "en": "Ekibastuz"
+          },
+          "keywords": [
+            "экибастуз",
+            "ekibastuz",
+            "екібастұз"
+          ]
+        },
+        {
+          "slug": "aksu",
+          "names": {
+            "ru": "Аксу",
+            "kk": "Ақсу",
+            "en": "Aksu"
+          },
+          "keywords": [
+            "аксу",
+            "ақсу",
+            "aksu"
+          ]
+        }
+      ]
+    },
+    "north-kazakhstan": {
+      "type": "region",
+      "names": {
+        "ru": "Северо-Казахстанская область",
+        "kk": "Солтүстік Қазақстан облысы",
+        "en": "North Kazakhstan Region"
+      },
+      "keywords": [
+        "северо-казахстанская область",
+        "солтүстік қазақстан облысы",
+        "north kazakhstan region",
+        "северо-казахстанская",
+        "северный казахстан",
+        "северный казахстан обл",
+        "северо-казахстанская обл",
+        "солтүстік қазақстан",
+        "north kazakhstan oblast",
+        "ско"
+      ],
+      "districts": [
+        {
+          "slug": "aiyrtau",
+          "names": {
+            "ru": "Айыртауский район",
+            "kk": "Айыртау ауданы",
+            "en": "Aiyrtau District"
+          },
+          "keywords": [
+            "айыртау",
+            "aiyrtau",
+            "айыртау ауданы",
+            "saumalkol",
+            "саумалкөл"
+          ]
+        },
+        {
+          "slug": "akzhar",
+          "names": {
+            "ru": "Акжарский район",
+            "kk": "Ақжар ауданы",
+            "en": "Akzhar District"
+          },
+          "keywords": [
+            "акжар",
+            "ақжар",
+            "akzhar",
+            "talshik"
+          ]
+        },
+        {
+          "slug": "akshar",
+          "names": {
+            "ru": "Акшарский район",
+            "kk": "Ақшар ауданы",
+            "en": "Akshar District"
+          },
+          "keywords": [
+            "акшар",
+            "ақшар",
+            "akshar"
+          ]
+        },
+        {
+          "slug": "bulaev",
+          "names": {
+            "ru": "Булаевский район",
+            "kk": "Булаев ауданы",
+            "en": "Bulaev District"
+          },
+          "keywords": [
+            "булаев",
+            "bulaev",
+            "bułaev"
+          ]
+        },
+        {
+          "slug": "esil",
+          "names": {
+            "ru": "Есильский район",
+            "kk": "Есіл ауданы",
+            "en": "Esil District"
+          },
+          "keywords": [
+            "есиль",
+            "есіл",
+            "esil"
+          ]
+        },
+        {
+          "slug": "kazakh",
+          "names": {
+            "ru": "Казахский район",
+            "kk": "Қазақ ауданы",
+            "en": "Kazakh District"
+          },
+          "keywords": [
+            "казах",
+            "қазақ",
+            "kazakh"
+          ]
+        },
+        {
+          "slug": "kylshym",
+          "names": {
+            "ru": "Кылшымский район",
+            "kk": "Қылшым ауданы",
+            "en": "Kylshym District"
+          },
+          "keywords": [
+            "кылшым",
+            "қылшым",
+            "kylshym"
+          ]
+        },
+        {
+          "slug": "mamlyut",
+          "names": {
+            "ru": "Мамлютский район",
+            "kk": "Мамлют ауданы",
+            "en": "Mamlyut District"
+          },
+          "keywords": [
+            "мамлют",
+            "mamlyut",
+            "мамлютка"
+          ]
+        },
+        {
+          "slug": "shalakyn",
+          "names": {
+            "ru": "Шалакынский район",
+            "kk": "Шал ақын ауданы",
+            "en": "Shalakyn District"
+          },
+          "keywords": [
+            "шалакын",
+            "shalakyn",
+            "bulayevo"
+          ]
+        },
+        {
+          "slug": "taiynsha",
+          "names": {
+            "ru": "Тайыншинский район",
+            "kk": "Тайынша ауданы",
+            "en": "Taiynsha District"
+          },
+          "keywords": [
+            "тайынша",
+            "тайыншы",
+            "taiynsha"
+          ]
+        },
+        {
+          "slug": "timiryazev",
+          "names": {
+            "ru": "Тимирязевский район",
+            "kk": "Тимирязев ауданы",
+            "en": "Timiryazev District"
+          },
+          "keywords": [
+            "тимирязево",
+            "тимирязев",
+            "timiryazev"
+          ]
+        },
+        {
+          "slug": "uzunkol",
+          "names": {
+            "ru": "Узункольский район",
+            "kk": "Ұзынкөл ауданы",
+            "en": "Uzunkol District"
+          },
+          "keywords": [
+            "узунколь",
+            "ұзынкөл",
+            "uzunkol"
+          ]
+        },
+        {
+          "slug": "zharkain",
+          "names": {
+            "ru": "Жаркаинский район",
+            "kk": "Жарқайың ауданы",
+            "en": "Zharkain District"
+          },
+          "keywords": [
+            "жаркаин",
+            "жарқайың",
+            "zharkain"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "petropavl",
+          "names": {
+            "ru": "Петропавловск",
+            "kk": "Петропавл",
+            "en": "Petropavl"
+          },
+          "keywords": [
+            "петропавловск",
+            "петропавл",
+            "petropavl",
+            "petropavlovsk"
+          ]
+        },
+        {
+          "slug": "kysylzhulduz",
+          "names": {
+            "ru": "Кызылжулдыз",
+            "kk": "Қызылжұлдыз",
+            "en": "Kyzylzhuldiz"
+          },
+          "keywords": [
+            "кызылжулдыз",
+            "қызылжұлдыз",
+            "kyzylzhuldiz"
+          ]
+        }
+      ]
+    },
+    "turkistan": {
+      "type": "region",
+      "names": {
+        "ru": "Туркестанская область",
+        "kk": "Түркістан облысы",
+        "en": "Turkistan Region"
+      },
+      "keywords": [
+        "туркестанская область",
+        "түркістан облысы",
+        "turkistan region",
+        "туркестан",
+        "түркістан",
+        "turkistan",
+        "туркестанская",
+        "туркестан обл",
+        "түркістан обл",
+        "turkistan oblast",
+        "туркестанская область туркестан",
+        "туркестан область",
+        "шымкентская область",
+        "шымкентская",
+        "юко"
+      ],
+      "districts": [
+        {
+          "slug": "baydibek",
+          "names": {
+            "ru": "Байдибекский район",
+            "kk": "Бәйдібек ауданы",
+            "en": "Baidibek District"
+          },
+          "keywords": [
+            "байдибек",
+            "бәйдібек",
+            "baidibek",
+            "baidibek district",
+            "шеберсай",
+            "шиен"
+          ],
+          "villages": [
+            {
+              "names": {
+                "ru": "",
+                "kk": ""
+              }
+            }
+          ]
+        },
+        {
+          "slug": "zhetysay",
+          "names": {
+            "ru": "Жетысайский район",
+            "kk": "Жетісай ауданы",
+            "en": "Zhetysay District"
+          },
+          "keywords": [
+            "жетысай",
+            "жетісай",
+            "zhetysay",
+            "zhetysai",
+            "жетисай"
+          ]
+        },
+        {
+          "slug": "kazygurt",
+          "names": {
+            "ru": "Казыгуртский район",
+            "kk": "Қазығұрт ауданы",
+            "en": "Kazygurt District"
+          },
+          "keywords": [
+            "казыгурт",
+            "қазығұрт",
+            "kazygurt",
+            "қазықұрт",
+            "tengiz"
+          ]
+        },
+        {
+          "slug": "keles",
+          "names": {
+            "ru": "Келесский район",
+            "kk": "Келес ауданы",
+            "en": "Keles District"
+          },
+          "keywords": [
+            "келес",
+            "келес ауданы",
+            "keles",
+            "кeлeс"
+          ]
+        },
+        {
+          "slug": "maktaaral",
+          "names": {
+            "ru": "Мактааральский район",
+            "kk": "Мақтаарал ауданы",
+            "en": "Maktaral District"
+          },
+          "keywords": [
+            "мактаарал",
+            "мақтаарал",
+            "maktaaral",
+            "makta aral",
+            "aqzhol"
+          ]
+        },
+        {
+          "slug": "ordabasy",
+          "names": {
+            "ru": "Ордабасинский район",
+            "kk": "Ордабасы ауданы",
+            "en": "Ordabasy District"
+          },
+          "keywords": [
+            "ордабасы",
+            "ordabasy",
+            "temirlan"
+          ]
+        },
+        {
+          "slug": "otyrar",
+          "names": {
+            "ru": "Отрарский район",
+            "kk": "Отырар ауданы",
+            "en": "Otyrar District"
+          },
+          "keywords": [
+            "отырар",
+            "otyrar",
+            "шарапхана",
+            "otyrau"
+          ]
+        },
+        {
+          "slug": "sairam",
+          "names": {
+            "ru": "Сайрамский район",
+            "kk": "Сайрам ауданы",
+            "en": "Sairam District"
+          },
+          "keywords": [
+            "сайрам",
+            "sairam",
+            "сайрам ауданы",
+            "манкент",
+            "карабулак",
+            "белые воды",
+            "aqsu"
+          ]
+        },
+        {
+          "slug": "saryagash",
+          "names": {
+            "ru": "Сарыагашский район",
+            "kk": "Сарыағаш ауданы",
+            "en": "Saryagash District"
+          },
+          "keywords": [
+            "сарыагаш",
+            "сарыағаш",
+            "saryagash",
+            "sariagash",
+            "жибек жолы",
+            "кальтау",
+            "кызылкишлак",
+            "дарбаза",
+            "жаркент"
+          ]
+        },
+        {
+          "slug": "sauran",
+          "names": {
+            "ru": "Сауранский район",
+            "kk": "Сауран ауданы",
+            "en": "Sauran District"
+          },
+          "keywords": [
+            "сауран",
+            "sauran",
+            "саурaн"
+          ]
+        },
+        {
+          "slug": "sozak",
+          "names": {
+            "ru": "Созакский район",
+            "kk": "Созақ ауданы",
+            "en": "Sozak District"
+          },
+          "keywords": [
+            "созак",
+            "созақ",
+            "sozak"
+          ]
+        },
+        {
+          "slug": "tolebi",
+          "names": {
+            "ru": "Төлеби район",
+            "kk": "Төлеби ауданы",
+            "en": "Tolebi District"
+          },
+          "keywords": [
+            "толеби",
+            "төлеби",
+            "tolebi",
+            "leninogorsk"
+          ]
+        },
+        {
+          "slug": "tulkibas",
+          "names": {
+            "ru": "Тулькубасский район",
+            "kk": "Түлкібас ауданы",
+            "en": "Tulkibas District"
+          },
+          "keywords": [
+            "тулькубас",
+            "түлкібас",
+            "tulkibas"
+          ]
+        },
+        {
+          "slug": "shardara",
+          "names": {
+            "ru": "Шардаринский район",
+            "kk": "Шардара ауданы",
+            "en": "Shardara District"
+          },
+          "keywords": [
+            "шардара",
+            "shardara",
+            "шардара ауданы"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "shymkent",
+          "names": {
+            "ru": "Шымкент",
+            "kk": "Шымкент",
+            "en": "Shymkent"
+          },
+          "keywords": [
+            "шымкент",
+            "шымк",
+            "шым",
+            "чимкент",
+            "shymkent",
+            "chimkent",
+            "чмк",
+            "shimkent"
+          ]
+        },
+        {
+          "slug": "kentau",
+          "names": {
+            "ru": "Кентау",
+            "kk": "Кентау",
+            "en": "Kentau"
+          },
+          "keywords": [
+            "кентау",
+            "kentau",
+            "кентау"
+          ]
+        },
+        {
+          "slug": "arys",
+          "names": {
+            "ru": "Арыс",
+            "kk": "Арыс",
+            "en": "Arys"
+          },
+          "keywords": [
+            "арыс",
+            "арысь",
+            "arys",
+            "arys city"
+          ]
+        }
+      ]
+    },
+    "ulytau": {
+      "type": "region",
+      "names": {
+        "ru": "Улытауская область",
+        "kk": "Ұлытау облысы",
+        "en": "Ulytau Region"
+      },
+      "keywords": [
+        "улытауская область",
+        "ұлытау облысы",
+        "ulytau region",
+        "улытау",
+        "ұлытау",
+        "ulytau",
+        "улытауская",
+        "улытау обл",
+        "ұлытау обл",
+        "ulytau oblast",
+        "улытауская область улытау",
+        "улытау область"
+      ],
+      "districts": [
+        {
+          "slug": "ulytau",
+          "names": {
+            "ru": "Улытауский район",
+            "kk": "Ұлытау ауданы",
+            "en": "Ulytau District"
+          },
+          "keywords": [
+            "улытау",
+            "ұлытау",
+            "ulytau",
+            "ули тау"
+          ]
+        },
+        {
+          "slug": "zhezkazgan",
+          "names": {
+            "ru": "Жезказганский район",
+            "kk": "Жезқазған ауданы",
+            "en": "Zhezkazgan District"
+          },
+          "keywords": [
+            "жезказган",
+            "жезқазған",
+            "zhezkazgan",
+            "dzhez"
+          ]
+        },
+        {
+          "slug": "karkaraly",
+          "names": {
+            "ru": "Каркаралинский район",
+            "kk": "Қарқаралы ауданы",
+            "en": "Karkaraly District"
+          },
+          "keywords": [
+            "каркаралы",
+            "қарқаралы",
+            "karkaraly",
+            "каркаралинский"
+          ]
+        },
+        {
+          "slug": "shet",
+          "names": {
+            "ru": "Шетский район",
+            "kk": "Шет ауданы",
+            "en": "Shet District"
+          },
+          "keywords": [
+            "шет",
+            "шет ауданы",
+            "shet"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "zhezkazgan",
+          "names": {
+            "ru": "Жезказган",
+            "kk": "Жезқазған",
+            "en": "Zhezkazgan"
+          },
+          "keywords": [
+            "жезказган",
+            "жезқазған",
+            "zhezkazgan"
+          ]
+        },
+        {
+          "slug": "satpayev",
+          "names": {
+            "ru": "Сатпаев",
+            "kk": "Сәтбаев",
+            "en": "Satpayev"
+          },
+          "keywords": [
+            "сатпаев",
+            "сәтбаев",
+            "satpayev"
+          ]
+        },
+        {
+          "slug": "karazhal",
+          "names": {
+            "ru": "Каразhal",
+            "kk": "Қаражал",
+            "en": "Karazhal"
+          },
+          "keywords": [
+            "каражал",
+            "қаражал",
+            "karazhal"
+          ]
+        }
+      ]
+    },
+    "zhambyl": {
+      "type": "region",
+      "names": {
+        "ru": "Жамбылская область",
+        "kk": "Жамбыл облысы",
+        "en": "Zhambyl Region"
+      },
+      "keywords": [
+        "жамбылская область",
+        "жамбыл облысы",
+        "zhambyl region",
+        "жамбыл",
+        "zhambyl",
+        "жамбылская",
+        "жамбыл обл",
+        "жамбыл регион",
+        "zhambyl oblast",
+        "жамбылская область жамбыл",
+        "жамбыл область"
+      ],
+      "districts": [
+        {
+          "slug": "baizak",
+          "names": {
+            "ru": "Байзакский район",
+            "kk": "Байзақ ауданы",
+            "en": "Baizak District"
+          },
+          "keywords": [
+            "байзак",
+            "байзақ",
+            "baizak",
+            "baizak district"
+          ]
+        },
+        {
+          "slug": "zhualy",
+          "names": {
+            "ru": "Жуалынский район",
+            "kk": "Жуалы ауданы",
+            "en": "Zhualy District"
+          },
+          "keywords": [
+            "жуалы",
+            "жуалынский",
+            "zhualy"
+          ]
+        },
+        {
+          "slug": "kordai",
+          "names": {
+            "ru": "Кордайский район",
+            "kk": "Қордай ауданы",
+            "en": "Kordai District"
+          },
+          "keywords": [
+            "кордай",
+            "korday",
+            "қордай",
+            "kordai"
+          ]
+        },
+        {
+          "slug": "merke",
+          "names": {
+            "ru": "Меркенский район",
+            "kk": "Меркі ауданы",
+            "en": "Merke District"
+          },
+          "keywords": [
+            "мерке",
+            "меркі",
+            "merke",
+            "мерке ауданы"
+          ]
+        },
+        {
+          "slug": "moyynkum",
+          "names": {
+            "ru": "Мойынкумский район",
+            "kk": "Мойынқұм ауданы",
+            "en": "Moyynkum District"
+          },
+          "keywords": [
+            "мойынкум",
+            "мойынқұм",
+            "moyynkum",
+            "moinkum"
+          ]
+        },
+        {
+          "slug": "ryskulov",
+          "names": {
+            "ru": "Рыскуловский район",
+            "kk": "Рысқұлов ауданы",
+            "en": "Ryskulov District"
+          },
+          "keywords": [
+            "рыскулов",
+            "рысқұлов",
+            "ryskulov"
+          ]
+        },
+        {
+          "slug": "sarysu",
+          "names": {
+            "ru": "Сарысуский район",
+            "kk": "Сарысу ауданы",
+            "en": "Sarysu District"
+          },
+          "keywords": [
+            "сарысу",
+            "sarysu",
+            "сарысу ауданы"
+          ]
+        },
+        {
+          "slug": "talas",
+          "names": {
+            "ru": "Таласский район",
+            "kk": "Талас ауданы",
+            "en": "Talas District"
+          },
+          "keywords": [
+            "талас",
+            "talas",
+            "талас ауданы"
+          ]
+        },
+        {
+          "slug": "turkistan",
+          "names": {
+            "ru": "Туркестанский район (Жамбыл)",
+            "kk": "Түркістан ауданы",
+            "en": "Turkistan District"
+          },
+          "keywords": [
+            "туркестан район",
+            "туркістан",
+            "turkistan district",
+            "туркестан жамбыл"
+          ]
+        },
+        {
+          "slug": "zhambyl",
+          "names": {
+            "ru": "Жамбылский район",
+            "kk": "Жамбыл ауданы",
+            "en": "Zhambyl District"
+          },
+          "keywords": [
+            "жамбыл",
+            "zhambyl",
+            "жамбыл ауданы"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "taraz",
+          "names": {
+            "ru": "Тараз",
+            "kk": "Тараз",
+            "en": "Taraz"
+          },
+          "keywords": [
+            "тараз",
+            "taraz",
+            "тарас"
+          ]
+        },
+        {
+          "slug": "karakemer",
+          "names": {
+            "ru": "Каракамер",
+            "kk": "Қаракемер",
+            "en": "Karakemer"
+          },
+          "keywords": [
+            "каракемер",
+            "қаракемер",
+            "karakemer"
+          ]
+        },
+        {
+          "slug": "merke",
+          "names": {
+            "ru": "Мерке",
+            "kk": "Меркі",
+            "en": "Merke"
+          },
+          "keywords": [
+            "мерке",
+            "меркі",
+            "merke"
+          ]
+        },
+        {
+          "slug": "shu",
+          "names": {
+            "ru": "Шу",
+            "kk": "Шу",
+            "en": "Shu"
+          },
+          "keywords": [
+            "шу",
+            "shu",
+            "шу город"
+          ]
+        }
+      ]
+    },
+    "east_kazakhstan": {
+      "type": "region",
+      "names": {
+        "ru": "Восточно-Казахстанская область",
+        "kk": "Шығыс Қазақстан облысы",
+        "en": "East Kazakhstan Region"
+      },
+      "keywords": [
+        "восточно-казахстанская область",
+        "шығыс қазақстан облысы",
+        "east kazakhstan region",
+        "восточно-казахстанская",
+        "восточный казахстан",
+        "восточный казахстан обл",
+        "восточно-казахстанская обл",
+        "шығыс қазақстан",
+        "east kazakhstan oblast",
+        "вко"
+      ],
+      "districts": [
+        {
+          "slug": "altay",
+          "names": {
+            "ru": "Алтайский район",
+            "kk": "Алтай ауданы",
+            "en": "Altay District"
+          },
+          "keywords": [
+            "алтай",
+            "altay",
+            "зырян",
+            "zyryanovsk",
+            "зыряновск"
+          ]
+        },
+        {
+          "slug": "glubokoe",
+          "names": {
+            "ru": "Глубоковский район",
+            "kk": "Глубокое ауданы",
+            "en": "Glubokoe District"
+          },
+          "keywords": [
+            "глубокое",
+            "glubokoe",
+            "ульба",
+            "ulba"
+          ]
+        },
+        {
+          "slug": "katon-karagai",
+          "names": {
+            "ru": "Катон-Карагайский район",
+            "kk": "Катонқарағай ауданы",
+            "en": "Katon-Karagai District"
+          },
+          "keywords": [
+            "катон карагай",
+            "катон-карагай",
+            "katon karagai",
+            "katon-karagai",
+            "катонқарағай",
+            "алтaйский национальный парк"
+          ]
+        },
+        {
+          "slug": "kokpekti",
+          "names": {
+            "ru": "Кокпектинский район",
+            "kk": "Көкпекті ауданы",
+            "en": "Kokpekti District"
+          },
+          "keywords": [
+            "кокпекти",
+            "көкпекті",
+            "kokpekti",
+            "kokpekty"
+          ]
+        },
+        {
+          "slug": "shemonaiha",
+          "names": {
+            "ru": "Шемонаихинский район",
+            "kk": "Шемонаиха ауданы",
+            "en": "Shemonaiha District"
+          },
+          "keywords": [
+            "шемонаиха",
+            "shemonaiha",
+            "шемонаевский"
+          ]
+        },
+        {
+          "slug": "ulan",
+          "names": {
+            "ru": "Уланский район",
+            "kk": "Ұлан ауданы",
+            "en": "Ulan District"
+          },
+          "keywords": [
+            "улан",
+            "ұлан",
+            "ulan"
+          ]
+        },
+        {
+          "slug": "urzhar",
+          "names": {
+            "ru": "Урджарский район",
+            "kk": "Үржар ауданы",
+            "en": "Urzhar District"
+          },
+          "keywords": [
+            "урджар",
+            "үржар",
+            "urzhar"
+          ]
+        }
+      ],
+      "cities": [
+        {
+          "slug": "oskemen",
+          "names": {
+            "ru": "Усть-Каменогорск",
+            "kk": "Өскемен",
+            "en": "Oskemen"
+          },
+          "keywords": [
+            "усть-каменогорск",
+            "уск",
+            "остик",
+            "оскемен",
+            "öskemen",
+            "oskemen"
+          ]
+        },
+        {
+          "slug": "ridder",
+          "names": {
+            "ru": "Риддер",
+            "kk": "Риддер",
+            "en": "Ridder"
+          },
+          "keywords": [
+            "риддер",
+            "ridder",
+            "ледеровск",
+            "leninogorsk"
+          ]
+        },
+        {
+          "slug": "serovodnoe",
+          "names": {
+            "ru": "Сероводное",
+            "kk": "Сероводное",
+            "en": "Serovodnoe"
+          },
+          "keywords": [
+            "сероводное",
+            "serovodnoe"
+          ]
+        },
+        {
+          "slug": "zyryanovsk",
+          "names": {
+            "ru": "Зыряновск",
+            "kk": "Зырян",
+            "en": "Zyryanovsk"
+          },
+          "keywords": [
+            "зыряновск",
+            "zyryanovsk",
+            "зырян",
+            "зырян қаласы"
+          ]
+        }
+      ]
+    }
+  }
+}
