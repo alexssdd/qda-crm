@@ -17,7 +17,7 @@ $isOnline = false
 <header class="header">
     <div class="header__left">
         <a href="<?= Url::to(['/site/index']) ?>" class="header-logo">
-            <img class="header-logo__image" src="/images/marwin.png" alt="Company logo">
+            <img class="header-logo__image" src="/images/logo.png" alt="Company logo">
         </a>
     </div>
     <div class="header__middle">
@@ -32,78 +32,30 @@ $isOnline = false
                 [
                     'label' => '<i class="header-menu__icon icon-local_grocery_store"></i>',
                     'url' => ['/order/index'],
-                    'visible' => Yii::$app->user->can(UserHelper::ROLE_OPERATOR)
-                ],
-                [
-                    'label' => '<i class="header-menu__icon icon-favorite"></i>',
-                    'url' => ['/care/index'],
-                    'visible' => Yii::$app->user->can(UserHelper::ROLE_OPERATOR)
-                ],
-                [
-                    'label' => '<i class="header-menu__icon icon-analytics"></i>',
-                    'url' => '#',
-                    'visible' => Yii::$app->user->can(UserHelper::ROLE_OPERATOR),
-                    'items' => [
-                        ['label' => 'Показатели', 'url' => ['/chart/index']],
-                        ['label' => 'Мониторинг', 'url' => ['/chart/operator']],
-                        ['label' => 'Остатки по каналам', 'url' => ['/dashboard/channel-export']],
-                        ['label' => 'Топы продаж и их остатки', 'url' => ['/dashboard/channel-product']],
-                    ]
-                ],
-                [
-                    'label' => '<i class="header-menu__icon icon-library_books"></i>',
-                    'url' => '#',
-                    'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMINISTRATOR),
-                    'items' => [
-                        ['label' => Yii::t('app', 'Report orders'), 'url' => ['/report/order']],
-                        ['label' => Yii::t('app', 'Report defectura'), 'url' => ['/report/defectura']],
-                        ['label' => Yii::t('app', 'Report cares'), 'url' => ['/report/care']],
-                        ['label' => Yii::t('app', 'Report leads'), 'url' => ['/report/lead']],
-                    ]
                 ],
                 [
                     'label' => '<i class="header-menu__icon icon-storage"></i>',
                     'url' => '#',
-                    'visible' => Yii::$app->user->can(UserHelper::ROLE_OPERATOR),
                     'items' => [
-                        ['label' => Yii::t('app', 'Brands'), 'url' => ['/brand/index']],
-                        ['label' => Yii::t('app', 'Products'), 'url' => ['/product/index']],
-                        ['label' => Yii::t('app', 'Stores'), 'url' => ['/store/index']],
-                        ['label' => Yii::t('app', 'Customers'), 'url' => ['/customer/index']],
+                        ['label' => 'Countries', 'url' => ['/country/index']],
+                        ['label' => 'Locations', 'url' => ['/location/index']],
                     ]
                 ],
                 [
                     'label' => '<i class="header-menu__icon icon-more_vert"></i>',
                     'url' => '#',
-                    'visible' => Yii::$app->user->can(UserHelper::ROLE_MARKETING),
                     'items' => [
                         [
-                            'label' => Yii::t('app', 'Users'), 'url' => ['/user/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMINISTRATOR)
+                            'label' => 'Users', 'url' => ['/user/index'],
                         ],
                         [
-                            'label' => Yii::t('app', 'Countries'), 'url' => ['/country/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMIN)
+                            'label' => 'Customers', 'url' => ['/customer/index'],
                         ],
                         [
-                            'label' => Yii::t('app', 'Cities'), 'url' => ['/city/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMIN)
+                            'label' => 'Executors', 'url' => ['/executor/index'],
                         ],
                         [
-                            'label' => Yii::t('app', 'Merchants'), 'url' => ['/merchant/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMIN)
-                        ],
-                        [
-                            'label' => Yii::t('app', 'Price types'), 'url' => ['/price-type/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMIN)
-                        ],
-                        [
-                            'label' => Yii::t('app', 'Adverts'), 'url' => ['/advert/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_MARKETING)
-                        ],
-                        [
-                            'label' => Yii::t('app', 'Logs'), 'url' => ['/log/index'],
-                            'visible' => Yii::$app->user->can(UserHelper::ROLE_ADMIN)
+                            'label' => 'Logs', 'url' => ['/log/index'],
                         ],
                     ]
                 ],
