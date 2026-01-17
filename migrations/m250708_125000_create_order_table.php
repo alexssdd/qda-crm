@@ -47,14 +47,14 @@ class m250708_125000_create_order_table extends Migration
         ]);
 
         // idx
+        $this->createIndex('idx-source', $this->tableName, ['country_code', 'source_id'], true);
         $this->createIndex('idx-order-type', $this->tableName, 'type');
         $this->createIndex('idx-order-category', $this->tableName, 'category');
         $this->createIndex('idx-order-status', $this->tableName, 'status');
 
         // fk
-        $this->addForeignKey('fk-order-user_id', $this->tableName, 'user_id', '{{%user}}', 'id', 'CASCADE');
-        $this->addForeignKey('fk-order-from_location_id', $this->tableName, 'from_location_id', '{{%location}}', 'id', 'SET NULL', 'RESTRICT');
-        $this->addForeignKey('fk-order-to_location_id', $this->tableName, 'to_location_id', '{{%location}}', 'id', 'SET NULL', 'RESTRICT');
+        $this->addForeignKey('fk-order-from_location_id', $this->tableName, 'from_location_id', '{{%location}}', 'source_id', 'SET NULL', 'RESTRICT');
+        $this->addForeignKey('fk-order-to_location_id', $this->tableName, 'to_location_id', '{{%location}}', 'source_id', 'SET NULL', 'RESTRICT');
     }
 
     public function safeDown(): void
