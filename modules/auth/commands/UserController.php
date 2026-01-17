@@ -35,14 +35,18 @@ class UserController extends Controller
         }
     }
 
-    public function actionAddOtpIdentity($phone): void
+    public function actionAddOtpIdentity(): void
     {
+        $phone = $this->prompt('Phone:', ['required' => true]);
+
         $model = $this->getUser($phone);
         (new UserService())->addOtpIdentity($model->id, $model->phone);
     }
 
-    public function actionAddPasswordIdentity($phone): void
+    public function actionAddPasswordIdentity(): void
     {
+        $phone = $this->prompt('Phone:', ['required' => true]);
+
         $model = $this->getUser($phone);
         (new UserService())->addPasswordIdentity($model->id, $model->phone, $model->phone);
     }
