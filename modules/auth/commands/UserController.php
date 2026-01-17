@@ -7,18 +7,24 @@ use DomainException;
 use yii\console\ExitCode;
 use yii\console\Controller;
 use app\modules\auth\models\User;
+use app\modules\auth\helpers\UserHelper;
 use app\modules\auth\services\UserService;
 
 class UserController extends Controller
 {
-    public function actionCreate($phone, $password, $name = 'Admin', $country = 'kz'): int
+    public function actionCreate(): int
     {
         $service = new UserService();
 
         try {
-            echo "Создание пользователя $phone...\n";
+            echo "Создание пользователя ...\n";
 
-            $user = $service->create($phone, $password, $name, $country, 'admin');
+            $phone = $this->prompt('Phone:', ['required' => true]);
+            $name = $this->prompt('Name:', ['required' => true]);
+            $role = $this->prompt('Role:', ['required' => true, 'default' => UserHelper::ROLE_ADMIN]);
+            $country = $this->prompt('Role:', ['required' => true, 'default' => 'kz']);
+
+            $user = $service->create($phone, $name, $country, $role);
 
             echo "Пользователь ID: {$user->id} создан.\n";
             return ExitCode::OK;

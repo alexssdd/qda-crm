@@ -12,11 +12,10 @@ use app\modules\auth\models\AuthIdentity;
 
 class UserService
 {
-    public function create(string $phone, string $password, string $name, string $country, string $role = 'user'): User
+    public function create(string $phone, string $name, string $country, string $role): User
     {
         $cleanPhone = PhoneHelper::getCleanNumber($phone);
 
-        // 1. Создаем модель User
         $user = new User();
         $user->phone = $cleanPhone;
         $user->name = $name;
