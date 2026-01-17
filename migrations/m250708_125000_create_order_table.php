@@ -53,8 +53,8 @@ class m250708_125000_create_order_table extends Migration
         $this->createIndex('idx-order-status', $this->tableName, 'status');
 
         // fk
-        $this->addForeignKey('fk-order-from_location_id', $this->tableName, 'from_location_id', '{{%location}}', 'source_id', 'SET NULL', 'RESTRICT');
-        $this->addForeignKey('fk-order-to_location_id', $this->tableName, 'to_location_id', '{{%location}}', 'source_id', 'SET NULL', 'RESTRICT');
+        $this->addForeignKey('fk-order-from_location_id', $this->tableName, 'from_location_id', '{{%location}}', 'id', 'SET NULL', 'RESTRICT');
+        $this->addForeignKey('fk-order-to_location_id', $this->tableName, 'to_location_id', '{{%location}}', 'id', 'SET NULL', 'RESTRICT');
     }
 
     public function safeDown(): void
