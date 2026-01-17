@@ -12,22 +12,26 @@ class m250708_125000_create_order_table extends Migration
     {
         $this->createTable($this->tableName, [
             'id' => $this->primaryKey()->unsigned(),
-            'user_id' => $this->integer()->unsigned()->notNull(),
+            'country_code' => $this->string()->notNull(),
+            'source_id' => $this->integer()->unsigned(),
             'type' => $this->tinyInteger(2)->notNull(),
+            'phone' => $this->string(21)->notNull(),
+            'name' => $this->string()->notNull(),
+            'rating' => $this->decimal(3,2),
 
             // From
             'from_location_id' => $this->integer()->null(),
-            'from_address' => $this->string(255)->notNull(),
             'from_name' => $this->string(255),
+            'from_address' => $this->string(255),
             'from_lat' => $this->decimal(10,7)->null(),
             'from_lng' => $this->decimal(10,7)->null(),
 
             // To
             'to_location_id' => $this->integer()->null(),
-            'to_address' => $this->string(255)->notNull(),
             'to_name' => $this->string(255),
-            'to_lat' => $this->decimal(10,7)->null(),
-            'to_lng' => $this->decimal(10,7)->null(),
+            'to_address' => $this->string(255),
+            'to_lat' => $this->decimal(10,7),
+            'to_lng' => $this->decimal(10,7),
 
             'category' => $this->tinyInteger()->notNull(),
             'price_type' => $this->tinyInteger(2)->notNull(),
