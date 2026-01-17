@@ -69,8 +69,8 @@ class ChannelSearch extends Model
     public function export(): array
     {
         // Variables
-        $stores = $this->getDemoStores(true);
-        $channels = $this->getDemoChannels();
+        $stores = [];
+        $channels = [];
 
         // Prepare cities
         $cities = [];
@@ -345,24 +345,5 @@ class ChannelSearch extends Model
         }
 
         return $result;
-    }
-
-    /**
-     * @return string[]
-     */
-    protected function getDemoChannels(): array
-    {
-        return [
-            OrderHelper::CHANNEL_KASPI_SHOP => 'Kaspi Shop',
-            OrderHelper::CHANNEL_HALYK_MARKET => 'Halyk Market',
-            OrderHelper::CHANNEL_WOLT => 'Wolt',
-            OrderHelper::CHANNEL_GLOVO => 'Glovo',
-            OrderHelper::CHANNEL_YE => 'Yandex Eda',
-            OrderHelper::CHANNEL_JUSAN => 'Jusan',
-            OrderHelper::CHANNEL_FORTE => 'Forte Market',
-            OrderHelper::CHANNEL_BNPL => 'BNPL',
-            OrderHelper::CHANNEL_OZON => 'Ozon Market',
-            OrderHelper::CHANNEL_WB => 'Wildberries',
-        ];
     }
 }

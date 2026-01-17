@@ -44,22 +44,4 @@ class OrderAssignService
             throw new DomainException("Order id: $order->id, executor set error");
         }
     }
-
-    /**
-     * Set handler
-     */
-    public function setHandler()
-    {
-        $order = $this->_order;
-
-        if ($order->created_by){
-            $order->handler_id = $order->created_by;
-        } else {
-            $order->handler_id = $this->_user->id;
-        }
-
-        if (!$order->save(false)) {
-            throw new DomainException("Order id: $order->id, handled set error");
-        }
-    }
 }

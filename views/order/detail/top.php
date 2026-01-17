@@ -13,8 +13,6 @@ use app\core\helpers\OrderStoreHelper;
 /* @var $this View */
 
 // Variables
-$bonusAmount = OrderHelper::getBonusAmount($order);
-$bonusUsedAmount = OrderHelper::getBonusUsedAmount($order);
 
 ?>
 <ul class="product-context">
@@ -50,7 +48,7 @@ $bonusUsedAmount = OrderHelper::getBonusUsedAmount($order);
                 <td class="order-products__selectable"><?= ProductHelper::getCode($product->sku) ?></td>
                 <td class="order-products__selectable" title="<?= $product->name ?>"><?= StringHelper::truncate($product->name, 75) ?></td>
                 <td><?= Yii::$app->formatter->asDecimal(ProductHelper::getPrice($product->price)) ?></td>
-                <td><?= OrderHelper::getQuantityLabel($product->quantity) ?></td>
+                <td><?= '' ?></td>
                 <td class="order-products__assemblies">
                     <?php foreach ($product->orderStoreProducts as $orderStoreProduct):
                         $orderStore = $orderStoreProduct->orderStore;
@@ -79,34 +77,20 @@ $bonusUsedAmount = OrderHelper::getBonusUsedAmount($order);
         <div class="order-total__left"></div>
         <div class="order-total__right">
             <div class="order-total__items">
-                <?php if ($bonusAmount) : ?>
-                    <div class="order-total__item order-total__item--blue">
-                        <div class="order-total__label">Оплачено бонусами</div>
-                        <div class="order-total__divider"></div>
-                        <div class="order-total__value"><?= Yii::$app->formatter->asDecimal($bonusAmount) ?> ₸</div>
-                    </div>
-                <?php endif; ?>
                 <div class="order-total__item">
                     <div class="order-total__label">Сумма заказа</div>
                     <div class="order-total__divider"></div>
                     <div class="order-total__value"><?= Yii::$app->formatter->asDecimal(OrderHelper::getAmount($order)) ?> ₸</div>
                 </div>
-                <?php if ($bonusUsedAmount) : ?>
-                    <div class="order-total__item">
-                        <div class="order-total__label">Использовано бонусов</div>
-                        <div class="order-total__divider"></div>
-                        <div class="order-total__value"><?= Yii::$app->formatter->asDecimal($bonusUsedAmount) ?> ₸</div>
-                    </div>
-                <?php endif; ?>
                 <div class="order-total__item">
                     <div class="order-total__label">Доставка</div>
                     <div class="order-total__divider"></div>
-                    <div class="order-total__value"><?= OrderHelper::getDeliveryCostLabel($order)?></div>
+                    <div class="order-total__value"></div>
                 </div>
                 <div class="order-total__item">
                     <div class="order-total__label">Итого</div>
                     <div class="order-total__divider"></div>
-                    <div class="order-total__value"><?= Yii::$app->formatter->asDecimal(OrderHelper::getAmountTotalWithBonus($order)) ?> ₸</div>
+                    <div class="order-total__value"></div>
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ class OrderRules
     public static function canDeleteProduct($channel): bool
     {
         $forbiddenChannels = [
-            OrderHelper::CHANNEL_MARKET,
+
         ];
 
         if (in_array($channel, $forbiddenChannels)) {
@@ -46,12 +46,10 @@ class OrderRules
     public static function canAddProduct($channel): bool
     {
         $forbiddenChannels = [
-            OrderHelper::CHANNEL_MARKET,
+
         ];
         $allowedChannels = [
             OrderHelper::CHANNEL_CRM,
-            OrderHelper::CHANNEL_SITE_MARWIN,
-            OrderHelper::CHANNEL_SITE_MELOMAN,
         ];
 
         if (in_array($channel, $allowedChannels)) {
@@ -68,7 +66,7 @@ class OrderRules
     public static function canUpdateProduct($channel): bool
     {
         $forbiddenChannels = [
-            OrderHelper::CHANNEL_MARKET,
+
         ];
 
         if (in_array($channel, $forbiddenChannels)) {

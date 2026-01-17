@@ -79,7 +79,7 @@ class CartService
             'floor' => $form->floor,
             'address_type' => $form->address_type,
             'address_title' => $form->address_title,
-            'code' => OrderHelper::generateDeliveryCode($order->delivery_method),
+            'code' => '',
             'lead_id' => $form->lead_id
         ];
 
@@ -140,12 +140,6 @@ class CartService
             $extraFields['amount_original'] = $cost;
             $order->extra_fields = $extraFields;
             $order->save(false);
-
-            // Lead event
-            if ($form->lead_id){
-                $lead = OrderHelper::getLead($order);
-                (new LeadEventService($lead, $order->createdBy))->create('', LeadEventHelper::TYPE_ORDER_CREATED);
-            }
 
             $transaction->commit();
 

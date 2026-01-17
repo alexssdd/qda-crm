@@ -2,23 +2,15 @@
 
 use yii\helpers\Html;
 use app\search\OrderSearch;
-use app\core\helpers\DataHelper;
-use app\core\helpers\OrderHelper;
-use app\core\helpers\StoreHelper;
-use app\core\helpers\PaymentHelper;
 use app\core\helpers\DeliveryHelper;
-use app\core\helpers\OrderEventHelper;
+use app\modules\order\helpers\OrderHelper;
+use app\modules\order\helpers\PaymentHelper;
 
 /** @var $searchModel OrderSearch */
 
 // Variables
 $checked = $searchModel->my ? 'checked' : '';
 $statuses = OrderHelper::getStatuses();
-$statuses['Расширенные'] = [
-    OrderSearch::STATUS_COMPLETED => 'Завершен',
-    OrderSearch::STATUS_HANDLE => 'В обработке',
-    OrderSearch::STATUS_PENDING => 'Отложен',
-];
 
 ?>
 <div class="order-filter">
@@ -116,39 +108,14 @@ $statuses['Расширенные'] = [
             <div class="modal-form__row modal-form__row--3">
                 <div class="form-group">
                     <label class="control-label"><?= $searchModel->getAttributeLabel('event') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->event, OrderEventHelper::getFilterTypes(), [
+                    <?= Html::dropDownList(null, $searchModel->event, [], [
                         'prompt' => Yii::t('app', 'All'),
                         'data-input' => Html::getInputId($searchModel, 'event')
                     ]) ?>
                     <?= Html::activeHiddenInput($searchModel, 'event') ?>
                 </div>
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('receipt_sale') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->receipt_sale, DataHelper::getBoolArray(), [
-                        'prompt' => '',
-                        'data-input' => Html::getInputId($searchModel, 'receipt_sale')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'receipt_sale') ?>
-                </div>
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('receipt_return') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->receipt_return, DataHelper::getBoolArray(), [
-                        'prompt' => '',
-                        'data-input' => Html::getInputId($searchModel, 'receipt_return')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'receipt_return') ?>
-                </div>
             </div>
             <div class="modal-form__row modal-form__row--3">
-            </div>
-            <div class="modal-form__row modal-form__row--3">
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('sku') ?></label>
-                    <?= Html::textInput(null, $searchModel->sku, [
-                        'data-input' => Html::getInputId($searchModel, 'sku')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'sku') ?>
-                </div>
             </div>
         </div>
         <div class="modal__footer">

@@ -127,17 +127,7 @@ class OrderProductUpdateForm extends Form
         if (!$this->hasErrors()) {
             $order = $this->_order;
             foreach ($order->products as $product) {
-                // Check kaspi
-                if ($order->channel == OrderHelper::CHANNEL_KASPI_SHOP && $this->getQuantity($product->id) > $product->quantity) {
-                    $this->addError($attribute, 'Для заказов Kaspi запрещено редактировать количество в большую сторону');
-                    break;
-                }
 
-                // Check wolt
-                if ($order->channel == OrderHelper::CHANNEL_WOLT && $this->getQuantity($product->id) > $product->quantity) {
-                    $this->addError($attribute, 'Для заказов Wolt запрещено редактировать количество в большую сторону');
-                    break;
-                }
             }
         }
     }

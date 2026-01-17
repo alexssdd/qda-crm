@@ -16,7 +16,6 @@ $completed = OrderHelper::isCompleted($order->status);
 $statuses = OrderHelper::getAvailableStatuses($order);
 $statuses[$order->status] = OrderHelper::getStatusName($order->status);
 $addressLabel = AddressSelectHelper::getLabel($order->address, $order->getAddressType(), $order->getAddressTitle());
-$lead = OrderHelper::getLead($order);
 
 ?>
 <?= $form = Html::beginForm(['order/update', 'id' => $order->id])?>
@@ -34,7 +33,7 @@ $lead = OrderHelper::getLead($order);
         <div class="order-body__item">
             <label class="order-body__label">Телефон</label>
             <div class="order-body__block">
-                <?= Html::textInput(null, OrderHelper::getPhoneWithExt($order), ['class' => 'order-body__input', 'readonly' => true])?>
+                <?= Html::textInput(null, '', ['class' => 'order-body__input', 'readonly' => true])?>
                 <a href="tel:+<?= $order->phone ?>" class="order-body__input-icon order-body__input-icon--blue icon-call"></a>
             </div>
         </div>
@@ -96,11 +95,6 @@ $lead = OrderHelper::getLead($order);
                 <?php if (!$completed && !$order->isPending()) : ?>
                 <div class="order-actions__item">
                     <a href="<?= Url::to(['/order/pending', 'id' => $order->id]) ?>" class="order-actions__link js-view-modal">Отложить заказ</a>
-                </div>
-                <?php endif; ?>
-                <?php if (OrderHelper::canActivate($order)) : ?>
-                <div class="order-actions__item">
-                    <a href="<?= Url::to(['/order/activate', 'id' => $order->id]) ?>" class="order-actions__link">Показать заказ на кассе</a>
                 </div>
                 <?php endif; ?>
             </div>

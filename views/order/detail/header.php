@@ -8,9 +8,6 @@ use app\core\helpers\OrderHelper;
 /** @var $this View */
 /** @var $order Order */
 
-// Variables
-$accountName = OrderHelper::getAccountName($order);
-
 ?>
 <div class="order-header">
     <div class="order-header__left">
@@ -27,7 +24,6 @@ $accountName = OrderHelper::getAccountName($order);
                 <span class="order-header__label">Канал:</span>
                 <span class="order-header__value">
                     <?= OrderHelper::getChannel($order->channel) ?>
-                    <?= $accountName ? (' (' . $accountName . ')') : '' ?>
                 </span>
             </div>
             <div class="order-header__item">
@@ -44,7 +40,7 @@ $accountName = OrderHelper::getAccountName($order);
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">ID канала:</span>
-                <span class="order-header__value"><?= Html::encode(OrderHelper::getVendorId($order)) ?></span>
+                <span class="order-header__value"></span>
             </div>
         </div>
         <div class="order-header__time"></div>

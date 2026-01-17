@@ -735,48 +735,6 @@ class OrderController extends Controller
 
     /**
      * @param $id
-     * @return Response
-     * @throws NotFoundHttpException
-     */
-    public function actionActivate($id): Response
-    {
-        $order = $this->getOrder($id);
-        $oldStatus = $order->status;
-        $user = UserHelper::getIdentity();
-
-        try {
-            if (!OrderHelper::canActivate($order)){
-                throw new DomainException('Заказ должен быть завершен');
-            }
-
-            $status = OrderHelper::STATUS_SHIPPED;
-            if ($order->status == OrderHelper::STATUS_ISSUED){
-                $status = OrderHelper::STATUS_PICKUP;
-            }
-
-            $order->status = $status;
-            if (!$order->save(false)){
-                throw new DomainException($order->getErrorSummary(true)[0]);
-            }
-
-            // History
-            (new OrderHistoryService($order, $user))->create($oldStatus, $status);
-
-            // Event
-            (new OrderEventService($order, $user))->create('', OrderEventHelper::TYPE_ORDER_ACTIVATE, [
-                'status' => OrderHelper::getStatusName($status)
-            ]);
-
-            Yii::$app->session->setFlash('success', 'Статус успешно изменен');
-        } catch (Exception $e){
-            Yii::$app->session->setFlash('error', $e->getMessage());
-        }
-
-        return $this->redirect(Yii::$app->request->referrer ?: 'order/index');
-    }
-
-    /**
-     * @param $id
      * @return Order|null
      * @throws NotFoundHttpException
      */

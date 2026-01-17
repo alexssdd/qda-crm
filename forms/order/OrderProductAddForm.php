@@ -95,69 +95,6 @@ class OrderProductAddForm extends Form
     }
 
     /**
-     * @param $attribute
-     * @param $params
-     */
-    public function validatePaymentTypes($attribute, $params): void
-    {
-        if (!$this->hasErrors()) {
-            $notAllowedPaymentTypes = [
-                // added here not allowed types
-            ];
-
-            if (in_array($this->_order->payment_method, $notAllowedPaymentTypes)) {
-                $this->addError($attribute, Yii::t('order', 'This order cannot be added product.'));
-            }
-        }
-    }
-
-    /**
-     * @param $attribute
-     * @param $params
-     * @throws Exception
-     */
-    public function validatePaymentLimit($attribute, $params): void
-    {
-        if (!$this->hasErrors()) {
-            $order = $this->_order;
-            $allowedPaymentTypes = [
-                // todo
-            ];
-
-            if (!in_array($this->_order->payment_method, $allowedPaymentTypes)) {
-                return;
-            }
-
-            if (!$order->paymentPaid) {
-                $this->addError($attribute, Yii::t('order', 'Order has no payment.')); // no payment
-            }
-
-            $cost = OrderHelper::getAmountTotalWithBonus($order) + ($this->getPrice() * (float)$this->quantity);
-            $paidCost = $order->paymentPaid->provider_cost;
-
-            if ($cost > $paidCost) {
-                $this->addError($attribute, Yii::t('order', 'The order amount exceeds the payment amount to {cost}', ['cost' => $cost - $paidCost]));
-            }
-        }
-    }
-
-    /**
-     * @return int
-     * @throws Exception
-     */
-    public function getPrice(): int
-    {
-        if ($this->_price === null){
-            $product = $this->getProduct();
-            $productPrice = (new ProductService($product))->getPrice();
-
-            $this->_price = $productPrice ? $productPrice['price'] : 0;
-        }
-
-        return $this->_price;
-    }
-
-    /**
      * @return Product|null
      */
     public function getProduct(): ?Product

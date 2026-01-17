@@ -6,11 +6,8 @@ use app\widgets\GridView;
 use app\search\OrderSearch;
 use yii\widgets\MaskedInput;
 use yii\data\ArrayDataProvider;
-use app\core\helpers\CityHelper;
-use app\core\helpers\TextHelper;
 use app\core\helpers\PhoneHelper;
-use app\core\helpers\OrderHelper;
-use app\core\helpers\OrderHistoryHelper;
+use app\modules\order\helpers\OrderHelper;
 
 /** @var $searchModel OrderSearch */
 /** @var $dataProvider ArrayDataProvider */

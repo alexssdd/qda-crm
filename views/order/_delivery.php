@@ -19,15 +19,14 @@ use app\core\helpers\OrderHelper;
             <tbody>
                 <tr>
                     <th>Дата отгрузки</th>
-                    <td><?= OrderHelper::getShipmentDate($order)?></td>
                 </tr>
                 <tr>
                     <th>Стоимость доставки</th>
-                    <td><?= OrderHelper::getDeliveryCostLabel($order)?></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <th>Код доставки</th>
-                    <td><?= OrderHelper::getDeliveryCode($order)?></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
