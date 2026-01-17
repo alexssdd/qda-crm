@@ -33,10 +33,10 @@ return [
     ],
     'components' => [
         'authManager' => [
-            'class' => 'app\core\rbac\AuthManager',
-            'itemFile' => '@app/core/rbac/items/items.php',
-            'assignmentFile' => '@app/core/rbac/items/assignments.php',
-            'ruleFile' => '@app/core/rbac/items/rules.php',
+            'class' => 'app\modules\auth\AuthService',
+            'itemFile' => '@app/modules/auth/storage/rbac/items.php',
+            'assignmentFile' => '@app/modules/auth/storage/rbac/assignments.php',
+            'ruleFile' => '@app/modules/auth/storage/rbac/rules.php',
         ],
         'db' => $db['db'],
         'cache' => [
