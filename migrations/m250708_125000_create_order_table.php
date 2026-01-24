@@ -15,6 +15,7 @@ class m250708_125000_create_order_table extends Migration
             'channel' => $this->integer()->notNull(),
             'country_code' => $this->string()->notNull(),
             'source_id' => $this->integer()->unsigned(),
+            'number' => $this->string(),
             'type' => $this->tinyInteger(2)->notNull(),
             'phone' => $this->string(21)->notNull(),
             'name' => $this->string()->notNull(),
