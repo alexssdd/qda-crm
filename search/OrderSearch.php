@@ -7,7 +7,7 @@ use app\core\helpers\OrderReceiptHelper;
 use app\entities\OrderReceipt;
 use Yii;
 use yii\base\Model;
-use app\entities\Order;
+use app\modules\order\models\Order;
 use yii\data\ActiveDataProvider;
 use app\core\helpers\UserHelper;
 use app\core\helpers\OrderHelper;
@@ -95,28 +95,6 @@ class OrderSearch extends Model
     }
 
     /**
-     * @return array
-     */
-    public function attributeLabels(): array
-    {
-        return [
-            'delivery_method' => Yii::t('order', 'Delivery Method'),
-            'handler_id' => Yii::t('order', 'Handler ID'),
-            'store_id' => Yii::t('order', 'Store ID'),
-            'transferred' => Yii::t('order', 'Transferred'),
-            'payment_method' => Yii::t('order', 'Payment Method'),
-            'vendor_number' => Yii::t('order', 'Vendor Number'),
-            'vendor_id' => Yii::t('order', 'Vendor ID'),
-            'event' => Yii::t('order', 'Event'),
-            'receipt_sale' => Yii::t('order', 'Receipt sale'),
-            'receipt_return' => Yii::t('order', 'Receipt return'),
-            'sku' => Yii::t('order', 'Sku'),
-            'account_wb' => Yii::t('order', 'Account wb'),
-            'account_ozon' => Yii::t('order', 'Account ozon'),
-        ];
-    }
-
-    /**
      * @param array $params
      * @return ActiveDataProvider
      */
@@ -124,7 +102,7 @@ class OrderSearch extends Model
     {
         $query = Order::find()
             ->alias('orders')
-            ->with(['city', 'histories']);
+            ->with(['histories']);
 
         $provider = new ActiveDataProvider([
             'query' => $query,
@@ -141,7 +119,6 @@ class OrderSearch extends Model
 
         // Filter by equal
         $query->andFilterWhere([
-            'orders.city_id' => $this->city_id,
             'orders.store_id' => $this->store_id,
             'orders.channel' => $this->channel,
             'orders.handler_id' => $this->handler_id,
@@ -220,31 +197,6 @@ class OrderSearch extends Model
                 ->groupBy(['orders.id']);
         }
 
-        // Receipt sale
-        if ($this->receipt_sale){
-            $query->leftJoin(['receipt' => OrderReceipt::tableName()], implode(' AND ', [
-                'orders.id = receipt.order_id',
-                'receipt.type = ' . OrderReceiptHelper::TYPE_SALE
-            ]))->groupBy(['orders.id']);
-            if ($this->receipt_sale == DataHelper::BOOL_YES){
-                $query->andWhere('receipt.id IS NOT NULL');
-            } else {
-                $query->andWhere('receipt.id IS NULL');
-            }
-        }
-        // Receipt return
-        if ($this->receipt_return){
-            $query->leftJoin(['receipt' => OrderReceipt::tableName()], implode(' AND ', [
-                'orders.id = receipt.order_id',
-                'receipt.type = ' . OrderReceiptHelper::TYPE_RETURN
-            ]))->groupBy(['orders.id']);
-            if ($this->receipt_return == DataHelper::BOOL_YES){
-                $query->andWhere('receipt.id IS NOT NULL');
-            } else {
-                $query->andWhere('receipt.id IS NULL');
-            }
-        }
-
         // Event
         if ($this->sku){
             $query->joinWith(['products products'])
@@ -269,11 +221,6 @@ class OrderSearch extends Model
             'store_id',
             'transferred',
             'event',
-            'receipt_sale',
-            'receipt_return',
-            'sku',
-            'account_wb',
-            'account_ozon',
         ];
 
         foreach ($attributes as $attribute) {

@@ -37,4 +37,9 @@ class OrderHelper
             OrderStatus::CANCELLED->value => 'Отменен',
         ];
     }
+
+    public static function isCompleted($status): bool
+    {
+        return in_array($status, [OrderStatus::CANCELLED->value, OrderStatus::COMPLETED->value]);
+    }
 }

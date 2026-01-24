@@ -45,7 +45,6 @@ use app\core\helpers\OrderHelper;
  * @property int $account_id
  *
  * @property User $handler
- * @property City $city
  * @property Customer $customer
  * @property Store $store
  * @property User $executor
@@ -116,14 +115,6 @@ class Order extends ActiveRecord
     public function getHandler(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'handler_id']);
-    }
-
-    /**
-     * @return ActiveQuery
-     */
-    public function getCity(): ActiveQuery
-    {
-        return $this->hasOne(City::class, ['id' => 'city_id']);
     }
 
     /**

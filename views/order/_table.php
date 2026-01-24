@@ -1,12 +1,13 @@
 <?php
 
+use app\modules\order\helpers\OrderHistoryHelper;
 use yii\helpers\Html;
-use app\entities\Order;
 use app\widgets\GridView;
 use app\search\OrderSearch;
 use yii\widgets\MaskedInput;
 use yii\data\ArrayDataProvider;
 use app\core\helpers\PhoneHelper;
+use app\modules\order\models\Order;
 use app\modules\order\helpers\OrderHelper;
 
 /** @var $searchModel OrderSearch */
@@ -34,16 +35,12 @@ use app\modules\order\helpers\OrderHelper;
             'options' => ['width' => 35]
         ],
         [
-            'attribute' => 'number',
+            'attribute' => 'id',
             'label' => 'Номер',
             'format' => 'raw',
             'options' => ['width' => 105],
             'value' => function (Order $model) {
-                $result = $model->number;
-
-                if ($model->executor_id){
-                    $result = Html::tag('span', '', ['class' => 'icon-arrow_forward order-table__transfer']) . $result;
-                }
+                $result = $model->id;
 
                 return Html::tag('span', $result, ['class' => 'order-table__number']);
             }
@@ -54,9 +51,7 @@ use app\modules\order\helpers\OrderHelper;
             'format' => 'raw',
             'value' => function (Order $model) {
                 $star = Html::tag('span', '', ['class' => 'icon-star order-table__star order-table__star--green']);
-                return Html::tag('span', $star . TextHelper::getShortName($model->name), [
-                    'class' => 'order-table__customer'
-                ]);
+                return $model->name;
             }
         ],
         [
@@ -97,7 +92,7 @@ use app\modules\order\helpers\OrderHelper;
             'label' => 'Сумма',
             'options' => ['width' => 85],
             'value' => function (Order $model) {
-                return OrderHelper::getCostTotalLabel($model);
+                // return OrderHelper::getCostTotalLabel($model);
             }
         ],
         [
