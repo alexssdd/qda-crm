@@ -2,8 +2,8 @@
 
 use yii\web\View;
 use yii\helpers\Html;
-use app\entities\Order;
 use app\core\helpers\OrderHelper;
+use app\modules\order\models\Order;
 
 /** @var $this View */
 /** @var $order Order */
@@ -14,7 +14,7 @@ use app\core\helpers\OrderHelper;
         <div class="order-header__items">
             <div class="order-header__item">
                 <span class="order-header__label">Номер:</span>
-                <span class="order-header__value"><?= $order->id ?></span>
+                <span class="order-header__value"><?= $order->number ?></span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">Дата:</span>
