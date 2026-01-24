@@ -43,6 +43,7 @@ class m250708_125000_create_order_table extends Migration
             'extra_fields' => $this->json()->null(),
 
             'comment' => $this->string(255)->null(),
+            'source_at' => $this->integer(),
             'created_at' => $this->integer()->notNull(),
             'status' => $this->tinyInteger(2)->notNull(),
         ]);
