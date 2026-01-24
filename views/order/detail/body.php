@@ -33,9 +33,9 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
             </div>
         </div>
         <div class="order-body__item">
-            <label class="order-body__label">Город</label>
+            <label class="order-body__label">Страна</label>
             <div class="order-body__block">
-                <?= Html::textInput(null, null, ['class' => 'order-body__input', 'readonly' => true])?>
+                <?= Html::textInput(null, $order->country ? $order->country->name : null, ['class' => 'order-body__input', 'readonly' => true])?>
             </div>
         </div>
         <div class="order-body__item">
