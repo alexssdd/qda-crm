@@ -29,6 +29,7 @@ class AppController extends Controller
             ['phone' => '70000000001', 'name' => 'Bot', 'role' => UserHelper::ROLE_BOT, 'country' => 'kz'],
             ['phone' => '77027212121', 'name' => 'Alex', 'role' => UserHelper::ROLE_ADMIN, 'country' => 'kz'],
             ['phone' => '77763899999', 'name' => 'Sake', 'role' => UserHelper::ROLE_ADMIN, 'country' => 'kz'],
+            ['phone' => '77086315927', 'name' => 'Nurs', 'role' => UserHelper::ROLE_ADMIN, 'country' => 'kz'],
         ];
 
         foreach ($users as $item) {
