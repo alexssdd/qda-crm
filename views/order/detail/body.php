@@ -39,10 +39,9 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
             </div>
         </div>
         <div class="order-body__item">
-            <label class="order-body__label">Адрес</label>
+            <label class="order-body__label">Канал</label>
             <div class="order-body__block">
-                <div class="order-body__input order-body__address"><?= '' ?></div>
-                <a href="<?= Url::to(['/order/address', 'id' => $order->id]) ?>" class="order-body__link js-view-modal">Редактировать</a>
+                <?= Html::textInput(null, OrderHelper::getChannel($order->channel), ['class' => 'order-body__input', 'readonly' => true])?>
             </div>
         </div>
 
