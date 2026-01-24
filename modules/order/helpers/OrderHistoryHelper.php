@@ -24,6 +24,11 @@ class OrderHistoryHelper
         ];
 
         $timeCreated = $order->created_at;
+
+        if ($order->source_at) {
+            $timeCreated = $order->source_at;
+        }
+
         $timeAccepted = null;
         $timeHandled = null;
         $timeFinished = null;

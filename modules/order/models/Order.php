@@ -40,6 +40,7 @@ use app\core\helpers\OrderHelper;
  * @property int|null $delivery_cost
  * @property string|null $comment
  * @property array|null $extra_fields
+ * @property int $source_at
  * @property int $created_at
  * @property int|null $completed_at
  * @property int $status
