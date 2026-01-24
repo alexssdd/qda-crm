@@ -16,9 +16,7 @@ $isOnline = false
 ?>
 <header class="header">
     <div class="header__left">
-        <a href="<?= Url::to(['/site/index']) ?>" class="header-logo">
-            <img class="header-logo__image" src="/images/logo.png" alt="Company logo">
-        </a>
+        <a href="<?= Url::to(['/site/index']) ?>" class="header-logo">QDA</a>
     </div>
     <div class="header__middle">
         <?= Menu::widget([
