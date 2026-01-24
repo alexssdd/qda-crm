@@ -17,6 +17,10 @@ use app\modules\order\models\Order;
                 <span class="order-header__value"><?= $order->number ?></span>
             </div>
             <div class="order-header__item">
+                <span class="order-header__label">ID:</span>
+                <span class="order-header__value"><?= $order->id ?></span>
+            </div>
+            <div class="order-header__item">
                 <span class="order-header__label">Дата:</span>
                 <span class="order-header__value"><?= ''  ?></span>
             </div>
@@ -29,11 +33,11 @@ use app\modules\order\models\Order;
     <div class="order-header__right">
         <div class="order-header__items">
             <div class="order-header__item">
-                <span class="order-header__label">Номер канала:</span>
-                <span class="order-header__value"><?= '' ?></span>
+                <span class="order-header__label">Source ID:</span>
+                <span class="order-header__value"><?= $order->source_id ?></span>
             </div>
             <div class="order-header__item">
-                <span class="order-header__label">ID канала:</span>
+                <span class="order-header__label">Source Number:</span>
                 <span class="order-header__value"></span>
             </div>
         </div>

@@ -16,6 +16,7 @@ use app\core\helpers\OrderHelper;
  * This is the model class for table "{{%order}}".
  *
  * @property int $id
+ * @property int $source_id
  * @property int|null $merchant_id
  * @property int|null $handler_id
  * @property int|null $city_id
