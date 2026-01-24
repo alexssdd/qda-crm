@@ -40,7 +40,7 @@ use app\modules\order\helpers\OrderHistoryHelper;
             'format' => 'raw',
             'options' => ['width' => 105],
             'value' => function (Order $model) {
-                $result = $model->id;
+                $result = $model->number;
 
                 return Html::tag('span', $result, ['class' => 'order-table__number']);
             }
