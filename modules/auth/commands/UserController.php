@@ -22,13 +22,12 @@ class UserController extends Controller
             $phone = $this->prompt('Phone:', ['required' => true]);
             $name = $this->prompt('Name:', ['required' => true]);
             $role = $this->prompt('Role:', ['required' => true, 'default' => UserHelper::ROLE_ADMIN]);
-            $country = $this->prompt('Role:', ['required' => true, 'default' => 'kz']);
+            $country = $this->prompt('Country:', ['required' => true, 'default' => 'kz']);
 
             $user = $service->create($phone, $name, $country, $role);
 
             echo "Пользователь ID: {$user->id} создан.\n";
             return ExitCode::OK;
-
         } catch (Exception $e) {
             echo "Ошибка: " . $e->getMessage() . "\n";
             return ExitCode::UNSPECIFIED_ERROR;

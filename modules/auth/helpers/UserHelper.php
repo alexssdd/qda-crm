@@ -4,8 +4,6 @@ namespace app\modules\auth\helpers;
 
 use Yii;
 use Exception;
-use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 use app\modules\auth\models\User;
 
@@ -23,10 +21,6 @@ class UserHelper
     const STATUS_ACTIVE = 10;
     const STATUS_INACTIVE = 11;
     const STATUS_DELETED = 12;
-
-    /** Statuses */
-    const STATE_ONLINE = 10;
-    const STATE_OFFLINE = 11;
 
     static $user = null;
 
@@ -74,34 +68,5 @@ class UserHelper
         }
 
         return $user;
-    }
-
-    /**
-     * @param User $user
-     * @return string
-     */
-    public static function getShortName(User $user): string
-    {
-        $parts = explode(' ', trim($user->full_name));
-
-        if (count($parts) === 3) { // Ф.И.О
-            return sprintf('%s %s.%s', $parts[0], mb_substr($parts[1], 0, 1), mb_substr($parts[2], 0, 1));
-        }
-
-        if (count($parts) === 2) { // Ф.И
-            return sprintf('%s %s', $parts[0], mb_substr($parts[1], 0, 1));
-        }
-
-        return $user->full_name;
-    }
-
-    /**
-     * @param User $user
-     * @return mixed
-     * @throws Exception
-     */
-    public static function getTelegramId(User $user): mixed
-    {
-        return ArrayHelper::getValue($user->config, 'telegram_id');
     }
 }
