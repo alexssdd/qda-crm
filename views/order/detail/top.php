@@ -1,13 +1,8 @@
 <?php
 
 use yii\web\View;
-use app\entities\Order;
-use yii\helpers\StringHelper;
 use app\core\helpers\UserHelper;
-use app\core\helpers\StoreHelper;
 use app\core\helpers\OrderHelper;
-use app\core\helpers\ProductHelper;
-use app\core\helpers\OrderStoreHelper;
 
 /* @var $order Order */
 /* @var $this View */
@@ -42,35 +37,7 @@ use app\core\helpers\OrderStoreHelper;
             </tr>
         </thead>
         <tbody>
-        <?php $i = 1; foreach ($order->products as $product) : ?>
-            <tr oncontextmenu="return Order.contextProduct(event, <?= $order->id; ?>,<?= $product->id; ?>);" data-id="<?= $product->id; ?>" data-quantity="<?= (float)$product->quantity ?>">
-                <td><?= $i++ ?></td>
-                <td class="order-products__selectable"><?= ProductHelper::getCode($product->sku) ?></td>
-                <td class="order-products__selectable" title="<?= $product->name ?>"><?= StringHelper::truncate($product->name, 75) ?></td>
-                <td><?= Yii::$app->formatter->asDecimal(ProductHelper::getPrice($product->price)) ?></td>
-                <td><?= '' ?></td>
-                <td class="order-products__assemblies">
-                    <?php foreach ($product->orderStoreProducts as $orderStoreProduct):
-                        $orderStore = $orderStoreProduct->orderStore;
-                        if ($orderStore->status == OrderStoreHelper::STATUS_CANCELED){
-                            continue;
-                        }
-                        if ($orderStore->type == OrderStoreHelper::TYPE_MOVE && $orderStore->status == OrderStoreHelper::STATUS_COMPLETE){
-                            continue;
-                        }
-                        ?>
-                        <?php if ($orderStoreProduct->hasQuantity()): ?>
-                            <span class="order-products__store" data-order-store="<?= $orderStoreProduct->order_store_id ?>">
-                                <span class="order-products__store-value"><?= StoreHelper::getNameShort($orderStore->store)?>:<?= $orderStoreProduct->getQuantityLabel()?></span>
-                                <?php if ($orderStore->status == OrderStoreHelper::STATUS_COMPLETE): ?>
-                                    <i class="order-products__store-icon icon-check"></i>
-                                <?php endif; ?>
-                            </span>
-                        <?php endif;?>
-                    <?php endforeach;?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+
         </tbody>
     </table>
     <div class="order-total">
@@ -80,7 +47,7 @@ use app\core\helpers\OrderStoreHelper;
                 <div class="order-total__item">
                     <div class="order-total__label">Сумма заказа</div>
                     <div class="order-total__divider"></div>
-                    <div class="order-total__value"><?= Yii::$app->formatter->asDecimal(OrderHelper::getAmount($order)) ?> ₸</div>
+                    <div class="order-total__value"><?= '' ?> ₸</div>
                 </div>
                 <div class="order-total__item">
                     <div class="order-total__label">Доставка</div>

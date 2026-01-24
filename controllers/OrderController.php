@@ -6,10 +6,10 @@ use Yii;
 use Throwable;
 use Exception;
 use DomainException;
+use yii\helpers\VarDumper;
 use yii\web\Response;
 use app\entities\Store;
 use yii\web\Controller;
-use app\entities\Order;
 use app\search\CartSearch;
 use app\search\OrderSearch;
 use yii\helpers\ArrayHelper;
@@ -23,6 +23,7 @@ use app\core\helpers\StoreHelper;
 use app\core\helpers\OrderHelper;
 use app\services\OperatorService;
 use yii\web\NotFoundHttpException;
+use app\modules\order\models\Order;
 use app\forms\order\OrderUpdateForm;
 use app\forms\order\OrderCancelForm;
 use app\forms\order\OrderPendingForm;
@@ -733,11 +734,6 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * @param $id
-     * @return Order|null
-     * @throws NotFoundHttpException
-     */
     protected function getOrder($id): ?Order
     {
         if (($model = Order::findOne($id)) !== null) {

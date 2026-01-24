@@ -2,9 +2,9 @@
 
 use app\entities\Order;
 use app\core\helpers\TextHelper;
-use app\core\helpers\UserHelper;
 use app\core\helpers\OrderHelper;
 use app\core\helpers\OrderEventHelper;
+use app\modules\auth\helpers\UserHelper;
 
 /** @var $order Order */
 

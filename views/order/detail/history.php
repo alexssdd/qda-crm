@@ -15,21 +15,10 @@ use app\core\helpers\OrderNotifyHelper;
     </div>
     <div class="order-history__body">
         <div class="order-chat">
-            <?= $this->render('chat', ['order' => $order]) ?>
+            <?= $this->render('_chat', ['order' => $order]) ?>
         </div>
     </div>
     <div class="order-history__footer">
-        <div class="order-whatsapp">
-            <div class="order-whatsapp__heading">WhatsApp Сообщение</div>
-            <?= Html::dropDownList('', null, OrderNotifyHelper::getWhatsappTemplates(), [
-                'class' => 'order-whatsapp__select order-whatsapp__template',
-                'prompt' => 'Выберите шаблон'
-            ]) ?>
-            <input type="text" class="order-whatsapp__input">
-            <div class="order-whatsapp__footer">
-                <button type="button" class="order-whatsapp__button btn btn--sm btn--success" onclick="Order.whatsappSend()">Отправить</button>
-            </div>
-        </div>
         <div class="order-sms">
             <div class="order-sms__heading">SMS Сообщение</div>
             <select class="order-sms__select">

@@ -1,6 +1,5 @@
 <?php
 
-use app\modules\order\helpers\OrderHistoryHelper;
 use yii\helpers\Html;
 use app\widgets\GridView;
 use app\search\OrderSearch;
@@ -9,6 +8,7 @@ use yii\data\ArrayDataProvider;
 use app\core\helpers\PhoneHelper;
 use app\modules\order\models\Order;
 use app\modules\order\helpers\OrderHelper;
+use app\modules\order\helpers\OrderHistoryHelper;
 
 /** @var $searchModel OrderSearch */
 /** @var $dataProvider ArrayDataProvider */
@@ -35,7 +35,7 @@ use app\modules\order\helpers\OrderHelper;
             'options' => ['width' => 35]
         ],
         [
-            'attribute' => 'id',
+            'attribute' => 'number',
             'label' => 'Номер',
             'format' => 'raw',
             'options' => ['width' => 105],

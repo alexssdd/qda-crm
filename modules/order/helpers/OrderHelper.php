@@ -3,6 +3,7 @@ namespace app\modules\order\helpers;
 
 use app\modules\order\enums\OrderStatus;
 use app\modules\order\enums\OrderChannel;
+use app\modules\order\models\Order;
 use yii\helpers\ArrayHelper;
 
 class OrderHelper
@@ -36,6 +37,11 @@ class OrderHelper
             OrderStatus::COMPLETED->value => 'Завершен',
             OrderStatus::CANCELLED->value => 'Отменен',
         ];
+    }
+
+    public static function getAvailableStatuses(Order $order): array
+    {
+        return [];
     }
 
     public static function isCompleted($status): bool

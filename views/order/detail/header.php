@@ -14,21 +14,21 @@ use app\core\helpers\OrderHelper;
         <div class="order-header__items">
             <div class="order-header__item">
                 <span class="order-header__label">Номер:</span>
-                <span class="order-header__value"><?= $order->number ?></span>
+                <span class="order-header__value"><?= $order->id ?></span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">Дата:</span>
-                <span class="order-header__value"><?= OrderHelper::getCreated($order)  ?></span>
+                <span class="order-header__value"><?= ''  ?></span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">Канал:</span>
                 <span class="order-header__value">
-                    <?= OrderHelper::getChannel($order->channel) ?>
+                    <?= '' ?>
                 </span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">Оператор:</span>
-                <span class="order-header__value"><?= OrderHelper::getHandlerName($order) ?></span>
+                <span class="order-header__value"><?= '' ?></span>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@ use app\core\helpers\OrderHelper;
         <div class="order-header__items">
             <div class="order-header__item">
                 <span class="order-header__label">Номер канала:</span>
-                <span class="order-header__value"><?= Html::encode($order->vendor_number) ?></span>
+                <span class="order-header__value"><?= '' ?></span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">ID канала:</span>

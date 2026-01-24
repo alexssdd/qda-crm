@@ -3,10 +3,9 @@
 use yii\web\View;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\entities\Order;
 use app\core\rules\OrderRules;
-use app\core\helpers\OrderHelper;
-use app\core\helpers\AddressSelectHelper;
+use app\modules\order\models\Order;
+use app\modules\order\helpers\OrderHelper;
 
 /** @var $this View */
 /** @var $order Order */
@@ -15,7 +14,6 @@ use app\core\helpers\AddressSelectHelper;
 $completed = OrderHelper::isCompleted($order->status);
 $statuses = OrderHelper::getAvailableStatuses($order);
 $statuses[$order->status] = OrderHelper::getStatusName($order->status);
-$addressLabel = AddressSelectHelper::getLabel($order->address, $order->getAddressType(), $order->getAddressTitle());
 
 ?>
 <?= $form = Html::beginForm(['order/update', 'id' => $order->id])?>
@@ -25,9 +23,6 @@ $addressLabel = AddressSelectHelper::getLabel($order->address, $order->getAddres
             <label class="order-body__label">Клиент</label>
             <div class="order-body__block">
                 <?= Html::textInput(null, $order->name, ['class' => 'order-body__input', 'readonly' => true])?>
-                <?php if ($order->customer_id) : ?>
-                <a href="<?= Url::to(['/customer/detail', 'id' => $order->customer_id]) ?>" class="order-body__input-icon js-view-modal icon-person"></a>
-                <?php endif; ?>
             </div>
         </div>
         <div class="order-body__item">
@@ -40,36 +35,21 @@ $addressLabel = AddressSelectHelper::getLabel($order->address, $order->getAddres
         <div class="order-body__item">
             <label class="order-body__label">Город</label>
             <div class="order-body__block">
-                <?= Html::textInput(null, $order->city ? $order->city->name : null, ['class' => 'order-body__input', 'readonly' => true])?>
+                <?= Html::textInput(null, null, ['class' => 'order-body__input', 'readonly' => true])?>
             </div>
         </div>
         <div class="order-body__item">
             <label class="order-body__label">Адрес</label>
             <div class="order-body__block">
-                <div class="order-body__input order-body__address"><?= $addressLabel ?></div>
+                <div class="order-body__input order-body__address"><?= '' ?></div>
                 <a href="<?= Url::to(['/order/address', 'id' => $order->id]) ?>" class="order-body__link js-view-modal">Редактировать</a>
             </div>
         </div>
-        <div class="order-body__item">
-            <label class="order-body__label">Доставка</label>
-            <div class="order-body__block order-body__block--group">
-                <?= Html::textInput(null, OrderHelper::getDeliveryLabel($order), ['class' => 'order-body__input', 'readonly' => true])?>
-                <a href="<?= Url::to(['/order/delivery', 'id' => $order->id]) ?>" class="order-body__detail transition js-view-modal">Детали</a>
-            </div>
-        </div>
-        <?php if ($courier = $order->courier) : ?>
-        <div class="order-body__item">
-            <label class="order-body__label">Курьер</label>
-            <div class="order-body__block order-body__block--group">
-                <?= Html::textInput(null, $courier->name, ['class' => 'order-body__input', 'readonly' => true])?>
-                <a href="<?= Url::to(['/order/courier', 'id' => $order->id]) ?>" class="order-body__detail transition js-view-modal">Детали</a>
-            </div>
-        </div>
-        <?php endif; ?>
+
         <div class="order-body__item">
             <label class="order-body__label">Оплата</label>
             <div class="order-body__block">
-                <?= Html::textInput(null, OrderHelper::getPaymentLabel($order), ['class' => 'order-body__input', 'readonly' => true])?>
+                <?= Html::textInput(null, null, ['class' => 'order-body__input', 'readonly' => true])?>
             </div>
         </div>
         <div class="order-body__item">
