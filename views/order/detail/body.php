@@ -51,6 +51,8 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
                 <?= Html::textInput(null, null, ['class' => 'order-body__input', 'readonly' => true])?>
             </div>
         </div>
+        <br>
+        <br>
         <div class="order-body__item">
             <label class="order-body__label">Комментарий</label>
             <div class="order-body__block">
