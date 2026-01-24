@@ -3,6 +3,7 @@ namespace app\commands;
 
 use app\entities\Country;
 use app\modules\auth\helpers\UserHelper;
+use app\services\ConsoleService;
 use yii\console\Controller;
 use app\modules\auth\services\UserService;
 use app\modules\location\services\ImportService;
@@ -35,5 +36,8 @@ class AppController extends Controller
             $user = $service->create($item['phone'], $item['name'], $item['country'], $item['role']);
             $service->addOtpIdentity($user->id, $user->phone);
         }
+
+        // Rbac
+        (new ConsoleService())->run('auth/rbac/init');
     }
 }

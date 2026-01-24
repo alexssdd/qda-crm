@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\rbac;
+namespace app\modules\auth\services;
 
 use Yii;
 use yii\rbac\Assignment;
