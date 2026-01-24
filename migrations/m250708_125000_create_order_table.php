@@ -12,6 +12,7 @@ class m250708_125000_create_order_table extends Migration
     {
         $this->createTable($this->tableName, [
             'id' => $this->primaryKey()->unsigned(),
+            'channel' => $this->integer()->notNull(),
             'country_code' => $this->string()->notNull(),
             'source_id' => $this->integer()->unsigned(),
             'type' => $this->tinyInteger(2)->notNull(),
@@ -47,6 +48,7 @@ class m250708_125000_create_order_table extends Migration
         ]);
 
         // idx
+        $this->createIndex('idx-order-channel', $this->tableName, 'channel');
         $this->createIndex('idx-source', $this->tableName, ['country_code', 'source_id'], true);
         $this->createIndex('idx-order-type', $this->tableName, 'type');
         $this->createIndex('idx-order-category', $this->tableName, 'category');

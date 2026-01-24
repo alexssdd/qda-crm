@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
  *
  * @property int $id
  * @property string $name
- * @property string|null $iso
+ * @property string|null $code
  * @property array|null $config
  * @property int|null $status
  *
@@ -25,29 +25,5 @@ class Country extends ActiveRecord
     public static function tableName(): string
     {
         return '{{%country}}';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels(): array
-    {
-        return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'iso' => Yii::t('app', 'Iso'),
-            'config' => Yii::t('app', 'Config'),
-            'status' => Yii::t('app', 'Status'),
-        ];
-    }
-
-    /**
-     * Gets query for [[Cities]].
-     *
-     * @return ActiveQuery
-     */
-    public function getCities(): ActiveQuery
-    {
-        return $this->hasMany(City::class, ['country_id' => 'id']);
     }
 }

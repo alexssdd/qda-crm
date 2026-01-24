@@ -1,6 +1,6 @@
 <?php
 
-namespace app\entities;
+namespace app\modules\order\models;
 
 use Exception;
 use DomainException;
@@ -10,8 +10,6 @@ use app\services\LogService;
 use yii\helpers\ArrayHelper;
 use app\core\helpers\LogHelper;
 use app\core\helpers\OrderHelper;
-use app\core\helpers\PaymentHelper;
-use app\core\helpers\OrderReasonHelper;
 
 /**
  * This is the model class for table "{{%order}}".

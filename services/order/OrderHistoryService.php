@@ -3,9 +3,9 @@
 namespace app\services\order;
 
 use DomainException;
-use app\entities\User;
-use app\entities\Order;
-use app\entities\OrderHistory;
+use app\modules\auth\models\User;
+use app\modules\order\models\Order;
+use app\modules\order\models\OrderHistory;
 
 /**
  * Order history service

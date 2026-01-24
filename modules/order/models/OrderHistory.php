@@ -1,9 +1,10 @@
 <?php
 
-namespace app\entities;
+namespace app\modules\order\models;
 
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+use app\modules\auth\models\User;
 
 /**
  * This is the model class for table "{{%order_history}}".

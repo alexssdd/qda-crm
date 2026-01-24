@@ -1,9 +1,10 @@
 <?php
 
-namespace app\entities;
+namespace app\modules\order\models;
 
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+use app\modules\auth\models\User;
 
 /**
  * This is the model class for table "{{%order_event}}".
@@ -18,8 +19,8 @@ use yii\db\ActiveRecord;
  * @property int|null $created_by
  *
  * @property User $createdBy
- * @property OrderHistory $history
  * @property Order $order
+ * @property OrderHistory $history
  */
 class OrderEvent extends ActiveRecord
 {

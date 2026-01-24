@@ -4,11 +4,10 @@ namespace app\services\order;
 
 use Exception;
 use DomainException;
-use app\entities\User;
-use app\entities\Order;
-use yii\db\ActiveRecord;
-use app\entities\OrderEvent;
-use app\entities\OrderHistory;
+use app\modules\auth\models\User;
+use app\modules\order\models\Order;
+use app\modules\order\models\OrderEvent;
+use app\modules\order\models\OrderHistory;
 
 /**
  * Order event service
@@ -58,9 +57,6 @@ class OrderEventService
         return $model;
     }
 
-    /**
-     * @return OrderHistory|ActiveRecord|null
-     */
     protected function getLastHistory(): ?OrderHistory
     {
         return OrderHistory::find()
