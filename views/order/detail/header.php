@@ -20,6 +20,10 @@ use app\modules\order\models\Order;
                 <span class="order-header__label">Дата:</span>
                 <span class="order-header__value"><?= ''  ?></span>
             </div>
+            <div class="order-header__item">
+                <span class="order-header__label">Оператор:</span>
+                <span class="order-header__value"><?= '' ?></span>
+            </div>
         </div>
     </div>
     <div class="order-header__right">
