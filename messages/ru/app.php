@@ -17,6 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'order.type.cargo' => 'Грузовой',
+    'order.type.truck' => 'Фура',
+    'order.type.evacuator' => 'Эвакуатор',
+    'order.type.manipulator' => 'Манипулятор',
+    'order.type.equipment' => 'Спецтехника',
+    'order.type.train' => 'ЖД',
+    'order.type.unknown' => 'Неизвестно',
+
     'Address' => 'Адрес',
     'Address successfully created' => 'Адрес доставки успешно создан',
     'Address successfully updated' => 'Адрес доставки успешно изменен',

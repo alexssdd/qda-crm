@@ -2,6 +2,7 @@
 
 namespace app\modules\order\models;
 
+use app\modules\location\models\Country;
 use Exception;
 use DomainException;
 use yii\db\ActiveQuery;
@@ -45,7 +46,7 @@ use app\core\helpers\OrderHelper;
  * @property int $account_id
  *
  * @property User $handler
- * @property Customer $customer
+ * @property Country $country
  * @property Store $store
  * @property User $executor
  * @property User $createdBy
@@ -112,9 +113,9 @@ class Order extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getHandler(): ActiveQuery
+    public function getCountry(): ActiveQuery
     {
-        return $this->hasOne(User::class, ['id' => 'handler_id']);
+        return $this->hasOne(Country::class, ['code' => 'country_code']);
     }
 
     /**
@@ -218,23 +219,6 @@ class Order extends ActiveRecord
     public function getMerchant(): ActiveQuery
     {
         return $this->hasOne(Merchant::class, ['id' => 'merchant_id']);
-    }
-
-    /**
-     * @return ActiveQuery
-     */
-    public function getCourier(): ActiveQuery
-    {
-        return $this->hasOne(OrderCourier::class, ['order_id' => 'id']);
-    }
-
-    /**
-     * @return ActiveQuery
-     */
-    public function getCancelReason(): ActiveQuery
-    {
-        return $this->hasOne(OrderReason::class, ['order_id' => 'id'])
-            ->andOnCondition(['action' => OrderReasonHelper::ACTION_CANCEL]);
     }
 
     /**

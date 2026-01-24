@@ -46,6 +46,16 @@ use app\modules\order\helpers\OrderHistoryHelper;
             }
         ],
         [
+            'attribute' => 'type',
+            'label' => 'Тип',
+            'format' => 'raw',
+            'options' => ['width' => 105],
+            'filter' => OrderHelper::getTypes(),
+            'value' => function (Order $model) {
+                return OrderHelper::getTypeName($model->type);
+            }
+        ],
+        [
             'attribute' => 'name',
             'label' => 'Клиент',
             'format' => 'raw',
@@ -70,12 +80,12 @@ use app\modules\order\helpers\OrderHistoryHelper;
             }
         ],
         [
-            'attribute' => 'city_id',
-            'label' => 'Город',
+            'attribute' => 'country_code',
+            'label' => 'Страна',
             'options' => ['width' => 120],
-            'filter' => [],
+            'filter' => OrderHelper::getCountries(),
             'value' => function (Order $model) {
-                return '';
+                return $model->country ? $model->country->name : null;
             }
         ],
         [
@@ -92,7 +102,7 @@ use app\modules\order\helpers\OrderHistoryHelper;
             'label' => 'Сумма',
             'options' => ['width' => 85],
             'value' => function (Order $model) {
-                // return OrderHelper::getCostTotalLabel($model);
+                return OrderHelper::getPriceLabel($model);
             }
         ],
         [

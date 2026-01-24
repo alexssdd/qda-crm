@@ -35,7 +35,8 @@ class OrderSearch extends Model
     public $payment_method;
     public $name;
     public $phone;
-    public $city_id;
+    public $country_code;
+    public $type;
     public $store_id;
     public $channel;
     public $cost;
@@ -82,14 +83,8 @@ class OrderSearch extends Model
     public function rules(): array
     {
         return [
-            [[
-                'id', 'number', 'city_id', 'store_id', 'channel', 'status', 'handler_id', 'delivery_method',
-                'payment_method', 'event', 'account_wb', 'account_ozon'
-            ], 'integer'],
-            [[
-                'name', 'phone', 'cost', 'vendor_id', 'vendor_number', 'transferred', 'my', 'receipt_sale',
-                'receipt_return', 'sku', 'cost'
-            ], 'safe'],
+            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'event'], 'integer'],
+            [['name', 'phone', 'cost', 'vendor_id', 'vendor_number', 'transferred', 'my', 'cost', 'country_code'], 'safe'],
             [['date_range'], 'match', 'pattern' => '/^.+\s\-\s.+$/']
         ];
     }
@@ -119,6 +114,8 @@ class OrderSearch extends Model
 
         // Filter by equal
         $query->andFilterWhere([
+            'orders.country_code' => $this->country_code,
+            'orders.type' => $this->type,
             'orders.store_id' => $this->store_id,
             'orders.channel' => $this->channel,
             'orders.handler_id' => $this->handler_id,
