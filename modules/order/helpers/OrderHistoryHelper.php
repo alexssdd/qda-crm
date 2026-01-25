@@ -33,7 +33,7 @@ class OrderHistoryHelper
         $timeHandled = null;
         $timeFinished = null;
 
-        $ruleAccepted = [30, 60]; // 30 minutes good, 1 hours normal
+        $ruleAccepted = [2, 5]; // 2 minutes good, 5 min normal
         $ruleHandled = [30, 60]; // 30 minutes good, 1 hours normal
         $ruleFinished = [600, 1440]; // 10 hours good, 24 hours normal
 
