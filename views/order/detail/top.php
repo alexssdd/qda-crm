@@ -60,7 +60,7 @@ use app\modules\order\helpers\OrderHelper;
         </tr>
         </tbody>
     </table>
-    <div style="margin-top: 10px">Fields</div>
+    <div style="margin-top: 10px">Additional Fields</div>
     <table class="order-products">
         <tbody>
         <tr>
