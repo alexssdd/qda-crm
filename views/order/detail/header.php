@@ -17,10 +17,6 @@ use app\modules\order\helpers\OrderHelper;
                 <span class="order-header__value"><?= $order->number ?></span>
             </div>
             <div class="order-header__item">
-                <span class="order-header__label">ID:</span>
-                <span class="order-header__value"><?= $order->id ?></span>
-            </div>
-            <div class="order-header__item">
                 <span class="order-header__label">Дата:</span>
                 <span class="order-header__value"><?= OrderHelper::getCreated($order) ?></span>
             </div>
