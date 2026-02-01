@@ -24,10 +24,6 @@ use app\modules\order\helpers\OrderHelper;
                 <span class="order-header__label">Source ID:</span>
                 <span class="order-header__value"><?= $order->source_id ?></span>
             </div>
-            <div class="order-header__item">
-                <span class="order-header__label">Source Number:</span>
-                <span class="order-header__value"></span>
-            </div>
         </div>
     </div>
     <div class="order-header__right">
