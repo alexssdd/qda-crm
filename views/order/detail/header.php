@@ -32,6 +32,14 @@ use app\modules\order\helpers\OrderHelper;
     </div>
     <div class="order-header__right">
         <div class="order-header__items">
+            <div class="order-header__item">
+                <span class="order-header__label"></span>
+                <span class="order-header__value"></span>
+            </div>
+            <div class="order-header__item">
+                <span class="order-header__label"></span>
+                <span class="order-header__value"></span>
+            </div>
         </div>
         <div class="order-header__time"></div>
     </div>
