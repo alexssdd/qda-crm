@@ -79,7 +79,7 @@ class Order extends ActiveRecord
      */
     public function generateNumber(): void
     {
-        $target = LogHelper::TARGET_ORDER_GENERATE_NUMBER;
+        $target = LogHelper::TARGET_ORDER_NUMBER_GENERATE;
         $attempts = 0;
         $maxAttempts = 3;
 
