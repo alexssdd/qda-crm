@@ -96,4 +96,12 @@ class OrderHelper
             default => Yii::t('app', 'order.price_type.unknown'),
         };
     }
+
+    public static function getCreated(Order $order): ?string
+    {
+        if (!$order->created_at) {
+            return null;
+        }
+        return Yii::$app->formatter->asDatetime($order->created_at);
+    }
 }
