@@ -60,6 +60,23 @@ use app\modules\order\helpers\OrderHelper;
         </tr>
         </tbody>
     </table>
+    <div style="margin-top: 10px">Fields</div>
+    <table class="order-products">
+        <tbody>
+        <tr>
+            <td>Key</td>
+            <?php foreach (OrderHelper::getAdditionalFields($order) as $item): ?>
+                <td><?= htmlspecialchars($item['name']) ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <?php foreach (OrderHelper::getAdditionalFields($order) as $item): ?>
+                <td><?= htmlspecialchars($item['value']) ?></td>
+            <?php endforeach; ?>
+        </tr>
+        </tbody>
+    </table>
     <div class="order-total">
         <div class="order-total__left"></div>
         <div class="order-total__right">

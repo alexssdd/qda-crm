@@ -17,12 +17,12 @@ use app\modules\order\helpers\OrderHelper;
                 <span class="order-header__value"><?= $order->number ?></span>
             </div>
             <div class="order-header__item">
-                <span class="order-header__label">Дата:</span>
-                <span class="order-header__value"><?= OrderHelper::getCreated($order) ?></span>
-            </div>
-            <div class="order-header__item">
                 <span class="order-header__label">Source ID:</span>
                 <span class="order-header__value"><?= $order->source_id ?></span>
+            </div>
+            <div class="order-header__item">
+                <span class="order-header__label">Дата:</span>
+                <span class="order-header__value"><?= OrderHelper::getCreated($order) ?></span>
             </div>
         </div>
     </div>

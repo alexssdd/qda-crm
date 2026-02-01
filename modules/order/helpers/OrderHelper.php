@@ -152,4 +152,17 @@ class OrderHelper
         }
         return "{$order->to_lat}, {$order->to_lng}";
     }
+
+    public static function getAdditionalFields(Order $order): array
+    {
+        $result = [];
+
+        foreach ($order->extra_fields as $name => $value) {
+            $result[] = [
+                'name' => $name,
+                'value' => $value,
+            ];
+        }
+        return $result;
+    }
 }
