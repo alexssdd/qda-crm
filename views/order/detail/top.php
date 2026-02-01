@@ -1,8 +1,10 @@
 <?php
 
+use yii\helpers\Html;
 use yii\web\View;
 use app\core\helpers\UserHelper;
-use app\core\helpers\OrderHelper;
+use app\modules\order\models\Order;
+use app\modules\order\helpers\OrderHelper;
 
 /* @var $order Order */
 /* @var $this View */
@@ -29,37 +31,39 @@ use app\core\helpers\OrderHelper;
         <thead>
             <tr>
                 <th width="30">#</th>
-                <th width="82">SKU</th>
-                <th>Товар</th>
-                <th width="70">Цена</th>
-                <th width="55">Кол-во</th>
-                <th width="220">Сборка</th>
+                <th width="30">Direction</th>
+                <th width="82">Country</th>
+                <th width="82">Location</th>
+                <th width="100">Label</th>
+                <th width="200">Address</th>
+                <th width="150">Lat, Lng</th>
             </tr>
         </thead>
         <tbody>
-
+            <tr>
+                <td>1</td>
+                <td>From</td>
+                <td><?= OrderHelper::getFromCountry($order) ?></td>
+                <td><?= OrderHelper::getFromLocation($order) ?></td>
+                <td><?= Html::encode($order->from_name) ?></td>
+                <td><?= Html::encode($order->from_address) ?></td>
+                <td><?= OrderHelper::getFromCoordinates($order) ?></td>
+            </tr>
+        <tr>
+            <td>2</td>
+            <td>To</td>
+            <td><?= OrderHelper::getToCountry($order) ?></td>
+            <td><?= OrderHelper::getToLocation($order) ?></td>
+            <td><?= Html::encode($order->to_name) ?></td>
+            <td><?= Html::encode($order->to_address) ?></td>
+            <td><?= OrderHelper::getToCoordinates($order) ?></td>
+        </tr>
         </tbody>
     </table>
     <div class="order-total">
         <div class="order-total__left"></div>
         <div class="order-total__right">
-            <div class="order-total__items">
-                <div class="order-total__item">
-                    <div class="order-total__label">Сумма заказа</div>
-                    <div class="order-total__divider"></div>
-                    <div class="order-total__value"><?= '' ?> ₸</div>
-                </div>
-                <div class="order-total__item">
-                    <div class="order-total__label">Доставка</div>
-                    <div class="order-total__divider"></div>
-                    <div class="order-total__value"></div>
-                </div>
-                <div class="order-total__item">
-                    <div class="order-total__label">Итого</div>
-                    <div class="order-total__divider"></div>
-                    <div class="order-total__value"></div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

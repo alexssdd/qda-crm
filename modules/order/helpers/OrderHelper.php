@@ -104,4 +104,52 @@ class OrderHelper
         }
         return Yii::$app->formatter->asDatetime($order->created_at);
     }
+
+    public static function getFromCountry(Order $order): ?string
+    {
+        if (!$order->locationFrom) {
+            return null;
+        }
+        return $order->locationFrom->country->name;
+    }
+
+    public static function getToCountry(Order $order): ?string
+    {
+        if (!$order->locationTo) {
+            return null;
+        }
+        return $order->locationTo->country->name;
+    }
+
+    public static function getFromLocation(Order $order): ?string
+    {
+        if (!$order->locationFrom) {
+            return null;
+        }
+        return $order->locationFrom->name;
+    }
+
+    public static function getToLocation(Order $order): ?string
+    {
+        if (!$order->locationTo) {
+            return null;
+        }
+        return $order->locationTo->name;
+    }
+
+    public static function getFromCoordinates(Order $order): ?string
+    {
+        if (!$order->from_lat || !$order->from_lng) {
+            return null;
+        }
+        return "{$order->from_lat}, {$order->from_lng}";
+    }
+
+    public static function getToCoordinates(Order $order): ?string
+    {
+        if (!$order->to_lat || !$order->to_lng) {
+            return null;
+        }
+        return "{$order->to_lat}, {$order->to_lng}";
+    }
 }
