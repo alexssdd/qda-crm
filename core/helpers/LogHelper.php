@@ -23,6 +23,7 @@ class LogHelper
 
     // Pro
     const TARGET_PRO_BID = 'pro.create';
+    const TARGET_PRO_ORDER_STATUS = 'pro.order.status';
 
     // Order
     const TARGET_ORDER_NUMBER_GENERATE = 'order.number.generate';
@@ -60,6 +61,7 @@ class LogHelper
             self::TARGET_CLIENT_ORDER_CREATE => 'CLIENT_ORDER_CREATE',
             self::TARGET_CLIENT_ORDER_STATUS => 'CLIENT_ORDER_STATUS',
             self::TARGET_PRO_BID => 'PRO_BID',
+            self::TARGET_PRO_ORDER_STATUS => 'PRO_ORDER_STATUS',
         ];
     }
 
