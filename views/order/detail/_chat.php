@@ -1,8 +1,8 @@
 <?php
 
-use app\entities\Order;
-use app\core\helpers\TextHelper;
-use app\core\helpers\OrderEventHelper;
+use app\modules\order\helpers\OrderEventHelper;
+use app\modules\order\helpers\OrderTextHelper;
+use app\modules\order\models\Order;
 use app\modules\auth\helpers\UserHelper;
 use app\modules\order\helpers\OrderHelper;
 
@@ -40,7 +40,7 @@ use app\modules\order\helpers\OrderHelper;
                     <?php if ($icon = OrderEventHelper::getIconClass($event->type)) : ?>
                         <i class="order-chat__icon <?= $icon ?>"></i>
                     <?php endif; ?>
-                    <?= TextHelper::getOrderMessage($event) ?>
+                    <?= OrderTextHelper::getMessage($event) ?>
                 </div>
             </div>
             <div class="order-chat__date"><?= date('d.m.y H:i', $event->created_at) ?></div>

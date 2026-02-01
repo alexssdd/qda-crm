@@ -12,7 +12,7 @@ use app\modules\auth\models\User;
  * @property int $id
  * @property int $order_id
  * @property int $history_id
- * @property int|null $type
+ * @property string|null $type
  * @property string|null $message
  * @property array|null $data
  * @property int|null $created_at
