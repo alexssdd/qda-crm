@@ -15,9 +15,14 @@ class OrderTextHelper
         if ($event->type === OrderHistoryEvent::BID_CREATE->value) {
             $bidId = ArrayHelper::getValue($event->data, 'bid_id');
             $price = ArrayHelper::getValue($event->data, 'price');
+            $executor = ArrayHelper::getValue($event->data, 'executor');
             $header = 'Новый отклик';
 
             $body = '';
+
+            if ($executor) {
+                $body .= "<span class='order-chat__detail'>Исполнитель: " . $executor . "</span>";
+            }
 
             if ($price) {
                 $body .= "<span class='order-chat__detail'>Цена: " . $price . "</span>";
