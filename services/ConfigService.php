@@ -18,7 +18,7 @@ class ConfigService
     public function __construct()
     {
         $this->cache = Yii::$app->cache;
-        $this->encryptionKey = Yii::$app->params['configEncryptionKey'];
+        $this->encryptionKey = Yii::$app->params['config.encryption.key'];
     }
 
     public function get(string $group, string $key, $default = null)

@@ -1,4 +1,4 @@
 <?php
 return [
-    'configEncryptionKey' => '',
+    'config.encryption.key' => '',
 ];
