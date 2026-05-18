@@ -16,6 +16,7 @@ class m250001_000001_create_config_table extends Migration
             'type' => $this->integer(),
             'values' => $this->json(),
             'encrypted_values' => $this->json(),
+            'previews' => $this->json()->null(),
         ]);
 
         $this->createIndex('uq-config-tenant-key', $this->tableName, ['key', 'region', 'direction'], true);
