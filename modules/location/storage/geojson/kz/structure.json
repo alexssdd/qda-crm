@@ -2173,6 +2173,34 @@
       ],
       "districts": [
         {
+          "slug": "beyneu",
+          "names": {
+            "ru": "Бейнеуский район",
+            "kk": "Бейнеу ауданы",
+            "en": "Beyneu District"
+          },
+          "keywords": [
+            "бейнеу",
+            "beyneu",
+            "бейнеуский район"
+          ]
+        },
+        {
+          "slug": "karakiya",
+          "names": {
+            "ru": "Каракиянский район",
+            "kk": "Қарақия ауданы",
+            "en": "Karakiya District"
+          },
+          "keywords": [
+            "каракия",
+            "қарақия",
+            "karakiya",
+            "курык",
+            "каракиянский район"
+          ]
+        },
+        {
           "slug": "mangystau",
           "names": {
             "ru": "Мангистауский район",
@@ -2180,11 +2208,10 @@
             "en": "Mangystau District"
           },
           "keywords": [
-            "мангистауский",
-            "мангистау",
-            "mangystau",
-            "манғыстау",
-            "mangistau"
+            "мангистауский район",
+            "маңғыстау ауданы",
+            "шетпе",
+            "mangystau district"
           ]
         },
         {
@@ -2196,10 +2223,9 @@
           },
           "keywords": [
             "мунайлы",
-            "munaily",
-            "munaily district",
             "мұнайлы",
-            "мунайлинский"
+            "munaily",
+            "мунайлинский район"
           ]
         },
         {
@@ -2211,10 +2237,10 @@
           },
           "keywords": [
             "тупкараган",
-            "tupkaragan",
-            "tupqaragan",
             "түпқараған",
-            "ф. шевченко район"
+            "tupkaragan",
+            "форт-шевченко",
+            "тупкараганский район"
           ]
         }
       ],
@@ -2228,22 +2254,23 @@
           },
           "keywords": [
             "актау",
-            "aqtau",
-            "aktau city",
-            "город актау"
+            "ақтау",
+            "aktau",
+            "шевченко"
           ]
         },
         {
-          "slug": "fort-shevchenko",
+          "slug": "zhanaozen",
           "names": {
-            "ru": "Форт-Шевченко",
-            "kk": "Форт-Шевченко",
-            "en": "Fort-Shevchenko"
+            "ru": "Жанаозен",
+            "kk": "Жаңаөзен",
+            "en": "Zhanaozen"
           },
           "keywords": [
-            "форт шевченко",
-            "форт-шевченко",
-            "fort shevchenko"
+            "жанаозен",
+            "жаңаөзен",
+            "zhanaozen",
+            "новый узень"
           ]
         }
       ]
