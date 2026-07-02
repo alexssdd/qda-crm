@@ -791,86 +791,105 @@
       ],
       "districts": [
         {
-          "slug": "izhevsk",
+          "slug": "zhylyoi",
           "names": {
-            "ru": "Ижевск",
-            "kk": "Ижевск",
-            "en": "Izhevsk"
+            "ru": "Жылыойский район",
+            "kk": "Жылыой ауданы",
+            "en": "Zhylyoi District"
           },
           "keywords": [
-            "ижевск", "izhevsk", "ижевск ауданы", "izhevsk district"
+            "жылыой",
+            "zhylyoi",
+            "кульсары",
+            "кулсары",
+            "жылыойский район"
           ]
         },
         {
-          "slug": "kulsary",
+          "slug": "inder",
           "names": {
-            "ru": "Кульсары",
-            "kk": "Құлсары",
-            "en": "Kulsary"
+            "ru": "Индерский район",
+            "kk": "Индер ауданы",
+            "en": "Inder District"
           },
           "keywords": [
-            "кульсары", "kulsary", "құлсары", "qulsary",
-            "kulsary district", "кульсары ауданы"
+            "индер",
+            "inder",
+            "индерборский",
+            "индерский район"
+          ]
+        },
+        {
+          "slug": "isatay",
+          "names": {
+            "ru": "Исатайский район",
+            "kk": "Исатай ауданы",
+            "en": "Isatay District"
+          },
+          "keywords": [
+            "исатай",
+            "isatay",
+            "аккистау",
+            "исатайский район"
           ]
         },
         {
           "slug": "kurmangazy",
           "names": {
-            "ru": "Курмангазы",
-            "kk": "Құрманғазы",
-            "en": "Kurmangazy"
+            "ru": "Курмангазинский район",
+            "kk": "Құрманғазы ауданы",
+            "en": "Kurmangazy District"
           },
           "keywords": [
-            "курмангазы", "kurmangazy", "құрманғазы", "kurmangazy district",
-            "курмангазы ауданы"
+            "курмангазы",
+            "құрманғазы",
+            "kurmangazy",
+            "ганюшкино",
+            "курмангазинский район"
           ]
         },
         {
-          "slug": "kzyl-koga",
+          "slug": "kyzylkoga",
           "names": {
-            "ru": "Кзылкогa",
-            "kk": "Қызылқоға",
-            "en": "Kyzylkoga"
+            "ru": "Кызылкогинский район",
+            "kk": "Қызылқоға ауданы",
+            "en": "Kyzylkoga District"
           },
           "keywords": [
-            "кзылкога", "kyzylkoga", "қызылқоға", "kzyl koga",
-            "kyzylkoga district", "кызылкога ауданы"
+            "кызылкога",
+            "қызылқоға",
+            "kyzylkoga",
+            "миялы",
+            "кзылкогинский район",
+            "кызылкогинский район"
           ]
         },
         {
           "slug": "makat",
           "names": {
-            "ru": "Макат",
-            "kk": "Мақат",
-            "en": "Makat"
+            "ru": "Макатский район",
+            "kk": "Мақат ауданы",
+            "en": "Makat District"
           },
           "keywords": [
-            "макат", "makat", "мақат", "makat district",
-            "макат ауданы"
+            "макат",
+            "мақат",
+            "makat",
+            "доссор",
+            "макатский район"
           ]
         },
         {
           "slug": "makhambet",
           "names": {
-            "ru": "Махамбет",
-            "kk": "Махамбет",
-            "en": "Makhambet"
+            "ru": "Махамбетский район",
+            "kk": "Махамбет ауданы",
+            "en": "Makhambet District"
           },
           "keywords": [
-            "махамбет", "makhambet", "mahambet", "махамбет ауданы",
-            "makhambet district"
-          ]
-        },
-        {
-          "slug": "zhylyoi",
-          "names": {
-            "ru": "Жылыой",
-            "kk": "Жылыой",
-            "en": "Zhylyoi"
-          },
-          "keywords": [
-            "жылыой", "zhyloi", "zhylyoi", "жылой",
-            "zhylyoi district", "жылыой ауданы"
+            "махамбет",
+            "makhambet",
+            "махамбетский район"
           ]
         }
       ],
@@ -883,30 +902,10 @@
             "en": "Atyrau"
           },
           "keywords": [
-            "атырау", "atyrau", "atray", "atirau",
-            "атырау город", "atyrau city"
-          ]
-        },
-        {
-          "slug": "kulsary",
-          "names": {
-            "ru": "Кульсары",
-            "kk": "Құлсары",
-            "en": "Kulsary"
-          },
-          "keywords": [
-            "кульсары", "kulsary", "qulsary", "құлсары"
-          ]
-        },
-        {
-          "slug": "zhylyoi",
-          "names": {
-            "ru": "Жылыой",
-            "kk": "Жылыой",
-            "en": "Zhylyoi"
-          },
-          "keywords": [
-            "жылыой", "zhyloi", "zhylyoi"
+            "атырау",
+            "atyrau",
+            "гурьев",
+            "guryev"
           ]
         }
       ]
