@@ -3020,48 +3020,22 @@
             "улытау",
             "ұлытау",
             "ulytau",
-            "ули тау"
+            "улытауский район"
           ]
         },
         {
-          "slug": "zhezkazgan",
+          "slug": "zhanaarka",
           "names": {
-            "ru": "Жезказганский район",
-            "kk": "Жезқазған ауданы",
-            "en": "Zhezkazgan District"
+            "ru": "Жанааркинский район",
+            "kk": "Жаңаарқа ауданы",
+            "en": "Zhanaarka District"
           },
           "keywords": [
-            "жезказган",
-            "жезқазған",
-            "zhezkazgan",
-            "dzhez"
-          ]
-        },
-        {
-          "slug": "karkaraly",
-          "names": {
-            "ru": "Каркаралинский район",
-            "kk": "Қарқаралы ауданы",
-            "en": "Karkaraly District"
-          },
-          "keywords": [
-            "каркаралы",
-            "қарқаралы",
-            "karkaraly",
-            "каркаралинский"
-          ]
-        },
-        {
-          "slug": "shet",
-          "names": {
-            "ru": "Шетский район",
-            "kk": "Шет ауданы",
-            "en": "Shet District"
-          },
-          "keywords": [
-            "шет",
-            "шет ауданы",
-            "shet"
+            "жанаарка",
+            "жаңаарқа",
+            "zhanaarka",
+            "атасу",
+            "жанааркинский район"
           ]
         }
       ],
@@ -3076,7 +3050,8 @@
           "keywords": [
             "жезказган",
             "жезқазған",
-            "zhezkazgan"
+            "zhezkazgan",
+            "джезказган"
           ]
         },
         {
@@ -3089,13 +3064,14 @@
           "keywords": [
             "сатпаев",
             "сәтбаев",
-            "satpayev"
+            "satpayev",
+            "никольский"
           ]
         },
         {
           "slug": "karazhal",
           "names": {
-            "ru": "Каразhal",
+            "ru": "Каражал",
             "kk": "Қаражал",
             "en": "Karazhal"
           },
