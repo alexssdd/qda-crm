@@ -2295,45 +2295,33 @@
       ],
       "districts": [
         {
-          "slug": "akku",
+          "slug": "akkuli",
           "names": {
-            "ru": "Аккуский район",
-            "kk": "Аққу ауданы",
-            "en": "Aqqu District"
+            "ru": "Аккулинский район",
+            "kk": "Аққулы ауданы",
+            "en": "Akkuli District"
           },
           "keywords": [
-            "акку",
-            "аққу",
-            "akku",
-            "aqqu"
+            "аккулы",
+            "аққулы",
+            "akkuli",
+            "лебяжье",
+            "лебяжинский",
+            "аккулинский район"
           ]
         },
         {
-          "slug": "aksu",
+          "slug": "aktogay",
           "names": {
-            "ru": "Аксуский район",
-            "kk": "Ақсу ауданы",
-            "en": "Aksu District"
+            "ru": "Актогайский район",
+            "kk": "Ақтоғай ауданы",
+            "en": "Aktogay District"
           },
           "keywords": [
-            "аксу район",
-            "ақсу ауданы",
-            "aksu district",
-            "aqsu"
-          ]
-        },
-        {
-          "slug": "ashchekul",
-          "names": {
-            "ru": "Ащекульский район",
-            "kk": "Ащекөл ауданы",
-            "en": "Ashchekul District"
-          },
-          "keywords": [
-            "ащекуль",
-            "ащекөл",
-            "ashchekul",
-            "aschekul"
+            "актогай",
+            "ақтоғай",
+            "aktogay",
+            "актогайский район"
           ]
         },
         {
@@ -2347,46 +2335,48 @@
             "баянаул",
             "баянауыл",
             "bayanaul",
-            "baianaul"
+            "баянаульский район"
           ]
         },
         {
-          "slug": "ekibastuz",
+          "slug": "zhelezinka",
           "names": {
-            "ru": "Экибастузский район",
-            "kk": "Екібастұз ауданы",
-            "en": "Ekibastuz District"
+            "ru": "Железинский район",
+            "kk": "Железин ауданы",
+            "en": "Zhelezinka District"
           },
           "keywords": [
-            "экибастуз район",
-            "екібастұз",
-            "ekibastuz district"
+            "железинка",
+            "zhelezinka",
+            "железинский район"
           ]
         },
         {
-          "slug": "ermentau",
+          "slug": "irtyshsk",
           "names": {
-            "ru": "Ерментауский район",
-            "kk": "Ерментау ауданы",
-            "en": "Ermentau District"
+            "ru": "Иртышский район",
+            "kk": "Ертіс ауданы",
+            "en": "Irtyshsk District"
           },
           "keywords": [
-            "ерментау",
-            "ерментау",
-            "ermentau"
+            "иртышск",
+            "ертіс",
+            "irtyshsk",
+            "иртышский район"
           ]
         },
         {
-          "slug": "irbyz",
+          "slug": "may",
           "names": {
-            "ru": "Ирбизский район",
-            "kk": "Ірбіз ауданы",
-            "en": "Irbyz District"
+            "ru": "Майский район",
+            "kk": "Май ауданы",
+            "en": "May District"
           },
           "keywords": [
-            "ирбиз",
-            "ірбіз",
-            "irbyz"
+            "майский район",
+            "май ауданы",
+            "коктобе",
+            "may district"
           ]
         },
         {
@@ -2397,22 +2387,52 @@
             "en": "Pavlodar District"
           },
           "keywords": [
-            "павлодар район",
+            "павлодарский район",
             "павлодар ауданы",
-            "pavlodar district"
+            "кенжеколь"
           ]
         },
         {
-          "slug": "zhelezin",
+          "slug": "terenkol",
           "names": {
-            "ru": "Железинский район",
-            "kk": "Железин ауданы",
-            "en": "Zhelezin District"
+            "ru": "Теренкольский район",
+            "kk": "Тереңкөл ауданы",
+            "en": "Terenkol District"
           },
           "keywords": [
-            "железин",
-            "zhelezin",
-            "железин ауданы"
+            "теренколь",
+            "тереңкөл",
+            "terenkol",
+            "качиры",
+            "качирский",
+            "теренкольский район"
+          ]
+        },
+        {
+          "slug": "uspenka",
+          "names": {
+            "ru": "Успенский район",
+            "kk": "Успен ауданы",
+            "en": "Uspenka District"
+          },
+          "keywords": [
+            "успенка",
+            "uspenka",
+            "успенский район"
+          ]
+        },
+        {
+          "slug": "sherbakty",
+          "names": {
+            "ru": "Щербактинский район",
+            "kk": "Шарбақты ауданы",
+            "en": "Sherbakty District"
+          },
+          "keywords": [
+            "щербакты",
+            "шарбақты",
+            "sherbakty",
+            "щербактинский район"
           ]
         }
       ],
@@ -2426,22 +2446,7 @@
           },
           "keywords": [
             "павлодар",
-            "pavlodar",
-            "павлодар қаласы",
-            "pavlodar city"
-          ]
-        },
-        {
-          "slug": "ekibastuz",
-          "names": {
-            "ru": "Экибастуз",
-            "kk": "Екібастұз",
-            "en": "Ekibastuz"
-          },
-          "keywords": [
-            "экибастуз",
-            "ekibastuz",
-            "екібастұз"
+            "pavlodar"
           ]
         },
         {
@@ -2455,6 +2460,19 @@
             "аксу",
             "ақсу",
             "aksu"
+          ]
+        },
+        {
+          "slug": "ekibastuz",
+          "names": {
+            "ru": "Экибастуз",
+            "kk": "Екібастұз",
+            "en": "Ekibastuz"
+          },
+          "keywords": [
+            "экибастуз",
+            "екібастұз",
+            "ekibastuz"
           ]
         }
       ]
