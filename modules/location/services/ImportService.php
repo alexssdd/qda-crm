@@ -206,6 +206,9 @@ class ImportService
 
         $extraFields = $location->extra_fields;
         $extraFields['names'] = $names;
+        if (isset($meta['population'])) {
+            $extraFields['population'] = (int)$meta['population'];
+        }
         $location->extra_fields = $extraFields;
         $location->search_keywords = $keywords ? implode(',', $keywords) : null;
         $location->updated_at = time();
@@ -260,12 +263,14 @@ class ImportService
         // Собираем финальный GeoJSON
         $geojson = [
             'type' => 'FeatureCollection',
-            'metadata' => [
+            'metadata' => array_filter([
                 'slug' => $meta['slug'],
                 'type' => $meta['type'],
                 'names' => $meta['names'] ?? [],
                 'search_keywords' => $mergedKeywords,
-            ],
+                // население — для ранжирования popular/suggest (только у городов)
+                'population' => isset($meta['population']) ? (int)$meta['population'] : null,
+            ], fn($v) => $v !== null),
             'features' => [
                 [
                     'type' => 'Feature',

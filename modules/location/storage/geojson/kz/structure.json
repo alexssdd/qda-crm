@@ -156,6 +156,7 @@
       "cities": [
         {
           "slug": "almaty",
+          "population": 2250000,
           "names": {
             "ru": "Алматы",
             "kk": "Алматы",
@@ -171,6 +172,7 @@
         },
         {
           "slug": "konaev",
+          "population": 40000,
           "names": {
             "ru": "Конаев",
             "kk": "Қонаев",
@@ -187,6 +189,7 @@
         },
         {
           "slug": "alatau",
+          "population": 8000,
           "names": {
             "ru": "Алатау",
             "kk": "Алатау",
@@ -482,6 +485,7 @@
       "cities": [
         {
           "slug": "astana",
+          "population": 1500000,
           "names": {
             "ru": "Астана",
             "kk": "Астана",
@@ -501,6 +505,7 @@
         },
         {
           "slug": "kokshetau",
+          "population": 150000,
           "names": {
             "ru": "Кокшетау",
             "kk": "Көкшетау",
@@ -516,6 +521,7 @@
         },
         {
           "slug": "stepnogorsk",
+          "population": 46000,
           "names": {
             "ru": "Степногорск",
             "kk": "Степногорск",
@@ -528,6 +534,7 @@
         },
         {
           "slug": "kosshy",
+          "population": 55000,
           "names": {
             "ru": "Косшы",
             "kk": "Қосшы",
@@ -541,6 +548,7 @@
         },
         {
           "slug": "shchuchinsk",
+          "population": 46000,
           "names": {
             "ru": "Щучинск",
             "kk": "Щучинск",
@@ -756,6 +764,7 @@
       "cities": [
         {
           "slug": "aktobe",
+          "population": 530000,
           "names": {
             "ru": "Актобе",
             "kk": "Ақтөбе",
@@ -896,6 +905,7 @@
       "cities": [
         {
           "slug": "atyrau",
+          "population": 290000,
           "names": {
             "ru": "Атырау",
             "kk": "Атырау",
@@ -1069,6 +1079,7 @@
       "cities": [
         {
           "slug": "semey",
+          "population": 340000,
           "names": {
             "ru": "Семей",
             "kk": "Семей",
@@ -1083,6 +1094,7 @@
         },
         {
           "slug": "kurchatov",
+          "population": 12000,
           "names": {
             "ru": "Курчатов",
             "kk": "Курчатов",
@@ -1294,6 +1306,7 @@
       "cities": [
         {
           "slug": "oral",
+          "population": 250000,
           "names": {
             "ru": "Уральск",
             "kk": "Орал",
@@ -1456,6 +1469,7 @@
       "cities": [
         {
           "slug": "taldykorgan",
+          "population": 145000,
           "names": {
             "ru": "Талдыкорган",
             "kk": "Талдықорған",
@@ -1469,6 +1483,7 @@
         },
         {
           "slug": "tekeli",
+          "population": 21000,
           "names": {
             "ru": "Текели",
             "kk": "Текелі",
@@ -1610,6 +1625,7 @@
       "cities": [
         {
           "slug": "karaganda",
+          "population": 510000,
           "names": {
             "ru": "Караганда",
             "kk": "Қарағанды",
@@ -1623,6 +1639,7 @@
         },
         {
           "slug": "balkhash",
+          "population": 78000,
           "names": {
             "ru": "Балхаш",
             "kk": "Балқаш",
@@ -1636,6 +1653,7 @@
         },
         {
           "slug": "priozersk",
+          "population": 13000,
           "names": {
             "ru": "Приозёрск",
             "kk": "Приозёрск",
@@ -1649,6 +1667,7 @@
         },
         {
           "slug": "saran",
+          "population": 40000,
           "names": {
             "ru": "Сарань",
             "kk": "Саран",
@@ -1662,6 +1681,7 @@
         },
         {
           "slug": "temirtau",
+          "population": 180000,
           "names": {
             "ru": "Темиртау",
             "kk": "Теміртау",
@@ -1675,6 +1695,7 @@
         },
         {
           "slug": "shakhtinsk",
+          "population": 38000,
           "names": {
             "ru": "Шахтинск",
             "kk": "Шахтинск",
@@ -1943,6 +1964,7 @@
       "cities": [
         {
           "slug": "kostanay",
+          "population": 270000,
           "names": {
             "ru": "Костанай",
             "kk": "Қостанай",
@@ -1957,6 +1979,7 @@
         },
         {
           "slug": "arkalyk",
+          "population": 28000,
           "names": {
             "ru": "Аркалык",
             "kk": "Арқалық",
@@ -1970,6 +1993,7 @@
         },
         {
           "slug": "lisakovsk",
+          "population": 40000,
           "names": {
             "ru": "Лисаковск",
             "kk": "Лисаковск",
@@ -1982,6 +2006,7 @@
         },
         {
           "slug": "rudny",
+          "population": 110000,
           "names": {
             "ru": "Рудный",
             "kk": "Рудный",
@@ -2122,6 +2147,7 @@
       "cities": [
         {
           "slug": "kyzylorda",
+          "population": 260000,
           "names": {
             "ru": "Кызылорда",
             "kk": "Қызылорда",
@@ -2135,6 +2161,7 @@
         },
         {
           "slug": "baikonur",
+          "population": 60000,
           "names": {
             "ru": "Байконур",
             "kk": "Байқоңыр",
@@ -2247,6 +2274,7 @@
       "cities": [
         {
           "slug": "aktau",
+          "population": 230000,
           "names": {
             "ru": "Актау",
             "kk": "Ақтау",
@@ -2261,6 +2289,7 @@
         },
         {
           "slug": "zhanaozen",
+          "population": 120000,
           "names": {
             "ru": "Жанаозен",
             "kk": "Жаңаөзен",
@@ -2439,6 +2468,7 @@
       "cities": [
         {
           "slug": "pavlodar",
+          "population": 370000,
           "names": {
             "ru": "Павлодар",
             "kk": "Павлодар",
@@ -2451,6 +2481,7 @@
         },
         {
           "slug": "aksu",
+          "population": 45000,
           "names": {
             "ru": "Аксу",
             "kk": "Ақсу",
@@ -2464,6 +2495,7 @@
         },
         {
           "slug": "ekibastuz",
+          "population": 155000,
           "names": {
             "ru": "Экибастуз",
             "kk": "Екібастұз",
@@ -2687,6 +2719,7 @@
       "cities": [
         {
           "slug": "petropavl",
+          "population": 220000,
           "names": {
             "ru": "Петропавловск",
             "kk": "Петропавл",
@@ -2942,6 +2975,7 @@
       "cities": [
         {
           "slug": "shymkent",
+          "population": 1200000,
           "names": {
             "ru": "Шымкент",
             "kk": "Шымкент",
@@ -2960,6 +2994,7 @@
         },
         {
           "slug": "kentau",
+          "population": 60000,
           "names": {
             "ru": "Кентау",
             "kk": "Кентау",
@@ -2973,6 +3008,7 @@
         },
         {
           "slug": "arys",
+          "population": 40000,
           "names": {
             "ru": "Арыс",
             "kk": "Арыс",
@@ -2983,6 +3019,18 @@
             "арысь",
             "arys",
             "arys city"
+          ]
+        },
+        {
+          "slug": "turkestan",
+          "population": 200000,
+          "names": {
+            "ru": "Туркестан",
+            "kk": "Түркістан",
+            "en": "Turkestan"
+          },
+          "keywords": [
+            "туркестан", "түркістан", "turkestan", "туркистан", "яссы"
           ]
         }
       ]
@@ -3042,6 +3090,7 @@
       "cities": [
         {
           "slug": "zhezkazgan",
+          "population": 90000,
           "names": {
             "ru": "Жезказган",
             "kk": "Жезқазған",
@@ -3056,6 +3105,7 @@
         },
         {
           "slug": "satpayev",
+          "population": 60000,
           "names": {
             "ru": "Сатпаев",
             "kk": "Сәтбаев",
@@ -3070,6 +3120,7 @@
         },
         {
           "slug": "karazhal",
+          "population": 20000,
           "names": {
             "ru": "Каражал",
             "kk": "Қаражал",
@@ -3251,6 +3302,7 @@
       "cities": [
         {
           "slug": "taraz",
+          "population": 360000,
           "names": {
             "ru": "Тараз",
             "kk": "Тараз",
@@ -3416,6 +3468,7 @@
       "cities": [
         {
           "slug": "oskemen",
+          "population": 350000,
           "names": {
             "ru": "Усть-Каменогорск",
             "kk": "Өскемен",
@@ -3432,6 +3485,7 @@
         },
         {
           "slug": "ridder",
+          "population": 44000,
           "names": {
             "ru": "Риддер",
             "kk": "Риддер",
