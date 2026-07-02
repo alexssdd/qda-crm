@@ -1512,21 +1512,39 @@
             "en": "Abai District"
           },
           "keywords": [
-            "абай", "abai", "абайский район", "abai district",
-            "абай ауданы", "абай караганда", "abai karaganda"
+            "абай",
+            "abai",
+            "абайский район",
+            "топар"
+          ]
+        },
+        {
+          "slug": "aktogay",
+          "names": {
+            "ru": "Актогайский район",
+            "kk": "Ақтоғай ауданы",
+            "en": "Aktogay District"
+          },
+          "keywords": [
+            "актогай",
+            "ақтоғай",
+            "aktogay",
+            "актогайский район"
           ]
         },
         {
           "slug": "bukhar-zhyrau",
           "names": {
             "ru": "Бухар-Жырауский район",
-            "kk": "Бұқар жырау ауданы",
+            "kk": "Бұхар жырау ауданы",
             "en": "Bukhar-Zhyrau District"
           },
           "keywords": [
-            "бухар жырау", "bukhar zhyrau", "buhar zhyrau",
-            "бұқар жырау", "bukhar-zhyrau district",
-            "бухар жырау район"
+            "бухар-жырау",
+            "бұхар жырау",
+            "bukhar-zhyrau",
+            "ботакара",
+            "бухар-жырауский район"
           ]
         },
         {
@@ -1537,8 +1555,11 @@
             "en": "Karkaraly District"
           },
           "keywords": [
-            "каркаралы", "karkaraly", "каркаралинск", "karkaralinsk",
-            "қарқаралы", "karkaraly district"
+            "каркаралы",
+            "қарқаралы",
+            "karkaraly",
+            "каркаралинск",
+            "каркаралинский район"
           ]
         },
         {
@@ -1549,19 +1570,26 @@
             "en": "Nura District"
           },
           "keywords": [
-            "нура", "nura", "нұра", "nura district", "нуринский"
+            "нура",
+            "нұра",
+            "nura",
+            "киевка",
+            "нуринский район"
           ]
         },
         {
-          "slug": "oskemen",
+          "slug": "osakarovka",
           "names": {
             "ru": "Осакаровский район",
             "kk": "Осакаров ауданы",
-            "en": "Osakarov District"
+            "en": "Osakarovka District"
           },
           "keywords": [
-            "осакаровка", "osakarovka", "осакаровский район",
-            "osakarov district", "oskemен", "oskemen"
+            "осакаровка",
+            "осакаров",
+            "osakarovka",
+            "молодежное",
+            "осакаровский район"
           ]
         },
         {
@@ -1572,42 +1600,10 @@
             "en": "Shet District"
           },
           "keywords": [
-            "шет", "shet", "шетский район", "shet district",
-            "шет ауданы"
-          ]
-        },
-        {
-          "slug": "shtyr",
-          "names": {
-            "ru": "Штыринский район",
-            "kk": "Штыр ауданы",
-            "en": "Shtyr District"
-          },
-          "keywords": [
-            "штыр", "shtyr", "штыр ауданы", "shtyr district"
-          ]
-        },
-        {
-          "slug": "ulken",
-          "names": {
-            "ru": "Ұлкен",
-            "kk": "Үлкен",
-            "en": "Ulken"
-          },
-          "keywords": [
-            "улкен", "ulken", "үлкен", "ulken district"
-          ]
-        },
-        {
-          "slug": "zhanazhol",
-          "names": {
-            "ru": "Жанажол",
-            "kk": "Жаңажол",
-            "en": "Zhanazhol"
-          },
-          "keywords": [
-            "жанажол", "zhanazhol", "жаңажол", "janajol",
-            "zhanazhol district"
+            "шет",
+            "shet",
+            "аксу-аюлы",
+            "шетский район"
           ]
         }
       ],
@@ -1620,8 +1616,9 @@
             "en": "Karaganda"
           },
           "keywords": [
-            "карагнда", "karaganda", "қарағанды", "karagandy",
-            "karaganda city"
+            "караганда",
+            "қарағанды",
+            "karaganda"
           ]
         },
         {
@@ -1632,30 +1629,22 @@
             "en": "Balkhash"
           },
           "keywords": [
-            "балхаш", "balkhash", "балқаш", "balqash",
-            "balkash"
-          ]
-        },
-        {
-          "slug": "jem",
-          "names": {
-            "ru": "Жем",
-            "kk": "Жем",
-            "en": "Zhem"
-          },
-          "keywords": [
-            "жем", "zhem", "jem"
+            "балхаш",
+            "балқаш",
+            "balkhash"
           ]
         },
         {
           "slug": "priozersk",
           "names": {
-            "ru": "Приозерск",
-            "kk": "Приозерск",
+            "ru": "Приозёрск",
+            "kk": "Приозёрск",
             "en": "Priozersk"
           },
           "keywords": [
-            "приозерск", "priozersk", "priozersk city"
+            "приозерск",
+            "приозёрск",
+            "priozersk"
           ]
         },
         {
@@ -1666,29 +1655,9 @@
             "en": "Saran"
           },
           "keywords": [
-            "сарань", "saran", "cаран", "saran city"
-          ]
-        },
-        {
-          "slug": "shakhtinsk",
-          "names": {
-            "ru": "Шахтинск",
-            "kk": "Шахтинск",
-            "en": "Shakhtinsk"
-          },
-          "keywords": [
-            "шахтинск", "shakhtinsk", "shahtinsk"
-          ]
-        },
-        {
-          "slug": "stepnogorsk",
-          "names": {
-            "ru": "Степногорск",
-            "kk": "Степногорск",
-            "en": "Stepnogorsk"
-          },
-          "keywords": [
-            "степногорск", "stepnogorsk"
+            "сарань",
+            "саран",
+            "saran"
           ]
         },
         {
@@ -1699,7 +1668,21 @@
             "en": "Temirtau"
           },
           "keywords": [
-            "темиртау", "temirtau", "теміртау", "temirtaw"
+            "темиртау",
+            "теміртау",
+            "temirtau"
+          ]
+        },
+        {
+          "slug": "shakhtinsk",
+          "names": {
+            "ru": "Шахтинск",
+            "kk": "Шахтинск",
+            "en": "Shakhtinsk"
+          },
+          "keywords": [
+            "шахтинск",
+            "shakhtinsk"
           ]
         }
       ]
