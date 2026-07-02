@@ -1710,188 +1710,233 @@
       ],
       "districts": [
         {
+          "slug": "altynsarin",
+          "names": {
+            "ru": "Алтынсаринский район",
+            "kk": "Алтынсарин ауданы",
+            "en": "Altynsarin District"
+          },
+          "keywords": [
+            "алтынсарин",
+            "altynsarin",
+            "убаганское",
+            "алтынсаринский район"
+          ]
+        },
+        {
           "slug": "amangeldy",
           "names": {
-            "ru": "Амангельды",
-            "kk": "Амангелді",
-            "en": "Amangeldy"
+            "ru": "Амангельдинский район",
+            "kk": "Амангелді ауданы",
+            "en": "Amangeldy District"
           },
           "keywords": [
-            "амангельды", "amangeldy", "амангелды", "amangeldi",
-            "аманғелді", "amangeldi district", "амангельды ауданы"
+            "амангельды",
+            "амангелді",
+            "amangeldy",
+            "амангельдинский район"
           ]
         },
         {
-          "slug": "arkalyk",
+          "slug": "auliekol",
           "names": {
-            "ru": "Аркалык",
-            "kk": "Арқалық",
-            "en": "Arkalyk"
+            "ru": "Аулиекольский район",
+            "kk": "Әулиекөл ауданы",
+            "en": "Auliekol District"
           },
           "keywords": [
-            "аркалык", "arkalyk", "арқалық", "arqalyk",
-            "arkalyk district"
+            "аулиеколь",
+            "әулиекөл",
+            "auliekol",
+            "аулиекольский район"
           ]
         },
         {
-          "slug": "auer",
+          "slug": "denisovka",
           "names": {
-            "ru": "Ауэр",
-            "kk": "Ауэр",
-            "en": "Auer"
+            "ru": "Денисовский район",
+            "kk": "Денисов ауданы",
+            "en": "Denisovka District"
           },
           "keywords": [
-            "ауэр", "auer", "ауер", "auer district"
+            "денисовка",
+            "denisovka",
+            "денисовский район"
           ]
         },
         {
-          "slug": "denov",
+          "slug": "zhangeldin",
           "names": {
-            "ru": "Денов",
-            "kk": "Денов",
-            "en": "Denov"
+            "ru": "Джангельдинский район",
+            "kk": "Жангелдин ауданы",
+            "en": "Zhangeldin District"
           },
           "keywords": [
-            "денов", "denov", "денов ауданы", "denov district"
+            "джангельдин",
+            "жангельдин",
+            "zhangeldin",
+            "торгай",
+            "тургай",
+            "джангельдинский район"
           ]
         },
         {
-          "slug": "fedorov",
+          "slug": "zhitikara",
           "names": {
-            "ru": "Федоров",
-            "kk": "Федоров",
-            "en": "Fedorov"
+            "ru": "Житикаринский район",
+            "kk": "Жітіқара ауданы",
+            "en": "Zhitikara District"
           },
           "keywords": [
-            "федоров", "fedorov", "федоровский", "fedorov district"
-          ]
-        },
-        {
-          "slug": "karasu",
-          "names": {
-            "ru": "Карасу",
-            "kk": "Қарасу",
-            "en": "Karasu"
-          },
-          "keywords": [
-            "карасу", "karasu", "қарасу", "karasy", "karasu district"
-          ]
-        },
-        {
-          "slug": "karazhal",
-          "names": {
-            "ru": "Каражал",
-            "kk": "Қаражал",
-            "en": "Karazhal"
-          },
-          "keywords": [
-            "каражал", "karazhal", "қаражал", "karajal",
-            "karazhal district"
+            "житикара",
+            "жітіқара",
+            "zhitikara",
+            "джетыгара",
+            "житикаринский район"
           ]
         },
         {
           "slug": "kamysty",
           "names": {
-            "ru": "Камысты",
-            "kk": "Қамысты",
-            "en": "Kamysty"
+            "ru": "Камыстинский район",
+            "kk": "Қамысты ауданы",
+            "en": "Kamysty District"
           },
           "keywords": [
-            "камысты", "kamysty", "қамысты", "qamysty",
-            "kamysty district"
+            "камысты",
+            "қамысты",
+            "kamysty",
+            "камыстинский район"
+          ]
+        },
+        {
+          "slug": "karabalyk",
+          "names": {
+            "ru": "Карабалыкский район",
+            "kk": "Қарабалық ауданы",
+            "en": "Karabalyk District"
+          },
+          "keywords": [
+            "карабалык",
+            "қарабалық",
+            "karabalyk",
+            "карабалыкский район"
+          ]
+        },
+        {
+          "slug": "karasu",
+          "names": {
+            "ru": "Карасуский район",
+            "kk": "Қарасу ауданы",
+            "en": "Karasu District"
+          },
+          "keywords": [
+            "карасу",
+            "қарасу",
+            "karasu",
+            "карасуский район"
           ]
         },
         {
           "slug": "kostanay",
           "names": {
-            "ru": "Костанай",
-            "kk": "Қостанай",
-            "en": "Kostanay"
+            "ru": "Костанайский район",
+            "kk": "Қостанай ауданы",
+            "en": "Kostanay District"
           },
           "keywords": [
-            "костанай", "kostanay", "қостанай", "kostanai",
-            "kostanay district"
+            "костанайский район",
+            "затобольск",
+            "тобыл",
+            "tobyl"
           ]
         },
         {
-          "slug": "nauryzum",
+          "slug": "mendykara",
           "names": {
-            "ru": "Наурызым",
-            "kk": "Наурызым",
-            "en": "Nauryzum"
+            "ru": "Мендыкаринский район",
+            "kk": "Меңдіқара ауданы",
+            "en": "Mendykara District"
           },
           "keywords": [
-            "наурызым", "nauryzum", "nauryz", "nawrızym",
-            "nauryzum district"
+            "мендыкара",
+            "меңдіқара",
+            "mendykara",
+            "боровской",
+            "мендыкаринский район"
           ]
         },
         {
-          "slug": "rutul",
+          "slug": "naurzum",
           "names": {
-            "ru": "Рутул",
-            "kk": "Рутул",
-            "en": "Rutul"
+            "ru": "Наурзумский район",
+            "kk": "Наурызым ауданы",
+            "en": "Naurzum District"
           },
           "keywords": [
-            "рутул", "rutul", "рутул ауданы", "rutul district"
+            "наурзум",
+            "наурызым",
+            "naurzum",
+            "караменды",
+            "наурзумский район"
+          ]
+        },
+        {
+          "slug": "beimbet-maylin",
+          "names": {
+            "ru": "Район Беимбета Майлина",
+            "kk": "Бейімбет Майлин ауданы",
+            "en": "Beimbet Maylin District"
+          },
+          "keywords": [
+            "беимбет майлин",
+            "бейімбет майлин",
+            "beimbet maylin",
+            "тарановское",
+            "тарановский район"
           ]
         },
         {
           "slug": "sarykol",
           "names": {
-            "ru": "Сарыколь",
-            "kk": "Сарыкөл",
-            "en": "Sarykol"
+            "ru": "Сарыкольский район",
+            "kk": "Сарыкөл ауданы",
+            "en": "Sarykol District"
           },
           "keywords": [
-            "сарыколь", "sarykol", "сарыкөл", "sarykol district",
-            "sary-kol"
-          ]
-        },
-        {
-          "slug": "taran",
-          "names": {
-            "ru": "Таран",
-            "kk": "Таран",
-            "en": "Taran"
-          },
-          "keywords": [
-            "таран", "taran", "таран ауданы", "taran district"
+            "сарыколь",
+            "сарыкөл",
+            "sarykol",
+            "сарыкольский район"
           ]
         },
         {
           "slug": "uzunkol",
           "names": {
-            "ru": "Узунколь",
-            "kk": "Ұзынкөл",
-            "en": "Uzunkol"
+            "ru": "Узункольский район",
+            "kk": "Ұзынкөл ауданы",
+            "en": "Uzunkol District"
           },
           "keywords": [
-            "узунколь", "uzunkol", "ұзынкөл", "uzynkol",
-            "uzunkol district"
+            "узунколь",
+            "ұзынкөл",
+            "uzunkol",
+            "узункольский район"
           ]
         },
         {
-          "slug": "zhangel",
+          "slug": "fyodorov",
           "names": {
-            "ru": "Жангел",
-            "kk": "Жангел",
-            "en": "Zhangel"
+            "ru": "Фёдоровский район",
+            "kk": "Фёдоров ауданы",
+            "en": "Fyodorov District"
           },
           "keywords": [
-            "жангэл", "zhangel", "zhangel district"
-          ]
-        },
-        {
-          "slug": "zhitykara",
-          "names": {
-            "ru": "Житикара",
-            "kk": "Жітіқара",
-            "en": "Zhitykara"
-          },
-          "keywords": [
-            "житикара", "zhitikara", "zhitykara", "жітіқара",
-            "zhitykara district"
+            "федоровка",
+            "фёдоровка",
+            "fyodorov",
+            "фёдоровский район",
+            "федоровский район"
           ]
         }
       ],
@@ -1904,8 +1949,10 @@
             "en": "Kostanay"
           },
           "keywords": [
-            "костанай", "kostanay", "қостанай", "kostanai",
-            "kostanay city"
+            "костанай",
+            "қостанай",
+            "kostanay",
+            "кустанай"
           ]
         },
         {
@@ -1916,7 +1963,9 @@
             "en": "Arkalyk"
           },
           "keywords": [
-            "аркалык", "arkalyk", "arqalyk"
+            "аркалык",
+            "арқалық",
+            "arkalyk"
           ]
         },
         {
@@ -1927,7 +1976,8 @@
             "en": "Lisakovsk"
           },
           "keywords": [
-            "лисаковск", "lisakovsk", "lisakovsk city"
+            "лисаковск",
+            "lisakovsk"
           ]
         },
         {
@@ -1938,18 +1988,9 @@
             "en": "Rudny"
           },
           "keywords": [
-            "рудный", "rudny", "ruudnyi", "rudnii"
-          ]
-        },
-        {
-          "slug": "zhitykara-city",
-          "names": {
-            "ru": "Житикара",
-            "kk": "Жітіқара",
-            "en": "Zhitykara"
-          },
-          "keywords": [
-            "житикара", "zhitykara", "жітіқара"
+            "рудный",
+            "rudny",
+            "рудник"
           ]
         }
       ]
