@@ -1301,19 +1301,86 @@
             "en": "Aksu District"
           },
           "keywords": [
-            "аксу", "аксушкии", "aksy", "aqsu", "aksu",
-            "аксу район", "aqsu audany", "aksu district"
+            "аксу",
+            "ақсу",
+            "aksu",
+            "жансугуров",
+            "аксуский район"
           ]
         },
         {
-          "slug": "alka",
+          "slug": "alakol",
           "names": {
-            "ru": "Алка",
-            "kk": "Алқа",
-            "en": "Alka"
+            "ru": "Алакольский район",
+            "kk": "Алакөл ауданы",
+            "en": "Alakol District"
           },
           "keywords": [
-            "алка", "alka", "алқа", "alka district"
+            "алаколь",
+            "алакөл",
+            "alakol",
+            "ушарал",
+            "алакольский район"
+          ]
+        },
+        {
+          "slug": "eskeldi",
+          "names": {
+            "ru": "Ескельдинский район",
+            "kk": "Ескелді ауданы",
+            "en": "Eskeldi District"
+          },
+          "keywords": [
+            "ескельды",
+            "ескелді",
+            "eskeldi",
+            "карабулак",
+            "ескельдинский район"
+          ]
+        },
+        {
+          "slug": "karatal",
+          "names": {
+            "ru": "Каратальский район",
+            "kk": "Қаратал ауданы",
+            "en": "Karatal District"
+          },
+          "keywords": [
+            "каратал",
+            "қаратал",
+            "karatal",
+            "уштобе",
+            "каратальский район"
+          ]
+        },
+        {
+          "slug": "kerbulak",
+          "names": {
+            "ru": "Кербулакский район",
+            "kk": "Кербұлақ ауданы",
+            "en": "Kerbulak District"
+          },
+          "keywords": [
+            "кербулак",
+            "кербұлақ",
+            "kerbulak",
+            "сарыозек",
+            "кербулакский район"
+          ]
+        },
+        {
+          "slug": "koksu",
+          "names": {
+            "ru": "Коксуский район",
+            "kk": "Көксу ауданы",
+            "en": "Koksu District"
+          },
+          "keywords": [
+            "коксу",
+            "көксу",
+            "koksu",
+            "балпык би",
+            "коксуский район"
           ]
         },
         {
@@ -1324,20 +1391,26 @@
             "en": "Panfilov District"
           },
           "keywords": [
-            "панфилов", "panfilov", "панфиловский", "panfilov district",
-            "панфилов ауданы"
+            "панфилов",
+            "panfilov",
+            "жаркент",
+            "jarkent",
+            "панфиловский район"
           ]
         },
         {
           "slug": "sarkand",
           "names": {
-            "ru": "Сарканский район",
+            "ru": "Саркандский район",
             "kk": "Сарқан ауданы",
             "en": "Sarkand District"
           },
           "keywords": [
-            "саркан", "sarkand", "сарқан", "sarkan",
-            "sarkand district", "саркан район"
+            "сарканд",
+            "сарқан",
+            "sarkand",
+            "саркан",
+            "саркандский район"
           ]
         }
       ],
@@ -1350,7 +1423,22 @@
             "en": "Taldykorgan"
           },
           "keywords": [
-            "талдыкорган", "taldykorgan", "талдықорған", "taldykorgan city"
+            "талдыкорган",
+            "талдықорған",
+            "taldykorgan"
+          ]
+        },
+        {
+          "slug": "tekeli",
+          "names": {
+            "ru": "Текели",
+            "kk": "Текелі",
+            "en": "Tekeli"
+          },
+          "keywords": [
+            "текели",
+            "текелі",
+            "tekeli"
           ]
         }
       ]
