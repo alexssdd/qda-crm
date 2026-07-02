@@ -562,138 +562,177 @@
         {
           "slug": "ayteke-bi",
           "names": {
-            "ru": "Айтеке би",
-            "kk": "Әйтеке би",
-            "en": "Aiteke Bi"
+            "ru": "Айтекебийский район",
+            "kk": "Әйтеке би ауданы",
+            "en": "Ayteke Bi District"
           },
           "keywords": [
-            "айтеке би", "aiteke bi", "айтеке", "айтекеби", "aitekebi",
-            "әйтеке би", "әитеке би", "ayteke", "ayteke-bi district",
-            "айтеке би ауданы", "айтеке би район"
+            "айтеке би",
+            "әйтеке би",
+            "ayteke bi",
+            "айтекебийский район",
+            "комсомольское"
+          ]
+        },
+        {
+          "slug": "alga",
+          "names": {
+            "ru": "Алгинский район",
+            "kk": "Алға ауданы",
+            "en": "Alga District"
+          },
+          "keywords": [
+            "алга",
+            "алға",
+            "alga",
+            "алгинский район"
           ]
         },
         {
           "slug": "bayganin",
           "names": {
-            "ru": "Байганин",
-            "kk": "Байғанин",
-            "en": "Baiganin"
+            "ru": "Байганинский район",
+            "kk": "Байғанин ауданы",
+            "en": "Bayganin District"
           },
           "keywords": [
-            "байганин", "baiganin", "байғанин", "baiganin district",
-            "байганин ауданы", "байганинский район"
+            "байганин",
+            "байғанин",
+            "bayganin",
+            "карауылкелды",
+            "байганинский район"
           ]
         },
         {
-          "slug": "karauyt",
+          "slug": "irgiz",
           "names": {
-            "ru": "Карауйт",
-            "kk": "Қарауыт",
-            "en": "Karauyt"
+            "ru": "Иргизский район",
+            "kk": "Ырғыз ауданы",
+            "en": "Irgiz District"
           },
           "keywords": [
-            "карауйт", "karauyt", "қарауыт", "karauyt district"
+            "иргиз",
+            "ырғыз",
+            "irgiz",
+            "иргизский район"
           ]
         },
         {
           "slug": "kargaly",
           "names": {
-            "ru": "Каргалы",
-            "kk": "Қарғалы",
-            "en": "Kargaly"
+            "ru": "Каргалинский район",
+            "kk": "Қарғалы ауданы",
+            "en": "Kargaly District"
           },
           "keywords": [
-            "каргалы", "kargaly", "қарғалы", "kargaly district"
-          ]
-        },
-        {
-          "slug": "khromtau",
-          "names": {
-            "ru": "Хромтау",
-            "kk": "Хромтау",
-            "en": "Khromtau"
-          },
-          "keywords": [
-            "хромтау", "khromtau", "chromtau", "хромтау ауданы"
+            "каргалы",
+            "қарғалы",
+            "kargaly",
+            "бадамша",
+            "каргалинский район"
           ]
         },
         {
           "slug": "kobda",
           "names": {
-            "ru": "Кобда",
-            "kk": "Қобда",
-            "en": "Kobda"
+            "ru": "Хобдинский район",
+            "kk": "Қобда ауданы",
+            "en": "Kobda District"
           },
           "keywords": [
-            "кобда", "kobda", "қобда", "kobda district"
+            "кобда",
+            "хобда",
+            "қобда",
+            "kobda",
+            "кобдинский район",
+            "хобдинский район"
           ]
         },
         {
           "slug": "martuk",
           "names": {
-            "ru": "Мартук",
-            "kk": "Мәртөк",
-            "en": "Martuk"
+            "ru": "Мартукский район",
+            "kk": "Мәртөк ауданы",
+            "en": "Martuk District"
           },
           "keywords": [
-            "мартук", "martuk", "мәртөк", "martuk district"
+            "мартук",
+            "мәртөк",
+            "martuk",
+            "мартукский район"
           ]
         },
         {
           "slug": "mugalzhar",
           "names": {
-            "ru": "Мугалжар",
-            "kk": "Мұғалжар",
-            "en": "Mugalzhar"
+            "ru": "Мугалжарский район",
+            "kk": "Мұғалжар ауданы",
+            "en": "Mugalzhar District"
           },
           "keywords": [
-            "мугалжар", "mugalzhar", "мұғалжар", "mugaljar",
-            "mugalzhar district"
-          ]
-        },
-        {
-          "slug": "oigur",
-          "names": {
-            "ru": "Ойгур",
-            "kk": "Ұйғыр",
-            "en": "Oigur"
-          },
-          "keywords": [
-            "ойгур", "oigur", "ұйғыр", "uyghur", "oigur district"
-          ]
-        },
-        {
-          "slug": "shalkar",
-          "names": {
-            "ru": "Шалкар",
-            "kk": "Шалқар",
-            "en": "Shalkar"
-          },
-          "keywords": [
-            "шалкар", "shalkar", "шалқар", "shalqar",
-            "shalkar district"
+            "мугалжар",
+            "мұғалжар",
+            "mugalzhar",
+            "кандыагаш",
+            "эмба",
+            "мугалжарский район"
           ]
         },
         {
           "slug": "temir",
           "names": {
-            "ru": "Темир",
-            "kk": "Темір",
-            "en": "Temir"
+            "ru": "Темирский район",
+            "kk": "Темір ауданы",
+            "en": "Temir District"
           },
           "keywords": [
-            "темир", "temir", "темір", "temir district"
+            "темир",
+            "темір",
+            "temir",
+            "шубаркудук",
+            "темирский район"
           ]
         },
         {
-          "slug": "yrgyz",
+          "slug": "uil",
           "names": {
-            "ru": "Ыргыз",
-            "kk": "Ырғыз",
-            "en": "Yrgys"
+            "ru": "Уилский район",
+            "kk": "Ойыл ауданы",
+            "en": "Uil District"
           },
           "keywords": [
-            "ыргыз", "yrgyz", "yrgys", "ырғыз", "yrgyz district"
+            "уил",
+            "ойыл",
+            "uil",
+            "уилский район"
+          ]
+        },
+        {
+          "slug": "khromtau",
+          "names": {
+            "ru": "Хромтауский район",
+            "kk": "Хромтау ауданы",
+            "en": "Khromtau District"
+          },
+          "keywords": [
+            "хромтау",
+            "khromtau",
+            "хромтауский район"
+          ]
+        },
+        {
+          "slug": "shalkar",
+          "names": {
+            "ru": "Шалкарский район",
+            "kk": "Шалқар ауданы",
+            "en": "Shalkar District"
+          },
+          "keywords": [
+            "шалкар",
+            "шалқар",
+            "shalkar",
+            "челкар",
+            "шалкарский район"
           ]
         }
       ],
@@ -706,40 +745,11 @@
             "en": "Aktobe"
           },
           "keywords": [
-            "актобе", "aktobe", "ақтөбе", "aktobe city", "aktoebe"
-          ]
-        },
-        {
-          "slug": "khromtau",
-          "names": {
-            "ru": "Хромтау",
-            "kk": "Хромтау",
-            "en": "Khromtau"
-          },
-          "keywords": [
-            "хромтау", "khromtau", "chromtau"
-          ]
-        },
-        {
-          "slug": "kandyagash",
-          "names": {
-            "ru": "Кандыагаш",
-            "kk": "Қандыағаш",
-            "en": "Kandyagash"
-          },
-          "keywords": [
-            "кандыагаш", "kandyagash", "қандыағаш", "kandiagash"
-          ]
-        },
-        {
-          "slug": "martuk-city",
-          "names": {
-            "ru": "Мартук",
-            "kk": "Мәртөк",
-            "en": "Martuk"
-          },
-          "keywords": [
-            "мартук", "martuk", "мәртөк"
+            "актобе",
+            "ақтөбе",
+            "aktobe",
+            "актюбинск",
+            "aktyubinsk"
           ]
         }
       ]
