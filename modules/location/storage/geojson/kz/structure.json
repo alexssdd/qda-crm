@@ -2507,9 +2507,8 @@
           "keywords": [
             "айыртау",
             "aiyrtau",
-            "айыртау ауданы",
-            "saumalkol",
-            "саумалкөл"
+            "саумалколь",
+            "айыртауский район"
           ]
         },
         {
@@ -2523,33 +2522,23 @@
             "акжар",
             "ақжар",
             "akzhar",
-            "talshik"
+            "талшик",
+            "акжарский район"
           ]
         },
         {
-          "slug": "akshar",
+          "slug": "akkayin",
           "names": {
-            "ru": "Акшарский район",
-            "kk": "Ақшар ауданы",
-            "en": "Akshar District"
+            "ru": "Аккайынский район",
+            "kk": "Аққайың ауданы",
+            "en": "Akkayin District"
           },
           "keywords": [
-            "акшар",
-            "ақшар",
-            "akshar"
-          ]
-        },
-        {
-          "slug": "bulaev",
-          "names": {
-            "ru": "Булаевский район",
-            "kk": "Булаев ауданы",
-            "en": "Bulaev District"
-          },
-          "keywords": [
-            "булаев",
-            "bulaev",
-            "bułaev"
+            "аккайын",
+            "аққайың",
+            "akkayin",
+            "смирново",
+            "аккайынский район"
           ]
         },
         {
@@ -2560,61 +2549,51 @@
             "en": "Esil District"
           },
           "keywords": [
-            "есиль",
-            "есіл",
-            "esil"
+            "есильский район ско",
+            "явленка",
+            "есіл ауданы"
           ]
         },
         {
-          "slug": "kazakh",
+          "slug": "zhambyl",
           "names": {
-            "ru": "Казахский район",
-            "kk": "Қазақ ауданы",
-            "en": "Kazakh District"
+            "ru": "Жамбылский район",
+            "kk": "Жамбыл ауданы",
+            "en": "Zhambyl District"
           },
           "keywords": [
-            "казах",
-            "қазақ",
-            "kazakh"
+            "жамбылский район ско",
+            "пресновка",
+            "жамбыл ауданы"
           ]
         },
         {
-          "slug": "kylshym",
+          "slug": "kyzylzhar",
           "names": {
-            "ru": "Кылшымский район",
-            "kk": "Қылшым ауданы",
-            "en": "Kylshym District"
+            "ru": "Кызылжарский район",
+            "kk": "Қызылжар ауданы",
+            "en": "Kyzylzhar District"
           },
           "keywords": [
-            "кылшым",
-            "қылшым",
-            "kylshym"
+            "кызылжар",
+            "қызылжар",
+            "kyzylzhar",
+            "бесколь",
+            "кызылжарский район"
           ]
         },
         {
-          "slug": "mamlyut",
+          "slug": "mamlyutka",
           "names": {
             "ru": "Мамлютский район",
             "kk": "Мамлют ауданы",
-            "en": "Mamlyut District"
+            "en": "Mamlyutka District"
           },
           "keywords": [
+            "мамлютка",
             "мамлют",
-            "mamlyut",
-            "мамлютка"
-          ]
-        },
-        {
-          "slug": "shalakyn",
-          "names": {
-            "ru": "Шалакынский район",
-            "kk": "Шал ақын ауданы",
-            "en": "Shalakyn District"
-          },
-          "keywords": [
-            "шалакын",
-            "shalakyn",
-            "bulayevo"
+            "mamlyutka",
+            "мамлютский район"
           ]
         },
         {
@@ -2626,47 +2605,82 @@
           },
           "keywords": [
             "тайынша",
-            "тайыншы",
-            "taiynsha"
+            "taiynsha",
+            "красноармейск",
+            "тайыншинский район"
           ]
         },
         {
-          "slug": "timiryazev",
+          "slug": "timiryazevo",
           "names": {
             "ru": "Тимирязевский район",
             "kk": "Тимирязев ауданы",
-            "en": "Timiryazev District"
+            "en": "Timiryazevo District"
           },
           "keywords": [
             "тимирязево",
-            "тимирязев",
-            "timiryazev"
+            "timiryazevo",
+            "тимирязевский район"
           ]
         },
         {
-          "slug": "uzunkol",
+          "slug": "ualikhanov",
           "names": {
-            "ru": "Узункольский район",
-            "kk": "Ұзынкөл ауданы",
-            "en": "Uzunkol District"
+            "ru": "Уалихановский район",
+            "kk": "Уәлихан ауданы",
+            "en": "Ualikhanov District"
           },
           "keywords": [
-            "узунколь",
-            "ұзынкөл",
-            "uzunkol"
+            "уалиханов",
+            "уәлихан",
+            "ualikhanov",
+            "кишкенеколь",
+            "уалихановский район"
           ]
         },
         {
-          "slug": "zharkain",
+          "slug": "gabit-musrepov",
           "names": {
-            "ru": "Жаркаинский район",
-            "kk": "Жарқайың ауданы",
-            "en": "Zharkain District"
+            "ru": "Район Габита Мусрепова",
+            "kk": "Ғабит Мүсірепов ауданы",
+            "en": "Gabit Musrepov District"
           },
           "keywords": [
-            "жаркаин",
-            "жарқайың",
-            "zharkain"
+            "габит мусрепов",
+            "ғабит мүсірепов",
+            "gabit musrepov",
+            "новоишимский",
+            "целинный"
+          ]
+        },
+        {
+          "slug": "magzhan-zhumabayev",
+          "names": {
+            "ru": "Район Магжана Жумабаева",
+            "kk": "Мағжан Жұмабаев ауданы",
+            "en": "Magzhan Zhumabayev District"
+          },
+          "keywords": [
+            "магжан жумабаев",
+            "мағжан жұмабаев",
+            "magzhan zhumabayev",
+            "булаево",
+            "булаевский"
+          ]
+        },
+        {
+          "slug": "shal-akyn",
+          "names": {
+            "ru": "Район Шал Акына",
+            "kk": "Шал ақын ауданы",
+            "en": "Shal Akyn District"
+          },
+          "keywords": [
+            "шал акын",
+            "шал ақын",
+            "shal akyn",
+            "сергеевка",
+            "сергеевский"
           ]
         }
       ],
@@ -2683,19 +2697,6 @@
             "петропавл",
             "petropavl",
             "petropavlovsk"
-          ]
-        },
-        {
-          "slug": "kysylzhulduz",
-          "names": {
-            "ru": "Кызылжулдыз",
-            "kk": "Қызылжұлдыз",
-            "en": "Kyzylzhuldiz"
-          },
-          "keywords": [
-            "кызылжулдыз",
-            "қызылжұлдыз",
-            "kyzylzhuldiz"
           ]
         }
       ]
