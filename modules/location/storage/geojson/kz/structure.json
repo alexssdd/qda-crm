@@ -1120,127 +1120,174 @@
         {
           "slug": "akzhaik",
           "names": {
-            "ru": "Ақжайық",
-            "kk": "Ақжайық",
-            "en": "Akzhaik"
+            "ru": "Акжаикский район",
+            "kk": "Ақжайық ауданы",
+            "en": "Akzhaik District"
           },
           "keywords": [
-            "акжайык", "акжаик", "akzhaik", "aqzhaiyq", "ақжайық",
-            "akzhaik district", "акжайык ауданы"
-          ]
-        },
-        {
-          "slug": "batys",
-          "names": {
-            "ru": "Батыс",
-            "kk": "Батыс",
-            "en": "Batys"
-          },
-          "keywords": [
-            "батыс", "batys", "batys district"
+            "акжаик",
+            "ақжайық",
+            "akzhaik",
+            "чапаев",
+            "акжаикский район"
           ]
         },
         {
           "slug": "bayterek",
           "names": {
-            "ru": "Бәйтерек",
-            "kk": "Бәйтерек",
-            "en": "Baiterek"
+            "ru": "Байтерекский район",
+            "kk": "Бәйтерек ауданы",
+            "en": "Bayterek District"
           },
           "keywords": [
-            "байтерек", "baiterek", "бәйтерек", "baĭterek",
-            "baiterek district"
+            "байтерек",
+            "bayterek",
+            "переметное",
+            "байтерекский район",
+            "зеленовский"
           ]
         },
         {
-          "slug": "bokey-ordin",
+          "slug": "bokeyorda",
           "names": {
-            "ru": "Бөкей Ордасы",
-            "kk": "Бөкей Ордасы",
-            "en": "Bokey Orda"
+            "ru": "Бокейординский район",
+            "kk": "Бөкей ордасы ауданы",
+            "en": "Bokey Orda District"
           },
           "keywords": [
-            "бокейорда", "bokey orda", "бөкей ордасы", "bokey",
-            "bokey-ordin district"
+            "бокейорда",
+            "бөкей ордасы",
+            "bokeyorda",
+            "сайхин",
+            "бокейординский район"
           ]
         },
         {
-          "slug": "karatau",
+          "slug": "burlin",
           "names": {
-            "ru": "Қаратау",
-            "kk": "Қаратау",
-            "en": "Karatau"
+            "ru": "Бурлинский район",
+            "kk": "Бөрлі ауданы",
+            "en": "Burlin District"
           },
           "keywords": [
-            "каратау", "karatau", "қаратау", "qaratau",
-            "karatau district"
+            "бурлинский",
+            "бөрлі",
+            "burlin",
+            "аксай",
+            "бурлинский район"
           ]
         },
         {
-          "slug": "kaspir",
+          "slug": "zhangala",
           "names": {
-            "ru": "Каспий",
-            "kk": "Каспий",
-            "en": "Kaspir"
+            "ru": "Жангалинский район",
+            "kk": "Жаңақала ауданы",
+            "en": "Zhangala District"
           },
           "keywords": [
-            "каспир", "kaspir", "каспий", "kaspiy", "kaspir district"
+            "жангала",
+            "жаңақала",
+            "zhangala",
+            "жангалинский район"
           ]
         },
         {
-          "slug": "kaztalov",
+          "slug": "zhanibek",
           "names": {
-            "ru": "Қазталов",
-            "kk": "Қазталов",
-            "en": "Kaztalov"
+            "ru": "Жанибекский район",
+            "kk": "Жәнібек ауданы",
+            "en": "Zhanibek District"
           },
           "keywords": [
-            "казталов", "kaztalov", "қазталов", "kaztalov district"
+            "жанибек",
+            "жәнібек",
+            "zhanibek",
+            "жанибекский район"
+          ]
+        },
+        {
+          "slug": "kaztalovka",
+          "names": {
+            "ru": "Казталовский район",
+            "kk": "Казталов ауданы",
+            "en": "Kaztalovka District"
+          },
+          "keywords": [
+            "казталовка",
+            "казталов",
+            "kaztalovka",
+            "казталовский район"
+          ]
+        },
+        {
+          "slug": "karatobe",
+          "names": {
+            "ru": "Каратобинский район",
+            "kk": "Қаратөбе ауданы",
+            "en": "Karatobe District"
+          },
+          "keywords": [
+            "каратобе",
+            "қаратөбе",
+            "karatobe",
+            "каратобинский район"
           ]
         },
         {
           "slug": "syrym",
           "names": {
-            "ru": "Сырым",
-            "kk": "Сырым",
-            "en": "Syrym"
+            "ru": "Сырымский район",
+            "kk": "Сырым ауданы",
+            "en": "Syrym District"
           },
           "keywords": [
-            "сырым", "syrym", "сырым ауданы", "syrym district"
+            "сырым",
+            "syrym",
+            "жымпиты",
+            "сырымский район"
           ]
         },
         {
           "slug": "taskala",
           "names": {
-            "ru": "Тасқала",
-            "kk": "Тасқала",
-            "en": "Taskala"
+            "ru": "Таскалинский район",
+            "kk": "Тасқала ауданы",
+            "en": "Taskala District"
           },
           "keywords": [
-            "таскала", "taskala", "тасқала", "taskala district"
+            "таскала",
+            "тасқала",
+            "taskala",
+            "таскалинский район"
           ]
         },
         {
-          "slug": "terek",
+          "slug": "terekti",
           "names": {
-            "ru": "Терек",
-            "kk": "Терек",
-            "en": "Terek"
+            "ru": "Теректинский район",
+            "kk": "Теректі ауданы",
+            "en": "Terekti District"
           },
           "keywords": [
-            "терек", "terek", "terek district"
+            "теректы",
+            "теректі",
+            "terekti",
+            "федоровка",
+            "теректинский район"
           ]
         },
         {
-          "slug": "zhanghali",
+          "slug": "shyngyrlau",
           "names": {
-            "ru": "Жаңғалы",
-            "kk": "Жаңғалы",
-            "en": "Zhanghali"
+            "ru": "Чингирлауский район",
+            "kk": "Шыңғырлау ауданы",
+            "en": "Shyngyrlau District"
           },
           "keywords": [
-            "жангалЫ", "zhanghali", "жаңғалы", "zhangaly",
-            "zhanghali district"
+            "чингирлау",
+            "шыңғырлау",
+            "shyngyrlau",
+            "чингирлауский район"
           ]
         }
       ],
@@ -1248,23 +1295,15 @@
         {
           "slug": "oral",
           "names": {
-            "ru": "Орал",
+            "ru": "Уральск",
             "kk": "Орал",
             "en": "Oral"
           },
           "keywords": [
-            "орал", "oral", "uralsk", "уральск", "oral city"
-          ]
-        },
-        {
-          "slug": "taschau",
-          "names": {
-            "ru": "Тасшау",
-            "kk": "Тасшау",
-            "en": "Taschau"
-          },
-          "keywords": [
-            "тасшау", "taschau", "tas shau"
+            "уральск",
+            "орал",
+            "oral",
+            "uralsk"
           ]
         }
       ]
