@@ -212,7 +212,7 @@ class ImportService
         $location->polygon = new Expression("ST_GeomFromText(:wkt)", [':wkt' => $wkt]);
 
         if (!$location->save(false)) {
-            throw new DomainException("✅ Сохранено: {$name}");
+            throw new DomainException("❌ Ошибка сохранения локации: {$name}");
         }
 
         return $location;
@@ -238,8 +238,12 @@ class ImportService
             ? json_decode(file_get_contents($path), true)
             : null;
 
-        // Извлекаем существующие coordinates
+        // Извлекаем существующую геометрию. Тип ОБЯЗАТЕЛЬНО сохраняем: составные
+        // территории (Астана/Степногорск с эксклавами, Целиноградский с анклавом)
+        // лежат как MultiPolygon — жёсткий 'Polygon' ломал вложенность координат,
+        // и импорт падал с "Array to string conversion" (инцидент 2026-07-03).
         $coordinates = $existing['features'][0]['geometry']['coordinates'] ?? [];
+        $geometryType = $existing['features'][0]['geometry']['type'] ?? 'Polygon';
 
         // Извлекаем существующие keywords
         $existingKeywords = [];
@@ -267,7 +271,7 @@ class ImportService
                     'type' => 'Feature',
                     'id' => 0,
                     'geometry' => [
-                        'type' => 'Polygon',
+                        'type' => $geometryType,
                         'coordinates' => $coordinates
                     ],
                     'properties' => [
