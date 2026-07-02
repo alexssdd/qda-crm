@@ -23,19 +23,6 @@
       ],
       "districts": [
         {
-          "slug": "aksu",
-          "names": {
-            "ru": "Аксуский район",
-            "kk": "Ақсу ауданы",
-            "en": "Aksu District"
-          },
-          "keywords": [
-            "аксу",
-            "ақсу",
-            "aksu"
-          ]
-        },
-        {
           "slug": "balkhash",
           "names": {
             "ru": "Балхашский район",
@@ -43,9 +30,10 @@
             "en": "Balkhash District"
           },
           "keywords": [
-            "балхаш",
-            "балқаш",
-            "balkhash"
+            "балхашский район",
+            "балқаш ауданы",
+            "balkhash",
+            "баканас"
           ]
         },
         {
@@ -56,23 +44,40 @@
             "en": "Enbekshikazakh District"
           },
           "keywords": [
-            "енбекшиказах",
+            "енбекшиказахский",
             "еңбекшіқазақ",
-            "enbekshi",
-            "enbekshikazakh"
+            "enbekshikazakh",
+            "есик",
+            "иссык"
           ]
         },
         {
-          "slug": "ilim",
+          "slug": "zhambyl",
+          "names": {
+            "ru": "Жамбылский район",
+            "kk": "Жамбыл ауданы",
+            "en": "Zhambyl District"
+          },
+          "keywords": [
+            "жамбылский район",
+            "жамбыл ауданы",
+            "узынагаш",
+            "zhambyl district"
+          ]
+        },
+        {
+          "slug": "ili",
           "names": {
             "ru": "Илийский район",
             "kk": "Іле ауданы",
             "en": "Ili District"
           },
           "keywords": [
-            "или",
+            "илийский",
             "іле",
-            "ili"
+            "ili",
+            "отеген батыр",
+            "илийский район"
           ]
         },
         {
@@ -85,89 +90,72 @@
           "keywords": [
             "карасай",
             "қарасай",
-            "karasai"
+            "karasai",
+            "каскелен",
+            "карасайский район"
           ]
         },
         {
-          "slug": "kerbulak",
+          "slug": "kegen",
           "names": {
-            "ru": "Кербулакский район",
-            "kk": "Кербұлақ ауданы",
-            "en": "Kerbulak District"
+            "ru": "Кегенский район",
+            "kk": "Кеген ауданы",
+            "en": "Kegen District"
           },
           "keywords": [
-            "кербулак",
-            "кербұлақ",
-            "kerbulak"
+            "кеген",
+            "kegen",
+            "кегенский район"
           ]
         },
         {
-          "slug": "panfilov",
+          "slug": "raiymbek",
           "names": {
-            "ru": "Панфиловский район",
-            "kk": "Панфилов ауданы",
-            "en": "Panfilov District"
+            "ru": "Райымбекский район",
+            "kk": "Райымбек ауданы",
+            "en": "Raiymbek District"
           },
           "keywords": [
-            "панфилов",
-            "panfilov"
+            "райымбек",
+            "raiymbek",
+            "нарынкол",
+            "райымбекский район"
           ]
         },
         {
-          "slug": "sarkand",
+          "slug": "talgar",
           "names": {
-            "ru": "Сарканский район",
-            "kk": "Сарқан ауданы",
-            "en": "Sarkand District"
+            "ru": "Талгарский район",
+            "kk": "Талғар ауданы",
+            "en": "Talgar District"
           },
           "keywords": [
-            "саркан",
-            "сарқан",
-            "sarkand"
+            "талгар",
+            "талғар",
+            "talgar",
+            "талгарский район"
           ]
         },
         {
-          "slug": "taldykorgan",
+          "slug": "uygur",
           "names": {
-            "ru": "Талдыкорганский район",
-            "kk": "Талдықорған ауданы",
-            "en": "Taldykorgan District"
+            "ru": "Уйгурский район",
+            "kk": "Ұйғыр ауданы",
+            "en": "Uygur District"
           },
           "keywords": [
-            "талдыкорган",
-            "талдықорған",
-            "taldykorgan"
-          ]
-        },
-        {
-          "slug": "zhambyl",
-          "names": {
-            "ru": "Жамбылский район",
-            "kk": "Жамбыл ауданы",
-            "en": "Zhambyl District"
-          },
-          "keywords": [
-            "жамбыл",
-            "zhambyl"
+            "уйгурский",
+            "ұйғыр",
+            "uygur",
+            "чунджа",
+            "шонжы",
+            "уйгурский район"
           ]
         }
       ],
       "cities": [
         {
-          "slug": "taldykorgan",
-          "names": {
-            "ru": "Талдыкорган",
-            "kk": "Талдықорған",
-            "en": "Taldykorgan"
-          },
-          "keywords": [
-            "талдыкорган",
-            "талдықорған",
-            "taldykorgan"
-          ]
-        },
-        {
-          "slug": "almaty-city",
+          "slug": "almaty",
           "names": {
             "ru": "Алматы",
             "kk": "Алматы",
@@ -175,8 +163,37 @@
           },
           "keywords": [
             "алматы",
-            "almati",
-            "almaty"
+            "almaty",
+            "алма-ата",
+            "alma-ata",
+            "алмата"
+          ]
+        },
+        {
+          "slug": "konaev",
+          "names": {
+            "ru": "Конаев",
+            "kk": "Қонаев",
+            "en": "Konaev"
+          },
+          "keywords": [
+            "конаев",
+            "қонаев",
+            "konaev",
+            "капшагай",
+            "капчагай",
+            "kapshagay"
+          ]
+        },
+        {
+          "slug": "alatau",
+          "names": {
+            "ru": "Алатау",
+            "kk": "Алатау",
+            "en": "Alatau"
+          },
+          "keywords": [
+            "алатау", "alatau", "город алатау", "g4 city", "жетыген"
           ]
         }
       ]
