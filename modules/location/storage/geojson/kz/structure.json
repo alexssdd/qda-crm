@@ -2018,75 +2018,17 @@
       ],
       "districts": [
         {
-          "slug": "aran",
+          "slug": "aral",
           "names": {
             "ru": "Аральский район",
             "kk": "Арал ауданы",
             "en": "Aral District"
           },
           "keywords": [
-            "арал", "аралский район", "арал ауданы",
-            "aral", "aralsk", "aral district"
-          ]
-        },
-        {
-          "slug": "besshoky",
-          "names": {
-            "ru": "Бесшокы район",
-            "kk": "Бесшоқы ауданы",
-            "en": "Besshoky District"
-          },
-          "keywords": [
-            "бесшокы", "бес шокы", "besshoky",
-            "beshshoky", "besshoky district"
-          ]
-        },
-        {
-          "slug": "karmakshy",
-          "names": {
-            "ru": "Кармакшинский район",
-            "kk": "Қармақшы ауданы",
-            "en": "Karmakshy District"
-          },
-          "keywords": [
-            "кармакшы", "karmakshy", "қармақшы",
-            "джусалы", "zhusaly", "karmakshy district"
-          ]
-        },
-        {
-          "slug": "kazaly",
-          "names": {
-            "ru": "Казалинский район",
-            "kk": "Қазалы ауданы",
-            "en": "Kazaly District"
-          },
-          "keywords": [
-            "казалы", "kazaly", "қазалы",
-            "айтекеби кзл", "kazaly district"
-          ]
-        },
-        {
-          "slug": "shiyeli",
-          "names": {
-            "ru": "Шиелийский район",
-            "kk": "Шиелі ауданы",
-            "en": "Shiyeli District"
-          },
-          "keywords": [
-            "шиели", "шиили", "shieli", "shiyeli",
-            "шиели ауданы", "shieli district"
-          ]
-        },
-        {
-          "slug": "syrdarya",
-          "names": {
-            "ru": "Сырдарьинский район",
-            "kk": "Сырдария ауданы",
-            "en": "Syrdarya District"
-          },
-          "keywords": [
-            "сырдарья", "сырдария", "syrdarya", "syrdaria",
-            "теренозек", "terenozek"
+            "арал",
+            "aral",
+            "аральск",
+            "аральский район"
           ]
         },
         {
@@ -2097,8 +2039,83 @@
             "en": "Zhalagash District"
           },
           "keywords": [
-            "жалагаш", "жалағаш", "zhalagash",
-            "zhalagash district"
+            "жалагаш",
+            "жалағаш",
+            "zhalagash",
+            "жалагашский район"
+          ]
+        },
+        {
+          "slug": "zhanakorgan",
+          "names": {
+            "ru": "Жанакорганский район",
+            "kk": "Жаңақорған ауданы",
+            "en": "Zhanakorgan District"
+          },
+          "keywords": [
+            "жанакорган",
+            "жаңақорған",
+            "zhanakorgan",
+            "жанакорганский район"
+          ]
+        },
+        {
+          "slug": "kazaly",
+          "names": {
+            "ru": "Казалинский район",
+            "kk": "Қазалы ауданы",
+            "en": "Kazaly District"
+          },
+          "keywords": [
+            "казалы",
+            "қазалы",
+            "kazaly",
+            "казалинск",
+            "казалинский район"
+          ]
+        },
+        {
+          "slug": "karmakshy",
+          "names": {
+            "ru": "Кармакшинский район",
+            "kk": "Қармақшы ауданы",
+            "en": "Karmakshy District"
+          },
+          "keywords": [
+            "кармакшы",
+            "қармақшы",
+            "karmakshy",
+            "жосалы",
+            "кармакшинский район"
+          ]
+        },
+        {
+          "slug": "syrdarya",
+          "names": {
+            "ru": "Сырдарьинский район",
+            "kk": "Сырдария ауданы",
+            "en": "Syrdarya District"
+          },
+          "keywords": [
+            "сырдарья",
+            "сырдария",
+            "syrdarya",
+            "теренозек",
+            "сырдарьинский район"
+          ]
+        },
+        {
+          "slug": "shieli",
+          "names": {
+            "ru": "Шиелийский район",
+            "kk": "Шиелі ауданы",
+            "en": "Shieli District"
+          },
+          "keywords": [
+            "шиели",
+            "шиелі",
+            "shieli",
+            "шиелийский район"
           ]
         }
       ],
@@ -2111,32 +2128,24 @@
             "en": "Kyzylorda"
           },
           "keywords": [
-            "кызылорда", "kyzylorda", "қызылорда",
-            "kzlorda", "kzyl-orda", "kzylorda",
-            "кызылорда город", "kyzylorda city"
+            "кызылорда",
+            "қызылорда",
+            "kyzylorda"
           ]
         },
         {
-          "slug": "aral",
+          "slug": "baikonur",
           "names": {
-            "ru": "Арал",
-            "kk": "Арал",
-            "en": "Aral"
+            "ru": "Байконур",
+            "kk": "Байқоңыр",
+            "en": "Baikonur"
           },
           "keywords": [
-            "арал", "aral", "arał",
-            "аральск", "aralsk"
-          ]
-        },
-        {
-          "slug": "zhalagash",
-          "names": {
-            "ru": "Жалагаш",
-            "kk": "Жалағаш",
-            "en": "Zhalagash"
-          },
-          "keywords": [
-            "жалагаш", "жалағаш", "zhalagash"
+            "байконур",
+            "байқоңыр",
+            "baikonur",
+            "байконыр",
+            "ленинск"
           ]
         }
       ]
