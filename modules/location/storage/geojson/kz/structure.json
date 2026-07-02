@@ -3136,16 +3136,16 @@
         {
           "slug": "altay",
           "names": {
-            "ru": "Алтайский район",
+            "ru": "Район Алтай",
             "kk": "Алтай ауданы",
             "en": "Altay District"
           },
           "keywords": [
             "алтай",
             "altay",
-            "зырян",
-            "zyryanovsk",
-            "зыряновск"
+            "зыряновск",
+            "зыряновский район",
+            "район алтай"
           ]
         },
         {
@@ -3157,9 +3157,21 @@
           },
           "keywords": [
             "глубокое",
-            "glubokoe",
-            "ульба",
-            "ulba"
+            "глубоковский район",
+            "glubokoe"
+          ]
+        },
+        {
+          "slug": "zaysan",
+          "names": {
+            "ru": "Зайсанский район",
+            "kk": "Зайсан ауданы",
+            "en": "Zaysan District"
+          },
+          "keywords": [
+            "зайсан",
+            "zaysan",
+            "зайсанский район"
           ]
         },
         {
@@ -3167,42 +3179,57 @@
           "names": {
             "ru": "Катон-Карагайский район",
             "kk": "Катонқарағай ауданы",
-            "en": "Katon-Karagai District"
+            "en": "Katon-Karagay District"
           },
           "keywords": [
-            "катон карагай",
             "катон-карагай",
-            "katon karagai",
-            "katon-karagai",
-            "катонқарағай",
-            "алтaйский национальный парк"
+            "катонкарағай",
+            "katon-karagay",
+            "катон-карагайский район"
           ]
         },
         {
-          "slug": "kokpekti",
+          "slug": "kurchum",
           "names": {
-            "ru": "Кокпектинский район",
-            "kk": "Көкпекті ауданы",
-            "en": "Kokpekti District"
+            "ru": "Курчумский район",
+            "kk": "Күршім ауданы",
+            "en": "Kurchum District"
           },
           "keywords": [
-            "кокпекти",
-            "көкпекті",
-            "kokpekti",
-            "kokpekty"
+            "курчум",
+            "куршим",
+            "күршім",
+            "kurchum",
+            "курчумский район"
           ]
         },
         {
-          "slug": "shemonaiha",
+          "slug": "samar",
           "names": {
-            "ru": "Шемонаихинский район",
-            "kk": "Шемонаиха ауданы",
-            "en": "Shemonaiha District"
+            "ru": "Самарский район",
+            "kk": "Самар ауданы",
+            "en": "Samar District"
           },
           "keywords": [
-            "шемонаиха",
-            "shemonaiha",
-            "шемонаевский"
+            "самар",
+            "самарское",
+            "samar",
+            "самарский район"
+          ]
+        },
+        {
+          "slug": "tarbagatay",
+          "names": {
+            "ru": "Тарбагатайский район",
+            "kk": "Тарбағатай ауданы",
+            "en": "Tarbagatay District"
+          },
+          "keywords": [
+            "тарбагатай",
+            "тарбағатай",
+            "акжар",
+            "tarbagatay",
+            "тарбагатайский район"
           ]
         },
         {
@@ -3215,20 +3242,21 @@
           "keywords": [
             "улан",
             "ұлан",
-            "ulan"
+            "ulan",
+            "уланский район"
           ]
         },
         {
-          "slug": "urzhar",
+          "slug": "shemonaiha",
           "names": {
-            "ru": "Урджарский район",
-            "kk": "Үржар ауданы",
-            "en": "Urzhar District"
+            "ru": "Шемонаихинский район",
+            "kk": "Шемонаиха ауданы",
+            "en": "Shemonaikha District"
           },
           "keywords": [
-            "урджар",
-            "үржар",
-            "urzhar"
+            "шемонаиха",
+            "shemonaikha",
+            "шемонаихинский район"
           ]
         }
       ],
@@ -3238,15 +3266,15 @@
           "names": {
             "ru": "Усть-Каменогорск",
             "kk": "Өскемен",
-            "en": "Oskemen"
+            "en": "Ust-Kamenogorsk"
           },
           "keywords": [
             "усть-каменогорск",
-            "уск",
-            "остик",
             "оскемен",
-            "öskemen",
-            "oskemen"
+            "өскемен",
+            "ust-kamenogorsk",
+            "oskemen",
+            "устькаман"
           ]
         },
         {
@@ -3259,34 +3287,7 @@
           "keywords": [
             "риддер",
             "ridder",
-            "ледеровск",
-            "leninogorsk"
-          ]
-        },
-        {
-          "slug": "serovodnoe",
-          "names": {
-            "ru": "Сероводное",
-            "kk": "Сероводное",
-            "en": "Serovodnoe"
-          },
-          "keywords": [
-            "сероводное",
-            "serovodnoe"
-          ]
-        },
-        {
-          "slug": "zyryanovsk",
-          "names": {
-            "ru": "Зыряновск",
-            "kk": "Зырян",
-            "en": "Zyryanovsk"
-          },
-          "keywords": [
-            "зыряновск",
-            "zyryanovsk",
-            "зырян",
-            "зырян қаласы"
+            "лениногорск"
           ]
         }
       ]
