@@ -393,7 +393,7 @@
     row-gap: 2px;
 }
 .order-header__right{
-    width: 190px;
+    width: 230px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -402,7 +402,7 @@
 .order-header__item{
     min-width: 0;
     display: grid;
-    grid-template-columns: 105px minmax(0, 1fr);
+    grid-template-columns: max-content minmax(0, 1fr);
     column-gap: 4px;
     align-items: baseline;
 }
