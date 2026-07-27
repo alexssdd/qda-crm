@@ -10,6 +10,7 @@ use app\core\helpers\UserHelper;
 
 // Variables
 $user = UserHelper::getIdentity();
+$isAdmin = UserHelper::isAdmin();
 $isOperator = false;
 $isOnline = false
 
@@ -35,10 +36,11 @@ $isOnline = false
                 [
                     'label' => '<i class="header-menu__icon icon-storage" aria-hidden="true"></i>',
                     'url' => '#',
+                    'visible' => $isAdmin,
                     'template' => '<a class="header-menu__link" href="{url}" title="Справочники" aria-label="Справочники">{label}</a>',
                     'items' => [
-                        ['label' => 'Страны', 'url' => ['/country/index']],
-                        ['label' => 'Локации', 'url' => ['/location/index']],
+                        ['label' => 'Страны', 'url' => ['/country/index'], 'visible' => $isAdmin],
+                        ['label' => 'Локации', 'url' => ['/city/index'], 'visible' => $isAdmin],
                     ]
                 ],
                 [
@@ -56,7 +58,7 @@ $isOnline = false
                             'label' => 'Исполнители', 'url' => ['/executor/index'],
                         ],
                         [
-                            'label' => 'Журнал', 'url' => ['/log/index'],
+                            'label' => 'Журнал', 'url' => ['/log/index'], 'visible' => $isAdmin,
                         ],
                     ]
                 ],
