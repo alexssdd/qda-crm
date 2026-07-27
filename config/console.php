@@ -42,6 +42,10 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'mutex' => [
+            'class' => MysqlMutex::class,
+            'db' => 'db',
+        ],
         'log' => [
             'targets' => [
                 [

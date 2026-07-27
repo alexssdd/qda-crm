@@ -15,6 +15,8 @@ use yii\db\ActiveRecord;
  */
 class Config extends ActiveRecord
 {
+    public const TENANT_GLOBAL = 'global';
+
     /**
      * {@inheritdoc}
      */

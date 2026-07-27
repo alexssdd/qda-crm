@@ -14,6 +14,7 @@ use app\modules\auth\forms\otp\OtpRequestForm;
 class AuthOtpService
 {
     public int $ttl = 120;
+    public int $requestCooldown = 60;
 
     private OtpInterface $provider;
 
@@ -37,23 +38,45 @@ class AuthOtpService
             }
         }
 
-        $code = $this->provider->generateOtp();
-        $hash = Yii::$app->security->generatePasswordHash((string)$code);
-        $now = time();
-        $exp = $now + $this->ttl;
+        $mutex = Yii::$app->mutex;
+        $lockName = 'crm_otp_request_' . $identity->id;
+        if (!$mutex->acquire($lockName, 3)) {
+            return;
+        }
 
-        Yii::$app->db->createCommand()->upsert(
-            AuthOtpCode::tableName(),
-            [
-                'identity_id' => $identity->id,
-                'code_hash' => $hash,
-                'expires_at' => $exp,
-                'created_at' => $now,
-            ]
-        )->execute();
+        try {
+            $now = time();
+            $existingCode = AuthOtpCode::findOne(['identity_id' => $identity->id]);
+            if ($existingCode && $existingCode->created_at + $this->requestCooldown > $now) {
+                return;
+            }
 
-        // Send code
-        $this->provider->sendOtp($form->phone, $code, $language);
+            $code = $this->provider->generateOtp();
+            $hash = Yii::$app->security->generatePasswordHash((string)$code);
+
+            Yii::$app->db->createCommand()->upsert(
+                AuthOtpCode::tableName(),
+                [
+                    'identity_id' => $identity->id,
+                    'code_hash' => $hash,
+                    'expires_at' => $now + $this->ttl,
+                    'created_at' => $now,
+                    'verify_attempts' => 0,
+                ]
+            )->execute();
+
+            try {
+                $this->provider->sendOtp($form->phone, $code, $language);
+            } catch (\Throwable $e) {
+                AuthOtpCode::deleteAll([
+                    'identity_id' => $identity->id,
+                    'code_hash' => $hash,
+                ]);
+                throw $e;
+            }
+        } finally {
+            $mutex->release($lockName);
+        }
     }
 
     public function verify(OtpVerifyForm $form): void
@@ -62,6 +85,7 @@ class AuthOtpService
         $otpCode = $form->getOtpCode();
 
         if (!Yii::$app->security->validatePassword($form->code, $otpCode->code_hash)) {
+            $otpCode->registerFailedAttempt();
             throw new DomainException('Неверный код');
         }
 

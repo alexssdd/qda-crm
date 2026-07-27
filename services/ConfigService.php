@@ -4,6 +4,7 @@ namespace app\services;
 
 use Yii;
 use DomainException;
+use RuntimeException;
 use app\entities\Config;
 use yii\caching\CacheInterface;
 use app\core\helpers\CryptoHelper;
@@ -18,7 +19,11 @@ class ConfigService
     public function __construct()
     {
         $this->cache = Yii::$app->cache;
-        $this->encryptionKey = Yii::$app->params['config.encryption.key'];
+        $encryptionKey = Yii::$app->params['config.encryption.key'] ?? null;
+        if (!is_string($encryptionKey) || $encryptionKey === '') {
+            throw new RuntimeException('config.encryption.key not set in params.');
+        }
+        $this->encryptionKey = $encryptionKey;
     }
 
     public function get(string $group, string $key, $default = null)
@@ -43,7 +48,11 @@ class ConfigService
         $cacheKey = "config:{$group}";
 
         return $this->cache->getOrSet($cacheKey, function () use ($group) {
-            $model = Config::findOne(['key' => $group]);
+            $model = Config::findOne([
+                'key' => $group,
+                'region' => Config::TENANT_GLOBAL,
+                'direction' => Config::TENANT_GLOBAL,
+            ]);
 
             if (!$model) {
                 return [];

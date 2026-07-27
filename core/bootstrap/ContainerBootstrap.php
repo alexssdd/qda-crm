@@ -6,7 +6,7 @@ use Yii;
 use app\services\ConfigService;
 use yii\base\BootstrapInterface;
 use app\modules\auth\providers\OtpInterface;
-use app\modules\auth\providers\FakeOtpProvider;
+use app\modules\auth\providers\KazInfoTehOtpProvider;
 
 class ContainerBootstrap implements BootstrapInterface
 {
@@ -17,11 +17,14 @@ class ContainerBootstrap implements BootstrapInterface
             return new ConfigService();
         });
 
-        // OTP
+        Yii::$container->setSingleton(KazInfoTehOtpProvider::class, function ($c) {
+            return new KazInfoTehOtpProvider($c->get(ConfigService::class));
+        });
+
         Yii::$container->setSingleton(
             OtpInterface::class,
             function ($c) {
-                return new FakeOtpProvider();
+                return $c->get(KazInfoTehOtpProvider::class);
             }
         );
     }

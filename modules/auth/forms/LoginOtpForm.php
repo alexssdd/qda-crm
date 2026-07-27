@@ -66,7 +66,14 @@ class LoginOtpForm extends Form
                 return;
             }
 
+            if ($otpCode->verify_attempts >= AuthOtpCode::MAX_VERIFY_ATTEMPTS) {
+                $otpCode->delete();
+                $this->addError($attribute, 'ERROR_USER_NOT_FOUND_OR_WRONG_OTP');
+                return;
+            }
+
             if (!Yii::$app->security->validatePassword($this->code, $otpCode->code_hash)) {
+                $otpCode->registerFailedAttempt();
                 $this->addError($attribute, 'ERROR_USER_NOT_FOUND_OR_WRONG_OTP');
             }
         }
