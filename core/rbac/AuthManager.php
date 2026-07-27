@@ -5,7 +5,7 @@ namespace app\core\rbac;
 use Yii;
 use yii\rbac\Assignment;
 use yii\rbac\PhpManager;
-use app\entities\User;
+use app\modules\auth\models\User;
 
 /**
  * Class AuthManager

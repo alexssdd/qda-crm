@@ -17,6 +17,22 @@ class UserHelper
     const ROLE_ADMIN = 'admin';
     const ROLE_BOT = 'bot';
     const ROLE_ADMINISTRATOR = 'administrator';
+    const ROLE_OPERATOR = 'operator';
+    const ROLE_MARKETING = 'marketing';
+
+    /** Service roles */
+    const ROLE_SERVICE_VENDOR = 'service_vendor';
+    const ROLE_SERVICE_PICKER = 'service_picker';
+    const ROLE_SERVICE_POS = 'service_pos';
+    const ROLE_SERVICE_WMS = 'service_wms';
+    const ROLE_SERVICE_DELIVERY = 'service_delivery';
+    const ROLE_SERVICE_TMS = 'service_tms';
+    const ROLE_SERVICE_JIVOSITE = 'service_jivosite';
+    const ROLE_SERVICE_TELEGRAM = 'service_telegram';
+    const ROLE_SERVICE_KASPI = 'service_kaspi';
+    const ROLE_SERVICE_WOLT = 'service_wolt';
+    const ROLE_SERVICE_GLOVO = 'service_glovo';
+    const ROLE_SERVICE_YANDEX_EDA = 'service_yandex_eda';
 
     /** Statuses */
     const STATUS_ACTIVE = 10;
@@ -79,6 +95,8 @@ class UserHelper
 
         return [
             self::ROLE_ADMINISTRATOR => Yii::t('app', 'ROLE_ADMINISTRATOR'),
+            self::ROLE_OPERATOR => Yii::t('app', 'ROLE_OPERATOR'),
+            self::ROLE_MARKETING => Yii::t('app', 'ROLE_MARKETING'),
         ];
     }
 
@@ -91,6 +109,8 @@ class UserHelper
             self::ROLE_ADMIN => Yii::t('app', 'ROLE_ADMIN'),
             self::ROLE_BOT => Yii::t('app', 'ROLE_BOT'),
             self::ROLE_ADMINISTRATOR => Yii::t('app', 'ROLE_ADMINISTRATOR'),
+            self::ROLE_OPERATOR => Yii::t('app', 'ROLE_OPERATOR'),
+            self::ROLE_MARKETING => Yii::t('app', 'ROLE_MARKETING'),
         ];
     }
 
