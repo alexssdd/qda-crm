@@ -637,6 +637,11 @@ textarea,
     color: var(--color-blue);
 }
 
+[data-theme="dark"] .order-history__action:disabled,
+[data-theme="dark"] .order-history__action:disabled:hover {
+    color: var(--theme-text-muted);
+}
+
 [data-theme="dark"] .product-context {
     box-shadow: 0 12px 28px var(--theme-shadow);
 }

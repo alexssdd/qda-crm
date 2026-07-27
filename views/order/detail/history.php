@@ -45,9 +45,9 @@ use app\core\helpers\OrderNotifyHelper;
         </div>
         <input class="order-history__input" type="text" placeholder="Напишите сообщение">
         <div class="order-history__actions">
-            <button type="button" class="order-history__action order-history__whatsapp icon-whatsapp" onclick="Order.whatsappToggle()"></button>
+            <button type="button" class="order-history__action order-history__whatsapp icon-whatsapp" aria-label="WhatsApp недоступен" disabled></button>
             <button type="button" class="order-history__action order-history__sms" onclick="Order.smsToggle()">SMS</button>
-            <button type="button" class="order-history__action order-history__call icon-call" onclick="Order.callToggle()"></button>
+            <button type="button" class="order-history__action order-history__call icon-call" aria-label="Звонок недоступен" disabled></button>
             <button type="button" class="order-history__action order-history__send icon-send" onclick="Order.chatSend()"></button>
         </div>
     </div>

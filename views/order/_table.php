@@ -57,8 +57,17 @@ use app\modules\order\helpers\OrderHistoryHelper;
         [
             'attribute' => 'name',
             'label' => 'Клиент',
+            'format' => 'raw',
             'value' => function (Order $model) {
-                return $model->name;
+                $name = (string) $model->name;
+                $label = mb_strlen($name) > 9
+                    ? mb_substr($name, 0, 9) . '…'
+                    : $name;
+
+                return Html::tag('span', Html::encode($label), [
+                    'class' => 'order-table__client',
+                    'title' => $name,
+                ]);
             }
         ],
         [
