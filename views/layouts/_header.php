@@ -71,6 +71,21 @@ $isOnline = false
         </div>
         <?php endif; ?>
         <div class="header-actions">
+            <button
+                type="button"
+                class="header-theme-toggle js-theme-toggle"
+                aria-label="Включить тёмную тему"
+                aria-pressed="false"
+                title="Включить тёмную тему"
+            >
+                <svg class="header-theme-toggle__icon header-theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.7 15.4A8.5 8.5 0 0 1 8.6 3.3 9 9 0 1 0 20.7 15.4Z"></path>
+                </svg>
+                <svg class="header-theme-toggle__icon header-theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2V1M12 23v-1M4.9 4.9l-.7-.7m15.6 15.6-.7-.7M2 12H1m22 0h-1M4.9 19.1l-.7.7M19.8 4.2l-.7.7"></path>
+                </svg>
+            </button>
             <a href="<?= Url::to(['/site/demo']) ?>" class="header-actions__item">
                 <i class="header-actions__icon icon-notifications"></i>
             </a>

@@ -4,6 +4,9 @@ $(function () {
     // Variables
     let body = $('body');
 
+    // Theme
+    Theme.init();
+
     // Moment
     moment.locale('ru');
 
@@ -97,6 +100,73 @@ $(function () {
     // Advert
     Advert.open();
 });
+
+/* Theme
+----------------------------------------*/
+window.Theme = {
+    storageKey: 'qda-theme',
+
+    init: function () {
+        Theme.apply(Theme.current(), false);
+
+        $(document).on('click', '.js-theme-toggle', function () {
+            Theme.apply(Theme.current() === 'dark' ? 'light' : 'dark', true);
+        });
+
+        if (window.matchMedia) {
+            let colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            let handleSystemTheme = function (event) {
+                if (Theme.saved() === null) {
+                    Theme.apply(event.matches ? 'dark' : 'light', false);
+                }
+            };
+
+            if (colorScheme.addEventListener) {
+                colorScheme.addEventListener('change', handleSystemTheme);
+            } else if (colorScheme.addListener) {
+                colorScheme.addListener(handleSystemTheme);
+            }
+        }
+    },
+
+    current: function () {
+        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    },
+
+    saved: function () {
+        try {
+            let theme = window.localStorage.getItem(Theme.storageKey);
+            return theme === 'light' || theme === 'dark' ? theme : null;
+        } catch (error) {
+            return null;
+        }
+    },
+
+    apply: function (theme, persist) {
+        let isDark = theme === 'dark';
+        let label = isDark ? 'Включить светлую тему' : 'Включить тёмную тему';
+
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+
+        $('.js-theme-toggle')
+            .attr('aria-label', label)
+            .attr('aria-pressed', isDark ? 'true' : 'false')
+            .attr('title', label);
+
+        if (persist) {
+            try {
+                window.localStorage.setItem(Theme.storageKey, theme);
+            } catch (error) {
+                // Switching still works for the current page when storage is unavailable.
+            }
+        }
+
+        document.dispatchEvent(new CustomEvent('themechange', {
+            detail: {theme: theme}
+        }));
+    }
+};
 
 // Formatter
 window.Formatter = {

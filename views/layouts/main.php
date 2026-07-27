@@ -17,11 +17,32 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        (function () {
+            var theme = null;
+
+            try {
+                theme = window.localStorage.getItem('qda-theme');
+            } catch (error) {
+                // The theme can still follow the operating system when storage is unavailable.
+            }
+
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light';
+            }
+
+            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.style.colorScheme = theme;
+        })();
+    </script>
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.svg">
     <?php $this->head() ?>
+    <?= Html::cssFile(Yii::getAlias('@web/css/theme.css')) ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
