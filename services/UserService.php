@@ -2,13 +2,14 @@
 
 namespace app\services;
 
+use Yii;
 use Exception;
 use DomainException;
-use app\entities\User;
 use app\forms\UserUpdateForm;
 use app\forms\UserCreateForm;
-use app\core\helpers\UserHelper;
-use app\core\helpers\PhoneHelper;
+use app\modules\auth\enums\AuthMethod;
+use app\modules\auth\models\AuthIdentity;
+use app\modules\auth\models\User;
 
 /**
  * User service
@@ -22,28 +23,23 @@ class UserService
      */
     public function create(UserCreateForm $form): User
     {
-        $model = new User();
-        $model->role = $form->role;
-        $model->phone = PhoneHelper::getCleanNumber($form->phone);
-        $model->email = $form->email;
-        $model->full_name = $form->full_name;
-        $model->status = $form->status;
-        $model->state = $form->state;
-        $model->created_at = time();
-        $model->updated_at = time();
-        $model->config = [
-            'telegram_id' => $form->telegram_id
-        ];
+        return Yii::$app->db->transaction(function () use ($form): User {
+            $model = new User();
+            $model->role = $form->role;
+            $model->phone = $form->phone;
+            $model->country = $form->country;
+            $model->name = $form->name;
+            $model->status = $form->status;
+            $model->created_at = time();
 
-        // Password
-        $model->generateAuthKey();
-        $model->setPassword($form->password);
+            if (!$model->save(false)) {
+                throw new DomainException('Не удалось создать пользователя.');
+            }
 
-        if (!$model->save()) {
-            throw new DomainException($model->getErrorSummary(true)[0]);
-        }
+            $this->savePassword($model, $form->password);
 
-        return $model;
+            return $model;
+        });
     }
 
     /**
@@ -54,59 +50,43 @@ class UserService
      */
     public function update(User $model, UserUpdateForm $form): void
     {
-        $model->full_name = $form->full_name;
-        $model->role = $form->role;
-        $model->status = $form->status;
-        $model->state = $form->state;
-        $model->updated_at = time();
+        Yii::$app->db->transaction(function () use ($model, $form): void {
+            $model->name = $form->name;
+            $model->country = $form->country;
+            $model->role = $form->role;
+            $model->status = $form->status;
 
-        $config = $model->config;
-        $config['telegram_id'] = $form->telegram_id;
-        $model->config = $config;
+            if (!$model->save(false)) {
+                throw new DomainException('Не удалось обновить пользователя.');
+            }
 
-        // Password
-        if ($form->password) {
-            $model->setPassword($form->password);
-            $model->generateAuthKey();
-            $model->removeVerifiedToken();
-        }
-
-        if (!$model->save()) {
-            throw new DomainException($model->getErrorSummary(true)[0]);
-        }
+            if ($form->password !== null && $form->password !== '') {
+                $this->savePassword($model, $form->password);
+            }
+        });
     }
 
-    /**
-     * @param User $model
-     * @return void
-     * @throws Exception
-     */
-    public function stateOnline(User $model): void
+    private function savePassword(User $user, string $password): void
     {
-        if ($model->role !== UserHelper::ROLE_OPERATOR){
-            return;
+        $identity = AuthIdentity::findOne([
+            'user_id' => $user->id,
+            'type' => AuthMethod::PASSWORD->value,
+        ]);
+
+        if ($identity === null) {
+            $identity = new AuthIdentity();
+            $identity->user_id = $user->id;
+            $identity->type = AuthMethod::PASSWORD->value;
+            $identity->identifier = $user->phone;
+            $identity->created_at = time();
         }
 
-        $model->state = UserHelper::STATE_ONLINE;
-        if (!$model->save()) {
-            throw new DomainException($model->getErrorSummary(true)[0]);
-        }
-    }
+        $identity->credential = Yii::$app->security->generatePasswordHash($password);
+        $identity->verified = true;
+        $identity->verified_at = time();
 
-    /**
-     * @param User $model
-     * @return void
-     * @throws Exception
-     */
-    public function stateOffline(User $model): void
-    {
-        if ($model->role !== UserHelper::ROLE_OPERATOR){
-            return;
-        }
-
-        $model->state = UserHelper::STATE_OFFLINE;
-        if (!$model->save()) {
-            throw new DomainException($model->getErrorSummary(true)[0]);
+        if (!$identity->save(false)) {
+            throw new DomainException('Не удалось сохранить пароль пользователя.');
         }
     }
 }

@@ -3,19 +3,20 @@
 namespace app\search;
 
 use yii\base\Model;
-use app\entities\User;
 use yii\data\ActiveDataProvider;
-use app\core\helpers\UserHelper;
 use app\core\helpers\PhoneHelper;
+use app\modules\auth\models\User;
+use app\modules\auth\helpers\UserHelper;
 
 /**
  * User search
  */
 class UserSearch extends Model
 {
-    public $full_name;
+    public $name;
     public $role;
     public $phone;
+    public $country;
     public $status;
 
     /**
@@ -33,7 +34,7 @@ class UserSearch extends Model
     {
         return [
             [['status'], 'integer'],
-            [['full_name', 'role', 'phone'], 'string']
+            [['name', 'role', 'phone', 'country'], 'string'],
         ];
     }
 
@@ -73,10 +74,11 @@ class UserSearch extends Model
         // grid filtering conditions
         $query->andFilterWhere([
             'role' => $this->role,
+            'country' => $this->country,
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'full_name', $this->full_name]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
         $query->andFilterWhere(['like', 'phone', PhoneHelper::getCleanNumber($this->phone)]);
 
         return $dataProvider;

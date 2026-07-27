@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\MaskedInput;
 use app\forms\UserUpdateForm;
-use app\core\helpers\UserHelper;
+use app\modules\auth\helpers\UserHelper;
 
 /* @var $this View */
 /* @var $form ActiveForm */
@@ -13,7 +13,7 @@ use app\core\helpers\UserHelper;
 
 ?>
 <div class="modal__container">
-    <div class="modal__title"><?= $model->full_name ?></div>
+    <div class="modal__title"><?= Html::encode($model->name) ?></div>
 
     <?php $form = ActiveForm::begin([
         'id' => 'modal-form',
@@ -21,7 +21,7 @@ use app\core\helpers\UserHelper;
     ]); ?>
     <div class="modal__body">
         <div class="modal-form">
-            <?= $form->field($model, 'full_name')->textInput() ?>
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
             <div class="modal-form__row modal-form__row--6">
                 <?= $form->field($model, 'phone')->widget(MaskedInput::class, [
                     'mask' => '+7(999)999-99-99',
@@ -30,14 +30,13 @@ use app\core\helpers\UserHelper;
                         'class' => 'form-control'
                     ]
                 ]) ?>
-                <?= $form->field($model, 'telegram_id')->textInput() ?>
+                <?= $form->field($model, 'country')->textInput(['maxlength' => 3]) ?>
             </div>
-            <div class="modal-form__row modal-form__row--3">
+            <div class="modal-form__row">
                 <?= $form->field($model, 'role')->dropDownList(UserHelper::getRoleArray(), [
                     'prompt' => Yii::t('app', 'Select value')
                 ]) ?>
                 <?= $form->field($model, 'status')->dropDownList(UserHelper::getStatusArray()) ?>
-                <?= $form->field($model, 'state')->dropDownList(UserHelper::getStateArray()) ?>
             </div>
 
             <hr>

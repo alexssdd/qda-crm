@@ -6,15 +6,15 @@ use Yii;
 use Exception;
 use DomainException;
 use yii\web\Response;
-use app\entities\User;
 use yii\web\Controller;
 use app\search\UserSearch;
 use app\forms\UserCreateForm;
 use app\forms\UserUpdateForm;
 use app\services\UserService;
 use yii\filters\AccessControl;
-use app\core\helpers\UserHelper;
 use yii\web\NotFoundHttpException;
+use app\modules\auth\models\User;
+use app\modules\auth\helpers\UserHelper;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -98,6 +98,8 @@ class UserController extends Controller
                     throw new DomainException($model->getErrorSummary(true)[0]);
                 }
 
+                $this->assertCanUpdate($user, $model);
+
                 // Run service
                 (new UserService())->update($user, $model);
 
@@ -120,10 +122,26 @@ class UserController extends Controller
      */
     protected function findModel($id): User
     {
-        if (($model = User::findOne($id)) !== null) {
+        $model = User::find()
+            ->andWhere(['id' => $id])
+            ->andWhere(['role' => array_keys(UserHelper::getRoleArray())])
+            ->one();
+
+        if ($model !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    private function assertCanUpdate(User $user, UserUpdateForm $form): void
+    {
+        if ((int) $user->id !== (int) Yii::$app->user->id) {
+            return;
+        }
+
+        if ($form->role !== $user->role || $form->status !== (int) $user->status) {
+            throw new DomainException('Нельзя изменить собственную роль или статус.');
+        }
     }
 }

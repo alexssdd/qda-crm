@@ -4,6 +4,7 @@ namespace app\modules\auth\helpers;
 
 use Yii;
 use Exception;
+use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 use app\modules\auth\models\User;
@@ -126,7 +127,29 @@ class UserHelper
 
     public static function getRoleName($role): string
     {
-        return ArrayHelper::getValue(self::getRoleArrayAll(), $role);
+        return (string) ArrayHelper::getValue(self::getRoleArrayAll(), $role, $role);
+    }
+
+    public static function getStatusArray(): array
+    {
+        return [
+            self::STATUS_ACTIVE => Yii::t('app', 'STATUS_ACTIVE'),
+            self::STATUS_INACTIVE => Yii::t('app', 'STATUS_INACTIVE'),
+            self::STATUS_DELETED => Yii::t('app', 'STATUS_DELETED'),
+        ];
+    }
+
+    public static function getStatusLabel(int $status): string
+    {
+        $class = $status === self::STATUS_ACTIVE
+            ? 'label label-success'
+            : 'label label-danger';
+
+        return Html::tag(
+            'span',
+            (string) ArrayHelper::getValue(self::getStatusArray(), $status, $status),
+            ['class' => $class]
+        );
     }
 
     public static function getSelectArray(): array

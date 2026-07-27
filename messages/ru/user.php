@@ -17,14 +17,17 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Country' => 'Страна',
     'Created At' => 'Дата создания',
     'Email' => 'Почта',
     'Full Name' => 'ФИО',
     'ID' => 'ИД',
+    'Name' => 'ФИО',
     'Password' => 'Пароль',
     'Password Repeat' => 'Повторите пароль',
     'Password must contain at least one lower and upper case character and a digit.' => 'Пароль должен состоять с большой буквой, с маленькой буквой и с цифрами',
     'Phone' => 'Номер телефона',
+    'Phone must contain 11 digits and start with 7.' => 'Номер должен содержать 11 цифр и начинаться с 7.',
     'Role' => 'Роль',
     'State' => 'Смена',
     'Status' => 'Статус',

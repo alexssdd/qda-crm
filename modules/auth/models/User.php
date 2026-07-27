@@ -32,6 +32,24 @@ class User extends ActiveRecord implements IdentityInterface
         return '{{%user}}';
     }
 
+    public function attributeLabels(): array
+    {
+        return [
+            'id' => Yii::t('user', 'ID'),
+            'role' => Yii::t('user', 'Role'),
+            'phone' => Yii::t('user', 'Phone'),
+            'country' => Yii::t('user', 'Country'),
+            'name' => Yii::t('user', 'Name'),
+            'status' => Yii::t('user', 'Status'),
+            'created_at' => Yii::t('user', 'Created At'),
+        ];
+    }
+
+    public function getIdentities(): ActiveQuery
+    {
+        return $this->hasMany(AuthIdentity::class, ['user_id' => 'id']);
+    }
+
     /**
      * {@inheritdoc}
      */

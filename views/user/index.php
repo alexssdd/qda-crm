@@ -4,13 +4,13 @@ use yii\web\View;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use app\entities\User;
 use app\widgets\GridView;
 use app\search\UserSearch;
 use yii\widgets\MaskedInput;
 use yii\data\ActiveDataProvider;
-use app\core\helpers\UserHelper;
 use app\core\helpers\PhoneHelper;
+use app\modules\auth\models\User;
+use app\modules\auth\helpers\UserHelper;
 
 /* @var $this View */
 /* @var $searchModel UserSearch */
@@ -34,17 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'options' => ['width' => 45]
             ],
             [
-                'attribute' => 'full_name',
+                'attribute' => 'name',
                 'format' => 'raw',
                 'value' => function (User $model) {
-                    $result = Html::a($model->full_name, ['update', 'id' => $model->id], ['class' => 'js-view-modal', 'data-pjax' => 0]);
-
-                    if ($model->role == UserHelper::ROLE_OPERATOR){
-                        $stateClass = $model->state !== UserHelper::STATE_ONLINE ? ' table__state--red' : '';
-                        $result = Html::tag('span', '', ['class' => 'table__state' . $stateClass]) . $result;
-                    }
-
-                    return Html::tag('span', $result, ['class' => 'user-table__name']);
+                    return Html::a(Html::encode($model->name), ['update', 'id' => $model->id], [
+                        'class' => 'js-view-modal',
+                        'data-pjax' => 0,
+                    ]);
                 },
             ],
             [
@@ -69,11 +65,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 ])
             ],
             [
-                'label' => 'Telegram Id',
-                'options' => ['width' => 200],
-                'value' => function (User $model) {
-                    return UserHelper::getTelegramId($model);
-                },
+                'attribute' => 'country',
+                'options' => ['width' => 120],
+                'value' => static fn(User $model): string => mb_strtoupper($model->country),
             ],
             [
                 'attribute' => 'created_at',

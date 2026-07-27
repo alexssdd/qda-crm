@@ -4,9 +4,8 @@ namespace app\forms;
 
 use Yii;
 use yii\base\Model;
-use app\entities\User;
-use app\core\helpers\UserHelper;
-use app\core\helpers\PhoneHelper;
+use app\modules\auth\models\User;
+use app\modules\auth\helpers\UserHelper;
 
 /**
  * Class UserUpdateForm
@@ -14,14 +13,13 @@ use app\core\helpers\PhoneHelper;
  */
 class UserUpdateForm extends Model
 {
-    public $full_name;
-    public $phone;
-    public $role;
-    public $status;
-    public $state;
-    public $password;
-    public $passwordRepeat;
-    public $telegram_id;
+    public string $name;
+    public string $phone;
+    public string $country;
+    public string $role;
+    public int $status;
+    public ?string $password = null;
+    public ?string $passwordRepeat = null;
 
     /**
      * @param User $user
@@ -29,12 +27,11 @@ class UserUpdateForm extends Model
      */
     public function __construct(User $user, array $config = [])
     {
-        $this->phone = PhoneHelper::getMaskPhone($user->phone);
-        $this->full_name = $user->full_name;
+        $this->phone = $user->phone;
+        $this->name = $user->name;
+        $this->country = $user->country;
         $this->role = $user->role;
         $this->status = $user->status;
-        $this->state = $user->state;
-        $this->telegram_id = UserHelper::getTelegramId($user);
 
         parent::__construct($config);
     }
@@ -45,9 +42,13 @@ class UserUpdateForm extends Model
     public function rules(): array
     {
         return [
-            [['status', 'state', 'telegram_id'], 'integer'],
-            [['role', 'full_name'], 'string'],
-            [['role', 'full_name', 'status'], 'required'],
+            [['country'], 'filter', 'filter' => static fn($value) => mb_strtolower(trim((string) $value))],
+
+            [['role', 'name', 'country', 'status'], 'required'],
+            [['name'], 'string', 'max' => 255],
+            [['country'], 'match', 'pattern' => '/^[a-z]{2,3}$/'],
+            [['role'], 'in', 'range' => array_keys(UserHelper::getRoleArray())],
+            [['status'], 'in', 'range' => array_keys(UserHelper::getStatusArray())],
 
             [['password', 'passwordRepeat'], 'string', 'min' => 8],
             [['password'], 'match', 'pattern' => '/^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/', 'message' => Yii::t('user', 'Password must contain at least one lower and upper case character and a digit.')],
@@ -61,14 +62,13 @@ class UserUpdateForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'full_name' => Yii::t('user', 'Full Name'),
+            'name' => Yii::t('user', 'Name'),
             'phone' => Yii::t('user', 'Phone'),
+            'country' => Yii::t('user', 'Country'),
             'role' => Yii::t('user', 'Role'),
             'status' => Yii::t('user', 'Status'),
-            'state' => Yii::t('user', 'State'),
             'password' => Yii::t('user', 'Password'),
             'passwordRepeat' => Yii::t('user', 'Password Repeat'),
-            'telegram_id' => Yii::t('user', 'Telegram Id'),
         ];
     }
 }
