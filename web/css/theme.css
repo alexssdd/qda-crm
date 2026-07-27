@@ -590,31 +590,9 @@ textarea,
     background-color: var(--theme-surface-muted);
 }
 
-[data-theme="dark"] .order__right {
-    border: 1px solid var(--theme-border);
-}
-
-[data-theme="dark"] .order-history__top {
-    border-bottom: 1px solid var(--theme-border);
-}
-
-[data-theme="dark"] .order-history__body {
-    padding-bottom: 75px;
-}
-
-[data-theme="dark"] .order-history__footer {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-    background-color: var(--theme-surface-raised);
-    border: 1px solid var(--theme-border);
-    border-radius: 6px;
-    box-shadow: 0 8px 20px var(--theme-shadow);
-}
-
 [data-theme="dark"] .order-history__input,
 [data-theme="dark"] .order-history__actions {
-    background-color: transparent;
+    background-color: var(--theme-surface-raised);
 }
 
 [data-theme="dark"] .order-history__action,
