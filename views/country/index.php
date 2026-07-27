@@ -1,7 +1,6 @@
 <?php
 
 use yii\web\View;
-use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use app\widgets\GridView;
@@ -20,9 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="page">
     <div class="page__header">
         <h1 class="page__title"><?= Html::encode($this->title) ?></h1>
-        <div class="page__actions">
-            <a class="btn btn__primary js-view-modal" href="<?= Url::to(['country/create'])?>">Добавить</a>
-        </div>
     </div>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
