@@ -2,6 +2,7 @@
 
 namespace app\modules\order\models;
 
+use app\modules\location\models\Country;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -18,13 +19,20 @@ use yii\db\ActiveRecord;
  * @property int $source_at
  * @property int $updated_at
  * @property int $status
- * * @property OrderBid[] $bids
+ *
+ * @property Country $country
+ * @property OrderBid[] $bids
  */
 class Executor extends ActiveRecord
 {
     public static function tableName(): string
     {
         return '{{%executor}}';
+    }
+
+    public function getCountry(): ActiveQuery
+    {
+        return $this->hasOne(Country::class, ['code' => 'country_code']);
     }
 
     public function getBids(): ActiveQuery

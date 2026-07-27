@@ -12,6 +12,7 @@ use app\core\helpers\UserHelper;
 $user = UserHelper::getIdentity();
 $isAdmin = UserHelper::isAdmin();
 $canManageEmployees = $isAdmin || UserHelper::isAdministrator();
+$canViewExecutors = $canManageEmployees || UserHelper::isOperator();
 $isOperator = false;
 $isOnline = false
 
@@ -58,7 +59,9 @@ $isOnline = false
                             'label' => 'Клиенты', 'url' => ['/customer/index'],
                         ],
                         [
-                            'label' => 'Исполнители', 'url' => ['/executor/index'],
+                            'label' => 'Исполнители',
+                            'url' => ['/executor/index'],
+                            'visible' => $canViewExecutors,
                         ],
                         [
                             'label' => 'Журнал', 'url' => ['/log/index'], 'visible' => $isAdmin,
