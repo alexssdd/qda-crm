@@ -9,8 +9,7 @@ use app\modules\order\helpers\OrderHelper;
 /* @var $order Order */
 /* @var $this View */
 
-// Variables
-
+$additionalFields = OrderHelper::getAdditionalFields($order);
 ?>
 <ul class="product-context">
     <li><a class="product-context__link product-context__link--copy" href="#" onclick="navigator.clipboard.writeText(window.getSelection().toString())">Копировать</a></li>
@@ -27,60 +26,61 @@ use app\modules\order\helpers\OrderHelper;
     <li><a class="product-context__link" href="#" onclick="Order.updateProducts()">Редактировать товары</a></li>
 </ul>
 <div class="order-top">
-    <table class="order-products">
+    <div class="order-top__heading">Маршрут</div>
+    <table class="order-products order-route">
         <thead>
             <tr>
                 <th width="30">#</th>
-                <th width="30">Direction</th>
-                <th width="82">Country</th>
-                <th width="82">Location</th>
-                <th width="100">Label</th>
-                <th width="200">Address</th>
-                <th width="150">Lat, Lng</th>
+                <th width="70">Направление</th>
+                <th width="82">Страна</th>
+                <th width="82">Нас. пункт</th>
+                <th width="100">Метка</th>
+                <th width="200">Адрес</th>
+                <th width="150">Координаты</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>1</td>
-                <td>From</td>
-                <td><?= OrderHelper::getFromCountry($order) ?></td>
-                <td><?= OrderHelper::getFromLocation($order) ?></td>
+                <td>Откуда</td>
+                <td><?= Html::encode(OrderHelper::getFromCountry($order)) ?></td>
+                <td><?= Html::encode(OrderHelper::getFromLocation($order)) ?></td>
                 <td><?= Html::encode($order->from_name) ?></td>
                 <td><?= Html::encode($order->from_address) ?></td>
-                <td><?= OrderHelper::getFromCoordinates($order) ?></td>
+                <td><?= Html::encode(OrderHelper::getFromCoordinates($order)) ?></td>
             </tr>
-        <tr>
-            <td>2</td>
-            <td>To</td>
-            <td><?= OrderHelper::getToCountry($order) ?></td>
-            <td><?= OrderHelper::getToLocation($order) ?></td>
-            <td><?= Html::encode($order->to_name) ?></td>
-            <td><?= Html::encode($order->to_address) ?></td>
-            <td><?= OrderHelper::getToCoordinates($order) ?></td>
-        </tr>
+            <tr>
+                <td>2</td>
+                <td>Куда</td>
+                <td><?= Html::encode(OrderHelper::getToCountry($order)) ?></td>
+                <td><?= Html::encode(OrderHelper::getToLocation($order)) ?></td>
+                <td><?= Html::encode($order->to_name) ?></td>
+                <td><?= Html::encode($order->to_address) ?></td>
+                <td><?= Html::encode(OrderHelper::getToCoordinates($order)) ?></td>
+            </tr>
         </tbody>
     </table>
-    <div style="margin-top: 10px">Additional Fields</div>
-    <table class="order-products">
-        <tbody>
-        <tr>
-            <td>Key</td>
-            <?php foreach (OrderHelper::getAdditionalFields($order) as $item): ?>
-                <td><?= htmlspecialchars($item['name']) ?></td>
-            <?php endforeach; ?>
-        </tr>
-        <tr>
-            <td>Value</td>
-            <?php foreach (OrderHelper::getAdditionalFields($order) as $item): ?>
-                <td><?= htmlspecialchars($item['value']) ?></td>
-            <?php endforeach; ?>
-        </tr>
-        </tbody>
-    </table>
-    <div class="order-total">
-        <div class="order-total__left"></div>
-        <div class="order-total__right">
-
-        </div>
-    </div>
+    <details class="order-technical">
+        <summary class="order-technical__summary">Технические данные</summary>
+        <table class="order-products order-technical__table">
+            <thead>
+                <tr>
+                    <th>Поле</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID источника</td>
+                    <td><?= Html::encode($order->source_id ?: '—') ?></td>
+                </tr>
+                <?php foreach ($additionalFields as $item): ?>
+                    <tr>
+                        <td><?= Html::encode($item['name']) ?></td>
+                        <td><?= Html::encode($item['value']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </details>
 </div>

@@ -28,32 +28,35 @@ $isOnline = false
             'encodeLabels' => false,
             'items' => [
                 [
-                    'label' => '<i class="header-menu__icon icon-local_grocery_store"></i>',
+                    'label' => '<i class="header-menu__icon icon-local_grocery_store" aria-hidden="true"></i>',
                     'url' => ['/order/index'],
+                    'template' => '<a class="header-menu__link" href="{url}" title="Заказы" aria-label="Заказы">{label}</a>',
                 ],
                 [
-                    'label' => '<i class="header-menu__icon icon-storage"></i>',
+                    'label' => '<i class="header-menu__icon icon-storage" aria-hidden="true"></i>',
                     'url' => '#',
+                    'template' => '<a class="header-menu__link" href="{url}" title="Справочники" aria-label="Справочники">{label}</a>',
                     'items' => [
-                        ['label' => 'Countries', 'url' => ['/country/index']],
-                        ['label' => 'Locations', 'url' => ['/location/index']],
+                        ['label' => 'Страны', 'url' => ['/country/index']],
+                        ['label' => 'Локации', 'url' => ['/location/index']],
                     ]
                 ],
                 [
-                    'label' => '<i class="header-menu__icon icon-more_vert"></i>',
+                    'label' => '<i class="header-menu__icon icon-more_vert" aria-hidden="true"></i>',
                     'url' => '#',
+                    'template' => '<a class="header-menu__link" href="{url}" title="Ещё" aria-label="Ещё">{label}</a>',
                     'items' => [
                         [
-                            'label' => 'Users', 'url' => ['/user/index'],
+                            'label' => 'Пользователи', 'url' => ['/user/index'],
                         ],
                         [
-                            'label' => 'Customers', 'url' => ['/customer/index'],
+                            'label' => 'Клиенты', 'url' => ['/customer/index'],
                         ],
                         [
-                            'label' => 'Executors', 'url' => ['/executor/index'],
+                            'label' => 'Исполнители', 'url' => ['/executor/index'],
                         ],
                         [
-                            'label' => 'Logs', 'url' => ['/log/index'],
+                            'label' => 'Журнал', 'url' => ['/log/index'],
                         ],
                     ]
                 ],
@@ -86,16 +89,16 @@ $isOnline = false
                     <path d="M12 2V1M12 23v-1M4.9 4.9l-.7-.7m15.6 15.6-.7-.7M2 12H1m22 0h-1M4.9 19.1l-.7.7M19.8 4.2l-.7.7"></path>
                 </svg>
             </button>
-            <a href="<?= Url::to(['/site/demo']) ?>" class="header-actions__item">
-                <i class="header-actions__icon icon-notifications"></i>
+            <a href="<?= Url::to(['/site/demo']) ?>" class="header-actions__item" title="Уведомления" aria-label="Уведомления">
+                <i class="header-actions__icon icon-notifications" aria-hidden="true"></i>
             </a>
         </div>
         <div class="header-user">
-            <div class="header-user__info" onclick="Header.userBlockToggle()">
-                <div class="header-user__name"><?= $user->name ?></div>
-                <i class="header-user__arrow icon-keyboard_arrow_down"></i>
-                <i class="header-user__icon icon-person"></i>
-            </div>
+            <button type="button" class="header-user__info" onclick="Header.userBlockToggle()" title="Меню пользователя" aria-label="Открыть меню пользователя">
+                <span class="header-user__name"><?= $user->name ?></span>
+                <i class="header-user__arrow icon-keyboard_arrow_down" aria-hidden="true"></i>
+                <i class="header-user__icon icon-person" aria-hidden="true"></i>
+            </button>
             <div class="header-user__block">
                 <ul class="header-user-menu">
                     <li class="header-user-menu__item">

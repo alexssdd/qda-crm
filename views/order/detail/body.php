@@ -4,6 +4,7 @@ use yii\web\View;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use app\core\rules\OrderRules;
+use app\core\helpers\PhoneHelper;
 use app\modules\order\models\Order;
 use app\modules\order\helpers\OrderHelper;
 
@@ -28,8 +29,12 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
         <div class="order-body__item">
             <label class="order-body__label">Телефон</label>
             <div class="order-body__block">
-                <?= Html::textInput(null, '', ['class' => 'order-body__input', 'readonly' => true])?>
-                <a href="tel:+<?= $order->phone ?>" class="order-body__input-icon order-body__input-icon--blue icon-call"></a>
+                <?= Html::textInput(null, PhoneHelper::getMaskPhone($order->phone), ['class' => 'order-body__input', 'readonly' => true])?>
+                <?= Html::a('', 'tel:+' . PhoneHelper::getCleanNumber($order->phone), [
+                    'class' => 'order-body__input-icon order-body__input-icon--blue icon-call',
+                    'title' => 'Позвонить клиенту',
+                    'aria-label' => 'Позвонить клиенту',
+                ]) ?>
             </div>
         </div>
         <div class="order-body__item">
@@ -51,9 +56,7 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
                 <?= Html::textInput(null, null, ['class' => 'order-body__input', 'readonly' => true])?>
             </div>
         </div>
-        <br>
-        <br>
-        <div class="order-body__item">
+        <div class="order-body__item order-body__item--separated">
             <label class="order-body__label">Комментарий</label>
             <div class="order-body__block">
                 <?= Html::textarea('comment', $order->comment, ['class' => 'order-body__input order-body__comment', 'readonly' => true])?>
@@ -62,7 +65,7 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
         <div class="order-body__item">
             <label class="order-body__label">Статус</label>
             <div class="order-body__block">
-                <?= Html::dropDownList('status', $order->status, $statuses, ['class' => 'order-body__input"'])?>
+                <?= Html::dropDownList('status', $order->status, $statuses, ['class' => 'order-body__input'])?>
             </div>
         </div>
     </div>

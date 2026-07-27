@@ -649,6 +649,8 @@ a{
     height: 60px;
     padding: 0 15px;
     cursor: pointer;
+    color: inherit;
+    background-color: transparent;
 }
 .header-user__info:hover,
 .header-user--active .header-user__info{

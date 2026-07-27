@@ -108,19 +108,34 @@ use app\modules\order\helpers\OrderHistoryHelper;
             'value' => function (Order $model) {
                 $result = '';
                 $steps = OrderHistoryHelper::getSteps($model);
-                foreach ($steps as $step) {
+                $stepNames = [
+                    'accepted' => 'Принят',
+                    'handled' => 'В обработке',
+                    'finished' => 'Завершён',
+                ];
+                $statusNames = [
+                    'good' => 'в срок',
+                    'normal' => 'близко к лимиту',
+                    'bad' => 'просрочен',
+                ];
+
+                foreach ($steps as $name => $step) {
                     if ($step){
                         $result .= Html::tag('span', '', [
-                            'title' => $step['diff'],
+                            'title' => $stepNames[$name] . ': ' . $statusNames[$step['status']] . ' (' . $step['diff'] . ')',
                             'class' => 'order-step__item order-step__item--' . $step['status']
                         ]);
                     } elseif (!OrderHelper::isCompleted($model->status)) {
-                        $result .= Html::tag('span', '', ['class' => 'order-step__item']);
+                        $result .= Html::tag('span', '', [
+                            'class' => 'order-step__item',
+                            'title' => $stepNames[$name] . ': ожидается',
+                        ]);
                     }
                 }
 
                 return Html::tag('span', $result, [
-                    'class' => 'order-step'
+                    'class' => 'order-step',
+                    'aria-label' => 'Этапы обработки заказа',
                 ]);
             }
         ],

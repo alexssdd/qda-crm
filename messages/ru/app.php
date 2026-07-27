@@ -24,6 +24,9 @@ return [
     'order.type.equipment' => 'Спецтехника',
     'order.type.train' => 'ЖД',
     'order.type.unknown' => 'Неизвестно',
+    'order.price_type.request' => 'По запросу',
+    'order.price_type.contract' => 'По договору',
+    'order.price_type.unknown' => 'Не указана',
 
     'Address' => 'Адрес',
     'Address successfully created' => 'Адрес доставки успешно создан',

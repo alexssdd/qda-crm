@@ -504,6 +504,28 @@ textarea,
     background-color: #4a4d52;
 }
 
+[data-theme="dark"] .order-filter__checkbox-mark {
+    background-color: transparent;
+    border-color: #6f737a;
+}
+
+[data-theme="dark"] .order-filter__checkbox-input:checked ~ .order-filter__checkbox-mark {
+    background-color: var(--color-blue);
+    border-color: var(--color-blue);
+}
+
+[data-theme="dark"] .order-step__item--good {
+    background-color: #59a869;
+}
+
+[data-theme="dark"] .order-step__item--normal {
+    background-color: #d9a343;
+}
+
+[data-theme="dark"] .order-step__item--bad {
+    background-color: #e06c75;
+}
+
 [data-theme="dark"] .order-table tbody tr,
 [data-theme="dark"] .care-table tbody tr {
     border-color: var(--theme-bg);
@@ -520,6 +542,30 @@ textarea,
 
 [data-theme="dark"] .order-products tbody td {
     border-color: var(--theme-border);
+}
+
+[data-theme="dark"] .order-products.order-technical__table tbody tr:hover td {
+    background-color: transparent;
+}
+
+[data-theme="dark"] .order-technical__summary {
+    color: var(--theme-text-muted);
+}
+
+[data-theme="dark"] .order-chat__event .order-chat__block {
+    border-color: var(--theme-border);
+}
+
+[data-theme="dark"] .timeTo.timeTo-white div {
+    color: var(--theme-text);
+    background: var(--theme-surface-raised);
+    border-color: var(--theme-border);
+    filter: none;
+}
+
+[data-theme="dark"] .timeTo span,
+[data-theme="dark"] .timeTo figcaption {
+    color: var(--theme-text-muted);
 }
 
 [data-theme="dark"] .order-products tbody tr[data-quantity="0"] td {

@@ -72,7 +72,11 @@
     cursor: pointer;
 }
 .order-filter__checkbox-input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
 }
 .order-filter__checkbox-mark {
     display: flex;
@@ -80,7 +84,8 @@
     justify-content: center;
     width: 25px;
     height: 25px;
-    background-color: #eee;
+    background-color: transparent;
+    border: 1px solid #c8ccd2;
     border-radius: 4px;
     margin-right: 10px;
     font-size: 18px;
@@ -88,6 +93,10 @@
 }
 .order-filter__checkbox-input:checked ~ .order-filter__checkbox-mark {
     background-color: #2196F3;
+    border-color: #2196F3;
+}
+.order-filter__checkbox-input:focus-visible ~ .order-filter__checkbox-mark {
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.25);
 }
 .order-filter__checkbox-mark:before {
     content: '';
@@ -125,6 +134,9 @@
 .order-table__tr--active td{
     cursor: pointer;
     background-color: #e0e5f7;
+}
+.order-table__tr--active td:first-child {
+    box-shadow: inset 3px 0 0 var(--color-blue);
 }
 .order-table__number{
     display: flex;
@@ -209,11 +221,11 @@
     height: 100%;
 }
 .order__left {
-    width: 54%;
+    width: 58%;
     padding-right: 5px;
 }
 .order__right {
-    width: 46%;
+    width: 42%;
     background-color: #fff;
 }
 
@@ -235,6 +247,13 @@
 }
 .order-top::-webkit-scrollbar {
     width: 6px;
+}
+.order-top__heading {
+    margin: 0 0 2px 4px;
+    color: var(--color-nice);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 /* Order products
@@ -276,7 +295,29 @@
 }
 .order-products tbody tr[data-quantity='0'] td{
     background-color: #ffcdd2;
-                                          }
+}
+.order-technical {
+    margin-top: 8px;
+}
+.order-technical__summary {
+    width: max-content;
+    cursor: pointer;
+    color: var(--color-nice);
+    font-size: 12px;
+    font-weight: 600;
+}
+.order-technical__summary:hover {
+    color: var(--color-blue);
+}
+.order-technical__table {
+    margin-top: 5px;
+}
+.order-technical__table tbody tr {
+    cursor: default;
+}
+.order-products.order-technical__table tbody tr:hover td {
+    background-color: transparent;
+}
 
 /* Order total
 ----------------------------------------*/
@@ -333,6 +374,7 @@
     min-width: 232px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .order-header__item:not(:last-child){
     margin-bottom: 2px;
@@ -342,7 +384,7 @@
     color: var(--color-nice);
 }
 .order-header__time{
-    margin-top: 25px;
+    margin-top: 0;
 }
 
 /* Order body
@@ -363,7 +405,7 @@
     margin-bottom: 7px;
 }
 .order-body__label {
-    width: 170px;
+    width: 145px;
     display: block;
     font-weight: 600;
     color: var(--color-nice);
@@ -427,6 +469,9 @@
 }
 .order-body__comment{
     resize: none;
+}
+.order-body__item--separated {
+    margin-top: 28px;
 }
 
 /* Order footer
@@ -606,10 +651,11 @@
     justify-content: end;
 }
 .order-chat__event .order-chat__block {
-    width: 82%;
+    width: 88%;
     background-color: #fff;
     flex: none;
     padding: 5px 10px;
+    border: 1px solid #e5e6e7;
     border-radius: 6px;
 }
 .order-chat__event .order-chat__date{

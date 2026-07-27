@@ -157,12 +157,39 @@ class OrderHelper
     {
         $result = [];
 
-        foreach ($order->extra_fields as $name => $value) {
+        foreach (($order->extra_fields ?? []) as $name => $value) {
             $result[] = [
-                'name' => $name,
-                'value' => $value,
+                'name' => static::getAdditionalFieldName((string) $name),
+                'value' => static::getAdditionalFieldValue($value),
             ];
         }
+
         return $result;
+    }
+
+    private static function getAdditionalFieldName(string $name): string
+    {
+        return match ($name) {
+            'loaders_count' => 'Количество грузчиков',
+            'scheduled_at' => 'Запланировано на',
+            default => $name,
+        };
+    }
+
+    private static function getAdditionalFieldValue($value): string
+    {
+        if ($value === null || $value === '') {
+            return '—';
+        }
+
+        if (is_bool($value)) {
+            return $value ? 'Да' : 'Нет';
+        }
+
+        if (is_array($value)) {
+            return (string) json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        }
+
+        return (string) $value;
     }
 }

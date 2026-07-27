@@ -16,14 +16,14 @@ $statuses = OrderHelper::getStatuses();
 <div class="order-filter">
     <div class="order-filter__left">
         <div class="order-filter__buttons">
-            <button type="button" class="order-filter__button icon-refresh" onclick="Order.refresh()"></button>
-            <button type="button" class="order-filter__button icon-add" onclick="Order.create()"></button>
-            <button type="button" class="order-filter__button order-filter__button--filter icon-filter_list<?= $searchModel->isFilterUsed() ? ' order-filter__button--active' : '' ?>" onclick="Order.filter()"></button>
+            <button type="button" class="order-filter__button icon-refresh" onclick="Order.refresh()" title="Обновить список" aria-label="Обновить список"></button>
+            <button type="button" class="order-filter__button icon-add" onclick="Order.create()" title="Создать заказ" aria-label="Создать заказ"></button>
+            <button type="button" class="order-filter__button order-filter__button--filter icon-filter_list<?= $searchModel->isFilterUsed() ? ' order-filter__button--active' : '' ?>" onclick="Order.filter()" title="Открыть фильтр" aria-label="Открыть фильтр"></button>
         </div>
         <div class="order-filter__checkbox">
             <label class="order-filter__checkbox-label">
                 <input class="order-filter__checkbox-input" id="filter-my" type="checkbox" <?= $checked; ?>>
-                <span class="order-filter__checkbox-mark icon-check"></span>
+                <span class="order-filter__checkbox-mark icon-check" aria-hidden="true"></span>
                 <?= Yii::t('app', 'My')?>
             </label>
         </div>
