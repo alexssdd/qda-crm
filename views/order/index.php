@@ -26,7 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'searchModel' => $searchModel
     ]) ?>
     <?php Pjax::begin([
-        'options' => ['class' => 'orders__body']
+        'options' => ['class' => 'orders__body'],
+        'timeout' => 30000,
     ]) ?>
     <div class="orders__left">
         <?= $this->render('_table', [
