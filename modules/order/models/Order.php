@@ -50,6 +50,7 @@ use app\core\helpers\OrderHelper;
  * @property int|null    $handler_id
  * @property int|null $source_at
  * @property int         $created_at
+ * @property int|null    $completed_at
  *
  * @property Country $country
  * @property OrderHistory[] $histories

@@ -35,7 +35,7 @@ $stop = 'false';
 
 if (OrderHelper::isCompleted($order->status)) {
     $stop = true;
-    $seconds = $order->completed_at - $order->created_at;
+    $seconds = max(0, ($order->completed_at ?: $order->created_at) - $order->created_at);
 }
 
 $js = <<<JS
