@@ -259,26 +259,19 @@
     background-color: #fff;
 }
 .order-top-tabs__button {
-    position: relative;
-    padding: 0 12px;
+    margin: 4px 0;
+    padding: 0 14px;
     background-color: transparent;
+    border-radius: 4px;
     color: var(--color-nice);
     font-weight: 600;
 }
-.order-top-tabs__button:after {
-    content: '';
-    position: absolute;
-    right: 12px;
-    bottom: 0;
-    left: 12px;
-    height: 2px;
-    background-color: transparent;
-}
-.order-top-tabs__button:hover,
-.order-top-tabs__button--active {
+.order-top-tabs__button:hover {
     color: var(--color-blue);
+    background-color: #eef3fb;
 }
-.order-top-tabs__button--active:after {
+.order-top-tabs__button--active {
+    color: #fff;
     background-color: var(--color-blue);
 }
 .order-top-tabs__button:focus-visible {

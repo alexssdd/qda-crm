@@ -555,9 +555,15 @@ textarea,
     color: var(--theme-text-muted);
 }
 
-[data-theme="dark"] .order-top-tabs__button:hover,
-[data-theme="dark"] .order-top-tabs__button--active {
+[data-theme="dark"] .order-top-tabs__button:hover {
     color: var(--color-blue);
+    background-color: var(--theme-surface-hover);
+}
+
+[data-theme="dark"] .order-top-tabs__button--active,
+[data-theme="dark"] .order-top-tabs__button--active:hover {
+    color: #fff;
+    background-color: var(--color-blue);
 }
 
 [data-theme="dark"] .order-chat__event .order-chat__block {
