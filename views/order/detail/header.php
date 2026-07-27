@@ -20,15 +20,13 @@ use app\modules\order\helpers\OrderHelper;
                 <span class="order-header__label">Дата:</span>
                 <span class="order-header__value"><?= OrderHelper::getCreated($order) ?></span>
             </div>
-            <div class="order-header__item">
-                <span class="order-header__label">Ответственный:</span>
-                <span class="order-header__value"><?= Html::encode($order->handler?->name ?: 'Не назначен') ?></span>
-            </div>
         </div>
     </div>
+    <div class="order-header__assignee">
+        <span class="order-header__label">Ответственный</span>
+        <span class="order-header__value"><?= Html::encode($order->handler?->name ?: 'Бот') ?></span>
+    </div>
     <div class="order-header__right">
-        <div class="order-header__items">
-        </div>
         <div class="order-header__time"></div>
     </div>
 </div>

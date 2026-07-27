@@ -385,12 +385,29 @@
 }
 .order-header__left{
     flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+}
+.order-header__assignee{
+    min-width: 110px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+}
+.order-header__assignee .order-header__value{
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .order-header__right{
     min-width: 232px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-shrink: 0;
 }
 .order-header__item:not(:last-child){
     margin-bottom: 2px;
