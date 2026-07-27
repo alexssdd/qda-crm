@@ -247,7 +247,7 @@ window.Order = {
             countdown: false,
             seconds: seconds,
             displayDays: 2,
-            fontSize: 24,
+            fontSize: 28,
             fontFamily: 'tahoma, arial, verdana, sans-serif'
         });
         if (stop){

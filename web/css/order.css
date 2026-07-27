@@ -393,7 +393,7 @@
     row-gap: 2px;
 }
 .order-header__right{
-    width: 230px;
+    width: 270px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
