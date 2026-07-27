@@ -9,10 +9,10 @@ use Yii;
 use yii\base\Model;
 use app\modules\order\models\Order;
 use yii\data\ActiveDataProvider;
-use app\core\helpers\UserHelper;
 use app\core\helpers\OrderHelper;
 use app\core\helpers\PhoneHelper;
 use app\core\behaviors\DateRangeBehavior;
+use app\modules\auth\helpers\UserHelper;
 
 /**
  * Order search
@@ -143,16 +143,13 @@ class OrderSearch extends Model
 
         // Filter by transferred
         if ($this->transferred){
-            $query->andWhere(['not', ['orders.executor_id' => null]]);
+            $query->andWhere(['not', ['orders.handler_id' => null]]);
         }
 
         // Filter by user
         if ($this->my) {
             $user = UserHelper::getIdentity();
-            $query->andWhere(['or',
-                ['orders.handler_id' => $user->id],
-                ['orders.executor_id' => $user->id],
-            ]);
+            $query->andWhere(['orders.handler_id' => $user->id]);
         }
 
         // Filter by status
