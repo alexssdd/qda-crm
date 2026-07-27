@@ -487,13 +487,20 @@ textarea,
 [data-theme="dark"] .care-filter__button {
     color: var(--color-blue);
     background-color: var(--theme-surface-muted);
-    border-color: var(--theme-border);
+    border-color: var(--theme-surface-muted);
 }
 
 [data-theme="dark"] .order-filter__button:hover,
 [data-theme="dark"] .lead-filter__button:hover,
 [data-theme="dark"] .care-filter__button:hover {
     background-color: var(--theme-surface-hover);
+    border-color: var(--theme-surface-hover);
+}
+
+[data-theme="dark"] .order-filter__input:not(:focus),
+[data-theme="dark"] .order-table thead input:not(:focus),
+[data-theme="dark"] .order-table thead select:not(:focus) {
+    border-color: var(--theme-surface-muted);
 }
 
 [data-theme="dark"] .order-filter__checkbox-mark,
