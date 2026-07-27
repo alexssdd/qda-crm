@@ -1,0 +1,32 @@
+.executor-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.executor-phone__value {
+    min-width: 24px;
+}
+
+.executor-phone__toggle {
+    padding: 2px 5px;
+    color: var(--color-blue);
+    font: inherit;
+    font-size: 12px;
+    line-height: 1.2;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.executor-phone__toggle:hover,
+.executor-phone__toggle:focus-visible {
+    text-decoration: underline;
+}
+
+.executor-phone__toggle:disabled {
+    color: var(--color-gray);
+    cursor: wait;
+    text-decoration: none;
+}

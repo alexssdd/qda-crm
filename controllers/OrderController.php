@@ -22,7 +22,6 @@ use app\services\ConsoleService;
 use app\core\helpers\UserHelper;
 use app\core\helpers\StoreHelper;
 use app\core\helpers\OrderHelper;
-use app\core\helpers\PhoneHelper;
 use app\services\OperatorService;
 use yii\web\NotFoundHttpException;
 use app\modules\order\models\Order;
@@ -82,7 +81,6 @@ class OrderController extends Controller
                     'chat-message' => ['post'],
                     'whatsapp' => ['post'],
                     'address-save' => ['post'],
-                    'phone' => ['post'],
                 ],
             ],
         ];
@@ -107,24 +105,6 @@ class OrderController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
-
-    /**
-     * @param int $id
-     * @return array
-     * @throws NotFoundHttpException
-     */
-    public function actionPhone(int $id): array
-    {
-        $order = $this->getOrder($id);
-
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        Yii::$app->response->headers->set('Cache-Control', 'no-store, private');
-        Yii::$app->response->headers->set('Pragma', 'no-cache');
-
-        return [
-            'phone' => PhoneHelper::getMaskPhone($order->phone),
-        ];
     }
 
     /**

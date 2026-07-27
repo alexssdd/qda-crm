@@ -38,7 +38,6 @@ window.Order = {
     cancelReasons: [],
     orderRequestPending: false,
     chatSending: false,
-    phoneRevealTimeout: 10000,
 
     // Init methods
     init: function (){
@@ -46,7 +45,6 @@ window.Order = {
         Order.initActions();
         Order.initInputs();
         Order.initTable();
-        Order.initPhoneReveal();
         Order.initQueryParams();
         Order.initProductSearch();
     },
@@ -191,13 +189,9 @@ window.Order = {
         let rowSelector = '.order-table tbody > tr:not(.empty-row)';
 
         body.off('click.orderTable', rowSelector);
-        body.on('click.orderTable', rowSelector, function (event) {
+        body.on('click.orderTable', rowSelector, function () {
             let row = $(this);
             let id = row.data('key');
-
-            if ($(event.target).closest('.js-order-phone-toggle').length){
-                return;
-            }
 
             if (Order.orderRequestPending || row.hasClass('order-table__tr--active')){
                 return;
@@ -216,60 +210,6 @@ window.Order = {
             .on('pjax:end.orderTable', function (){
                 Order.orderRequestPending = false;
             });
-    },
-    initPhoneReveal: function (){
-        let body = $('body');
-
-        body.off('click.orderPhoneReveal', '.js-order-phone-toggle');
-        body.on('click.orderPhoneReveal', '.js-order-phone-toggle', function (event){
-            event.preventDefault();
-            event.stopPropagation();
-
-            let button = $(this);
-            let container = button.closest('.order-table__phone-private');
-            let value = container.find('.order-table__phone-value');
-
-            if (button.prop('disabled')){
-                return;
-            }
-
-            clearTimeout(container.data('hideTimer'));
-            button.prop('disabled', true).text('...');
-
-            $.post(button.data('url'))
-                .done(function (response){
-                    if (!response || !response.phone){
-                        button.text('Показать').prop('disabled', false);
-                        return;
-                    }
-
-                    value.text(response.phone);
-                    button.text('Скрыть')
-                        .attr('aria-label', 'Скрыть телефон клиента')
-                        .prop('disabled', false);
-
-                    let hide = function (){
-                        button.off('click.orderPhoneHide');
-                        value.text(button.data('masked'));
-                        button.text('Показать')
-                            .attr('aria-label', 'Показать телефон клиента')
-                            .prop('disabled', false);
-                        container.removeData('hideTimer');
-                    };
-
-                    button.off('click.orderPhoneHide').one('click.orderPhoneHide', function (hideEvent){
-                        hideEvent.preventDefault();
-                        hideEvent.stopPropagation();
-                        clearTimeout(container.data('hideTimer'));
-                        hide();
-                    });
-
-                    container.data('hideTimer', setTimeout(hide, Order.phoneRevealTimeout));
-                })
-                .fail(function (){
-                    button.text('Показать').prop('disabled', false);
-                });
-        });
     },
     initQueryParams: function (){
         let params = new URLSearchParams(location.search);

@@ -2,11 +2,12 @@
 
 use yii\web\View;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 use app\widgets\GridView;
+use app\assets\ExecutorAsset;
 use yii\data\ActiveDataProvider;
 use app\search\ExecutorSearch;
-use app\core\helpers\PhoneHelper;
 use app\modules\order\models\Executor;
 use app\modules\order\helpers\ExecutorHelper;
 
@@ -16,6 +17,8 @@ use app\modules\order\helpers\ExecutorHelper;
 
 $this->title = Yii::t('app', 'Executors');
 $this->params['breadcrumbs'][] = $this->title;
+
+ExecutorAsset::register($this);
 ?>
 <div class="page">
     <div class="page__header">
@@ -38,9 +41,25 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'phone',
                 'label' => Yii::t('app', 'Phone'),
+                'format' => 'raw',
                 'options' => ['width' => 170],
                 'value' => static function (Executor $model): string {
-                    return PhoneHelper::getMaskPhone($model->phone);
+                    $masked = '***';
+                    $value = Html::tag('span', $masked, [
+                        'class' => 'executor-phone__value',
+                        'aria-live' => 'polite',
+                    ]);
+                    $button = Html::button('Показать', [
+                        'type' => 'button',
+                        'class' => 'executor-phone__toggle js-executor-phone-toggle',
+                        'data-url' => Url::to(['/executor/phone', 'id' => $model->id]),
+                        'data-masked' => $masked,
+                        'aria-label' => 'Показать телефон исполнителя',
+                    ]);
+
+                    return Html::tag('span', $value . $button, [
+                        'class' => 'executor-phone',
+                    ]);
                 },
             ],
             [
