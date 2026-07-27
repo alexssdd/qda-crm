@@ -606,10 +606,10 @@
 .order-history__actions{
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 40px;
+    grid-auto-columns: 36px;
     align-items: center;
     background-color: #fff;
-    padding-right: 4px;
+    padding-right: 2px;
 }
 .order-history__action {
     justify-self: center;
