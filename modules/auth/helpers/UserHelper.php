@@ -129,6 +129,33 @@ class UserHelper
         return ArrayHelper::getValue(self::getRoleArrayAll(), $role);
     }
 
+    public static function getSelectArray(): array
+    {
+        $users = User::find()
+            ->andWhere(['status' => self::STATUS_ACTIVE])
+            ->andWhere(['role' => [
+                self::ROLE_OPERATOR,
+                self::ROLE_BOT,
+                self::ROLE_ADMINISTRATOR,
+                self::ROLE_ADMIN,
+            ]])
+            ->orderBy(['name' => SORT_ASC])
+            ->cache(60 * 5)
+            ->all();
+
+        $result = [];
+        foreach ($users as $user) {
+            $roleName = self::getRoleName($user->role);
+            if (!array_key_exists($roleName, $result)) {
+                $result[$roleName] = [];
+            }
+
+            $result[$roleName][$user->id] = $user->name;
+        }
+
+        return $result;
+    }
+
     public static function getShortName(User $user): string
     {
         $parts = explode(' ', trim($user->name));

@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use app\search\OrderSearch;
-use app\core\helpers\UserHelper;
+use app\modules\auth\helpers\UserHelper;
 use app\modules\order\enums\OrderHistoryEvent;
 use app\modules\order\helpers\OrderHelper;
 use app\modules\order\helpers\PaymentHelper;
