@@ -389,12 +389,14 @@
 .order-header__meta{
     min-width: 0;
     display: grid;
-    grid-template-columns: minmax(65px, 0.7fr) minmax(115px, 1.2fr) minmax(100px, 1fr);
-    column-gap: 15px;
+    grid-template-columns: minmax(50px, 0.65fr) minmax(105px, 1.25fr) minmax(90px, 1fr);
+    column-gap: 10px;
 }
 .order-header__right{
+    width: 190px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 .order-header__item{
     min-width: 0;
