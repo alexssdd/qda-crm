@@ -12,15 +12,15 @@ use app\modules\order\helpers\OrderHelper;
 <div class="order-header">
     <div class="order-header__meta">
         <div class="order-header__item">
-            <span class="order-header__label">Номер</span>
+            <span class="order-header__label">Номер:</span>
             <span class="order-header__value"><?= Html::encode((string) $order->number) ?></span>
         </div>
         <div class="order-header__item">
-            <span class="order-header__label">Дата</span>
+            <span class="order-header__label">Дата:</span>
             <span class="order-header__value"><?= OrderHelper::getCreated($order) ?></span>
         </div>
         <div class="order-header__item">
-            <span class="order-header__label">Ответственный</span>
+            <span class="order-header__label">Ответственный:</span>
             <span class="order-header__value" title="<?= Html::encode($order->handler?->name ?: 'Бот') ?>"><?= Html::encode($order->handler?->name ?: 'Бот') ?></span>
         </div>
     </div>
