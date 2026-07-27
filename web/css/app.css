@@ -728,7 +728,9 @@ a{
 }
 .page__title{
     margin: 0;
-    line-height: 36px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 34px;
 }
 .page__header{
     margin-bottom: 15px;
