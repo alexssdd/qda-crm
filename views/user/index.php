@@ -16,7 +16,7 @@ use app\modules\auth\helpers\UserHelper;
 /* @var $searchModel UserSearch */
 /* @var $dataProvider ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Users');
+$this->title = Yii::t('app', 'Employees');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page">

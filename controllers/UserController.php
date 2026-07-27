@@ -69,7 +69,7 @@ class UserController extends Controller
                 // Run service
                 (new UserService())->create($model);
 
-                Yii::$app->session->setFlash('success', Yii::t('app', 'User successfully created'));
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Employee successfully created'));
             } catch (Exception $e) {
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
@@ -103,7 +103,7 @@ class UserController extends Controller
                 // Run service
                 (new UserService())->update($user, $model);
 
-                Yii::$app->session->setFlash('success', Yii::t('app', 'User successfully updated'));
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Employee successfully updated'));
             } catch (Exception $e) {
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }

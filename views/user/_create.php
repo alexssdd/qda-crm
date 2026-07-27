@@ -13,7 +13,7 @@ use app\modules\auth\helpers\UserHelper;
 
 ?>
 <div class="modal__container">
-    <div class="modal__title"><?= Yii::t('app', 'New User')?></div>
+    <div class="modal__title"><?= Yii::t('app', 'New Employee')?></div>
 
     <?php $form = ActiveForm::begin([
         'id' => 'modal-form',

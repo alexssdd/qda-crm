@@ -101,11 +101,14 @@ class UserHelper
     public static function getRoleArray(): array
     {
         if (self::isAdmin()){
-            return self::getRoleArrayAll();
+            return [
+                self::ROLE_ADMINISTRATOR => Yii::t('app', 'ROLE_ADMINISTRATOR'),
+                self::ROLE_OPERATOR => Yii::t('app', 'ROLE_OPERATOR'),
+                self::ROLE_MARKETING => Yii::t('app', 'ROLE_MARKETING'),
+            ];
         }
 
         return [
-            self::ROLE_ADMINISTRATOR => Yii::t('app', 'ROLE_ADMINISTRATOR'),
             self::ROLE_OPERATOR => Yii::t('app', 'ROLE_OPERATOR'),
             self::ROLE_MARKETING => Yii::t('app', 'ROLE_MARKETING'),
         ];

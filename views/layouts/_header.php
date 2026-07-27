@@ -11,6 +11,7 @@ use app\core\helpers\UserHelper;
 // Variables
 $user = UserHelper::getIdentity();
 $isAdmin = UserHelper::isAdmin();
+$canManageEmployees = $isAdmin || UserHelper::isAdministrator();
 $isOperator = false;
 $isOnline = false
 
@@ -49,7 +50,9 @@ $isOnline = false
                     'template' => '<a class="header-menu__link" href="{url}" title="Ещё" aria-label="Ещё">{label}</a>',
                     'items' => [
                         [
-                            'label' => 'Пользователи', 'url' => ['/user/index'],
+                            'label' => 'Сотрудники',
+                            'url' => ['/user/index'],
+                            'visible' => $canManageEmployees,
                         ],
                         [
                             'label' => 'Клиенты', 'url' => ['/customer/index'],
