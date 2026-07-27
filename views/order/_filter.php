@@ -17,7 +17,6 @@ $statuses = OrderHelper::getStatuses();
     <div class="order-filter__left">
         <div class="order-filter__buttons">
             <button type="button" class="order-filter__button icon-refresh" onclick="Order.refresh()" title="Обновить список" aria-label="Обновить список"></button>
-            <button type="button" class="order-filter__button icon-add" onclick="Order.create()" title="Создать заказ" aria-label="Создать заказ"></button>
             <button type="button" class="order-filter__button order-filter__button--filter icon-filter_list<?= $searchModel->isFilterUsed() ? ' order-filter__button--active' : '' ?>" onclick="Order.filter()" title="Открыть фильтр" aria-label="Открыть фильтр"></button>
         </div>
         <div class="order-filter__checkbox">

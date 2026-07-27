@@ -627,12 +627,23 @@ a{
 ----------------------------------------*/
 .header-actions{
     display: flex;
+    align-items: center;
     margin-right: 15px;
     grid-gap: 10px;
 }
 .header-actions__item{
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 18px;
+    line-height: 1;
     color: #fff;
+}
+.header-actions__icon {
+    display: block;
+    line-height: 1;
 }
 .header-actions__item:hover{
     color: var(--color-brand);
@@ -651,6 +662,7 @@ a{
     cursor: pointer;
     color: inherit;
     background-color: transparent;
+    line-height: 1;
 }
 .header-user__info:hover,
 .header-user--active .header-user__info{

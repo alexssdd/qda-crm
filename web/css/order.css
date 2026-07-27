@@ -477,7 +477,7 @@
 /* Order footer
 ----------------------------------------*/
 .order-footer{
-    display: flex;
+    display: none;
     position: relative;
 }
 .order-footer__right{
