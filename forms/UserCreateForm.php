@@ -33,7 +33,11 @@ class UserCreateForm extends Model
 
             [['phone', 'role', 'name', 'country', 'status'], 'required'],
             [['phone'], 'string', 'max' => 21],
-            [['phone'], 'match', 'pattern' => '/^7\d{10}$/', 'message' => Yii::t('user', 'Phone must contain 11 digits and start with 7.')],
+            [['phone'], 'match',
+                'pattern' => '/^7\d{10}$/',
+                'message' => Yii::t('user', 'Phone must contain 11 digits and start with 7.'),
+                'enableClientValidation' => false,
+            ],
             [['name'], 'string', 'max' => 255],
             [['country'], 'match', 'pattern' => '/^[a-z]{2,3}$/'],
             [['role'], 'in', 'range' => array_keys(UserHelper::getRoleArray())],
