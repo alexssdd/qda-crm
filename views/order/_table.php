@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use app\widgets\GridView;
 use app\search\OrderSearch;
 use yii\widgets\MaskedInput;
@@ -73,7 +74,8 @@ use app\modules\order\helpers\OrderHistoryHelper;
         [
             'attribute' => 'phone',
             'label' => 'Телефон',
-            'options' => ['width' => 125],
+            'format' => 'raw',
+            'options' => ['width' => 150],
             'filter' => MaskedInput::widget([
                 'model' => $searchModel,
                 'name' => 'phone',
@@ -82,7 +84,22 @@ use app\modules\order\helpers\OrderHistoryHelper;
                 'options' => ['class' => 'form-control order-table__phone']
             ]),
             'value' => function (Order $model) {
-                return PhoneHelper::getMaskPhone($model->phone);
+                $masked = '***';
+                $number = Html::tag('span', $masked, [
+                    'class' => 'order-table__phone-value',
+                    'aria-live' => 'polite',
+                ]);
+                $button = Html::button('Показать', [
+                    'type' => 'button',
+                    'class' => 'order-table__phone-toggle js-order-phone-toggle',
+                    'data-url' => Url::to(['/order/phone', 'id' => $model->id]),
+                    'data-masked' => $masked,
+                    'aria-label' => 'Показать телефон клиента',
+                ]);
+
+                return Html::tag('span', $number . $button, [
+                    'class' => 'order-table__phone-private',
+                ]);
             }
         ],
         [

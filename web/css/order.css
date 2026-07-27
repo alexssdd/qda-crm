@@ -146,6 +146,34 @@
     padding: 6px;
     font-size: 12px;
 }
+.order-table__phone-private {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.order-table__phone-value {
+    min-width: 24px;
+}
+.order-table__phone-toggle {
+    padding: 2px 5px;
+    color: var(--color-blue);
+    font: inherit;
+    font-size: 11px;
+    line-height: 1.2;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.order-table__phone-toggle:hover,
+.order-table__phone-toggle:focus-visible {
+    text-decoration: underline;
+}
+.order-table__phone-toggle:disabled {
+    color: var(--color-gray);
+    cursor: wait;
+    text-decoration: none;
+}
 
 /* Order step
 ----------------------------------------*/
