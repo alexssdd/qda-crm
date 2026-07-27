@@ -42,10 +42,38 @@ window.Order = {
     // Init methods
     init: function (){
         Order.initTopTabs();
+        Order.initActions();
         Order.initInputs();
         Order.initTable();
         Order.initQueryParams();
         Order.initProductSearch();
+    },
+    initActions: function (){
+        let body = $('body');
+
+        body.off('click.orderActions', '.order-actions__toggle');
+        body.on('click.orderActions', '.order-actions__toggle', function (){
+            Order.actions($(this));
+        });
+
+        body.off('click.orderActionsItem', '.order-actions__link');
+        body.on('click.orderActionsItem', '.order-actions__link', function (){
+            Order.actionsClose();
+        });
+
+        body.off('click.orderActionsClose');
+        body.on('click.orderActionsClose', function (event){
+            if (!$(event.target).closest('.order-actions').length){
+                Order.actionsClose();
+            }
+        });
+
+        body.off('keydown.orderActions');
+        body.on('keydown.orderActions', function (event){
+            if (event.key === 'Escape'){
+                Order.actionsClose(true);
+            }
+        });
     },
     initTopTabs: function (){
         let body = $('body');
@@ -336,8 +364,26 @@ window.Order = {
             button.addClass('order-filter__button--active');
         }
     },
-    actions: function (){
-        $('.order-actions').slideToggle(250);
+    actions: function (toggle){
+        let actions = toggle.closest('.order-actions');
+        let shouldOpen = !actions.hasClass('order-actions--open');
+
+        Order.actionsClose();
+
+        if (shouldOpen){
+            actions.addClass('order-actions--open');
+            toggle.attr('aria-expanded', 'true');
+        }
+    },
+    actionsClose: function (restoreFocus){
+        let actions = $('.order-actions--open');
+
+        actions.removeClass('order-actions--open');
+        actions.find('.order-actions__toggle').attr('aria-expanded', 'false');
+
+        if (restoreFocus && actions.length){
+            actions.find('.order-actions__toggle').trigger('focus');
+        }
     },
 
     // Assembly

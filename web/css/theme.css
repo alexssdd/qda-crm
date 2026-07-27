@@ -455,7 +455,7 @@ textarea,
 [data-theme="dark"] .order-body,
 [data-theme="dark"] .lead-body,
 [data-theme="dark"] .care-body,
-[data-theme="dark"] .order-actions,
+[data-theme="dark"] .order-actions__menu,
 [data-theme="dark"] .lead-actions,
 [data-theme="dark"] .care-actions,
 [data-theme="dark"] .order-history__top,
@@ -481,6 +481,15 @@ textarea,
     color: var(--theme-text);
     background-color: var(--theme-surface);
     border-color: var(--theme-border);
+}
+
+[data-theme="dark"] .order-actions__link {
+    color: var(--theme-text);
+}
+
+[data-theme="dark"] .order-actions__link:hover {
+    color: var(--theme-text);
+    background-color: var(--theme-surface-hover);
 }
 
 [data-theme="dark"] .lead-modal {

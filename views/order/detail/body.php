@@ -69,10 +69,24 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
     </div>
     <?php if (OrderHelper::canTransfer($order->status)): ?>
         <div class="order-footer">
-            <a
-                href="<?= Url::to(['/order/transfer', 'id' => $order->id]) ?>"
-                class="btn btn--default order-footer__transfer js-view-modal"
-            >Передать оператору</a>
+            <div class="order-actions">
+                <button
+                    type="button"
+                    class="btn btn--default order-actions__toggle"
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                >
+                    <span>Действия</span>
+                    <i class="order-actions__toggle-icon icon-more_vert" aria-hidden="true"></i>
+                </button>
+                <div class="order-actions__menu" role="menu">
+                    <a
+                        href="<?= Url::to(['/order/transfer', 'id' => $order->id]) ?>"
+                        class="order-actions__link js-view-modal"
+                        role="menuitem"
+                    >Передать оператору</a>
+                </div>
+            </div>
         </div>
     <?php endif; ?>
 </div>
