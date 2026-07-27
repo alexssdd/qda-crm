@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use app\core\helpers\DateHelper;
 
 /** @var $data [] */
@@ -11,7 +12,7 @@ use app\core\helpers\DateHelper;
         <?php foreach ($data as $item) : if (!$item['count']) continue; ?>
             <tr>
                 <td>
-                    <div class="chart-table__name"><?= $item['name'] ?></div>
+                    <div class="chart-table__name"><?= Html::encode((string) $item['name']) ?></div>
                 </td>
                 <td class="chart-table__right"><?= DateHelper::getGmDate($item['time_average']) ?></td>
             </tr>

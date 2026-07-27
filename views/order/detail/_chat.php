@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use app\modules\order\helpers\OrderEventHelper;
 use app\modules\order\helpers\OrderTextHelper;
 use app\modules\order\models\Order;
@@ -18,27 +19,27 @@ use app\modules\order\helpers\OrderHelper;
         <?php endif; ?>
         <div class="order-chat__block">
             <div class="order-chat__author">
-                <?= UserHelper::getShortName($author) ?>
-                <span class="order-chat__role">(<?= UserHelper::getRoleName($author->role) ?>)</span>
+                <?= Html::encode(UserHelper::getShortName($author)) ?>
+                <span class="order-chat__role">(<?= Html::encode(UserHelper::getRoleName($author->role)) ?>)</span>
             </div>
             <div class="order-chat__status">
-                <?= OrderHelper::getStatusName($history->status_before) ?>
+                <?= Html::encode(OrderHelper::getStatusName($history->status_before)) ?>
                 <i class="order-chat__arrow icon-arrow_forward"></i>
-                <?= OrderHelper::getStatusName($history->status_after) ?>
+                <?= Html::encode(OrderHelper::getStatusName($history->status_after)) ?>
             </div>
         </div>
         <div class="order-chat__date"><?= date('d.m.y H:i', $history->created_at) ?></div>
     </div>
     <?php foreach ($history->orderEvents as $event): ?>
-        <div class="order-chat__item order-chat__event" data-id="<?= $event->id ?>">
-            <div class="order-chat__block <?= OrderEventHelper::getPriorityClass($event->type) ?>">
-                <div class="order-chat__author"><?= UserHelper::getShortName($event->createdBy) ?></div>
+        <div class="order-chat__item order-chat__event" data-id="<?= (int) $event->id ?>">
+            <div class="order-chat__block <?= Html::encode(OrderEventHelper::getPriorityClass($event->type)) ?>">
+                <div class="order-chat__author"><?= Html::encode(UserHelper::getShortName($event->createdBy)) ?></div>
                 <div class="order-chat__text">
                     <?php if ($image = OrderEventHelper::getImage($event->type)) : ?>
-                        <img class="order-chat__image" src="<?= $image ?>" alt="<?= $event->id ?>">
+                        <img class="order-chat__image" src="<?= Html::encode($image) ?>" alt="<?= (int) $event->id ?>">
                     <?php endif; ?>
                     <?php if ($icon = OrderEventHelper::getIconClass($event->type)) : ?>
-                        <i class="order-chat__icon <?= $icon ?>"></i>
+                        <i class="order-chat__icon <?= Html::encode($icon) ?>"></i>
                     <?php endif; ?>
                     <?= OrderTextHelper::getMessage($event) ?>
                 </div>

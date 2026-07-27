@@ -48,8 +48,10 @@ class CustomerUpdateForm extends Model
     public function rules(): array
     {
         return [
+            [['name'], 'trim'],
             [['status'], 'integer'],
-            [['name'], 'string'],
+            [['status'], 'in', 'range' => array_keys(CustomerHelper::getStatusArray())],
+            [['name'], 'string', 'max' => 255],
             [['name', 'status'], 'required'],
         ];
     }

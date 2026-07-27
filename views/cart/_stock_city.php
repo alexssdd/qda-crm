@@ -1,6 +1,7 @@
 <?php
 
 use yii\web\View;
+use yii\helpers\Html;
 use app\entities\Product;
 
 /* @var $this View */
@@ -9,7 +10,7 @@ use app\entities\Product;
 
 ?>
 <div class="modal__container modal__container--500">
-    <div class="modal__title"><?= $product->name ?></div>
+    <div class="modal__title"><?= Html::encode($product->name) ?></div>
     <div class="modal__body">
         <table class="modal-table">
             <thead>
@@ -21,8 +22,8 @@ use app\entities\Product;
             <tbody>
             <?php foreach ($cities as $city) : ?>
                 <tr>
-                    <td class="modal-table__td--382"><?= $city['name'] ?></td>
-                    <td class="modal-table__td--85"><?= $city['stock'] ?></td>
+                    <td class="modal-table__td--382"><?= Html::encode((string) $city['name']) ?></td>
+                    <td class="modal-table__td--85"><?= Html::encode((string) $city['stock']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

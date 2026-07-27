@@ -3,6 +3,8 @@
 namespace app\forms\cart;
 
 use Yii;
+use app\entities\City;
+use app\entities\Product;
 use app\core\forms\Form;
 
 /**
@@ -21,8 +23,11 @@ class CartDefecturaForm extends Form
     public function rules(): array
     {
         return [
-            [['product_id'], 'required'],
-            [['quantity', 'city_id'], 'safe'],
+            [['product_id', 'quantity'], 'required'],
+            [['product_id', 'city_id'], 'integer'],
+            [['product_id'], 'exist', 'targetClass' => Product::class, 'targetAttribute' => 'id'],
+            [['city_id'], 'exist', 'targetClass' => City::class, 'targetAttribute' => 'id'],
+            [['quantity'], 'integer', 'min' => 1, 'max' => 100000],
         ];
     }
 

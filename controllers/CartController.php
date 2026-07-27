@@ -7,12 +7,14 @@ use Exception;
 use DomainException;
 use yii\web\Response;
 use yii\web\Controller;
+use yii\web\BadRequestHttpException;
 use app\entities\Product;
 use app\entities\Merchant;
 use app\search\CartSearch;
 use yii\helpers\ArrayHelper;
 use app\services\CartService;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use app\forms\AddressSelectForm;
 use app\core\helpers\CityHelper;
 use app\core\helpers\UserHelper;
@@ -47,6 +49,17 @@ class CartController extends Controller
                         'allow' => true,
                         'roles' => [UserHelper::ROLE_OPERATOR],
                     ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'customer' => ['post'],
+                    'calc-products' => ['post'],
+                    'calc-delivery' => ['post'],
+                    'stores' => ['post'],
+                    'address-select' => ['post'],
+                    'address-save' => ['post'],
                 ],
             ],
         ];
@@ -350,6 +363,12 @@ class CartController extends Controller
     public function actionAddressSelect(): string
     {
         $attributes = Yii::$app->request->post();
+        $model = new AddressSelectForm();
+        $model->setAttributes($attributes);
+
+        if (!$model->validate() || !$model->getCity()) {
+            throw new BadRequestHttpException('Некорректные данные адреса');
+        }
 
         return $this->renderAjax('_address_select', [
             'attributes' => $attributes
@@ -370,11 +389,19 @@ class CartController extends Controller
             ]);
         }
 
+        if (!$model->validate()) {
+            return $this->asJson([
+                'status' => 'error',
+                'message' => $model->getErrorMessage(),
+            ]);
+        }
+
         $label = AddressSelectHelper::getLabel($model->address, $model->type, $model->title);
         return $this->asJson([
             'status' => 'success',
             'data' => [
                 'label' => $label,
+                'label_prefix' => AddressSelectHelper::getLabelPrefix($model->type),
                 'address' => $model->address,
                 'type' => $model->type,
                 'lat' => $model->lat,

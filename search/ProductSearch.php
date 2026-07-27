@@ -32,7 +32,8 @@ class ProductSearch extends Model
     {
         return [
             [['merchant_id', 'brand_id', 'status'], 'integer'],
-            [['name', 'sku'], 'string']
+            [['name'], 'string', 'max' => 255],
+            [['sku'], 'string', 'max' => 100],
         ];
     }
 

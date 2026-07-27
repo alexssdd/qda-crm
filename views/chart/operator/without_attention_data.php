@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 /** @var $data [] */
 
@@ -9,13 +10,13 @@ use yii\helpers\Url;
     <div class="chart-circle">
         <div class="chart-circle__info">
             <div class="chart-circle__left">
-                <div class="chart-circle__value"><?= $data['count'] ?></div>
+                <div class="chart-circle__value"><?= Html::encode((string) $data['count']) ?></div>
             </div>
         </div>
         <div class="chart-circle__buttons">
             <?php foreach ($data['orders'] as $order) : ?>
                 <a target="_blank" href="<?= Url::to(['/order/index', 'id' => $order['id']]) ?>" class="chart-circle__button">
-                    <?= $order['number'] ?>
+                    <?= Html::encode((string) $order['number']) ?>
                 </a>
             <?php endforeach; ?>
         </div>

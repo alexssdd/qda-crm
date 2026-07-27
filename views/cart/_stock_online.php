@@ -1,6 +1,7 @@
 <?php
 
 use yii\web\View;
+use yii\helpers\Html;
 use app\entities\Product;
 use app\core\helpers\StoreHelper;
 
@@ -10,7 +11,7 @@ use app\core\helpers\StoreHelper;
 
 ?>
 <div class="modal__container modal__container--1000">
-    <div class="modal__title"><?= $product->name ?></div>
+    <div class="modal__title"><?= Html::encode($product->name) ?></div>
     <div class="modal__body">
         <table class="modal-table">
             <thead>
@@ -26,18 +27,19 @@ use app\core\helpers\StoreHelper;
             </thead>
             <tbody>
             <?php foreach ($stores as $store) : ?>
+                <?php $color = in_array($store['color'], ['green', 'yellow', 'gray'], true) ? $store['color'] : 'gray'; ?>
                 <tr>
                     <td class="modal-table__td--180">
-                        <span class="modal-table__state modal-table__state--<?= $store['color']?>"></span>
-                        <?= $store['name_short'] ?>
+                        <span class="modal-table__state modal-table__state--<?= $color ?>"></span>
+                        <?= Html::encode((string) $store['name_short']) ?>
                         <span class="modal-table__small"><?= StoreHelper::getDurationDistanceLabel($store['duration'], $store['distance'])?></span>
                     </td>
-                    <td class="modal-table__td--85"><?= $store['number'] ?></td>
-                    <td class="modal-table__td--85"><?= $store['stock'] ?></td>
+                    <td class="modal-table__td--85"><?= Html::encode((string) $store['number']) ?></td>
+                    <td class="modal-table__td--85"><?= Html::encode((string) $store['stock']) ?></td>
                     <td class="modal-table__td--85"></td>
-                    <td class="modal-table__td--250"><?= $store['address']?></td>
-                    <td class="modal-table__td--150"><?= $store['working_time']?></td>
-                    <td class="modal-table__td--132"><?= $store['phone']?></td>
+                    <td class="modal-table__td--250"><?= Html::encode((string) $store['address']) ?></td>
+                    <td class="modal-table__td--150"><?= Html::encode((string) $store['working_time']) ?></td>
+                    <td class="modal-table__td--132"><?= Html::encode((string) $store['phone']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

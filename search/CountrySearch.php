@@ -30,7 +30,8 @@ class CountrySearch extends Model
     {
         return [
             [['status'], 'integer'],
-            [['name', 'iso'], 'string']
+            [['name'], 'string', 'max' => 255],
+            [['iso'], 'string', 'max' => 3],
         ];
     }
 

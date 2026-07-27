@@ -35,7 +35,7 @@ class CustomerSearch extends Model
     {
         return [
             [['type', 'status'], 'integer'],
-            [['name', 'phone', 'email', 'iin', 'ref'], 'string']
+            [['name', 'phone', 'email', 'iin', 'ref'], 'string', 'max' => 255],
         ];
     }
 

@@ -18,7 +18,8 @@ class LogSearch extends Model
     public function rules(): array
     {
         return [
-            [['data', 'target'], 'string'],
+            [['data'], 'string', 'max' => 1000],
+            [['target'], 'string', 'max' => 100],
             [['status'], 'integer'],
         ];
     }

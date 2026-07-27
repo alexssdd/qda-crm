@@ -19,9 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page">
     <div class="page__header">
-        <h1 class="page__title"><?= $this->title; ?></h1>
+        <h1 class="page__title"><?= Html::encode($this->title) ?></h1>
         <div class="page__actions">
-            <a class="btn btn__primary" href="<?= Url::to(['country/import'])?>">Импортировать</a>
             <a class="btn btn__primary js-view-modal" href="<?= Url::to(['country/create'])?>">Добавить</a>
         </div>
     </div>
@@ -39,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'options' => ['width' => 200],
                 'value' => function (Country $model) {
-                    return Html::a($model->name, ['update', 'id' => $model->id], ['class' => 'js-view-modal', 'data-pjax' => 0]);
+                    return Html::a(Html::encode($model->name), ['update', 'id' => $model->id], ['class' => 'js-view-modal', 'data-pjax' => 0]);
                 },
             ],
             [

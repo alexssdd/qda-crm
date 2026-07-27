@@ -162,8 +162,14 @@ window.Care = {
         // Set default
         fieldStoreNumber.val('').hide().removeClass('required');
         fieldDeliveryLate.val('').hide();
-        inputComplaintReason.html('<option value>' + Messages['Select value'] + '</option>');
-        inputSolutionMeasures.html('<option value>' + Messages['Select value'] + '</option>');
+        inputComplaintReason.empty().append($('<option>', {
+            value: '',
+            text: Messages['Select value']
+        }));
+        inputSolutionMeasures.empty().append($('<option>', {
+            value: '',
+            text: Messages['Select value']
+        }));
         inputStoreNumber.prop('required', false);
 
         // Delivery
@@ -181,7 +187,10 @@ window.Care = {
         let complaintReasons = CareHelper['complaint_reasons'][valueCategory];
         if (Array.isArray(complaintReasons)){
             for (let reason of complaintReasons){
-                inputComplaintReason.append('<option value="' + reason + '">' + reason + '</option>');
+                inputComplaintReason.append($('<option>', {
+                    value: reason,
+                    text: reason
+                }));
             }
         }
 
@@ -192,7 +201,10 @@ window.Care = {
         }
         if (Array.isArray(solutionMeasures)){
             for (let solutionMeasure of solutionMeasures){
-                inputSolutionMeasures.append('<option value="' + solutionMeasure + '">' + solutionMeasure + '</option>');
+                inputSolutionMeasures.append($('<option>', {
+                    value: solutionMeasure,
+                    text: solutionMeasure
+                }));
             }
         }
 

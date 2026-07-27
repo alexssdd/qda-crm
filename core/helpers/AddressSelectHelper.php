@@ -27,7 +27,7 @@ class AddressSelectHelper
             $result .= ', ' . mb_strtolower(Yii::t('app', 'Entrance'), 'UTF-8') . ' ' . Html::encode($data['entrance']);
         }
         if ($data['apartment']){
-            $result .= ', ' . mb_strtolower(Yii::t('app', 'Apartment'), 'UTF-8') . ' ' . Html::encode($data['room']);
+            $result .= ', ' . mb_strtolower(Yii::t('app', 'Apartment'), 'UTF-8') . ' ' . Html::encode($data['apartment']);
         }
 
         return $result;
@@ -39,22 +39,20 @@ class AddressSelectHelper
      * @param $title
      * @return string|null
      */
-    public static function getLabel($address, $type, $title): ?string
+    public static function getLabel($address, $type, $title): string
     {
-        $result = $address;
-        
-        if (!$type){
-            return $result;
-        }
+        return $type == self::TYPE_LIST && $title
+            ? (string) $title
+            : (string) $address;
+    }
 
-        if ($type == self::TYPE_MAP){
-            $result = Html::tag('strong', 'Указан на карте: ') . $address;
-        } elseif ($type == self::TYPE_INPUT){
-            $result = Html::tag('strong', 'Введен вручную: ') . $address;
-        } elseif ($type == self::TYPE_LIST){
-            $result = Html::tag('strong', 'Выбран из списка: ') . ($title ?: $address);
-        }
-
-        return $result;
+    public static function getLabelPrefix($type): string
+    {
+        return match ($type) {
+            self::TYPE_MAP => 'Указан на карте: ',
+            self::TYPE_INPUT => 'Введен вручную: ',
+            self::TYPE_LIST => 'Выбран из списка: ',
+            default => '',
+        };
     }
 }

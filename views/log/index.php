@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page log-index">
     <div class="page__header">
-        <h1 class="page__title"><?= $this->title; ?></h1>
+        <h1 class="page__title"><?= Html::encode($this->title) ?></h1>
     </div>
 
     <?php Pjax::begin(); ?>

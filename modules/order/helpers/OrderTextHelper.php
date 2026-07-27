@@ -21,11 +21,11 @@ class OrderTextHelper
             $body = '';
 
             if ($executor) {
-                $body .= "<span class='order-chat__detail'>Исполнитель: " . $executor . "</span>";
+                $body .= "<span class='order-chat__detail'>Исполнитель: " . Html::encode((string) $executor) . "</span>";
             }
 
             if ($price) {
-                $body .= "<span class='order-chat__detail'>Цена: " . $price . "</span>";
+                $body .= "<span class='order-chat__detail'>Цена: " . Html::encode((string) $price) . "</span>";
             }
 
             return $header . "<div class='order-chat__details'>" . $body . '</div>';

@@ -46,6 +46,7 @@ class UserUpdateForm extends Model
     {
         return [
             [['country'], 'filter', 'filter' => static fn($value) => mb_strtolower(trim((string) $value))],
+            [['name'], 'trim'],
 
             [['role', 'name', 'country', 'status'], 'required'],
             [['name'], 'string', 'max' => 255],
@@ -53,7 +54,7 @@ class UserUpdateForm extends Model
             [['role'], 'in', 'range' => array_keys($this->getRoleArray())],
             [['status'], 'in', 'range' => array_keys(UserHelper::getStatusArray())],
 
-            [['password', 'passwordRepeat'], 'string', 'min' => 8],
+            [['password', 'passwordRepeat'], 'string', 'min' => 8, 'max' => 255],
             [['password'], 'match', 'pattern' => '/^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/', 'message' => Yii::t('user', 'Password must contain at least one lower and upper case character and a digit.')],
             [['passwordRepeat'], 'compare', 'compareAttribute' => 'password'],
         ];

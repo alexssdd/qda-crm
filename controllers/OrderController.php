@@ -6,6 +6,7 @@ use Yii;
 use Throwable;
 use Exception;
 use DomainException;
+use yii\helpers\Html;
 use yii\helpers\VarDumper;
 use yii\web\Response;
 use app\entities\Store;
@@ -14,6 +15,7 @@ use app\search\CartSearch;
 use app\search\OrderSearch;
 use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use app\entities\OrderReceipt;
 use app\forms\AddressSelectForm;
 use app\services\ConsoleService;
@@ -67,6 +69,18 @@ class OrderController extends Controller
                         'allow' => true,
                         'roles' => [UserHelper::ROLE_OPERATOR],
                     ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'update' => ['post'],
+                    'remove-assembly' => ['post'],
+                    'remove-assembly-all' => ['post'],
+                    'courier-location' => ['post'],
+                    'chat-message' => ['post'],
+                    'whatsapp' => ['post'],
+                    'address-save' => ['post'],
                 ],
             ],
         ];
@@ -542,8 +556,8 @@ class OrderController extends Controller
                     'name' => $courier->name,
                     'phone' => $courier->phone,
                     'balloon' => implode('<br />', [
-                        '<strong>' . $courier->getAttributeLabel('name') . '</strong>: ' . $courier->name,
-                        '<strong>' . $courier->getAttributeLabel('phone') . '</strong>: ' . $courier->phone,
+                        '<strong>' . Html::encode($courier->getAttributeLabel('name')) . '</strong>: ' . Html::encode($courier->name),
+                        '<strong>' . Html::encode($courier->getAttributeLabel('phone')) . '</strong>: ' . Html::encode($courier->phone),
                     ])
                 ]
             ]);

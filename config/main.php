@@ -33,6 +33,34 @@ return [
     ],
     'timeZone' => 'Asia/Aqtau',
     'components' => [
+        'request' => [
+            'enableCsrfValidation' => true,
+            'csrfCookie' => [
+                'httpOnly' => true,
+                'sameSite' => 'Lax',
+                'secure' => YII_ENV_PROD,
+            ],
+        ],
+        'response' => [
+            'on beforeSend' => static function ($event): void {
+                $headers = $event->sender->headers;
+                $headers->set('Content-Security-Policy', "base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'");
+                $headers->set('Permissions-Policy', 'camera=(), microphone=()');
+                $headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
+                $headers->set('X-Content-Type-Options', 'nosniff');
+                $headers->set('X-Frame-Options', 'SAMEORIGIN');
+                if (YII_ENV_PROD) {
+                    $headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+                }
+            },
+        ],
+        'session' => [
+            'cookieParams' => [
+                'httpOnly' => true,
+                'sameSite' => 'Lax',
+                'secure' => YII_ENV_PROD,
+            ],
+        ],
         'authManager' => [
             'class' => 'app\modules\auth\services\RbacService',
             'itemFile' => '@app/modules/auth/storage/rbac/items.php',
@@ -42,6 +70,12 @@ return [
         'user' => [
             'identityClass' => 'app\modules\auth\models\User',
             'enableAutoLogin' => true,
+            'identityCookie' => [
+                'name' => '_identity',
+                'httpOnly' => true,
+                'sameSite' => 'Lax',
+                'secure' => YII_ENV_PROD,
+            ],
         ],
         'db' => $db['db'],
         'cache' => [

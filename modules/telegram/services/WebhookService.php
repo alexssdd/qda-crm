@@ -11,9 +11,12 @@ class WebhookService
     public function handle(WebhookForm $form)
     {
         // todo added norm logic
-        $values = explode(' ', $form->text);
-        if ($values[0] == '/start' && $uuid = $values[1]) {
-            $this->invited($uuid, $form->chat->id);
+        $values = preg_split('/\s+/', $form->text, 2);
+        if (($values[0] ?? null) === '/start' && isset($values[1])) {
+            $uuid = trim($values[1]);
+            if (preg_match('/^[a-zA-Z0-9_-]{1,128}$/', $uuid)) {
+                $this->invited($uuid, (int) $form->chat->id);
+            }
         }
     }
 

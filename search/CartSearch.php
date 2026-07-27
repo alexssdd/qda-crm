@@ -4,6 +4,9 @@ namespace app\search;
 
 use Exception;
 use yii\base\Model;
+use app\entities\City;
+use app\entities\Customer;
+use app\entities\Merchant;
 use app\entities\Price;
 use app\entities\Stock;
 use app\entities\Product;
@@ -27,9 +30,11 @@ class CartSearch extends Model
     {
         return [
             [['merchant_id', 'city_id'], 'required'],
-            [['merchant_id', 'city_id'], 'integer'],
-            [['query'], 'string'],
-            [['customer_id'], 'safe'],
+            [['merchant_id', 'city_id', 'customer_id'], 'integer'],
+            [['merchant_id'], 'exist', 'targetClass' => Merchant::class, 'targetAttribute' => 'id'],
+            [['city_id'], 'exist', 'targetClass' => City::class, 'targetAttribute' => 'id'],
+            [['customer_id'], 'exist', 'targetClass' => Customer::class, 'targetAttribute' => 'id'],
+            [['query'], 'string', 'max' => 255],
         ];
     }
 

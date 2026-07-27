@@ -29,9 +29,10 @@ class OrderCancelForm extends Form
     public function rules(): array
     {
         return [
+            [['reason', 'reason_additional', 'text'], 'trim'],
             [['reason'], 'required'],
-            [['reason_additional'], 'string'],
-            [['text'], 'string']
+            [['reason', 'reason_additional'], 'string', 'max' => 255],
+            [['text'], 'string', 'max' => 2000],
         ];
     }
 

@@ -30,6 +30,7 @@ class UserCreateForm extends Model
         return [
             [['phone'], 'filter', 'filter' => [PhoneHelper::class, 'getCleanNumber']],
             [['country'], 'filter', 'filter' => static fn($value) => mb_strtolower(trim((string) $value))],
+            [['name'], 'trim'],
 
             [['phone', 'role', 'name', 'country', 'status'], 'required'],
             [['phone'], 'string', 'max' => 21],
@@ -45,7 +46,7 @@ class UserCreateForm extends Model
             [['phone'], 'unique', 'targetClass' => User::class, 'targetAttribute' => 'phone'],
 
             [['password', 'passwordRepeat'], 'required'],
-            [['password', 'passwordRepeat'], 'string', 'min' => 8],
+            [['password', 'passwordRepeat'], 'string', 'min' => 8, 'max' => 255],
             [['password'], 'match', 'pattern' => '/^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/', 'message' => Yii::t('user', 'Password must contain at least one lower and upper case character and a digit.')],
             [['passwordRepeat'], 'compare', 'compareAttribute' => 'password'],
         ];

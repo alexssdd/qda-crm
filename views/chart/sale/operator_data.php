@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Html;
+
 /** @var $data [] */
 
 ?>
@@ -41,13 +43,13 @@
             <tr>
                 <td><strong><?= $i + 1 ?></strong></td>
                 <td>
-                    <div class="chart-table__name"><?= $item['name'] ?></div>
+                    <div class="chart-table__name"><?= Html::encode((string) $item['name']) ?></div>
                 </td>
-                <td><?= $item['count_crm'] ?></td>
+                <td><?= Html::encode((string) $item['count_crm']) ?></td>
                 <td><?= Yii::$app->formatter->asDecimal($item['sum_crm']) ?></td>
-                <td><?= $item['count'] ?></td>
-                <td><?= $item['count_lead'] ?></td>
-                <td><?= $item['count_care'] ?></td>
+                <td><?= Html::encode((string) $item['count']) ?></td>
+                <td><?= Html::encode((string) $item['count_lead']) ?></td>
+                <td><?= Html::encode((string) $item['count_care']) ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

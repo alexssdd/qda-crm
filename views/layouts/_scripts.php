@@ -14,6 +14,6 @@ $messages = [
 
 ?>
 <script>
-    window.Config = <?= Json::encode($config) ?>;
-    window.Messages = <?= Json::encode($messages) ?>;
+    window.Config = <?= Json::htmlEncode($config) ?>;
+    window.Messages = <?= Json::htmlEncode($messages) ?>;
 </script>

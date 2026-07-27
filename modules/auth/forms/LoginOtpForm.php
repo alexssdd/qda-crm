@@ -28,6 +28,7 @@ class LoginOtpForm extends Form
                 return PhoneHelper::getCleanNumber($value);
             }],
 
+            ['phone', 'match', 'pattern' => '/^7\d{10}$/', 'message' => 'Неверный номер телефона'],
             ['code', 'match', 'pattern' => '/^\d{6}$/', 'message' => 'Код должен содержать 6 цифр'],
 
             ['phone', 'validateUserAndIdentity'],

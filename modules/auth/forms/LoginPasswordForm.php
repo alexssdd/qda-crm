@@ -8,6 +8,7 @@ use app\modules\auth\models\User;
 use app\core\helpers\PhoneHelper;
 use app\modules\auth\enums\AuthMethod;
 use app\modules\auth\models\AuthIdentity;
+use app\core\security\LoginAttemptLimiter;
 
 class LoginPasswordForm extends Form
 {
@@ -25,9 +26,19 @@ class LoginPasswordForm extends Form
                 return PhoneHelper::getCleanNumber($value);
             }],
 
+            ['phone', 'match', 'pattern' => '/^7\d{10}$/', 'message' => 'Неверный номер телефона'],
+            ['password', 'string', 'max' => 255],
+            ['phone', 'validateAttemptLimit'],
             ['phone', 'validateUser'],
             ['password', 'validatePassword'],
         ];
+    }
+
+    public function validateAttemptLimit($attribute): void
+    {
+        if (!$this->hasErrors() && LoginAttemptLimiter::isBlocked($this->phone)) {
+            $this->addError($attribute, 'Слишком много попыток входа. Повторите позже.');
+        }
     }
 
     /**
@@ -39,6 +50,7 @@ class LoginPasswordForm extends Form
             $this->_user = User::findByPhone($this->phone);
 
             if (!$this->_user) {
+                LoginAttemptLimiter::registerFailure($this->phone);
                 $this->addError($attribute, 'ERROR_USER_NOT_FOUND_OR_WRONG_PASSWORD');
             }
         }
@@ -60,8 +72,12 @@ class LoginPasswordForm extends Form
             ]);
 
             if (!$identity || !Yii::$app->security->validatePassword($this->password, $identity->credential)) {
+                LoginAttemptLimiter::registerFailure($this->phone);
                 $this->addError($attribute, 'ERROR_USER_NOT_FOUND_OR_WRONG_PASSWORD');
+                return;
             }
+
+            LoginAttemptLimiter::clear($this->phone);
         }
     }
 

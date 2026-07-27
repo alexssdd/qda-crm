@@ -4,6 +4,7 @@ namespace app\forms;
 
 use Yii;
 use yii\base\Model;
+use app\core\helpers\CountryHelper;
 use app\modules\location\models\Country;
 
 /**
@@ -32,8 +33,10 @@ class CountryUpdateForm extends Model
     public function rules(): array
     {
         return [
+            [['name'], 'trim'],
             [['status'], 'integer'],
-            [['name'], 'string'],
+            [['status'], 'in', 'range' => array_keys(CountryHelper::getStatusArray())],
+            [['name'], 'string', 'max' => 255],
             [['name', 'status'], 'required'],
         ];
     }

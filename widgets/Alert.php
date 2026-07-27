@@ -57,7 +57,7 @@ class Alert extends Widget
 
             foreach ((array) $flash as $i => $message) {
 
-                echo Html::tag('div', $message . '<i class="alert__close icon-close"></i>', [
+                echo Html::tag('div', Html::encode((string) $message) . '<i class="alert__close icon-close"></i>', [
                     'id' => $this->getId() . '-' . $type . '-' . $i,
                     'class' => 'alert ' . $this->alertTypes[$type] . $appendClass,
                 ]);

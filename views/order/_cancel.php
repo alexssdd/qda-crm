@@ -45,7 +45,7 @@ foreach ($allReasons as $item){
 <?php
 
 $allReasons = ArrayHelper::index($allReasons, 'name');
-$allReasonsJson = Json::encode($allReasons);
+$allReasonsJson = Json::htmlEncode($allReasons);
 
 $js = <<<JS
 

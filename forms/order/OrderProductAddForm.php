@@ -40,8 +40,9 @@ class OrderProductAddForm extends Form
     public function rules(): array
     {
         return [
-            [['product_id', 'quantity'], 'integer'],
-            [['product_id'], 'required'],
+            [['product_id'], 'integer'],
+            [['quantity'], 'integer', 'min' => 1, 'max' => 100000],
+            [['product_id', 'quantity'], 'required'],
             [['product_id'], 'validateProduct'],
             [['product_id'], 'validateChannel'],
             [['product_id'], 'validateStatus'],
@@ -100,7 +101,10 @@ class OrderProductAddForm extends Form
     public function getProduct(): ?Product
     {
         if ($this->_product === null) {
-            $this->_product = Product::findOne($this->product_id);
+            $this->_product = Product::findOne([
+                'id' => $this->product_id,
+                'merchant_id' => $this->_order->merchant_id,
+            ]);
         }
         return $this->_product;
     }

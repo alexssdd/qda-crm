@@ -17,7 +17,9 @@ class LeadChatMessageForm extends Form
     public function rules(): array
     {
         return [
-            [['message'], 'required']
+            [['message'], 'trim'],
+            [['message'], 'required'],
+            [['message'], 'string', 'max' => 2000],
         ];
     }
 

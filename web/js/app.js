@@ -191,7 +191,7 @@ window.UrlManager = {
         if (params !== undefined){
             let paramsArray = [];
             $.each(params, function (key, value) {
-                paramsArray.push(key + '=' + value);
+                paramsArray.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
             });
             if (paramsArray.length > 0){
                 result = result + '?' + paramsArray.join('&');

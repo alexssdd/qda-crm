@@ -12,7 +12,7 @@ use yii\helpers\Html;
     <div class="modal__title">Сборка всех товаров в одну точку продаж</div>
     <div class="modal__body">
         <?php if ($error) : ?>
-        <div class="modal__alert modal__alert-danger"><?= $error ?></div>
+        <div class="modal__alert modal__alert-danger"><?= Html::encode($error) ?></div>
         <?php endif; ?>
         <table class="modal-table">
             <thead>
@@ -25,14 +25,15 @@ use yii\helpers\Html;
             </thead>
             <tbody>
                 <?php foreach ($stores as $item) : ?>
-                <tr class="modal-table__tr--<?= $item['color'] ?>" data-id="<?= $item['id'] ?>" data-name="<?= $item['name_short'] ?>">
-                    <td class="modal-table__td--350<?= $item['color'] == 'gray' ? '' : ' modal-table__selector' ?>">
-                        <span class="modal-table__state modal-table__state--<?= $item['color'] ?>"></span>
-                        <?= $item['name_short'] ?>
+                <?php $color = in_array($item['color'], ['green', 'yellow', 'gray'], true) ? $item['color'] : 'gray'; ?>
+                <tr class="modal-table__tr--<?= $color ?>" data-id="<?= (int) $item['id'] ?>" data-name="<?= Html::encode((string) $item['name_short']) ?>">
+                    <td class="modal-table__td--350<?= $color === 'gray' ? '' : ' modal-table__selector' ?>">
+                        <span class="modal-table__state modal-table__state--<?= $color ?>"></span>
+                        <?= Html::encode((string) $item['name_short']) ?>
                     </td>
-                    <td class="modal-table__td--250 modal-table__break"><?= $item['address'] ?></td>
-                    <td class="modal-table__td--150"><?= $item['working_time'] ?></td>
-                    <td class="modal-table__td--221"><?= $item['phone'] ?></td>
+                    <td class="modal-table__td--250 modal-table__break"><?= Html::encode((string) $item['address']) ?></td>
+                    <td class="modal-table__td--150"><?= Html::encode((string) $item['working_time']) ?></td>
+                    <td class="modal-table__td--221"><?= Html::encode((string) $item['phone']) ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

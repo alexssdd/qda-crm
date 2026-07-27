@@ -109,7 +109,7 @@ $customerAddresses = $model->getCustomerAddresses();
 
 $city = $model->getCity();
 
-$params = Json::encode([
+$params = Json::htmlEncode([
     'cityLat' => $city->getLat() ?: 0,
     'cityLng' => $city->getLng() ?: 0,
     'latValue' => $model->lat ?: 0,

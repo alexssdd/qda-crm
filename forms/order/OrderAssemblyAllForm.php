@@ -2,6 +2,7 @@
 
 namespace app\forms\order;
 
+use app\entities\Store;
 use app\core\forms\Form;
 
 /**
@@ -17,7 +18,9 @@ class OrderAssemblyAllForm extends Form
     public function rules(): array
     {
         return [
-            [['store_id'], 'integer']
+            [['store_id'], 'required'],
+            [['store_id'], 'integer'],
+            [['store_id'], 'exist', 'targetClass' => Store::class, 'targetAttribute' => 'id'],
         ];
     }
 }

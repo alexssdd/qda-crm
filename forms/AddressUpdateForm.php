@@ -4,7 +4,9 @@ namespace app\forms;
 
 use Yii;
 use yii\base\Model;
+use app\entities\City;
 use app\entities\Address;
+use app\core\helpers\AddressHelper;
 
 /**
  * Class AddressUpdateForm
@@ -41,8 +43,13 @@ class AddressUpdateForm extends Model
     public function rules(): array
     {
         return [
+            [['address'], 'trim'],
             [['city_id', 'status'], 'integer'],
-            [['address', 'lat', 'lng'], 'string'],
+            [['city_id'], 'exist', 'targetClass' => City::class, 'targetAttribute' => 'id'],
+            [['status'], 'in', 'range' => array_keys(AddressHelper::getStatusArray())],
+            [['address'], 'string', 'max' => 255],
+            [['lat'], 'number', 'min' => -90, 'max' => 90],
+            [['lng'], 'number', 'min' => -180, 'max' => 180],
             [['city_id', 'address', 'status'], 'required'],
         ];
     }

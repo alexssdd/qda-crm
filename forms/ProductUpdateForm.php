@@ -5,6 +5,7 @@ namespace app\forms;
 use Yii;
 use Exception;
 use yii\base\Model;
+use app\entities\Brand;
 use app\entities\Product;
 use yii\helpers\ArrayHelper;
 use app\core\helpers\DataHelper;
@@ -66,14 +67,17 @@ class ProductUpdateForm extends Model
     public function rules(): array
     {
         return [
+            [['name'], 'trim'],
             [['brand_id', 'status'], 'integer'],
-            [['name'], 'string'],
+            [['brand_id'], 'exist', 'targetClass' => Brand::class, 'targetAttribute' => 'id'],
+            [['name'], 'string', 'max' => 255],
+            [['status'], 'in', 'range' => [10, 11]],
             [['name', 'status'], 'required'],
             
             [[
                 'export_kaspi', 'export_ozon', 'export_wb', 'export_wolt', 'export_glovo', 'export_ye',
                 'export_halyk', 'export_jusan', 'export_forte'
-            ], 'integer']
+            ], 'in', 'range' => array_keys(DataHelper::getBoolArray())]
         ];
     }
 

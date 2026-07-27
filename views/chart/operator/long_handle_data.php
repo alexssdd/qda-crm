@@ -35,13 +35,13 @@ use yii\helpers\Html;
                 <tr>
                     <td><strong><?= $i + 1 ?></strong></td>
                     <td>
-                        <div class="chart-table__name"><?= $item['name'] ?></div>
+                        <div class="chart-table__name"><?= Html::encode((string) $item['name']) ?></div>
                     </td>
                     <td class="chart-table__right">
-                        <?= Html::a($item['count_20'], $item['url_20'], ['target' => '_blank']) ?>
+                        <?= Html::a(Html::encode((string) $item['count_20']), $item['url_20'], ['target' => '_blank']) ?>
                     </td>
                     <td class="chart-table__right">
-                        <?= Html::a($item['count_pending'], $item['url_pending'], ['target' => '_blank']) ?>
+                        <?= Html::a(Html::encode((string) $item['count_pending']), $item['url_pending'], ['target' => '_blank']) ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -19,7 +19,9 @@ class OrderPendingForm extends Form
     public function rules(): array
     {
         return [
-            [['reason'], 'required']
+            [['reason'], 'trim'],
+            [['reason'], 'required'],
+            [['reason'], 'string', 'max' => 1000],
         ];
     }
 

@@ -4,6 +4,9 @@ namespace app\forms;
 
 use Yii;
 use yii\base\Model;
+use app\entities\Country;
+use app\core\helpers\CityHelper;
+use app\core\validators\CityConfigValidator;
 
 /**
  * Class CityCreateForm
@@ -23,10 +26,13 @@ class CityCreateForm extends Model
     public function rules(): array
     {
         return [
+            [['name', 'name_kk'], 'trim'],
             [['name', 'country_id', 'status'], 'required'],
             [['country_id', 'status'], 'integer'],
-            [['name', 'name_kk'], 'string'],
-            [['config'], 'safe']
+            [['country_id'], 'exist', 'targetClass' => Country::class, 'targetAttribute' => 'id'],
+            [['status'], 'in', 'range' => array_keys(CityHelper::getStatusArray())],
+            [['name', 'name_kk'], 'string', 'max' => 255],
+            [['config'], CityConfigValidator::class],
         ];
     }
 

@@ -13,7 +13,7 @@ use app\core\helpers\CountryHelper;
 
 ?>
 <div class="modal__container">
-    <div class="modal__title"><?= $model->name ?></div>
+    <div class="modal__title"><?= Html::encode($model->name) ?></div>
 
     <?php $form = ActiveForm::begin([
         'id' => 'modal-form',

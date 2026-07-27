@@ -31,7 +31,7 @@ class AddressSearch extends Model
     {
         return [
             [['customer_id', 'city_id', 'status'], 'integer'],
-            [['address'], 'string']
+            [['address'], 'string', 'max' => 255],
         ];
     }
 

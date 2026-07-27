@@ -11,7 +11,8 @@ class ChatForm extends Form
     public function rules()
     {
         return [
-            [['id'], 'required']
+            [['id'], 'required'],
+            [['id'], 'integer'],
         ];
     }
 }

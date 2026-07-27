@@ -1,6 +1,8 @@
 /* Document ready
 ----------------------------------------*/
 $(function () {
+    ChannelExport.init();
+
     // Submit form
     let submitForms = [
         'form.page-filter'
@@ -66,6 +68,22 @@ window.ChannelExport = {
     data: {},
 
     // Methods
+    init: function (){
+        let body = $('body');
+
+        body.off('click.channelExportCity', '.js-channel-export-city');
+        body.on('click.channelExportCity', '.js-channel-export-city', function (){
+            ChannelExport.detailCity($(this).attr('data-city-id'));
+        });
+
+        body.off('click.channelExportStore', '.js-channel-export-store');
+        body.on('click.channelExportStore', '.js-channel-export-store', function (){
+            ChannelExport.detailStore(
+                $(this).attr('data-city-id'),
+                $(this).attr('data-store-id')
+            );
+        });
+    },
     detailCity: function (id){
         let data = ChannelExport.data[id];
         
@@ -82,17 +100,17 @@ window.ChannelExport = {
         let modal = $('.modal-main');
 
         // Prepare modal
-        let template = $('#templateDetail').html();
-        template = template.replace(/\{name}/g, data['name']);
-        modal.html(template);
+        let template = $($('#templateDetail').html());
+        template.find('.js-channel-export-name').text(data['name'] || '');
+        modal.empty().append(template);
 
         // Prepare rows
         window.dias = data['all'];
         for (const [key, channel] of Object.entries(data['all'])){
-            let templateRow = $('#templateDetailRow').html();
-            templateRow = templateRow.replace(/\{name}/g, channel['name']);
-            templateRow = templateRow.replace(/\{export}/g, channel['export_label']);
-            templateRow = templateRow.replace(/\{stock}/g, channel['stock_label']);
+            let templateRow = $($('#templateDetailRow').html());
+            templateRow.find('.js-channel-export-name').text(channel['name'] || '');
+            templateRow.find('.js-channel-export-value').text(channel['export_label'] || '');
+            templateRow.find('.js-channel-stock-value').text(channel['stock_label'] || '');
             modal.find('tbody').append(templateRow);
         }
 

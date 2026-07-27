@@ -21,7 +21,9 @@ class WebhookForm extends CompositeForm
     public function rules()
     {
         return [
-            [['text'], 'required']
+            [['text'], 'trim'],
+            [['text'], 'required'],
+            [['text'], 'string', 'max' => 4096],
         ];
     }
 

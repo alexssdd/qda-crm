@@ -152,6 +152,7 @@ $paymentMethods = ArrayHelper::map($cartParams['payment_methods'], 'id', 'value'
                             <?= $form->field($model, 'address_type')->hiddenInput() ?>
                             <?= $form->field($model, 'address_title')->hiddenInput() ?>
                             <?= $form->field($model, 'delivery_cost')->hiddenInput() ?>
+                            <?= $form->field($model, 'delivery_quote')->hiddenInput() ?>
                             <?= $form->field($model, 'lead_id')->hiddenInput() ?>
                         </div>
                     </div>
@@ -171,15 +172,15 @@ $paymentMethods = ArrayHelper::map($cartParams['payment_methods'], 'id', 'value'
                             <tbody></tbody>
                         </table>
                         <template id="templateCartItem">
-                            <tr data-id="{id}" data-sku="{sku}">
+                            <tr>
                                 <td class="modal-table__td--35 text-center cart-items__index"></td>
-                                <td class="modal-table__td--290">{name}</td>
+                                <td class="modal-table__td--290 cart-items__name"></td>
                                 <td class="modal-table__td--85 text-center">
-                                    <input type="number" name="Cart[products][{id}][quantity]" class="modal-table__input text-center cart-items__quantity" value="{quantity}" onchange="Cart.itemsChange(this)">
+                                    <input type="number" class="modal-table__input text-center cart-items__quantity" value="1" onchange="Cart.itemsChange(this)">
                                 </td>
-                                <td class="modal-table__td--85 text-center cart-items__price">{price}</td>
+                                <td class="modal-table__td--85 text-center cart-items__price"></td>
                                 <td class="modal-table__td--35 text-center">
-                                    <i class="modal-table__remove icon-close" onclick="Cart.itemsRemove({id})"></i>
+                                    <button type="button" class="modal-table__remove cart-items__remove icon-close" aria-label="Удалить товар"></button>
                                 </td>
                             </tr>
                         </template>
@@ -212,8 +213,8 @@ $paymentMethods = ArrayHelper::map($cartParams['payment_methods'], 'id', 'value'
 </div>
 <?php
 
-$cartParamsJson = Json::encode($cartParams);
-$deliveryParamsJson = Json::encode($deliveryParams);
+$cartParamsJson = Json::htmlEncode($cartParams);
+$deliveryParamsJson = Json::htmlEncode($deliveryParams);
 
 $js = <<<JS
 

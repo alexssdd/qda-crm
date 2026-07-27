@@ -34,7 +34,7 @@ class UserSearch extends Model
     {
         return [
             [['status'], 'integer'],
-            [['name', 'role', 'phone', 'country'], 'string'],
+            [['name', 'role', 'phone', 'country'], 'string', 'max' => 255],
         ];
     }
 

@@ -83,9 +83,15 @@ class OrderSearch extends Model
     public function rules(): array
     {
         return [
-            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'handler_id'], 'integer'],
-            [['name', 'phone', 'cost', 'vendor_id', 'vendor_number', 'transferred', 'event', 'my', 'cost', 'country_code'], 'safe'],
-            [['date_range'], 'match', 'pattern' => '/^.+\s\-\s.+$/']
+            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'handler_id', 'event'], 'integer'],
+            [['cost'], 'number', 'min' => 0],
+            [['transferred', 'my'], 'boolean'],
+            [['name'], 'string', 'max' => 255],
+            [['phone'], 'string', 'max' => 21],
+            [['vendor_id', 'vendor_number'], 'string', 'max' => 100],
+            [['country_code'], 'string', 'max' => 3],
+            [['date_range'], 'string', 'max' => 100],
+            [['date_range'], 'match', 'pattern' => '/^.+\s\-\s.+$/'],
         ];
     }
 

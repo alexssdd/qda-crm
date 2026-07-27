@@ -32,7 +32,7 @@ class CitySearch extends Model
     {
         return [
             [['country_id', 'status'], 'integer'],
-            [['name', 'name_kk'], 'string']
+            [['name', 'name_kk'], 'string', 'max' => 255],
         ];
     }
 

@@ -13,7 +13,7 @@ use app\core\helpers\AddressHelper;
 
 ?>
 <div class="modal__container">
-    <div class="modal__title"><?= $model->address ?></div>
+    <div class="modal__title"><?= Html::encode($model->address) ?></div>
 
     <?php $form = ActiveForm::begin([
         'id' => 'modal-form',

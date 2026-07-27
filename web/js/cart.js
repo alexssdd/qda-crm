@@ -7,6 +7,7 @@ window.Cart = {
     product_id: null,
     cost: 0,
     delivery_cost: 0,
+    deliveryRequestId: 0,
 
     // Init
     init: function (){
@@ -34,6 +35,9 @@ window.Cart = {
         // Handlers
         body.on('change', '#cart-merchant_id, #cart-city_id', Cart.productsSearch);
         body.on('change', '#cart-delivery_method', Cart.handleDelivery);
+        body.on('click', '.cart-items__remove', function (){
+            Cart.itemsRemove($(this).closest('tr').attr('data-id'));
+        });
 
         // Phone
         body.on('change', '#cart-phone', function (){
@@ -66,9 +70,12 @@ window.Cart = {
         }
 
         // Payment methods
-        inputPaymentMethod.html('<option value></option>');
+        inputPaymentMethod.empty().append($('<option>', {value: ''}));
         for (let paymentMethod of Object.keys(deliveryParams['payment_methods'])){
-            inputPaymentMethod.append('<option value="' + paymentMethod + '">' + deliveryParams['payment_methods'][paymentMethod] + '</option>');
+            inputPaymentMethod.append($('<option>', {
+                value: paymentMethod,
+                text: deliveryParams['payment_methods'][paymentMethod]
+            }));
         }
 
         // Additional handles
@@ -149,6 +156,7 @@ window.Cart = {
             type: $('#cart-address_type').val(),
             title: $('#cart-address_title').val(),
         };
+        params[yii.getCsrfParam()] = yii.getCsrfToken();
 
         NProgress.start();
         $.post(UrlManager.to('cart', 'address-select'), params, function (res){
@@ -168,9 +176,16 @@ window.Cart = {
         }
 
         let data = result['data'];
+        let addressBlock = $('.cart-form__address-block');
 
         // Set values
-        $('.cart-form__address-block').html(data['label'] ? data['label'] : '');
+        addressBlock.empty();
+        if (data['label_prefix']){
+            addressBlock.append($('<strong>').text(data['label_prefix']));
+        }
+        if (data['label']){
+            addressBlock.append(document.createTextNode(data['label']));
+        }
         $('#cart-address').val(data['address']).trigger('change');
         $('#cart-address_type').val(data['type']).trigger('change');
         $('#cart-lat').val(data['lat']).trigger('change');
@@ -191,8 +206,11 @@ window.Cart = {
     
     // Delivery
     deliveryCalc: function (){
+        let requestId = ++Cart.deliveryRequestId;
         let lat = $('#cart-lat').val();
         let lng = $('#cart-lng').val();
+
+        Cart.deliveryCostSet(0);
 
         // Calc delivery cost
         let params = {
@@ -214,6 +232,7 @@ window.Cart = {
 
         // Check params
         if (!lat || !lng || !params.products.length){
+            Cart.loaderHide();
             return;
         }
 
@@ -223,7 +242,9 @@ window.Cart = {
         // Send request
         Cart.loaderShow('Идет расчет стоимости доставки');
         $.post(UrlManager.to('cart', 'calc-delivery'), params, function (res){
-            Cart.loaderHide();
+            if (requestId !== Cart.deliveryRequestId){
+                return;
+            }
 
             if (res['status'] === 'error'){
                 alert(res['message']);
@@ -231,19 +252,29 @@ window.Cart = {
             }
 
             // Update cost
-            Cart.deliveryCostSet(res['data']['cost']);
+            Cart.deliveryCostSet(res['data']['cost'], res['data']['quote']);
 
             // Set store
             $('#cart-store_id').val(res['data']['store_id']).trigger('change');
+        }).fail(function (){
+            if (requestId === Cart.deliveryRequestId){
+                alert('Не удалось рассчитать доставку');
+            }
+        }).always(function (){
+            if (requestId === Cart.deliveryRequestId){
+                Cart.loaderHide();
+            }
         });
     },
-    deliveryCostSet: function (cost){
+    deliveryCostSet: function (cost, quote = ''){
         // Variables
         let inputDeliveryCost = $('#cart-delivery_cost');
+        let inputDeliveryQuote = $('#cart-delivery_quote');
 
         // Set
         Cart.delivery_cost = cost;
         inputDeliveryCost.val(Cart.delivery_cost);
+        inputDeliveryQuote.val(quote);
 
         // Total calc
         Cart.totalCalc();
@@ -300,7 +331,7 @@ window.Cart = {
 
         // Set store
         $('#cart-store_id').val(row.attr('data-id')).trigger('change');
-        $('.cart-form__store-block').html(row.attr('data-name'));
+        $('.cart-form__store-block').text(row.attr('data-name'));
 
         // Close modal
         Modal.closeAdditional();
@@ -361,9 +392,14 @@ window.Cart = {
     // Items
     itemsAdd: function (id){
         // Variables
+        id = parseInt(id, 10);
+        if (!Number.isInteger(id) || id <= 0){
+            return;
+        }
+
         let item = Cart.itemFind(id);
         let cartBody = $('.cart-items tbody');
-        let row = $('.cart-products tbody tr[data-id=' + id + ']');
+        let row = $('.cart-products tbody tr[data-id="' + id + '"]');
 
         // Check exists
         if (item.length){
@@ -372,12 +408,16 @@ window.Cart = {
         }
 
         // Add item
-        let template = $('#templateCartItem').html();
-        template = template.replace(/\{id}/g, id);
-        template = template.replace(/\{sku}/g, row.find('.cart-products__sku').text());
-        template = template.replace(/\{name}/g, row.find('.cart-products__name').text());
-        template = template.replace(/\{price}/g, row.attr('data-price'));
-        template = template.replace(/\{quantity}/g, 1);
+        let template = $($('#templateCartItem').html());
+        let sku = row.find('.cart-products__sku').text();
+
+        template.attr('data-id', id);
+        template.attr('data-sku', sku);
+        template.find('.cart-items__name').text(row.find('.cart-products__name').text());
+        template.find('.cart-items__quantity')
+            .attr('name', 'Cart[products][' + id + '][quantity]')
+            .val(1);
+        template.find('.cart-items__price').text(row.attr('data-price'));
         cartBody.append(template);
         cartBody.animate({
             scrollTop: 10000
@@ -459,9 +499,10 @@ window.Cart = {
         });
 
         if (!data.products.length){
+            Cart.deliveryCostSet(0);
             blockCost.text('0');
-            blockDelivery.text(Formatter.asDecimal(Cart.delivery_cost));
-            blockTotal.text(Formatter.asDecimal(Cart.delivery_cost));
+            blockDelivery.text('0');
+            blockTotal.text('0');
 
             return;
         }
@@ -497,7 +538,12 @@ window.Cart = {
         Cart.deliveryCalc();
     },
     itemFind: function (id){
-        return $('.cart-items tbody tr[data-id=' + id + ']');
+        id = parseInt(id, 10);
+        if (!Number.isInteger(id) || id <= 0){
+            return $();
+        }
+
+        return $('.cart-items tbody tr[data-id="' + id + '"]');
     },
 
     // Methods

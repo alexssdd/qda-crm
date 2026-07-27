@@ -31,8 +31,9 @@ class SaleSearch extends Model
     public function rules(): array
     {
         return [
-            [['date_from', 'date_to'], 'safe'],
-            [['date_from', 'date_to'], 'validatePeriod']
+            [['date_from', 'date_to'], 'required'],
+            [['date_from', 'date_to'], 'date', 'format' => 'php:Y-m-d'],
+            [['date_to'], \app\core\validators\DatePeriodValidator::class],
         ];
     }
 

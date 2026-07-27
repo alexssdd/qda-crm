@@ -100,7 +100,7 @@ $isOnline = false
         </div>
         <div class="header-user">
             <button type="button" class="header-user__info" onclick="Header.userBlockToggle()" title="Меню пользователя" aria-label="Открыть меню пользователя">
-                <span class="header-user__name"><?= $user->name ?></span>
+                <span class="header-user__name"><?= Html::encode($user->name) ?></span>
                 <i class="header-user__arrow icon-keyboard_arrow_down" aria-hidden="true"></i>
                 <i class="header-user__icon icon-person" aria-hidden="true"></i>
             </button>

@@ -21,7 +21,7 @@ $this->title = 'Топы продаж и их остатки';
 ?>
 <div class="dashboard page">
     <div class="page__header">
-        <h1 class="page__title"><?= $this->title; ?></h1>
+        <h1 class="page__title"><?= Html::encode($this->title) ?></h1>
         <form class="page-filter" action="<?= Url::canonical() ?>" method="GET">
             <div class="page-filter__item">
                 <?= Html::activeDropDownList($searchModel, 'channel', OrderHelper::getChannels(), [
@@ -74,11 +74,11 @@ $this->title = 'Топы продаж и их остатки';
                         <?php foreach ($data as $i => $product) : ?>
                         <tr>
                             <td class="dashboard-table__td text-center"><?= $i + 1 ?></td>
-                            <td class="dashboard-table__td text-center"><?= $product['sku'] ?></td>
-                            <td class="dashboard-table__td"><?= $product['name'] ?></td>
+                            <td class="dashboard-table__td text-center"><?= Html::encode((string) $product['sku']) ?></td>
+                            <td class="dashboard-table__td"><?= Html::encode((string) $product['name']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($product['quantity']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($product['sum']) ?></td>
-                            <td class="dashboard-table__td text-center"><?= $product['percent'] ?>%</td>
+                            <td class="dashboard-table__td text-center"><?= Html::encode((string) $product['percent']) ?>%</td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($product['cityStocks'][CityHelper::ID_ALMATY]) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($product['cityStocks'][CityHelper::ID_ASTANA]) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($product['cityStocks'][CityHelper::ID_SHYMKENT]) ?></td>

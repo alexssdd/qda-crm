@@ -8,6 +8,7 @@ use DomainException;
 use yii\web\JsonParser;
 use yii\rest\Controller;
 use app\services\LogService;
+use yii\web\BadRequestHttpException;
 use yii\filters\AccessControl;
 use app\core\helpers\LogHelper;
 use app\core\helpers\UserHelper;
@@ -49,6 +50,9 @@ class WebhookController extends Controller
     {
         $target = LogHelper::TARGET_TELEGRAM_CALLBACK;
         $body = Yii::$app->request->bodyParams;
+        if (!is_array($body['message'] ?? null)) {
+            throw new BadRequestHttpException('Invalid Telegram update');
+        }
 
         $form = new WebhookForm();
         $form->load($body['message'], '');

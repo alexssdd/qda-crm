@@ -17,7 +17,9 @@ class OrderWhatsappForm extends Form
     public function rules(): array
     {
         return [
-            [['template'], 'required']
+            [['template'], 'trim'],
+            [['template'], 'required'],
+            [['template'], 'string', 'max' => 2000],
         ];
     }
 }

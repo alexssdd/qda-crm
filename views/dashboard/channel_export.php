@@ -2,6 +2,7 @@
 
 use yii\web\View;
 use yii\helpers\Json;
+use yii\helpers\Html;
 use app\assets\DashboardAsset;
 use app\search\dashboard\ChannelSearch;
 
@@ -18,7 +19,7 @@ $this->title = 'Остатки по каналам';
 ?>
 <div class="dashboard page">
     <div class="page__header">
-        <h1 class="page__title"><?= $this->title; ?></h1>
+        <h1 class="page__title"><?= Html::encode($this->title) ?></h1>
     </div>
     <div class="dashboard">
         <div class="dashboard__body">
@@ -65,9 +66,9 @@ $this->title = 'Остатки по каналам';
                         <?php foreach ($data as $id => $city) : ?>
                         <tr class="dashboard-table__tr--group">
                             <?php if ($id == 'others') : ?>
-                            <td class="dashboard-table__td" colspan="12"><?= $city['name'] ?></td>
+                            <td class="dashboard-table__td" colspan="12"><?= Html::encode((string) $city['name']) ?></td>
                             <?php else : ?>
-                            <td class="dashboard-table__td"><?= $city['name'] ?></td>
+                            <td class="dashboard-table__td"><?= Html::encode((string) $city['name']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($city['total_channels']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($city['total_stock']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($city['kaspi_export']) ?></td>
@@ -78,12 +79,12 @@ $this->title = 'Остатки по каналам';
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($city['ozon_stock']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($city['wolt_export']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($city['wolt_stock']) ?></td>
-                            <td class="dashboard-table__td text-center"><a class="dashboard-table__link" href="#" onclick="ChannelExport.detailCity('<?= $id ?>')">Подробнее</a></td>
+                            <td class="dashboard-table__td text-center"><a class="dashboard-table__link js-channel-export-city" href="#" data-city-id="<?= Html::encode((string) $id) ?>">Подробнее</a></td>
                             <?php endif; ?>
                         </tr>
                         <?php foreach ($city['stores'] as $storeId => $store) : ?>
                         <tr>
-                            <td class="dashboard-table__td"><?= $store['name'] ?></td>
+                            <td class="dashboard-table__td"><?= Html::encode((string) $store['name']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($store['total_channels']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($store['total_stock']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($store['kaspi_export']) ?></td>
@@ -94,7 +95,7 @@ $this->title = 'Остатки по каналам';
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($store['ozon_stock']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($store['wolt_export']) ?></td>
                             <td class="dashboard-table__td text-center"><?= Yii::$app->formatter->asDecimal($store['wolt_stock']) ?></td>
-                            <td class="dashboard-table__td text-center"><a class="dashboard-table__link" href="#" onclick="ChannelExport.detailStore('<?= $id ?>', <?= $storeId ?>)">Подробнее</a></td>
+                            <td class="dashboard-table__td text-center"><a class="dashboard-table__link js-channel-export-store" href="#" data-city-id="<?= Html::encode((string) $id) ?>" data-store-id="<?= Html::encode((string) $storeId) ?>">Подробнее</a></td>
                         </tr>
                         <?php endforeach; ?>
                         <?php endforeach; ?>
@@ -106,7 +107,7 @@ $this->title = 'Остатки по каналам';
 </div>
 <template id="templateDetail">
     <div class="modal__container modal__container--500">
-        <div class="modal__title">{name}</div>
+        <div class="modal__title js-channel-export-name"></div>
         <div class="modal__body">
             <table class="modal-table">
                 <thead>
@@ -127,14 +128,14 @@ $this->title = 'Остатки по каналам';
 </template>
 <template id="templateDetailRow">
     <tr>
-        <td class="modal-table__td--297">{name}</td>
-        <td class="modal-table__td--85">{export}</td>
-        <td class="modal-table__td--85">{stock}</td>
+        <td class="modal-table__td--297 js-channel-export-name"></td>
+        <td class="modal-table__td--85 js-channel-export-value"></td>
+        <td class="modal-table__td--85 js-channel-stock-value"></td>
     </tr>
 </template>
 <?php
 
-$dataJson = Json::encode($data);
+$dataJson = Json::htmlEncode($data);
 
 $js = <<<JS
 

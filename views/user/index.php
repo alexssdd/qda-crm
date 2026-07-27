@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page">
     <div class="page__header">
-        <h1 class="page__title"><?= $this->title; ?></h1>
+        <h1 class="page__title"><?= Html::encode($this->title) ?></h1>
         <a class="btn btn--primary js-view-modal" href="<?= Url::to(['create']) ?>"><?= Yii::t('app', 'Create')?></a>
     </div>
     <?php Pjax::begin(); ?>

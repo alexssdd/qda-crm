@@ -294,17 +294,24 @@ window.Order = {
 
             // Hide
             fieldReasonAdditional.hide();
-            inputReasonAdditional.html('');
+            inputReasonAdditional.empty();
 
             // Additional reasons
-            let additionalReasons = Order.cancelReasons[$(this).val()]['children'];
+            let selectedReason = Order.cancelReasons[$(this).val()];
+            let additionalReasons = selectedReason ? selectedReason['children'] : null;
             if (Array.isArray(additionalReasons)){
                 // Prompt
-                inputReasonAdditional.append('<option value>' + Messages['Select value'] + '</option>');
+                inputReasonAdditional.append($('<option>', {
+                    value: '',
+                    text: Messages['Select value']
+                }));
 
                 // Options
                 for (let additionalReason of additionalReasons){
-                    inputReasonAdditional.append('<option value="' + additionalReason + '">' + additionalReason + '</option>');
+                    inputReasonAdditional.append($('<option>', {
+                        value: additionalReason,
+                        text: additionalReason
+                    }));
                 }
 
                 // Show

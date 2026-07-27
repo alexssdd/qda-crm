@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use app\core\helpers\TextHelper;
 
 /** @var $data [] */
@@ -37,11 +38,11 @@ use app\core\helpers\TextHelper;
             <tr>
                 <td><strong><?= $i + 1 ?></strong></td>
                 <td>
-                    <div class="chart-table__name"><?= $item['name'] ?></div>
+                    <div class="chart-table__name"><?= Html::encode((string) $item['name']) ?></div>
                 </td>
-                <td><?= $item['percent'] ?>%</td>
-                <td><?= $item['count'] ?></td>
-                <td><?= TextHelper::getShortNumber($item['sum']) ?></td>
+                <td><?= Html::encode((string) $item['percent']) ?>%</td>
+                <td><?= Html::encode((string) $item['count']) ?></td>
+                <td><?= Html::encode((string) TextHelper::getShortNumber($item['sum'])) ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

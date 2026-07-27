@@ -6,8 +6,10 @@ use Yii;
 use Exception;
 use app\entities\City;
 use app\entities\Order;
+use app\entities\Customer;
 use app\core\forms\Form;
 use app\entities\Address;
+use app\core\helpers\PhoneHelper;
 
 /**
  * Address select form
@@ -60,11 +62,38 @@ class AddressSelectForm extends Form
     public function rules(): array
     {
         return [
-            [[
-                'city_id', 'customer_id', 'phone', 'address', 'lat', 'lng', 'house', 'apartment',
-                'intercom', 'entrance', 'floor', 'type', 'address_title'
-            ], 'safe']
+            [['phone'], 'filter', 'filter' => [PhoneHelper::class, 'getCleanNumber']],
+            [['address', 'house', 'apartment', 'intercom', 'entrance', 'floor', 'title'], 'trim'],
+            [['city_id', 'customer_id'], 'integer'],
+            [['city_id'], 'exist', 'targetClass' => City::class, 'targetAttribute' => 'id'],
+            [['phone'], 'string', 'max' => 21],
+            [['phone'], 'match',
+                'pattern' => '/^7\d{10}$/',
+                'message' => Yii::t('user', 'Phone must contain 11 digits and start with 7.'),
+                'enableClientValidation' => false,
+            ],
+            [['address', 'title'], 'string', 'max' => 255],
+            [['house', 'apartment', 'intercom', 'entrance', 'floor'], 'string', 'max' => 50],
+            [['lat'], 'number', 'min' => -90, 'max' => 90],
+            [['lng'], 'number', 'min' => -180, 'max' => 180],
+            [['type'], 'in', 'range' => [
+                \app\core\helpers\AddressSelectHelper::TYPE_MAP,
+                \app\core\helpers\AddressSelectHelper::TYPE_INPUT,
+                \app\core\helpers\AddressSelectHelper::TYPE_LIST,
+            ]],
+            [['customer_id'], 'validateCustomer'],
         ];
+    }
+
+    public function validateCustomer($attribute): void
+    {
+        if ($this->hasErrors() || !$this->customer_id) {
+            return;
+        }
+
+        if (!Customer::findOne(['id' => $this->customer_id, 'phone' => $this->phone])) {
+            $this->addError($attribute, 'Клиент не соответствует номеру телефона');
+        }
     }
 
     /**

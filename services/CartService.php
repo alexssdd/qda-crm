@@ -25,8 +25,10 @@ use app\forms\cart\CartCustomerForm;
 use app\core\helpers\LeadEventHelper;
 use app\forms\cart\CartDefecturaForm;
 use app\services\lead\LeadEventService;
+use app\core\security\DeliveryQuote;
 use app\forms\cart\CartCalcProductsForm;
 use app\forms\cart\CartCalcDeliveryForm;
+use app\core\helpers\DeliveryHelper;
 use app\modules\yandex\services\YandexTaxiService;
 use app\modules\stock\services\StockDistanceService;
 use app\modules\stock\services\StockAvailableService;
@@ -43,6 +45,15 @@ class CartService
      */
     public function createOrder(CartCreateForm $form): Order
     {
+        if (in_array((int) $form->delivery_method, DeliveryHelper::getMethodsForAddress(), true)) {
+            $delivery = DeliveryQuote::verify($form);
+            $form->store_id = $delivery['store_id'];
+            $form->delivery_cost = $delivery['cost'];
+        } else {
+            // Delivery price is never accepted directly from a browser.
+            $form->delivery_cost = 0;
+        }
+
         // Create order
         $order = new Order();
         $order->channel = OrderHelper::CHANNEL_CRM;
@@ -99,7 +110,10 @@ class CartService
 
             $cost = 0;
             foreach ($form->products as $id => $item) {
-                $product = Product::findOne($id);
+                $product = Product::findOne([
+                    'id' => $id,
+                    'merchant_id' => $form->merchant_id,
+                ]);
                 if (!$product){
                     throw new DomainException('The product was not found: ' . $id);
                 }
@@ -248,10 +262,14 @@ class CartService
         // Get cost
         $cost = (new YandexTaxiService())->getPrice($store, $form->lat, $form->lng);
 
-        return [
+        $result = [
             'cost' => $cost,
             'store_id' => $store->id
         ];
+
+        $result['quote'] = DeliveryQuote::issue($form, $result);
+
+        return $result;
     }
 
     /**
