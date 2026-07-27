@@ -380,41 +380,36 @@
     background-color: #fff;
     margin-bottom: 5px;
     padding: 10px 15px;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 15px;
     font-size: 12px;
 }
-.order-header__left{
-    flex: 1;
+.order-header__meta{
     min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(65px, 0.7fr) minmax(115px, 1.2fr) minmax(100px, 1fr);
+    column-gap: 15px;
+}
+.order-header__right{
     display: flex;
     align-items: center;
 }
-.order-header__assignee{
-    min-width: 110px;
-    padding: 0 15px;
+.order-header__item{
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    white-space: nowrap;
-}
-.order-header__assignee .order-header__value{
-    margin-top: 2px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.order-header__right{
-    min-width: 232px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.order-header__item:not(:last-child){
-    margin-bottom: 2px;
 }
 .order-header__label{
     font-weight: 600;
     color: var(--color-nice);
+}
+.order-header__value{
+    margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .order-header__time{
     margin-top: 0;
