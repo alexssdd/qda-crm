@@ -40,7 +40,7 @@ use app\modules\order\helpers\OrderHistoryHelper;
             'format' => 'raw',
             'options' => ['width' => 105],
             'value' => function (Order $model) {
-                $result = $model->number;
+                $result = Html::encode((string) $model->number);
 
                 return Html::tag('span', $result, ['class' => 'order-table__number']);
             }
@@ -48,7 +48,6 @@ use app\modules\order\helpers\OrderHistoryHelper;
         [
             'attribute' => 'type',
             'label' => 'Тип',
-            'format' => 'raw',
             'options' => ['width' => 105],
             'filter' => OrderHelper::getTypes(),
             'value' => function (Order $model) {
@@ -58,9 +57,7 @@ use app\modules\order\helpers\OrderHistoryHelper;
         [
             'attribute' => 'name',
             'label' => 'Клиент',
-            'format' => 'raw',
             'value' => function (Order $model) {
-                $star = Html::tag('span', '', ['class' => 'icon-star order-table__star order-table__star--green']);
                 return $model->name;
             }
         ],

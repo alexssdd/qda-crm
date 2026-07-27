@@ -14,11 +14,11 @@ use app\modules\order\helpers\OrderHelper;
         <div class="order-header__items">
             <div class="order-header__item">
                 <span class="order-header__label">Номер:</span>
-                <span class="order-header__value"><?= $order->number ?></span>
+                <span class="order-header__value"><?= Html::encode((string) $order->number) ?></span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">Source ID:</span>
-                <span class="order-header__value"><?= $order->source_id ?></span>
+                <span class="order-header__value"><?= Html::encode((string) $order->source_id) ?></span>
             </div>
             <div class="order-header__item">
                 <span class="order-header__label">Дата:</span>

@@ -40,7 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     if (UserHelper::isOperator()){
                         $action = 'detail';
                     }
-                    return Html::a($model->name, [$action, 'id' => $model->id], ['class' => 'js-view-modal', 'data-pjax' => 0]);
+                    return Html::a(Html::encode($model->name), [$action, 'id' => $model->id], [
+                        'class' => 'js-view-modal',
+                        'data-pjax' => 0,
+                    ]);
                 },
             ],
             [

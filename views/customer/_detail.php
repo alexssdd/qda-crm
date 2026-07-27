@@ -2,6 +2,7 @@
 
 use yii\web\View;
 use yii\helpers\Url;
+use yii\helpers\Html;
 use app\entities\Order;
 use app\entities\Customer;
 use app\core\helpers\PhoneHelper;
@@ -21,13 +22,13 @@ use app\core\helpers\CustomerHelper;
                 <i class="icon-star customer-modal__star customer-modal__star--green"></i>
             </div>
             <div class="customer-modal__name">
-                <?= $model->name ?>
+                <?= Html::encode($model->name) ?>
             </div>
             <div class="customer-modal__text">Зарегистрирован: <?= Yii::$app->formatter->asDatetime($model->created_at, 'php:d.m.Y H:i') ?></div>
-            <div class="customer-modal__text">Город: <?= $detail['city'] ?></div>
-            <div class="customer-modal__text">Телефон: <?= PhoneHelper::getMaskPhone($model->phone) ?></div>
-            <div class="customer-modal__text">Почта: <?= $model->email ?></div>
-            <div class="customer-modal__text">ИД в SL: <?= CustomerHelper::getVendorId($model) ?></div>
+            <div class="customer-modal__text">Город: <?= Html::encode((string) $detail['city']) ?></div>
+            <div class="customer-modal__text">Телефон: <?= Html::encode(PhoneHelper::getMaskPhone($model->phone)) ?></div>
+            <div class="customer-modal__text">Почта: <?= Html::encode((string) $model->email) ?></div>
+            <div class="customer-modal__text">ИД в SL: <?= Html::encode((string) CustomerHelper::getVendorId($model)) ?></div>
         </div>
         <div class="customer-modal__right">
             <div class="tabs">
@@ -51,7 +52,7 @@ use app\core\helpers\CustomerHelper;
                                     <div class="customer-orders__body">
                                         <div class="customer-orders__date"><?= Yii::$app->formatter->asDatetime($order->created_at, 'php:d.m.Y H:i') ?></div>
                                         <div class="customer-orders__name">
-                                            Заказ №<a class="customer-orders__link" href="<?= Url::to(['/order/index', 'id' => $order->id]) ?>" target="_blank"><?= $order->number ?></a> (<?= OrderHelper::getChannel($order->channel) ?>)
+                                            Заказ №<a class="customer-orders__link" href="<?= Url::to(['/order/index', 'id' => $order->id]) ?>" target="_blank"><?= Html::encode((string) $order->number) ?></a> (<?= OrderHelper::getChannel($order->channel) ?>)
                                         </div>
                                         <div class="customer-orders__status"><?= OrderHelper::getStatusName($order->status) ?></div>
                                     </div>
@@ -63,8 +64,8 @@ use app\core\helpers\CustomerHelper;
                         <div class="customer-products">
                             <?php foreach ($detail['products'] as $product) : ?>
                                 <div class="customer-products__item">
-                                    <div class="customer-products__name"><?= $product['name'] ?></div>
-                                    <div class="customer-products__brand">SKU: <?= $product['sku'] ?></div>
+                                    <div class="customer-products__name"><?= Html::encode($product['name']) ?></div>
+                                    <div class="customer-products__brand">SKU: <?= Html::encode($product['sku']) ?></div>
                                 </div>
                             <?php endforeach; ?>
                         </div>
