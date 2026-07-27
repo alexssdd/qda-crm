@@ -7,25 +7,15 @@ use Throwable;
 use DomainException;
 use yii\helpers\Url;
 use yii\web\Response;
+use app\services\ConsoleService;
 use app\modules\auth\forms\LoginForm;
 use app\modules\auth\enums\AuthMethod;
-use app\modules\auth\services\AuthOtpService;
 use app\modules\auth\forms\LoginOtpForm;
 use app\modules\auth\models\AuthIdentity;
 use app\modules\auth\forms\LoginPasswordForm;
-use app\modules\auth\forms\otp\OtpRequestForm;
 
 class SiteController extends BaseController
 {
-    public function __construct(
-        $id,
-        $module,
-        private AuthOtpService $otpService,
-        $config = []
-    ) {
-        parent::__construct($id, $module, $config);
-    }
-
     public function actions(): array
     {
         return [
@@ -63,24 +53,7 @@ class SiteController extends BaseController
             }
 
             if ($hasOtp) {
-                $otpRequest = new OtpRequestForm();
-                $otpRequest->phone = $user->phone;
-
-                try {
-                    $this->otpService->request($otpRequest, Yii::$app->language);
-                } catch (Throwable $e) {
-                    Yii::error([
-                        'event' => 'crm_otp_delivery_failed',
-                        'phone_hash' => hash('sha256', $user->phone),
-                        'exception' => get_class($e),
-                    ], 'auth.otp');
-
-                    return $this->asJson([
-                        'success' => false,
-                        'error' => 'Не удалось отправить код. Попробуйте позже.',
-                    ]);
-                }
-
+                (new ConsoleService())->run('auth/otp/request', [$user->phone, Yii::$app->language]);
                 return $this->asJson([
                     'success' => true,
                     'html' => $this->renderAjax('_login_otp', [
