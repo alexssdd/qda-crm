@@ -587,30 +587,32 @@
     left: 0;
     right: 0;
     bottom: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     background-color: #fff;
 }
 .order-history__input{
+    width: 100%;
+    min-width: 0;
     border: none;
     font-size: 14px;
     height: 48px;
-    padding: 5px 135px 5px 15px;
+    padding: 5px 15px;
     border-radius: 0;
 }
 .order-history__input:focus{
     box-shadow: 0 -1.5px var(--color-blue);
 }
 .order-history__actions{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 44px;
     align-items: center;
     background-color: #fff;
-    grid-gap: 15px;
-    padding-right: 10px;
+    padding-right: 6px;
 }
 .order-history__action {
+    justify-self: center;
     border: 0;
     background-color: snow;
     font-size: 20px;
