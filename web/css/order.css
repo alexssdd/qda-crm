@@ -267,12 +267,12 @@
     font-weight: 600;
 }
 .order-top-tabs__button:hover {
-    color: var(--color-blue);
-    background-color: #eef3fb;
+    color: var(--theme-text);
+    background-color: var(--theme-surface-muted);
 }
 .order-top-tabs__button--active {
-    color: #fff;
-    background-color: var(--color-blue);
+    color: var(--theme-text);
+    background-color: var(--theme-surface-hover);
 }
 .order-top-tabs__button:focus-visible {
     outline: 2px solid var(--color-blue);
