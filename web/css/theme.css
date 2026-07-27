@@ -543,12 +543,21 @@ textarea,
     border-color: var(--theme-border);
 }
 
-[data-theme="dark"] .order-products.order-technical__table tbody tr:hover td {
+[data-theme="dark"] .order-products.order-additional tbody tr:hover td {
     background-color: transparent;
 }
 
-[data-theme="dark"] .order-technical__summary {
+[data-theme="dark"] .order-top-tabs {
+    background-color: var(--theme-surface);
+}
+
+[data-theme="dark"] .order-top-tabs__button {
     color: var(--theme-text-muted);
+}
+
+[data-theme="dark"] .order-top-tabs__button:hover,
+[data-theme="dark"] .order-top-tabs__button--active {
+    color: var(--color-blue);
 }
 
 [data-theme="dark"] .order-chat__event .order-chat__block {

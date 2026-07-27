@@ -10,6 +10,10 @@ use app\modules\order\helpers\OrderHelper;
 /* @var $this View */
 
 $additionalFields = OrderHelper::getAdditionalFields($order);
+$routeTabId = 'order-route-tab-' . (int) $order->id;
+$additionalTabId = 'order-additional-tab-' . (int) $order->id;
+$routePanelId = 'order-route-panel-' . (int) $order->id;
+$additionalPanelId = 'order-additional-panel-' . (int) $order->id;
 ?>
 <ul class="product-context">
     <li><a class="product-context__link product-context__link--copy" href="#" onclick="navigator.clipboard.writeText(window.getSelection().toString())">Копировать</a></li>
@@ -26,43 +30,77 @@ $additionalFields = OrderHelper::getAdditionalFields($order);
     <li><a class="product-context__link" href="#" onclick="Order.updateProducts()">Редактировать товары</a></li>
 </ul>
 <div class="order-top">
-    <div class="order-top__heading">Маршрут</div>
-    <table class="order-products order-route">
-        <thead>
-            <tr>
-                <th width="30">#</th>
-                <th width="70">Направление</th>
-                <th width="82">Страна</th>
-                <th width="82">Нас. пункт</th>
-                <th width="100">Метка</th>
-                <th width="200">Адрес</th>
-                <th width="150">Координаты</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Откуда</td>
-                <td><?= Html::encode(OrderHelper::getFromCountry($order)) ?></td>
-                <td><?= Html::encode(OrderHelper::getFromLocation($order)) ?></td>
-                <td><?= Html::encode($order->from_name) ?></td>
-                <td><?= Html::encode($order->from_address) ?></td>
-                <td><?= Html::encode(OrderHelper::getFromCoordinates($order)) ?></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Куда</td>
-                <td><?= Html::encode(OrderHelper::getToCountry($order)) ?></td>
-                <td><?= Html::encode(OrderHelper::getToLocation($order)) ?></td>
-                <td><?= Html::encode($order->to_name) ?></td>
-                <td><?= Html::encode($order->to_address) ?></td>
-                <td><?= Html::encode(OrderHelper::getToCoordinates($order)) ?></td>
-            </tr>
-        </tbody>
-    </table>
-    <details class="order-technical">
-        <summary class="order-technical__summary">Технические данные</summary>
-        <table class="order-products order-technical__table">
+    <div class="order-top-tabs" role="tablist" aria-label="Данные заказа">
+        <button
+            type="button"
+            class="order-top-tabs__button order-top-tabs__button--active js-order-top-tab"
+            id="<?= $routeTabId ?>"
+            role="tab"
+            aria-selected="true"
+            aria-controls="<?= $routePanelId ?>"
+            data-order-top-tab="route"
+        >Маршрут</button>
+        <button
+            type="button"
+            class="order-top-tabs__button js-order-top-tab"
+            id="<?= $additionalTabId ?>"
+            role="tab"
+            aria-selected="false"
+            aria-controls="<?= $additionalPanelId ?>"
+            data-order-top-tab="additional"
+            tabindex="-1"
+        >Доп. данные</button>
+    </div>
+    <div
+        id="<?= $routePanelId ?>"
+        class="order-top__panel"
+        role="tabpanel"
+        aria-labelledby="<?= $routeTabId ?>"
+        data-order-top-panel="route"
+    >
+        <table class="order-products order-route">
+            <thead>
+                <tr>
+                    <th width="30">#</th>
+                    <th width="70">Направление</th>
+                    <th width="82">Страна</th>
+                    <th width="82">Нас. пункт</th>
+                    <th width="100">Метка</th>
+                    <th width="200">Адрес</th>
+                    <th width="150">Координаты</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Откуда</td>
+                    <td><?= Html::encode(OrderHelper::getFromCountry($order)) ?></td>
+                    <td><?= Html::encode(OrderHelper::getFromLocation($order)) ?></td>
+                    <td><?= Html::encode($order->from_name) ?></td>
+                    <td><?= Html::encode($order->from_address) ?></td>
+                    <td><?= Html::encode(OrderHelper::getFromCoordinates($order)) ?></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Куда</td>
+                    <td><?= Html::encode(OrderHelper::getToCountry($order)) ?></td>
+                    <td><?= Html::encode(OrderHelper::getToLocation($order)) ?></td>
+                    <td><?= Html::encode($order->to_name) ?></td>
+                    <td><?= Html::encode($order->to_address) ?></td>
+                    <td><?= Html::encode(OrderHelper::getToCoordinates($order)) ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div
+        id="<?= $additionalPanelId ?>"
+        class="order-top__panel"
+        role="tabpanel"
+        aria-labelledby="<?= $additionalTabId ?>"
+        data-order-top-panel="additional"
+        hidden
+    >
+        <table class="order-products order-additional">
             <thead>
                 <tr>
                     <th>Поле</th>
@@ -75,12 +113,12 @@ $additionalFields = OrderHelper::getAdditionalFields($order);
                     <td><?= Html::encode($order->source_id ?: '—') ?></td>
                 </tr>
                 <?php foreach ($additionalFields as $item): ?>
-                    <tr>
-                        <td><?= Html::encode($item['name']) ?></td>
-                        <td><?= Html::encode($item['value']) ?></td>
-                    </tr>
+                <tr>
+                    <td><?= Html::encode($item['name']) ?></td>
+                    <td><?= Html::encode($item['value']) ?></td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </details>
+    </div>
 </div>

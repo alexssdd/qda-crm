@@ -39,10 +39,59 @@ window.Order = {
 
     // Init methods
     init: function (){
+        Order.initTopTabs();
         Order.initInputs();
         Order.initTable();
         Order.initQueryParams();
         Order.initProductSearch();
+    },
+    initTopTabs: function (){
+        let body = $('body');
+
+        body.off('click.orderTopTabs', '.js-order-top-tab');
+        body.on('click.orderTopTabs', '.js-order-top-tab', function (){
+            let tab = $(this);
+            let container = tab.closest('.order-top');
+            let tabName = tab.data('order-top-tab');
+
+            container.find('.js-order-top-tab')
+                .removeClass('order-top-tabs__button--active')
+                .attr('aria-selected', 'false')
+                .attr('tabindex', '-1');
+
+            container.find('[data-order-top-panel]').attr('hidden', true);
+
+            tab.addClass('order-top-tabs__button--active')
+                .attr('aria-selected', 'true')
+                .removeAttr('tabindex');
+
+            container.find('[data-order-top-panel="' + tabName + '"]').removeAttr('hidden');
+        });
+
+        body.off('keydown.orderTopTabs', '.js-order-top-tab');
+        body.on('keydown.orderTopTabs', '.js-order-top-tab', function (event){
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)){
+                return;
+            }
+
+            event.preventDefault();
+
+            let tabs = $(this).closest('.order-top-tabs').find('.js-order-top-tab');
+            let currentIndex = tabs.index(this);
+            let nextIndex = currentIndex;
+
+            if (event.key === 'ArrowLeft'){
+                nextIndex = currentIndex === 0 ? tabs.length - 1 : currentIndex - 1;
+            } else if (event.key === 'ArrowRight'){
+                nextIndex = currentIndex === tabs.length - 1 ? 0 : currentIndex + 1;
+            } else if (event.key === 'Home'){
+                nextIndex = 0;
+            } else if (event.key === 'End'){
+                nextIndex = tabs.length - 1;
+            }
+
+            tabs.eq(nextIndex).trigger('click').trigger('focus');
+        });
     },
     initInputs: function (){
         let body = $('body');
