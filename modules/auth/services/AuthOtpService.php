@@ -4,9 +4,9 @@ namespace app\modules\auth\services;
 
 use Yii;
 use DomainException;
-use app\modules\auth\enums\AuthMethod;
+use app\core\helpers\PhoneHelper;
+use app\modules\auth\helpers\UserHelper;
 use app\modules\auth\models\AuthOtpCode;
-use app\modules\auth\models\AuthIdentity;
 use app\modules\auth\providers\OtpInterface;
 use app\modules\auth\forms\otp\OtpVerifyForm;
 use app\modules\auth\forms\otp\OtpRequestForm;
@@ -26,16 +26,17 @@ class AuthOtpService
     public function request(OtpRequestForm $form, $language): void
     {
         $identity = $form->getIdentity();
+        $user = $identity?->user;
+        $recipient = PhoneHelper::getCleanNumber($form->phone);
 
-        if (!$identity) {
-            $identity = new AuthIdentity();
-            $identity->type = AuthMethod::OTP->value;
-            $identity->identifier = $form->phone;
-            $identity->created_at = time();
-
-            if (!$identity->save(false)) {
-                throw new DomainException('Ошибка создания идентификатора');
-            }
+        if (
+            !$identity
+            || !$user
+            || $user->status !== UserHelper::STATUS_ACTIVE
+            || !UserHelper::isCrmLoginRole($user->role)
+            || $user->phone !== $recipient
+        ) {
+            throw new DomainException('OTP недоступен');
         }
 
         $mutex = Yii::$app->mutex;

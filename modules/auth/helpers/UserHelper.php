@@ -69,6 +69,16 @@ class UserHelper
         return UserHelper::getIdentity()->role == self::ROLE_ADMINISTRATOR;
     }
 
+    public static function isCrmLoginRole(?string $role): bool
+    {
+        return in_array($role, [
+            self::ROLE_ADMIN,
+            self::ROLE_ADMINISTRATOR,
+            self::ROLE_OPERATOR,
+            self::ROLE_MARKETING,
+        ], true);
+    }
+
     /**
      * @return User|null
      * @throws Exception
