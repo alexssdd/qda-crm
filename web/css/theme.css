@@ -112,6 +112,7 @@ textarea,
 
 [data-theme="dark"] .header {
     background-color: var(--theme-header);
+    border-bottom: 1px solid var(--theme-header);
 }
 
 [data-theme="dark"] .header-menu__sub,
@@ -572,10 +573,6 @@ textarea,
 [data-theme="dark"] .order-top-tabs__button--active:hover {
     color: var(--theme-text);
     background-color: var(--theme-surface-hover);
-}
-
-[data-theme="dark"] .order-chat__event .order-chat__block {
-    border-color: var(--theme-border);
 }
 
 [data-theme="dark"] .timeTo.timeTo-white div {
