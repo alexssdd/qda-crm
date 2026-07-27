@@ -40,7 +40,7 @@ class UserCreateForm extends Model
             ],
             [['name'], 'string', 'max' => 255],
             [['country'], 'match', 'pattern' => '/^[a-z]{2,3}$/'],
-            [['role'], 'in', 'range' => array_keys(UserHelper::getRoleArray())],
+            [['role'], 'in', 'range' => array_keys(UserHelper::getCreateRoleArray())],
             [['status'], 'in', 'range' => array_keys(UserHelper::getStatusArray())],
             [['phone'], 'unique', 'targetClass' => User::class, 'targetAttribute' => 'phone'],
 

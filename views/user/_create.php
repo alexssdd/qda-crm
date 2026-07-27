@@ -29,7 +29,7 @@ use app\modules\auth\helpers\UserHelper;
                 <?= $form->field($model, 'country')->textInput(['maxlength' => 3]) ?>
             </div>
             <div class="modal-form__row">
-                <?= $form->field($model, 'role')->dropDownList(UserHelper::getRoleArray(), [
+                <?= $form->field($model, 'role')->dropDownList(UserHelper::getCreateRoleArray(), [
                     'prompt' => Yii::t('app', 'Select value')
                 ]) ?>
                 <?= $form->field($model, 'status')->dropDownList(UserHelper::getStatusArray()) ?>

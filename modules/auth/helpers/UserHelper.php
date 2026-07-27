@@ -100,6 +100,17 @@ class UserHelper
 
     public static function getRoleArray(): array
     {
+        $roles = self::getCreateRoleArray();
+
+        if (self::isAdmin()){
+            return [self::ROLE_ADMIN => Yii::t('app', 'ROLE_ADMIN')] + $roles;
+        }
+
+        return $roles;
+    }
+
+    public static function getCreateRoleArray(): array
+    {
         if (self::isAdmin()){
             return [
                 self::ROLE_ADMINISTRATOR => Yii::t('app', 'ROLE_ADMINISTRATOR'),

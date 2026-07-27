@@ -13,6 +13,8 @@ use app\modules\auth\helpers\UserHelper;
  */
 class UserUpdateForm extends Model
 {
+    private User $user;
+
     public string $name;
     public string $phone;
     public string $country;
@@ -27,6 +29,7 @@ class UserUpdateForm extends Model
      */
     public function __construct(User $user, array $config = [])
     {
+        $this->user = $user;
         $this->phone = $user->phone;
         $this->name = $user->name;
         $this->country = $user->country;
@@ -47,13 +50,22 @@ class UserUpdateForm extends Model
             [['role', 'name', 'country', 'status'], 'required'],
             [['name'], 'string', 'max' => 255],
             [['country'], 'match', 'pattern' => '/^[a-z]{2,3}$/'],
-            [['role'], 'in', 'range' => array_keys(UserHelper::getRoleArray())],
+            [['role'], 'in', 'range' => array_keys($this->getRoleArray())],
             [['status'], 'in', 'range' => array_keys(UserHelper::getStatusArray())],
 
             [['password', 'passwordRepeat'], 'string', 'min' => 8],
             [['password'], 'match', 'pattern' => '/^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/', 'message' => Yii::t('user', 'Password must contain at least one lower and upper case character and a digit.')],
             [['passwordRepeat'], 'compare', 'compareAttribute' => 'password'],
         ];
+    }
+
+    public function getRoleArray(): array
+    {
+        if ($this->user->role === UserHelper::ROLE_ADMIN) {
+            return UserHelper::getRoleArray();
+        }
+
+        return UserHelper::getCreateRoleArray();
     }
 
     /**
