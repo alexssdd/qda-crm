@@ -32,7 +32,7 @@
     --theme-border: #43454a;
     --theme-text: #dfe1e5;
     --theme-text-muted: #9da2aa;
-    --theme-header: #2b2d30;
+    --theme-header: var(--theme-surface);
     --theme-overlay: rgba(30, 31, 34, 0.82);
     --theme-shadow: rgba(0, 0, 0, 0.38);
 }
@@ -112,7 +112,6 @@ textarea,
 
 [data-theme="dark"] .header {
     background-color: var(--theme-header);
-    border-bottom: 1px solid var(--theme-border);
 }
 
 [data-theme="dark"] .header-menu__sub,
