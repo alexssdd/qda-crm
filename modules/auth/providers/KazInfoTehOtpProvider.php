@@ -4,8 +4,10 @@ namespace app\modules\auth\providers;
 
 use RuntimeException;
 use Throwable;
+use app\core\http\SensitiveHttpClient;
 use app\services\ConfigService;
 use yii\httpclient\Client;
+use yii\httpclient\CurlTransport;
 
 final class KazInfoTehOtpProvider implements OtpInterface
 {
@@ -84,8 +86,9 @@ final class KazInfoTehOtpProvider implements OtpInterface
                 self::DEFAULT_URL
             );
 
-            $this->client = new Client([
+            $this->client = new SensitiveHttpClient([
                 'baseUrl' => $url,
+                'transport' => CurlTransport::class,
                 'requestConfig' => [
                     'format' => Client::FORMAT_JSON,
                     'headers' => [

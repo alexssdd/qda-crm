@@ -7,7 +7,6 @@ use DomainException;
 use app\core\helpers\PhoneHelper;
 use app\modules\auth\helpers\UserHelper;
 use app\modules\auth\models\AuthOtpCode;
-use app\modules\auth\providers\OtpInterface;
 use app\modules\auth\forms\otp\OtpVerifyForm;
 use app\modules\auth\forms\otp\OtpRequestForm;
 
@@ -15,12 +14,10 @@ class AuthOtpService
 {
     public int $ttl = 120;
     public int $requestCooldown = 60;
+    public int $retryWindow = 3600;
 
-    private OtpInterface $provider;
-
-    public function __construct(OtpInterface $provider)
+    public function __construct(private OtpDeliveryService $delivery)
     {
-        $this->provider = $provider;
     }
 
     public function request(OtpRequestForm $form, $language): void
@@ -52,7 +49,9 @@ class AuthOtpService
                 return;
             }
 
-            $code = $this->provider->generateOtp();
+            $isRetry = $existingCode
+                && $existingCode->created_at + $this->retryWindow > $now;
+            $code = $this->delivery->generateOtp();
             $hash = Yii::$app->security->generatePasswordHash((string)$code);
 
             Yii::$app->db->createCommand()->upsert(
@@ -67,7 +66,12 @@ class AuthOtpService
             )->execute();
 
             try {
-                $this->provider->sendOtp($form->phone, $code, $language);
+                $this->delivery->sendOtp(
+                    $form->phone,
+                    $code,
+                    $language,
+                    $isRetry
+                );
             } catch (\Throwable $e) {
                 AuthOtpCode::deleteAll([
                     'identity_id' => $identity->id,
