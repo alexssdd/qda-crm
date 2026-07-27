@@ -17,7 +17,7 @@ $statuses = OrderHelper::getAvailableStatuses($order);
 $statuses[$order->status] = OrderHelper::getStatusName($order->status);
 
 ?>
-<?= $form = Html::beginForm(['order/update', 'id' => $order->id])?>
+<?= $form = Html::beginForm(['order/update', 'id' => $order->id], 'post', ['class' => 'order-body-form'])?>
 <div class="order-body">
     <div class="order-body__items">
         <div class="order-body__item">

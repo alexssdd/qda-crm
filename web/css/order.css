@@ -403,6 +403,12 @@
 
 /* Order body
 ----------------------------------------*/
+.order-body-form {
+    height: calc(100% - 85px);
+}
+.order-body-form .order-body {
+    height: 100%;
+}
 .order-body{
     height: calc(100% - 85px);
     background-color: #fff;
