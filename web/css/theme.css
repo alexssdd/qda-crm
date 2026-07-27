@@ -256,11 +256,12 @@ textarea,
 [data-theme="dark"] .pagination__link {
     color: var(--theme-text);
     background-color: var(--theme-surface);
-    border-color: var(--theme-border);
+    border-color: var(--theme-surface);
 }
 
 [data-theme="dark"] .pagination__link:hover {
     background-color: var(--theme-surface-hover);
+    border-color: var(--theme-surface-hover);
 }
 
 [data-theme="dark"] .pagination__link--disabled {
@@ -598,6 +599,15 @@ textarea,
 [data-theme="dark"] .lead-body__detail,
 [data-theme="dark"] .care-body__detail {
     border-color: var(--theme-border);
+}
+
+[data-theme="dark"] input.order-body__input[readonly]:not(:focus),
+[data-theme="dark"] textarea.order-body__input[readonly]:not(:focus) {
+    border-color: var(--theme-bg);
+}
+
+[data-theme="dark"] select.order-body__input:not(:focus) {
+    border-color: var(--theme-surface-muted);
 }
 
 [data-theme="dark"] .order-body__detail:hover,
