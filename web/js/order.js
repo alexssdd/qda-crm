@@ -37,6 +37,7 @@ window.Order = {
     productSearchFlag: false,
     cancelReasons: [],
     orderRequestPending: false,
+    chatSending: false,
 
     // Init methods
     init: function (){
@@ -148,8 +149,9 @@ window.Order = {
         });
 
         // Chat input
-        body.on('keypress', '.order-history__input', function (e){
-            if (e.code === 'Enter'){
+        body.on('keydown', '.order-history__input', function (e){
+            if (e.key === 'Enter'){
+                e.preventDefault();
                 Order.chatSend();
             }
         });
@@ -449,41 +451,56 @@ window.Order = {
 
     // Chat
     chatSend: function (){
-        // Variables
         let input = $('.order-history__input');
-        let value = input.val();
+        let sendButton = $('.order-history__send');
+        let value = $.trim(input.val());
 
-        // Check value
-        if (!value.length){
+        if (Order.chatSending || !Order.id || !value.length){
             return;
         }
+
+        Order.chatSending = true;
+        input.prop('disabled', true);
+        sendButton.prop('disabled', true);
 
         let params = {
             message: value
         };
         params[yii.getCsrfParam()] = yii.getCsrfToken();
-        $.post(UrlManager.to('order', 'chat-message', {id: Order.id}), params, function (res){
+
+        $.ajax({
+            url: UrlManager.to('order', 'chat-message', {id: Order.id}),
+            type: 'POST',
+            data: params,
+            dataType: 'json'
+        }).done(function (res){
             if (res['status'] === 'error'){
                 alert(res['message']);
                 return;
             }
 
-            // Variables
             let chat = $('.order-chat');
 
-            // Clear input
             input.val('');
-
-            // Reload chat
             chat.html(res['data']);
 
-            // Scroll
-            $('.order-history__body').animate({
-                scrollTop: chat.innerHeight()
+            let historyBody = $('.order-history__body');
+            historyBody.animate({
+                scrollTop: historyBody.prop('scrollHeight')
             });
 
-            // Animate last event
-            $('.order-chat__event:last-child').addClass('animate__animated animate__fadeIn animate__slow')
+            $('.order-chat__event:last-child')
+                .addClass('animate__animated animate__fadeIn animate__slow');
+        }).fail(function (xhr){
+            let message = xhr.responseJSON && xhr.responseJSON.message
+                ? xhr.responseJSON.message
+                : 'Не удалось отправить сообщение';
+
+            alert(message);
+        }).always(function (){
+            Order.chatSending = false;
+            input.prop('disabled', false).trigger('focus');
+            sendButton.prop('disabled', false);
         });
     },
 

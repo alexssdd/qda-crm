@@ -27,7 +27,7 @@ use app\modules\order\models\Order;
 use app\forms\order\OrderUpdateForm;
 use app\forms\order\OrderCancelForm;
 use app\forms\order\OrderPendingForm;
-use app\core\helpers\OrderEventHelper;
+use app\modules\order\helpers\OrderEventHelper;
 use app\forms\order\OrderTransferForm;
 use app\forms\order\OrderAssemblyForm;
 use app\forms\order\OrderWhatsappForm;
@@ -623,15 +623,20 @@ class OrderController extends Controller
             }
 
             // Create message
-            (new OrderEventService($order, $user))->create($model->message, OrderEventHelper::TYPE_MESSAGE);
+            $event = (new OrderEventService($order, $user))
+                ->create($model->message, OrderEventHelper::TYPE_MESSAGE);
+
+            if ($event === null) {
+                throw new DomainException('Не удалось отправить сообщение: история заказа не найдена');
+            }
 
             return $this->asJson([
                 'status' => 'success',
-                'data' => $this->renderPartial('detail/chat', [
+                'data' => $this->renderPartial('detail/_chat', [
                     'order' => $order
                 ])
             ]);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return $this->asJson([
                 'status' => 'error',
                 'message' => $e->getMessage()

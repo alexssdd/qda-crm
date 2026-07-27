@@ -11,6 +11,12 @@ use yii\helpers\ArrayHelper;
  */
 class OrderEventHelper
 {
+    public const TYPE_TRANSFER = 2;
+    public const TYPE_MESSAGE = 5;
+    public const TYPE_CANCEL = 7;
+    public const TYPE_PENDING = 8;
+    public const TYPE_ASSEMBLY_CREATED = 10;
+
     /**
      * @param $type
      * @return string|null
