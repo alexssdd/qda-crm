@@ -893,6 +893,61 @@ a{
     content: "\e90f";
 }
 
+/* Shared data table
+----------------------------------------*/
+.data-table {
+    color: var(--theme-text);
+    background-color: var(--theme-surface);
+}
+.data-table thead th {
+    padding: 10px 5px 5px;
+    color: var(--color-nice);
+    text-align: left;
+    background-color: var(--theme-surface);
+    border: 0;
+}
+.data-table thead th a {
+    color: inherit;
+}
+.data-table thead th a:hover {
+    color: var(--theme-text);
+}
+.data-table thead td {
+    padding: 0 5px 5px;
+    background-color: var(--theme-surface);
+    border: 0;
+}
+.data-table thead input,
+.data-table thead select {
+    height: 34px;
+    font-size: 12px;
+}
+.data-table tbody tr {
+    border-top: 2px solid var(--theme-bg);
+}
+.data-table tbody td,
+.data-table tbody > tr > td {
+    padding: 6px 10px;
+    color: var(--theme-text);
+    font-size: 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: var(--theme-surface);
+    border: 0;
+}
+.data-table tbody tr:not(.empty-row):hover td {
+    background-color: var(--theme-selected);
+}
+.data-table .empty-row td {
+    padding: 24px 10px;
+    color: var(--theme-text-muted);
+    text-align: center;
+}
+.data-table .asc:after,
+.data-table .desc:after {
+    padding-left: 3px;
+}
+
 /* Pagination
 --------------------------------------*/
 .pagination{

@@ -3,6 +3,7 @@
 namespace app\widgets;
 
 use Yii;
+use yii\helpers\Html;
 use yii\base\InvalidConfigException;
 
 /**
@@ -18,6 +19,8 @@ class GridView extends \yii\grid\GridView
     public function init()
     {
         parent::init();
+
+        Html::addCssClass($this->tableOptions, 'data-table');
 
         $this->pager = [
             'options' => [

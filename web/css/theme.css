@@ -9,6 +9,7 @@
     --theme-surface: #ffffff;
     --theme-surface-muted: #f3f6ff;
     --theme-surface-hover: #e5eaf2;
+    --theme-selected: #e0e5f7;
     --theme-border: #e5e6e7;
     --theme-text: #12263f;
     --theme-text-muted: #65758b;
@@ -256,6 +257,15 @@ textarea,
 
 [data-theme="dark"] .grid-view {
     border-color: var(--theme-border);
+}
+
+[data-theme="dark"] .data-table thead input:not(:focus),
+[data-theme="dark"] .data-table thead select:not(:focus) {
+    border-color: var(--theme-surface-muted);
+}
+
+[data-theme="dark"] .data-table tbody tr:not(.empty-row):hover td {
+    color: #f2f4f8;
 }
 
 [data-theme="dark"] .pagination__link {

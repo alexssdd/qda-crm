@@ -4,9 +4,8 @@ use app\entities\Log;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\Pjax;
-use yii\grid\GridView;
+use app\widgets\GridView;
 use app\search\LogSearch;
-use yii\widgets\LinkPager;
 use yii\helpers\StringHelper;
 use app\core\helpers\LogHelper;
 
@@ -27,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'layout' => "{summary}\n{items}",
         'columns' => [
             ['class' => 'app\core\SerialColumn'],
 
@@ -72,19 +70,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?= LinkPager::widget([
-        'pagination' => $dataProvider->getPagination(),
-        'options' => [
-            'class' => 'pagination',
-        ],
-        'linkContainerOptions'=>['class' => 'pagination__item'],
-        'linkOptions'=>['class' => 'pagination__link'],
-        'disabledListItemSubTagOptions'=>[
-            'tag' => 'a',
-            'class' => 'pagination__link pagination__link--disabled'
-        ],
-        'prevPageLabel' => Yii::t('app', 'Keep off'),
-        'nextPageLabel' => Yii::t('app', 'Forward'),
-    ]) ?>
     <?php Pjax::end(); ?>
 </div>

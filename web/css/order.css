@@ -107,33 +107,11 @@
 
 /* Order table
 ----------------------------------------*/
-.order-table {
-    background-color: #fff;
-}
-.order-table thead th{
-    padding: 10px 5px 5px 5px;
-    text-align: left;
-    color: var(--color-nice);
-}
-.order-table thead th a{
-    color: inherit;
-}
-.order-table thead td{
-    padding: 0 5px 5px 5px;
-}
-.order-table tbody tr{
-    border-top: 2px solid #f6f6f6;
-}
-.order-table tbody td{
-    padding: 6px 10px;
-    font-size: 12px;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-.order-table tbody tr:not(.empty-row):hover td,
 .order-table__tr--active td{
-    cursor: pointer;
     background-color: #e0e5f7;
+}
+.order-table tbody tr:not(.empty-row):hover td {
+    cursor: pointer;
 }
 .order-table__tr--active td:first-child {
     box-shadow: inset 3px 0 0 var(--color-blue);
@@ -163,23 +141,6 @@
 }
 .order-table__star--red {
     color: var(--color-red);
-}
-.order-table .asc:after,
-.order-table .desc:after {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'icons', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 3px;
-}
-.order-table .asc:after {
-    content: "\e90e";
-}
-.order-table .desc:after {
-    content: "\e90f";
 }
 .order-table__phone{
     padding: 6px;
