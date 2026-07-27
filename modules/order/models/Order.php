@@ -4,6 +4,7 @@ namespace app\modules\order\models;
 
 use app\modules\location\models\Country;
 use app\modules\location\models\Location;
+use app\modules\auth\models\User;
 use Exception;
 use yii\db\ActiveQuery;
 use app\core\ActiveRecord;
@@ -46,6 +47,7 @@ use app\core\helpers\OrderHelper;
  * @property array|null  $extra_fields
  * @property string|null $comment
  * @property int         $status
+ * @property int|null    $handler_id
  * @property int|null $source_at
  * @property int         $created_at
  *
@@ -54,6 +56,7 @@ use app\core\helpers\OrderHelper;
  * @property OrderHistory $lastAcceptedHistory
  * @property OrderHistory $lastShippedHistory
  * @property OrderEvent[] $events
+ * @property User|null $handler
  * @property Location $locationFrom
  * @property Location $locationTo
  */
@@ -83,6 +86,11 @@ class Order extends ActiveRecord
     public function getLocationTo(): ActiveQuery
     {
         return $this->hasOne(Location::class, ['id' => 'to_location_id']);
+    }
+
+    public function getHandler(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'handler_id']);
     }
 
     /**
