@@ -7,8 +7,10 @@ use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\ThemeAsset;
 
 AppAsset::register($this);
+ThemeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -42,7 +44,6 @@ AppAsset::register($this);
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.svg">
     <?php $this->head() ?>
-    <?= Html::cssFile(Yii::getAlias('@web/css/theme.css')) ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
