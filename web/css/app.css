@@ -472,6 +472,9 @@ a{
     grid-template-columns: repeat(3, 1fr);
     display: grid;
 }
+.modal-filter .modal-form__row--2{
+    grid-template-columns: repeat(2, 1fr);
+}
 .modal-filter .form-group{
     margin-bottom: 15px;
 }

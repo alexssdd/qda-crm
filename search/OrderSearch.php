@@ -83,8 +83,8 @@ class OrderSearch extends Model
     public function rules(): array
     {
         return [
-            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'event'], 'integer'],
-            [['name', 'phone', 'cost', 'vendor_id', 'vendor_number', 'transferred', 'my', 'cost', 'country_code'], 'safe'],
+            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'handler_id'], 'integer'],
+            [['name', 'phone', 'cost', 'vendor_id', 'vendor_number', 'transferred', 'event', 'my', 'cost', 'country_code'], 'safe'],
             [['date_range'], 'match', 'pattern' => '/^.+\s\-\s.+$/']
         ];
     }
@@ -210,13 +210,10 @@ class OrderSearch extends Model
     public function isFilterUsed(): bool
     {
         $attributes = [
-            'vendor_number',
-            'vendor_id',
-            'delivery_method',
             'payment_method',
             'handler_id',
-            'store_id',
             'transferred',
+            'channel',
             'event',
         ];
 

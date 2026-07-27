@@ -112,7 +112,7 @@ textarea,
 
 [data-theme="dark"] .header {
     background-color: var(--theme-header);
-    border-bottom: 1px solid var(--theme-header);
+    border-bottom: 1px solid #1e1f22;
 }
 
 [data-theme="dark"] .header-menu__sub,
@@ -195,6 +195,10 @@ textarea,
 [data-theme="dark"] .modal__container {
     border: 1px solid var(--theme-border);
     box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .modal-filter .modal__container {
+    border: 0;
 }
 
 [data-theme="dark"] .modal__footer--bordered,

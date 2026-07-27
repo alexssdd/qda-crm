@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use app\search\OrderSearch;
-use app\core\helpers\DeliveryHelper;
+use app\core\helpers\UserHelper;
+use app\modules\order\enums\OrderHistoryEvent;
 use app\modules\order\helpers\OrderHelper;
 use app\modules\order\helpers\PaymentHelper;
 
@@ -11,6 +12,9 @@ use app\modules\order\helpers\PaymentHelper;
 // Variables
 $checked = $searchModel->my ? 'checked' : '';
 $statuses = OrderHelper::getStatuses();
+$events = [
+    OrderHistoryEvent::BID_CREATE->value => 'Новый отклик',
+];
 
 ?>
 <div class="order-filter">
@@ -56,33 +60,7 @@ $statuses = OrderHelper::getStatuses();
         <div class="modal__body">
             <div class="modal-form__row modal-form__row--3">
                 <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('delivery_method') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->delivery_method, DeliveryHelper::getMethods(), [
-                        'prompt' => Yii::t('app', 'All'),
-                        'data-input' => Html::getInputId($searchModel, 'delivery_method')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'delivery_method') ?>
-                </div>
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('handler_id') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->handler_id, [], [
-                        'prompt' => Yii::t('app', 'All'),
-                        'data-input' => Html::getInputId($searchModel, 'handler_id')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'handler_id') ?>
-                </div>
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('transferred') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->transferred, [1 => 'Да'], [
-                        'prompt' => '',
-                        'data-input' => Html::getInputId($searchModel, 'transferred')
-                    ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'transferred') ?>
-                </div>
-            </div>
-            <div class="modal-form__row modal-form__row--3">
-                <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('payment_method') ?></label>
+                    <label class="control-label">Способ оплаты</label>
                     <?= Html::dropDownList(null, $searchModel->payment_method, PaymentHelper::getMethods(), [
                         'prompt' => Yii::t('app', 'All'),
                         'data-input' => Html::getInputId($searchModel, 'payment_method')
@@ -90,31 +68,39 @@ $statuses = OrderHelper::getStatuses();
                     <?= Html::activeHiddenInput($searchModel, 'payment_method') ?>
                 </div>
                 <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('vendor_number') ?></label>
-                    <?= Html::textInput(null, $searchModel->vendor_number, [
-                        'data-input' => Html::getInputId($searchModel, 'vendor_number')
+                    <label class="control-label">Ответственный</label>
+                    <?= Html::dropDownList(null, $searchModel->handler_id, UserHelper::getSelectArray(), [
+                        'prompt' => Yii::t('app', 'All'),
+                        'data-input' => Html::getInputId($searchModel, 'handler_id')
                     ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'vendor_number') ?>
+                    <?= Html::activeHiddenInput($searchModel, 'handler_id') ?>
                 </div>
                 <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('vendor_id') ?></label>
-                    <?= Html::textInput(null, $searchModel->vendor_id, [
-                        'data-input' => Html::getInputId($searchModel, 'vendor_id')
+                    <label class="control-label">Передан</label>
+                    <?= Html::dropDownList(null, $searchModel->transferred, [1 => 'Да'], [
+                        'prompt' => Yii::t('app', 'All'),
+                        'data-input' => Html::getInputId($searchModel, 'transferred')
                     ]) ?>
-                    <?= Html::activeHiddenInput($searchModel, 'vendor_id') ?>
+                    <?= Html::activeHiddenInput($searchModel, 'transferred') ?>
                 </div>
             </div>
-            <div class="modal-form__row modal-form__row--3">
+            <div class="modal-form__row modal-form__row--2">
                 <div class="form-group">
-                    <label class="control-label"><?= $searchModel->getAttributeLabel('event') ?></label>
-                    <?= Html::dropDownList(null, $searchModel->event, [], [
+                    <label class="control-label">Канал</label>
+                    <?= Html::dropDownList(null, $searchModel->channel, OrderHelper::getChannels(), [
+                        'prompt' => Yii::t('app', 'All'),
+                        'data-input' => Html::getInputId($searchModel, 'channel')
+                    ]) ?>
+                    <?= Html::activeHiddenInput($searchModel, 'channel') ?>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Событие</label>
+                    <?= Html::dropDownList(null, $searchModel->event, $events, [
                         'prompt' => Yii::t('app', 'All'),
                         'data-input' => Html::getInputId($searchModel, 'event')
                     ]) ?>
                     <?= Html::activeHiddenInput($searchModel, 'event') ?>
                 </div>
-            </div>
-            <div class="modal-form__row modal-form__row--3">
             </div>
         </div>
         <div class="modal__footer">
