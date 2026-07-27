@@ -2,6 +2,7 @@
 
 namespace app\services;
 
+use InvalidArgumentException;
 use vova07\console\ConsoleRunner;
 
 /**
@@ -19,16 +20,26 @@ class ConsoleService
     }
 
     /**
-     * @param $cmd
+     * ConsoleRunner отдаёт строку в popen() без экранирования, поэтому маршрут
+     * допускается только литеральный, а аргументы всегда проходят escapeshellarg().
+     *
+     * @param string $cmd
      * @param array $params
      * @return void
      */
-    public function run($cmd, array $params = [])
+    public function run(string $cmd, array $params = []): void
     {
+        if (!preg_match('~^[a-z0-9\-]+(/[a-z0-9\-]+)*$~i', $cmd)) {
+            throw new InvalidArgumentException('Unsafe console route: ' . $cmd);
+        }
+
         $client = $this->getClient();
 
         if ($params){
-            $cmd .= ' ' . implode(' ', $params);
+            $cmd .= ' ' . implode(' ', array_map(
+                static fn ($param) => escapeshellarg((string) $param),
+                $params
+            ));
         }
 
         $client->run($cmd);

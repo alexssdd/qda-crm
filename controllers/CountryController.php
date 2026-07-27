@@ -9,7 +9,6 @@ use yii\web\Response;
 use yii\web\Controller;
 use app\search\CountrySearch;
 use yii\filters\AccessControl;
-use app\services\ConsoleService;
 use app\forms\CountryUpdateForm;
 use app\core\helpers\UserHelper;
 use app\services\CountryService;
@@ -53,24 +52,6 @@ class CountryController extends Controller
         ]);
     }
 
-    public function actionImport(): Response
-    {
-        (new ConsoleService())->run('location/import/countries');
-
-        Yii::$app->session->setFlash('success', Yii::t('app', 'Country successfully import'));
-
-        return $this->redirect(Yii::$app->request->referrer);
-    }
-
-    public function actionLocations($code): Response
-    {
-        (new ConsoleService())->run('location/import/locations', [$code]);
-
-        Yii::$app->session->setFlash('success', Yii::t('app', 'Locations successfully import'));
-
-        return $this->redirect(Yii::$app->request->referrer);
-    }
-
     /**
      * @param $id
      * @return string|Response
@@ -99,7 +80,6 @@ class CountryController extends Controller
 
         return $this->renderAjax('_update', [
             'model' => $model,
-            'country' => $country
         ]);
     }
 

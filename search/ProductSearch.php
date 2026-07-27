@@ -56,8 +56,8 @@ class ProductSearch extends Model
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+            // Fail-closed: битый фильтр не должен расширять выборку
+            $query->andWhere('0=1');
             return $dataProvider;
         }
 

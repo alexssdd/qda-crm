@@ -55,6 +55,8 @@ class StoreSearch extends Model
         $this->load($params);
 
         if (!$this->validate()) {
+            // Fail-closed: битый фильтр не должен расширять выборку
+            $query->andWhere('0=1');
             return $dataProvider;
         }
 

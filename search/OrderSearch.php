@@ -13,6 +13,7 @@ use app\core\helpers\OrderHelper;
 use app\core\helpers\PhoneHelper;
 use app\core\behaviors\DateRangeBehavior;
 use app\modules\auth\helpers\UserHelper;
+use app\modules\order\enums\OrderHistoryEvent;
 
 /**
  * Order search
@@ -83,7 +84,8 @@ class OrderSearch extends Model
     public function rules(): array
     {
         return [
-            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'handler_id', 'event'], 'integer'],
+            [['id', 'number', 'type', 'channel', 'status', 'delivery_method', 'payment_method', 'handler_id'], 'integer'],
+            [['event'], 'in', 'range' => array_column(OrderHistoryEvent::cases(), 'value')],
             [['cost'], 'number', 'min' => 0],
             [['transferred', 'my'], 'boolean'],
             [['name'], 'string', 'max' => 255],
@@ -115,6 +117,8 @@ class OrderSearch extends Model
         $this->load($params);
 
         if (!$this->validate()) {
+            // Fail-closed: битый фильтр не должен расширять выборку до всех заказов
+            $query->andWhere('0=1');
             return $provider;
         }
 
