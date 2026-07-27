@@ -16,7 +16,6 @@ use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
 use app\entities\OrderReceipt;
 use app\forms\AddressSelectForm;
-use app\core\helpers\TextHelper;
 use app\services\ConsoleService;
 use app\core\helpers\UserHelper;
 use app\core\helpers\StoreHelper;
@@ -38,8 +37,8 @@ use app\forms\order\OrderChatMessageForm;
 use app\services\order\OrderEventService;
 use app\services\order\OrderRulesService;
 use app\modules\kaspi\helpers\KaspiHelper;
-use app\services\order\OrderAssignService;
 use app\services\order\OrderManageService;
+use app\services\order\OrderTransferService;
 use app\services\order\OrderReasonService;
 use app\forms\order\OrderProductUpdateForm;
 use app\services\order\OrderProductService;
@@ -578,19 +577,11 @@ class OrderController extends Controller
                     throw new DomainException('The executor was not found');
                 }
 
-                // Transfer order
-                (new OrderManageService($order))->transfer($model);
-
-                // Assign order
-                (new OrderAssignService($order, $executor))->assign();
-
-                // Create message
-                $message = TextHelper::transferOrder($executor->full_name);
-                (new OrderEventService($order, $user))->create($message, OrderEventHelper::TYPE_TRANSFER);
+                (new OrderTransferService($order, $user))->transfer($executor);
 
                 // Flash
                 Yii::$app->session->setFlash('success', 'Заказ успешно передан');
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 // Flash
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }

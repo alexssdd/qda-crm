@@ -3,7 +3,6 @@
 use yii\web\View;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\core\rules\OrderRules;
 use app\core\helpers\PhoneHelper;
 use app\modules\order\models\Order;
 use app\modules\order\helpers\OrderHelper;
@@ -12,7 +11,6 @@ use app\modules\order\helpers\OrderHelper;
 /** @var $order Order */
 
 // Variables
-$completed = OrderHelper::isCompleted($order->status);
 $statuses = OrderHelper::getAvailableStatuses($order);
 $statuses[$order->status] = OrderHelper::getStatusName($order->status);
 
@@ -69,29 +67,13 @@ $statuses[$order->status] = OrderHelper::getStatusName($order->status);
             </div>
         </div>
     </div>
-    <div class="order-footer">
-        <div class="order-actions">
-            <div class="order-actions__heading">Дополнительные действия</div>
-            <div class="order-actions__list">
-                <div class="order-actions__item">
-                    <a href="<?= Url::to(['/order/transfer', 'id' => $order->id]) ?>" class="order-actions__link js-view-modal">Передать заказ</a>
-                </div>
-                <?php if (!$completed && !$order->isPending()) : ?>
-                <div class="order-actions__item">
-                    <a href="<?= Url::to(['/order/pending', 'id' => $order->id]) ?>" class="order-actions__link js-view-modal">Отложить заказ</a>
-                </div>
-                <?php endif; ?>
-            </div>
+    <?php if (OrderHelper::canTransfer($order->status)): ?>
+        <div class="order-footer">
+            <a
+                href="<?= Url::to(['/order/transfer', 'id' => $order->id]) ?>"
+                class="btn btn--default order-footer__transfer js-view-modal"
+            >Передать оператору</a>
         </div>
-        <div class="order-footer__left">
-            <button class="btn btn--default" type="button" onclick="Order.actions()">Действия</button>
-        </div>
-        <div class="order-footer__right">
-            <a href="<?= Url::to(['/order/cancel', 'id' => $order->id]) ?>" class="btn btn--warning order-body__button js-view-modal">Отменить</a>
-            <?php if (OrderRules::canSave($order->status)): ?>
-                <button type="submit" class="btn btn--success order-body__button">Сохранить</button>
-            <?php endif;?>
-        </div>
-    </div>
+    <?php endif; ?>
 </div>
 <?= Html::endForm(); ?>

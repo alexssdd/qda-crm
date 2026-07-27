@@ -4,8 +4,8 @@ namespace app\services;
 
 use Exception;
 use DomainException;
-use app\entities\User;
-use app\entities\Order;
+use app\modules\auth\models\User;
+use app\modules\order\models\Order;
 use yii\helpers\ArrayHelper;
 use app\core\helpers\UserHelper;
 use app\core\helpers\OrderHelper;
@@ -64,35 +64,14 @@ class OperatorService
     {
         /** @var User[] $users */
         $users = User::find()
-            ->andWhere(['role' => [UserHelper::ROLE_ADMIN, UserHelper::ROLE_ADMINISTRATOR, UserHelper::ROLE_OPERATOR]])
+            ->andWhere(['role' => UserHelper::ROLE_OPERATOR])
             ->andWhere(['status' => UserHelper::STATUS_ACTIVE])
+            ->orderBy(['name' => SORT_ASC])
             ->all();
-        $roles = [];
+
         $result = [];
-
-        // Group by roles
         foreach ($users as $user) {
-            if (!array_key_exists($user->role, $roles)){
-                $roles[$user->role] = [
-                    'name' => UserHelper::getRoleName($user->role),
-                    'items' => []
-                ];
-            }
-
-            $roles[$user->role]['items'][$user->id] = $user->full_name;
-        }
-
-        // Operators
-        $operators = ArrayHelper::getValue($roles, UserHelper::ROLE_OPERATOR, []);
-        if ($operators){
-            unset($roles[UserHelper::ROLE_OPERATOR]);
-
-            $result[$operators['name']] = $operators['items'];
-        }
-
-        // Other
-        foreach ($roles as $role) {
-            $result[$role['name']] = $role['items'];
+            $result[$user->id] = $user->name;
         }
 
         return $result;

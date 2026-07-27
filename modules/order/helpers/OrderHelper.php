@@ -86,6 +86,15 @@ class OrderHelper
         return in_array($status, [OrderStatus::CANCELLED->value, OrderStatus::COMPLETED->value]);
     }
 
+    public static function canTransfer($status): bool
+    {
+        return in_array($status, [
+            OrderStatus::CREATED->value,
+            OrderStatus::NEW->value,
+            OrderStatus::PROGRESS->value,
+        ], true);
+    }
+
     public static function getPriceLabel(Order $order): string
     {
         return match ($order->price_type) {

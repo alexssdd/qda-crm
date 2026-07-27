@@ -2,9 +2,8 @@
 
 namespace app\forms\order;
 
-use Yii;
-use app\entities\User;
 use app\core\forms\Form;
+use app\modules\auth\models\User;
 
 /**
  * Order transfer form
@@ -30,7 +29,7 @@ class OrderTransferForm extends Form
     public function attributeLabels(): array
     {
         return [
-            'executor_id' => Yii::t('app', 'User ID')
+            'executor_id' => 'Оператор'
         ];
     }
 

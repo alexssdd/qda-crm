@@ -516,7 +516,8 @@
 /* Order footer
 ----------------------------------------*/
 .order-footer{
-    display: none;
+    display: flex;
+    align-items: center;
     position: relative;
 }
 .order-footer__right{

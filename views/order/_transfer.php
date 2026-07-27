@@ -19,7 +19,7 @@ use app\forms\order\OrderTransferForm;
     <div class="modal__body">
         <div class="modal-form">
             <?= $form->field($model, 'executor_id')->dropDownList($users, [
-                'prompt' => Yii::t('app', 'Select value')
+                'prompt' => 'Выберите оператора'
             ]) ?>
         </div>
     </div>
