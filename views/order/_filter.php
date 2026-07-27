@@ -55,7 +55,7 @@ $events = [
     </div>
 </div>
 <div class="modal modal-filter modal-form" role="alert">
-    <div class="modal__container modal__container--1000">
+    <div class="modal__container modal__container--800">
         <div class="modal__title">Фильтр</div>
         <div class="modal__body">
             <div class="modal-form__row modal-form__row--3">

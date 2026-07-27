@@ -27,6 +27,9 @@ return [
     'order.price_type.request' => 'По запросу',
     'order.price_type.contract' => 'По договору',
     'order.price_type.unknown' => 'Не указана',
+    'price.thousand' => 'тыс.',
+    'price.million' => 'млн',
+    'price.billion' => 'млрд',
 
     'Address' => 'Адрес',
     'Address successfully created' => 'Адрес доставки успешно создан',
