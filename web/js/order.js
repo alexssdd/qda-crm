@@ -36,6 +36,7 @@ window.Order = {
     productSearchTimer: null,
     productSearchFlag: false,
     cancelReasons: [],
+    orderRequestPending: false,
 
     // Init methods
     init: function (){
@@ -154,15 +155,31 @@ window.Order = {
         });
     },
     initTable: function (){
-        $('body').on('click', '.order-table tbody > tr:not(.empty-row)', function () {
+        let body = $('body');
+        let rowSelector = '.order-table tbody > tr:not(.empty-row)';
+
+        body.off('click.orderTable', rowSelector);
+        body.on('click.orderTable', rowSelector, function () {
             let row = $(this);
             let id = row.data('key');
+
+            if (Order.orderRequestPending || row.hasClass('order-table__tr--active')){
+                return;
+            }
 
             row.siblings().removeClass('order-table__tr--active');
             row.addClass('order-table__tr--active');
             $('.order-filter__id').val(id);
+
+            Order.orderRequestPending = true;
             Order.refresh();
         });
+
+        $(document)
+            .off('pjax:end.orderTable')
+            .on('pjax:end.orderTable', function (){
+                Order.orderRequestPending = false;
+            });
     },
     initQueryParams: function (){
         let params = new URLSearchParams(location.search);
