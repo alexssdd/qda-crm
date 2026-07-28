@@ -20,8 +20,7 @@ EmptyAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->name) . ' &mdash; ' . Html::encode($this->title) ?></title>
-    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <?= $this->render('_favicons') ?>
     <?php $this->head() ?>
 </head>
 <body>

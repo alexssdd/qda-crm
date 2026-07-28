@@ -41,8 +41,7 @@ ThemeAsset::register($this);
     </script>
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.svg">
+    <?= $this->render('_favicons') ?>
     <?php $this->head() ?>
 </head>
 <body>
