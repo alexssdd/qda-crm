@@ -138,12 +138,6 @@ ExecutorAsset::register($this);
                     'autocomplete' => 'off',
                 ],
             ],
-            [
-                'attribute' => 'updated_at',
-                'label' => Yii::t('app', 'Updated At'),
-                'format' => 'datetime',
-                'options' => ['width' => 150],
-            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
