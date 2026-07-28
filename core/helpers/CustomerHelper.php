@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use app\entities\Order;
 use app\entities\Customer;
 use yii\helpers\ArrayHelper;
+use app\modules\location\models\Country;
 
 /**
  * Customer helper
@@ -21,6 +22,9 @@ class CustomerHelper
     /** Statuses */
     const STATUS_ACTIVE = 10;
     const STATUS_INACTIVE = 11;
+    const STATUS_BLOCKED = 20;
+    const STATUS_PENDING_DELETION = 30;
+    const STATUS_DELETED = 40;
 
     const PAVEL_ID = 2;
     const ANEL_ID = 17;
@@ -54,7 +58,10 @@ class CustomerHelper
     {
         return [
             self::STATUS_ACTIVE => Yii::t('app', 'STATUS_ACTIVE'),
-            self::STATUS_INACTIVE => Yii::t('app', 'STATUS_INACTIVE')
+            self::STATUS_INACTIVE => Yii::t('app', 'STATUS_INACTIVE'),
+            self::STATUS_BLOCKED => 'Заблокирован',
+            self::STATUS_PENDING_DELETION => 'Ожидает удаления',
+            self::STATUS_DELETED => 'Удалён',
         ];
     }
 
@@ -70,7 +77,12 @@ class CustomerHelper
                 $class = 'label label-success';
                 break;
             case self::STATUS_INACTIVE:
+            case self::STATUS_BLOCKED:
+            case self::STATUS_DELETED:
                 $class = 'label label-danger';
+                break;
+            case self::STATUS_PENDING_DELETION:
+                $class = 'label label-warning';
                 break;
             default:
                 $class = 'label label-default';
@@ -151,5 +163,14 @@ class CustomerHelper
     public static function getVendorId(Customer $customer): mixed
     {
         return ArrayHelper::getValue($customer->config, 'vendor_id');
+    }
+
+    public static function getCountries(): array
+    {
+        return Country::find()
+            ->select('name')
+            ->orderBy(['name' => SORT_ASC])
+            ->indexBy('code')
+            ->column();
     }
 }

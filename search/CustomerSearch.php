@@ -6,6 +6,7 @@ use yii\base\Model;
 use app\entities\Customer;
 use yii\data\ActiveDataProvider;
 use app\core\helpers\PhoneHelper;
+use app\core\behaviors\DateRangeBehavior;
 
 /**
  * Customer search
@@ -19,6 +20,10 @@ class CustomerSearch extends Model
     public $type;
     public $ref;
     public $status;
+    public $country_code;
+    public $registered_at;
+    public $registered_from;
+    public $registered_to;
 
     /**
      * @return string
@@ -36,6 +41,21 @@ class CustomerSearch extends Model
         return [
             [['type', 'status'], 'integer'],
             [['name', 'phone', 'email', 'iin', 'ref'], 'string', 'max' => 255],
+            [['country_code'], 'string', 'max' => 5],
+            [['registered_at'], 'string', 'max' => 100],
+            [['registered_at'], 'match', 'pattern' => '/^.+\s\-\s.+$/'],
+        ];
+    }
+
+    public function behaviors(): array
+    {
+        return [
+            [
+                'class' => DateRangeBehavior::class,
+                'attribute' => 'registered_at',
+                'dateStartAttribute' => 'registered_from',
+                'dateEndAttribute' => 'registered_to',
+            ],
         ];
     }
 
@@ -58,10 +78,25 @@ class CustomerSearch extends Model
     public function search(array $params): ActiveDataProvider
     {
         $query = Customer::find()
-            ->with(['addresses', 'contracts']);
+            ->alias('customer')
+            ->with('country');
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' => ['registered_at' => SORT_DESC],
+                'attributes' => [
+                    'name',
+                    'phone',
+                    'country_code',
+                    'status',
+                    'registered_at',
+                    'orders_created',
+                    'orders_completed',
+                    'orders_canceled',
+                    'last_order_at',
+                ],
+            ],
         ]);
 
         $this->load($params);
@@ -74,15 +109,23 @@ class CustomerSearch extends Model
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'iin' => $this->iin,
-            'type' => $this->type,
-            'ref' => $this->ref,
-            'status' => $this->status,
+            'customer.iin' => $this->iin,
+            'customer.type' => $this->type,
+            'customer.ref' => $this->ref,
+            'customer.status' => $this->status,
+            'customer.country_code' => $this->country_code,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'phone', $this->phone ? PhoneHelper::getCleanNumber($this->phone) : null])
-            ->andFilterWhere(['like', 'email', $this->email]);
+        $query->andFilterWhere([
+            'between',
+            'customer.registered_at',
+            $this->registered_from,
+            $this->registered_to,
+        ]);
+
+        $query->andFilterWhere(['like', 'customer.name', $this->name])
+            ->andFilterWhere(['like', 'customer.phone', $this->phone ? PhoneHelper::getCleanNumber($this->phone) : null])
+            ->andFilterWhere(['like', 'customer.email', $this->email]);
 
         return $dataProvider;
     }

@@ -10,6 +10,7 @@ use app\core\helpers\UserHelper;
 use yii\data\ActiveDataProvider;
 use app\core\helpers\PhoneHelper;
 use app\core\helpers\CustomerHelper;
+use app\assets\CustomerAsset;
 
 /* @var $this View */
 /* @var $searchModel CustomerSearch */
@@ -18,6 +19,7 @@ use app\core\helpers\CustomerHelper;
 // View params
 $this->title = Yii::t('app', 'Customers');
 $this->params['breadcrumbs'][] = $this->title;
+CustomerAsset::register($this);
 ?>
 <div class="page">
     <div class="page__header">
@@ -25,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
+        'id' => 'customer-grid-view',
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -36,6 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'name',
                 'format' => 'raw',
                 'value' => function (Customer $model) {
+                    if ($model->source_id !== null) {
+                        return Html::encode($model->name ?: '—');
+                    }
+
                     $action = 'update';
                     if (UserHelper::isOperator()){
                         $action = 'detail';
@@ -50,28 +57,55 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'phone',
                 'options' => ['width' => 150],
                 'value' => function (Customer $model) {
-                    return PhoneHelper::getMaskPhone($model->phone);
+                    return $model->phone
+                        ? PhoneHelper::getMaskPhone($model->phone)
+                        : '—';
                 }
             ],
             [
-                'attribute' => 'email',
-                'options' => ['width' => 200]
-            ],
-            [
-                'attribute' => 'iin',
-                'options' => ['width' => 150]
-            ],
-            [
-                'attribute' => 'type',
+                'attribute' => 'country_code',
+                'label' => Yii::t('app', 'Country'),
                 'options' => ['width' => 150],
-                'filter' => CustomerHelper::getTypeArray(),
                 'value' => function (Customer $model) {
-                    return CustomerHelper::getTypeName($model->type);
-                }
+                    return $model->country?->name ?? $model->country_code ?? '—';
+                },
+                'filter' => CustomerHelper::getCountries(),
             ],
             [
-                'attribute' => 'ref',
-                'options' => ['width' => 150]
+                'attribute' => 'registered_at',
+                'label' => Yii::t('app', 'Registered At'),
+                'format' => 'datetime',
+                'options' => ['width' => 170],
+                'filterInputOptions' => [
+                    'class' => 'form-control customer-register-date',
+                    'placeholder' => Yii::t('app', 'Period'),
+                    'autocomplete' => 'off',
+                ],
+            ],
+            [
+                'attribute' => 'orders_created',
+                'label' => Yii::t('app', 'Orders Created'),
+                'options' => ['width' => 100],
+                'filter' => false,
+            ],
+            [
+                'attribute' => 'orders_completed',
+                'label' => Yii::t('app', 'Orders Completed'),
+                'options' => ['width' => 100],
+                'filter' => false,
+            ],
+            [
+                'attribute' => 'orders_canceled',
+                'label' => Yii::t('app', 'Orders Canceled'),
+                'options' => ['width' => 100],
+                'filter' => false,
+            ],
+            [
+                'attribute' => 'last_order_at',
+                'label' => Yii::t('app', 'Last Order At'),
+                'format' => 'datetime',
+                'options' => ['width' => 160],
+                'filter' => false,
             ],
             [
                 'attribute' => 'status',
@@ -82,17 +116,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => CustomerHelper::getStatusArray()
             ],
-            [
-                'format' => 'raw',
-                'options' => ['width' => 150],
-                'value' => function (Customer $model) {
-                    $label = Yii::t('app', 'Addresses') . ' (' . count($model->addresses) . ')';
-                    return Html::a($label, ['/address/index', 'customer_id' => $model->id], [
-                        'data-pjax' => 0,
-                        'target' => '_blank'
-                    ]);
-                }
-            ]
         ],
     ]); ?>
     <?php Pjax::end(); ?>
