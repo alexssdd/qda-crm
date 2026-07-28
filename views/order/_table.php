@@ -95,15 +95,6 @@ use app\modules\order\helpers\OrderHistoryHelper;
             }
         ],
         [
-            'attribute' => 'channel',
-            'label' => 'Канал',
-            'options' => ['width' => 100],
-            'filter' => OrderHelper::getChannels(),
-            'value' => function (Order $model) {
-                return OrderHelper::getChannel($model->channel);
-            }
-        ],
-        [
             'attribute' => 'cost',
             'label' => 'Сумма',
             'options' => ['width' => 85],
