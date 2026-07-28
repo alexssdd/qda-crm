@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 <div class="login-otp-wrapper">
     <h2 class="login__title">Введите код</h2>
     <div class="login__desc">
-        Мы отправили код подтверждения в мессенджер WhatsApp на номер <strong><?= Html::encode(PhoneHelper::getMaskPhone($phone)) ?></strong>
+        Мы отправили код в Telegram или по SMS на номер <strong><?= Html::encode(PhoneHelper::getMaskPhone($phone)) ?></strong>
     </div>
 
     <?php $form = ActiveForm::begin([

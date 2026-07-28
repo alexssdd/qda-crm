@@ -37,6 +37,7 @@ class UserService
             }
 
             $this->savePassword($model, $form->password);
+            $this->saveOtp($model);
 
             return $model;
         });
@@ -87,6 +88,29 @@ class UserService
 
         if (!$identity->save(false)) {
             throw new DomainException('Не удалось сохранить пароль пользователя.');
+        }
+    }
+
+    private function saveOtp(User $user): void
+    {
+        $identity = AuthIdentity::findOne([
+            'user_id' => $user->id,
+            'type' => AuthMethod::OTP->value,
+        ]);
+
+        if ($identity === null) {
+            $identity = new AuthIdentity();
+            $identity->user_id = $user->id;
+            $identity->type = AuthMethod::OTP->value;
+            $identity->identifier = $user->phone;
+            $identity->created_at = time();
+        }
+
+        $identity->verified = true;
+        $identity->verified_at = time();
+
+        if (!$identity->save(false)) {
+            throw new DomainException('Не удалось настроить OTP пользователя.');
         }
     }
 }
