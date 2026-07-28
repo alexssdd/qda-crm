@@ -31,8 +31,9 @@ class OrderHelper
 
     /** Channels */
     const CHANNEL_CRM = 10;
-    const CHANNEL_APP_IOS = 24;
-    const CHANNEL_APP_ANDROID = 25;
+    const CHANNEL_BUSINESS = 11;
+    const CHANNEL_APP_IOS = 12;
+    const CHANNEL_APP_ANDROID = 13;
 
     /**
      * @return string[]
@@ -68,6 +69,7 @@ class OrderHelper
     {
         return [
             self::CHANNEL_CRM => 'CRM',
+            self::CHANNEL_BUSINESS => 'Business',
             self::CHANNEL_APP_IOS => 'App iOS',
             self::CHANNEL_APP_ANDROID => 'App Android',
         ];
@@ -80,7 +82,7 @@ class OrderHelper
      */
     public static function getChannel($channel): string
     {
-        return ArrayHelper::getValue(static::getChannels(), $channel);
+        return ArrayHelper::getValue(static::getChannels(), $channel, '—');
     }
 
     /**

@@ -52,7 +52,7 @@ class OrderHelper
 
     public static function getChannel($channel): string
     {
-        return ArrayHelper::getValue(static::getChannels(), $channel);
+        return ArrayHelper::getValue(static::getChannels(), $channel, '—');
     }
 
     public static function getChannels(): array
