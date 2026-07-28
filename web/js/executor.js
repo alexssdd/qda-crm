@@ -2,6 +2,12 @@ $(function (){
     const revealTimeout = 10000;
     const body = $('body');
 
+    initExecutorDateRange();
+
+    $(document)
+        .off('pjax:end.executorDateRange')
+        .on('pjax:end.executorDateRange', initExecutorDateRange);
+
     body.off('click.executorPhoneReveal', '.js-executor-phone-toggle');
     body.on('click.executorPhoneReveal', '.js-executor-phone-toggle', function (event){
         event.preventDefault();
@@ -66,3 +72,42 @@ $(function (){
             });
     });
 });
+
+function initExecutorDateRange(){
+    const input = $('.executor-register-date');
+
+    if (!input.length || typeof input.daterangepicker !== 'function'){
+        return;
+    }
+
+    input.each(function (){
+        const field = $(this);
+
+        if (field.data('daterangepicker')){
+            return;
+        }
+
+        field.daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                format: 'DD.MM.YYYY HH:mm',
+                applyLabel: 'Применить',
+                cancelLabel: 'Очистить',
+                firstDay: 1,
+                customRangeLabel: 'Пользовательский'
+            },
+            alwaysShowCalendars: true,
+            opens: 'left'
+        }).on('apply.daterangepicker', function (event, picker){
+            field.val(
+                picker.startDate.format('DD.MM.YYYY HH:mm')
+                + ' - '
+                + picker.endDate.format('DD.MM.YYYY HH:mm')
+            );
+            $('#executor-grid-view').yiiGridView('applyFilter');
+        }).on('cancel.daterangepicker', function (){
+            field.val('');
+            $('#executor-grid-view').yiiGridView('applyFilter');
+        });
+    });
+}

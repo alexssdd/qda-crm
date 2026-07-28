@@ -26,6 +26,7 @@ ExecutorAsset::register($this);
     </div>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
+        'id' => 'executor-grid-view',
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -72,6 +73,23 @@ ExecutorAsset::register($this);
                 'filter' => ExecutorHelper::getCountries(),
             ],
             [
+                'attribute' => 'location_name',
+                'label' => Yii::t('app', 'Location'),
+                'options' => ['width' => 180],
+                'value' => static function (Executor $model): string {
+                    return $model->location?->name ?? '—';
+                },
+            ],
+            [
+                'attribute' => 'service_type',
+                'label' => Yii::t('app', 'Services'),
+                'options' => ['width' => 210],
+                'value' => static function (Executor $model): string {
+                    return ExecutorHelper::getServiceNames($model) ?: '—';
+                },
+                'filter' => ExecutorHelper::getServiceTypes(),
+            ],
+            [
                 'attribute' => 'rating',
                 'label' => Yii::t('app', 'Rating'),
                 'format' => ['decimal', 2],
@@ -108,6 +126,17 @@ ExecutorAsset::register($this);
                     return ExecutorHelper::getStatusLabel((int) $model->status);
                 },
                 'filter' => ExecutorHelper::getStatuses(),
+            ],
+            [
+                'attribute' => 'registered_at',
+                'label' => Yii::t('app', 'Registered At'),
+                'format' => 'datetime',
+                'options' => ['width' => 170],
+                'filterInputOptions' => [
+                    'class' => 'form-control executor-register-date',
+                    'placeholder' => Yii::t('app', 'Period'),
+                    'autocomplete' => 'off',
+                ],
             ],
             [
                 'attribute' => 'updated_at',

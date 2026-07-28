@@ -19,5 +19,6 @@ class ExecutorAsset extends AssetBundle
 
     public $depends = [
         AppAsset::class,
+        DateRangePickerAsset::class,
     ];
 }

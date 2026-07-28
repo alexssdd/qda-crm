@@ -7,6 +7,8 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use app\modules\location\models\Country;
 use app\modules\order\enums\ExecutorStatus;
+use app\modules\order\helpers\OrderHelper;
+use app\modules\order\models\Executor;
 
 class ExecutorHelper
 {
@@ -56,5 +58,22 @@ class ExecutorHelper
             ->orderBy(['sort' => SORT_ASC, 'name' => SORT_ASC])
             ->indexBy('code')
             ->column();
+    }
+
+    public static function getServiceTypes(): array
+    {
+        return OrderHelper::getTypes();
+    }
+
+    public static function getServiceNames(Executor $executor): string
+    {
+        $types = self::getServiceTypes();
+        $result = [];
+
+        foreach ($executor->services as $service) {
+            $result[] = $types[(int) $service->type] ?? (string) $service->type;
+        }
+
+        return implode(', ', array_unique($result));
     }
 }
