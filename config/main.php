@@ -10,6 +10,7 @@ $params = ArrayHelper::merge(
     require(__DIR__ . '/params-local.php')
 );
 $db = require __DIR__ . '/db.php';
+$sessionTimeout = 60 * 60 * 24 * 7;
 
 return [
     'id' => 'app',
@@ -55,7 +56,10 @@ return [
             },
         ],
         'session' => [
+            'timeout' => $sessionTimeout,
+            'savePath' => '@runtime',
             'cookieParams' => [
+                'lifetime' => $sessionTimeout,
                 'httpOnly' => true,
                 'sameSite' => 'Lax',
                 'secure' => YII_ENV_PROD,
