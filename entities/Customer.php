@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
  * @property int|null $parent_id
  * @property int|null $source_id
  * @property string|null $country_code
- * @property int $sync_revision
+ * @property int $source_synced_at
  * @property string $name
  * @property string|null $phone
  * @property string|null $email
@@ -55,7 +55,7 @@ class Customer extends ActiveRecord
             'parent_id' => Yii::t('app', 'Parent ID'),
             'source_id' => Yii::t('app', 'Source ID'),
             'country_code' => Yii::t('app', 'Country'),
-            'sync_revision' => 'Sync Revision',
+            'source_synced_at' => 'Source Synced At',
             'name' => Yii::t('app', 'Name'),
             'phone' => Yii::t('app', 'Phone'),
             'email' => Yii::t('app', 'Email'),

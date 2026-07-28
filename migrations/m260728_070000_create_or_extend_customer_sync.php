@@ -14,7 +14,7 @@ class m260728_070000_create_or_extend_customer_sync extends Migration
 
         $this->addColumnIfMissing('source_id', $this->integer()->unsigned()->null());
         $this->addColumnIfMissing('country_code', $this->string(5)->null());
-        $this->addColumnIfMissing('sync_revision', $this->bigInteger()->unsigned()->notNull()->defaultValue(0));
+        $this->addColumnIfMissing('source_synced_at', $this->bigInteger()->unsigned()->notNull()->defaultValue(0));
         $this->addColumnIfMissing('registered_at', $this->integer()->null());
         $this->addColumnIfMissing('orders_created', $this->integer()->unsigned()->notNull()->defaultValue(0));
         $this->addColumnIfMissing('orders_completed', $this->integer()->unsigned()->notNull()->defaultValue(0));
