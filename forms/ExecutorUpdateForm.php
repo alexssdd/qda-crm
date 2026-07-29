@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use app\modules\location\models\Country;
 use app\modules\location\models\Location;
+use app\modules\location\helpers\RegionHelper;
 use app\modules\order\helpers\ExecutorHelper;
 use app\modules\order\models\Executor;
 
@@ -103,21 +104,80 @@ class ExecutorUpdateForm extends Model
 
     public function getLocationOptions(): array
     {
-        return Location::find()
+        $locations = Location::find()
             ->alias('location')
-            ->select(['location.name', 'location.id'])
+            ->select([
+                'location.id',
+                'location.parent_id',
+                'location.type',
+                'location.name',
+            ])
             ->innerJoin(
                 ['country' => Country::tableName()],
                 '[[country.id]] = [[location.country_id]]'
             )
             ->where(['country.code' => $this->executor->country_code])
             ->orderBy(['location.name' => SORT_ASC])
-            ->indexBy('id')
-            ->column();
+            ->asArray()
+            ->all();
+
+        $regions = [];
+        $children = [];
+        $other = [];
+
+        foreach ($locations as $location) {
+            $id = (int) $location['id'];
+            $parentId = (int) ($location['parent_id'] ?? 0);
+
+            if ((int) $location['type'] === RegionHelper::TYPE_REGION) {
+                $regions[$id] = $location;
+            } elseif ($parentId > 0) {
+                $children[$parentId][$id] = $this->getLocationOptionLabel($location);
+            } else {
+                $other[$id] = $this->getLocationOptionLabel($location);
+            }
+        }
+
+        $options = [];
+
+        foreach ($regions as $id => $region) {
+            $items = [
+                $id => $this->getLocationOptionLabel($region),
+            ];
+
+            if (isset($children[$id])) {
+                $items += $children[$id];
+                unset($children[$id]);
+            }
+
+            $options[(string) $region['name']] = $items;
+        }
+
+        foreach ($children as $items) {
+            $other += $items;
+        }
+
+        if ($other !== []) {
+            $options['Другие локации'] = $other;
+        }
+
+        return $options;
     }
 
     public function getServiceOptions(): array
     {
         return ExecutorHelper::getServiceTypes();
+    }
+
+    private function getLocationOptionLabel(array $location): string
+    {
+        $type = match ((int) $location['type']) {
+            RegionHelper::TYPE_REGION => 'область',
+            RegionHelper::TYPE_CITY => 'город',
+            RegionHelper::TYPE_DISTRICT => 'район',
+            default => null,
+        };
+
+        return (string) $location['name'] . ($type === null ? '' : ' · ' . $type);
     }
 }
