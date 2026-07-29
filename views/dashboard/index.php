@@ -158,8 +158,9 @@ foreach (array_keys($presets) as $days) {
 
 $payload = [
     'labels' => [
-        'created' => Yii::t('app', 'dashboard.series.created'),
-        'completed' => Yii::t('app', 'dashboard.series.completed'),
+        'allOrders' => Yii::t('app', 'dashboard.series.all_orders'),
+        'cancelledOrders' => Yii::t('app', 'dashboard.series.cancelled_orders'),
+        'completedOrders' => Yii::t('app', 'dashboard.series.completed_orders'),
         'customers' => Yii::t('app', 'dashboard.customers.title'),
         'executors' => Yii::t('app', 'dashboard.executors.title'),
         'bids' => Yii::t('app', 'dashboard.bids.title'),
@@ -168,6 +169,8 @@ $payload = [
     ],
     'charts' => $charts,
 ];
+
+$periodLabel = $searchModel->periodLabel();
 
 ?>
 <div class="page dashboard">
@@ -200,6 +203,22 @@ $payload = [
             <?= Html::submitButton(Yii::t('app', 'dashboard.filter.apply'), ['class' => 'btn btn--primary btn--sm']) ?>
         </div>
     </form>
+    <div class="dashboard-top">
+        <div class="chart-card">
+            <div class="chart-card__head">
+                <div class="chart-card__title"><?= Html::encode(Yii::t('app', 'dashboard.chart.registrations')) ?></div>
+                <div class="chart-card__subtitle"><?= Html::encode($periodLabel) ?></div>
+            </div>
+            <div class="chart-card__body" id="dashboard-registrations-by-day"></div>
+        </div>
+        <div class="chart-card">
+            <div class="chart-card__head">
+                <div class="chart-card__title"><?= Html::encode(Yii::t('app', 'dashboard.chart.orders')) ?></div>
+                <div class="chart-card__subtitle"><?= Html::encode($periodLabel) ?></div>
+            </div>
+            <div class="chart-card__body" id="dashboard-orders-by-day"></div>
+        </div>
+    </div>
     <?php foreach ($kpiGroups as $group) : ?>
         <div class="dashboard-section">
             <div class="dashboard-section__title"><?= Html::encode($group['title']) ?></div>
@@ -219,14 +238,6 @@ $payload = [
         </div>
     <?php endforeach; ?>
     <div class="dashboard-charts">
-        <div class="chart-card chart-card--wide">
-            <div class="chart-card__title"><?= Html::encode(Yii::t('app', 'dashboard.chart.orders_by_day')) ?></div>
-            <div class="chart-card__body" id="dashboard-orders-by-day"></div>
-        </div>
-        <div class="chart-card">
-            <div class="chart-card__title"><?= Html::encode(Yii::t('app', 'dashboard.chart.registrations_by_day')) ?></div>
-            <div class="chart-card__body" id="dashboard-registrations-by-day"></div>
-        </div>
         <div class="chart-card">
             <div class="chart-card__title"><?= Html::encode(Yii::t('app', 'dashboard.chart.bids_by_day')) ?></div>
             <div class="chart-card__body" id="dashboard-bids-by-day"></div>

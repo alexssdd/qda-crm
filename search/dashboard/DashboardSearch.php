@@ -24,6 +24,7 @@ class DashboardSearch extends Model
 {
     const MAX_RANGE_DAYS = 366;
     const TOP_LOCATIONS_LIMIT = 10;
+    const WEEKDAY_LABEL_MAX_DAYS = 7;
 
     public $date_from;
     public $date_to;
@@ -261,12 +262,28 @@ class DashboardSearch extends Model
      */
     private function ordersByDay(): array
     {
-        $created = $this->countByDay($this->orderQuery(), 'o.created_at');
-        $completed = $this->countByDay($this->completedOrderQuery(), 'o.completed_at');
+        $rows = $this->orderQuery()
+            ->select([
+                'd' => "FLOOR((o.created_at + {$this->tzOffset}) / 86400)",
+                'total' => 'COUNT(*)',
+                'cancelled' => 'SUM(o.status = :st_cancelled)',
+            ])
+            ->addParams([':st_cancelled' => OrderStatus::CANCELLED->value])
+            ->groupBy('d')
+            ->all();
+
+        $created = [];
+        $cancelled = [];
+
+        foreach ($rows as $row) {
+            $created[(int) $row['d']] = (int) $row['total'];
+            $cancelled[(int) $row['d']] = (int) $row['cancelled'];
+        }
 
         return $this->fillDays([
             'created' => $created,
-            'completed' => $completed,
+            'cancelled' => $cancelled,
+            'completed' => $this->countByDay($this->completedOrderQuery(), 'o.completed_at'),
         ]);
     }
 
@@ -523,8 +540,12 @@ class DashboardSearch extends Model
             $result[$name] = [];
         }
 
+        $useWeekdays = $lastDay - $firstDay < self::WEEKDAY_LABEL_MAX_DAYS;
+
         for ($day = $firstDay; $day <= $lastDay; $day++) {
-            $result['categories'][] = gmdate('d.m', $day * 86400);
+            $result['categories'][] = $useWeekdays
+                ? mb_convert_case(Yii::$app->formatter->asDate($day * 86400 - $this->tzOffset, 'EE'), MB_CASE_TITLE)
+                : gmdate('d.m', $day * 86400);
 
             foreach ($series as $name => $counts) {
                 $result[$name][] = $counts[$day] ?? 0;
@@ -532,5 +553,25 @@ class DashboardSearch extends Model
         }
 
         return $result;
+    }
+
+    /**
+     * @return string Human-readable period, e.g. "23–29 июля" or "30 июня — 29 июля".
+     */
+    public function periodLabel(): string
+    {
+        $formatter = Yii::$app->formatter;
+        $from = new DateTimeImmutable($this->date_from, new DateTimeZone(Yii::$app->timeZone));
+        $to = new DateTimeImmutable($this->date_to, new DateTimeZone(Yii::$app->timeZone));
+
+        if ($this->date_from === $this->date_to) {
+            return $formatter->asDate($to->getTimestamp(), 'd MMMM');
+        }
+
+        if ($from->format('Y-m') === $to->format('Y-m')) {
+            return $from->format('j') . '–' . $formatter->asDate($to->getTimestamp(), 'd MMMM');
+        }
+
+        return $formatter->asDate($from->getTimestamp(), 'd MMMM') . ' — ' . $formatter->asDate($to->getTimestamp(), 'd MMMM');
     }
 }

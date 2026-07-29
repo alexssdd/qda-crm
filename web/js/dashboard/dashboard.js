@@ -8,11 +8,13 @@ let Dashboard = {
     palettes: {
         light: {
             series: ['#2a78d6', '#eb6834'],
+            orders: ['#2a78d6', '#e34948', '#1baf7a'],
             bar: '#2a78d6',
             funnel: ['#86b6ef', '#5598e7', '#2a78d6', '#1c5cab']
         },
         dark: {
             series: ['#3987e5', '#d95926'],
+            orders: ['#3987e5', '#e66767', '#199e70'],
             bar: '#3987e5',
             funnel: ['#9ec5f4', '#6da7ec', '#3987e5', '#256abf']
         }
@@ -30,15 +32,16 @@ let Dashboard = {
         let charts = this.payload.charts;
         let labels = this.payload.labels;
 
-        this.line('dashboard-orders-by-day', charts.ordersByDay.categories, [
-            {name: labels.created, data: charts.ordersByDay.created},
-            {name: labels.completed, data: charts.ordersByDay.completed}
-        ], palette.series, 300);
-
         this.line('dashboard-registrations-by-day', charts.registrationsByDay.categories, [
             {name: labels.customers, data: charts.registrationsByDay.customers},
             {name: labels.executors, data: charts.registrationsByDay.executors}
-        ], palette.series, 280);
+        ], palette.series, 300, 'top');
+
+        this.line('dashboard-orders-by-day', charts.ordersByDay.categories, [
+            {name: labels.allOrders, data: charts.ordersByDay.created},
+            {name: labels.cancelledOrders, data: charts.ordersByDay.cancelled},
+            {name: labels.completedOrders, data: charts.ordersByDay.completed}
+        ], palette.orders, 300, 'top');
 
         this.column('dashboard-bids-by-day', charts.bidsByDay.categories, {
             name: labels.bids,
@@ -66,7 +69,7 @@ let Dashboard = {
         }, [palette.bar], false, 320);
     },
 
-    line: function (id, categories, series, colors, height) {
+    line: function (id, categories, series, colors, height, legendPosition) {
         this.make(id, Object.assign(this.common(height), {
             chart: this.chartBase('line', height),
             series: series,
@@ -76,7 +79,11 @@ let Dashboard = {
             markers: {size: 0, hover: {size: 4}},
             xaxis: this.timeAxis(categories),
             yaxis: {labels: {formatter: this.integer}},
-            legend: {show: true, position: 'bottom'}
+            legend: {
+                show: true,
+                position: legendPosition || 'bottom',
+                horizontalAlign: legendPosition === 'top' ? 'right' : 'center'
+            }
         }));
     },
 
