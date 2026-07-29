@@ -36,7 +36,7 @@ class SiteController extends BaseController
         $form = new LoginForm();
 
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect(['/order/index']);
         }
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
@@ -89,7 +89,7 @@ class SiteController extends BaseController
 
             return $this->asJson([
                 'success' => true,
-                'redirect' => Url::to(['site/index'])
+                'redirect' => Url::to(['/order/index'])
             ]);
         } catch (DomainException $e) {
             return $this->asJson([
@@ -123,7 +123,7 @@ class SiteController extends BaseController
 
             return $this->asJson([
                 'success' => true,
-                'redirect' => Url::to(['site/index'])
+                'redirect' => Url::to(['/order/index'])
             ]);
         } catch (DomainException $e) {
             return $this->asJson([
