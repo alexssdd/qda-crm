@@ -8,6 +8,7 @@ use app\widgets\GridView;
 use app\assets\ExecutorAsset;
 use yii\data\ActiveDataProvider;
 use app\search\ExecutorSearch;
+use app\modules\location\helpers\LocationHelper;
 use app\modules\order\models\Executor;
 use app\modules\order\helpers\ExecutorHelper;
 
@@ -85,8 +86,20 @@ ExecutorAsset::register($this);
                 'label' => Yii::t('app', 'Location'),
                 'options' => ['width' => 180],
                 'value' => static function (Executor $model): string {
-                    return $model->location?->name ?? '—';
+                    if ($model->location === null) {
+                        return '—';
+                    }
+
+                    return LocationHelper::getName(
+                        $model->location->extra_fields,
+                        (string) $model->location->name
+                    );
                 },
+                'filterInputOptions' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Поиск',
+                    'autocomplete' => 'off',
+                ],
             ],
             [
                 'attribute' => 'service_type',

@@ -7,6 +7,7 @@ use yii\base\Model;
 use app\modules\location\models\Country;
 use app\modules\location\models\Location;
 use app\modules\location\helpers\RegionHelper;
+use app\modules\location\helpers\LocationHelper;
 use app\modules\order\helpers\ExecutorHelper;
 use app\modules\order\models\Executor;
 
@@ -151,7 +152,10 @@ class ExecutorUpdateForm extends Model
                 unset($children[$id]);
             }
 
-            $options[$this->getLocationDisplayName($region)] = $items;
+            $options[LocationHelper::getName(
+                $region['extra_fields'] ?? null,
+                (string) $region['name']
+            )] = $items;
         }
 
         foreach ($children as $items) {
@@ -179,20 +183,10 @@ class ExecutorUpdateForm extends Model
             default => null,
         };
 
-        return $this->getLocationDisplayName($location)
+        return LocationHelper::getName(
+            $location['extra_fields'] ?? null,
+            (string) $location['name']
+        )
             . ($type === null ? '' : ' · ' . $type);
-    }
-
-    private function getLocationDisplayName(array $location): string
-    {
-        $extraFields = $location['extra_fields'] ?? [];
-
-        if (is_string($extraFields)) {
-            $extraFields = json_decode($extraFields, true) ?: [];
-        }
-
-        $name = trim((string) ($extraFields['names']['ru'] ?? ''));
-
-        return $name !== '' ? $name : (string) $location['name'];
     }
 }

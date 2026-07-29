@@ -3,6 +3,7 @@
 namespace app\search;
 
 use yii\base\Model;
+use yii\db\Expression;
 use yii\data\ActiveDataProvider;
 use app\core\helpers\PhoneHelper;
 use app\modules\order\models\Executor;
@@ -58,7 +59,7 @@ class ExecutorSearch extends Model
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-                'defaultOrder' => ['updated_at' => SORT_DESC],
+                'defaultOrder' => ['registered_at' => SORT_DESC],
                 'attributes' => [
                     'name' => [
                         'asc' => ['executor.name' => SORT_ASC],
@@ -93,8 +94,14 @@ class ExecutorSearch extends Model
                         'desc' => ['executor.status' => SORT_DESC],
                     ],
                     'registered_at' => [
-                        'asc' => ['executor.registered_at' => SORT_ASC],
-                        'desc' => ['executor.registered_at' => SORT_DESC],
+                        'asc' => [
+                            'executor.registered_at' => SORT_ASC,
+                            'executor.id' => SORT_ASC,
+                        ],
+                        'desc' => [
+                            'executor.registered_at' => SORT_DESC,
+                            'executor.id' => SORT_DESC,
+                        ],
                     ],
                     'updated_at' => [
                         'asc' => ['executor.updated_at' => SORT_ASC],
@@ -129,8 +136,17 @@ class ExecutorSearch extends Model
             ->andFilterWhere(['like', 'executor.phone', PhoneHelper::getCleanNumber($this->phone)]);
 
         if ($this->location_name !== null && $this->location_name !== '') {
+            $localizedName = new Expression(
+                "JSON_UNQUOTE(JSON_EXTRACT([[location.extra_fields]], '$.names.ru'))"
+            );
+
             $query->joinWith('location location')
-                ->andWhere(['like', 'location.name', $this->location_name]);
+                ->andWhere([
+                    'or',
+                    ['like', $localizedName, $this->location_name],
+                    ['like', 'location.name', $this->location_name],
+                    ['like', 'location.search_keywords', $this->location_name],
+                ]);
         }
 
         if ($this->service_type !== null && $this->service_type !== '') {
