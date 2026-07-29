@@ -30,6 +30,7 @@ return [
         'telegram' => ['class' => \app\modules\telegram\Module::class],
         'mail' => ['class' => \app\modules\mail\Module::class],
         'location' => ['class' => \app\modules\location\Module::class],
+        'moderation' => ['class' => \app\modules\moderation\Module::class],
     ],
     'components' => [
         'authManager' => [
