@@ -91,9 +91,40 @@ ExecutorAsset::register($this);
             [
                 'attribute' => 'service_type',
                 'label' => Yii::t('app', 'Services'),
+                'format' => 'raw',
                 'options' => ['width' => 210],
                 'value' => static function (Executor $model): string {
-                    return ExecutorHelper::getServiceNames($model) ?: '—';
+                    $services = ExecutorHelper::getServiceNameList($model);
+                    if ($services === []) {
+                        return '—';
+                    }
+
+                    $fullLabel = implode(', ', $services);
+                    $primary = Html::tag(
+                        'span',
+                        Html::encode($services[0]),
+                        ['class' => 'executor-service-summary__primary']
+                    );
+                    $remaining = count($services) - 1;
+                    $more = $remaining > 0
+                        ? Html::tag(
+                            'span',
+                            '+' . $remaining,
+                            ['class' => 'executor-service-summary__more', 'aria-hidden' => 'true']
+                        )
+                        : '';
+                    $moreDetails = $remaining > 0
+                        ? Html::tag(
+                            'span',
+                            ', ' . Html::encode(implode(', ', array_slice($services, 1))),
+                            ['class' => 'executor-service-summary__details']
+                        )
+                        : '';
+
+                    return Html::tag('span', $primary . $more . $moreDetails, [
+                        'class' => 'executor-service-summary',
+                        'title' => $fullLabel,
+                    ]);
                 },
                 'filter' => ExecutorHelper::getServiceTypes(),
             ],

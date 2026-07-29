@@ -67,6 +67,11 @@ class ExecutorHelper
 
     public static function getServiceNames(Executor $executor): string
     {
+        return implode(', ', self::getServiceNameList($executor));
+    }
+
+    public static function getServiceNameList(Executor $executor): array
+    {
         $types = self::getServiceTypes();
         $result = [];
 
@@ -74,6 +79,6 @@ class ExecutorHelper
             $result[] = $types[(int) $service->type] ?? (string) $service->type;
         }
 
-        return implode(', ', array_unique($result));
+        return array_values(array_unique($result));
     }
 }
