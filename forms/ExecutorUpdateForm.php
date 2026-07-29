@@ -111,6 +111,7 @@ class ExecutorUpdateForm extends Model
                 'location.parent_id',
                 'location.type',
                 'location.name',
+                'location.extra_fields',
             ])
             ->innerJoin(
                 ['country' => Country::tableName()],
@@ -150,7 +151,7 @@ class ExecutorUpdateForm extends Model
                 unset($children[$id]);
             }
 
-            $options[(string) $region['name']] = $items;
+            $options[$this->getLocationDisplayName($region)] = $items;
         }
 
         foreach ($children as $items) {
@@ -178,6 +179,20 @@ class ExecutorUpdateForm extends Model
             default => null,
         };
 
-        return (string) $location['name'] . ($type === null ? '' : ' · ' . $type);
+        return $this->getLocationDisplayName($location)
+            . ($type === null ? '' : ' · ' . $type);
+    }
+
+    private function getLocationDisplayName(array $location): string
+    {
+        $extraFields = $location['extra_fields'] ?? [];
+
+        if (is_string($extraFields)) {
+            $extraFields = json_decode($extraFields, true) ?: [];
+        }
+
+        $name = trim((string) ($extraFields['names']['ru'] ?? ''));
+
+        return $name !== '' ? $name : (string) $location['name'];
     }
 }
