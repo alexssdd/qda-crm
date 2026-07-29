@@ -72,17 +72,6 @@ CustomerAsset::register($this);
                 'filter' => CustomerHelper::getCountries(),
             ],
             [
-                'attribute' => 'registered_at',
-                'label' => Yii::t('app', 'Registered At'),
-                'format' => 'datetime',
-                'options' => ['width' => 170],
-                'filterInputOptions' => [
-                    'class' => 'form-control customer-register-date',
-                    'placeholder' => Yii::t('app', 'Period'),
-                    'autocomplete' => 'off',
-                ],
-            ],
-            [
                 'attribute' => 'orders_created',
                 'label' => Yii::t('app', 'Orders Created'),
                 'options' => ['width' => 100],
@@ -106,6 +95,17 @@ CustomerAsset::register($this);
                 'format' => 'datetime',
                 'options' => ['width' => 160],
                 'filter' => false,
+            ],
+            [
+                'attribute' => 'registered_at',
+                'label' => Yii::t('app', 'Registered At'),
+                'format' => 'datetime',
+                'options' => ['width' => 170],
+                'filterInputOptions' => [
+                    'class' => 'form-control customer-register-date',
+                    'placeholder' => Yii::t('app', 'Period'),
+                    'autocomplete' => 'off',
+                ],
             ],
             [
                 'attribute' => 'status',

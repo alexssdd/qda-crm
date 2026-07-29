@@ -118,16 +118,6 @@ ExecutorAsset::register($this);
                 'options' => ['width' => 130],
             ],
             [
-                'attribute' => 'status',
-                'label' => Yii::t('app', 'Status'),
-                'format' => 'raw',
-                'options' => ['width' => 140],
-                'value' => static function (Executor $model): string {
-                    return ExecutorHelper::getStatusLabel((int) $model->status);
-                },
-                'filter' => ExecutorHelper::getStatuses(),
-            ],
-            [
                 'attribute' => 'registered_at',
                 'label' => Yii::t('app', 'Registered At'),
                 'format' => 'datetime',
@@ -137,6 +127,16 @@ ExecutorAsset::register($this);
                     'placeholder' => Yii::t('app', 'Period'),
                     'autocomplete' => 'off',
                 ],
+            ],
+            [
+                'attribute' => 'status',
+                'label' => Yii::t('app', 'Status'),
+                'format' => 'raw',
+                'options' => ['width' => 140],
+                'value' => static function (Executor $model): string {
+                    return ExecutorHelper::getStatusLabel((int) $model->status);
+                },
+                'filter' => ExecutorHelper::getStatuses(),
             ],
         ],
     ]); ?>
