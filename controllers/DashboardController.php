@@ -43,6 +43,7 @@ class DashboardController extends Controller
             'searchModel' => $searchModel,
             'stats' => $searchModel->stats(),
             'charts' => $searchModel->charts(),
+            'coverage' => $searchModel->coverage(),
         ]);
     }
 }

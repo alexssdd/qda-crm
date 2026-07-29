@@ -8,10 +8,12 @@ use DateTimeImmutable;
 use yii\base\Model;
 use yii\db\Query;
 use app\entities\Customer;
+use app\modules\location\models\Country;
 use app\modules\location\models\Location;
 use app\modules\order\models\Order;
 use app\modules\order\models\OrderBid;
 use app\modules\order\models\Executor;
+use app\modules\order\models\ExecutorService;
 use app\modules\order\enums\OrderStatus;
 use app\modules\order\enums\PriceType;
 use app\modules\order\enums\ExecutorStatus;
@@ -25,6 +27,9 @@ class DashboardSearch extends Model
     const MAX_RANGE_DAYS = 366;
     const TOP_LOCATIONS_LIMIT = 10;
     const WEEKDAY_LABEL_MAX_DAYS = 7;
+    const COVERAGE_MIN_EXECUTORS = 3;
+    const COVERAGE_NO_LOCATION_KEY = 0;
+    const DEFAULT_COUNTRY = 'kz';
 
     public $date_from;
     public $date_to;
@@ -64,6 +69,14 @@ class DashboardSearch extends Model
             foreach (array_keys($this->getErrors()) as $attribute) {
                 $this->$attribute = null;
             }
+        }
+
+        // Regions are country-scoped, so the dashboard is always filtered by one country.
+        if (!$this->country_code) {
+            $countries = OrderHelper::getCountries();
+            $this->country_code = isset($countries[self::DEFAULT_COUNTRY])
+                ? self::DEFAULT_COUNTRY
+                : array_key_first($countries);
         }
 
         $timeZone = new DateTimeZone(Yii::$app->timeZone);
@@ -415,6 +428,141 @@ class DashboardSearch extends Model
                 (int) $this->orderQuery()->andWhere(['o.status' => OrderStatus::COMPLETED->value])->count(),
             ],
         ];
+    }
+
+    /**
+     * Supply vs demand matrix: active executors and period orders per region and service type.
+     *
+     * @return array{types: array<int, string>, rows: array}
+     */
+    public function coverage(): array
+    {
+        $locations = (new Query())
+            ->select(['l.id', 'l.parent_id', 'l.name', 'code' => 'c.code'])
+            ->from(Location::tableName() . ' l')
+            ->leftJoin(Country::tableName() . ' c', 'c.id = l.country_id')
+            ->indexBy('id')
+            ->all();
+
+        $types = OrderHelper::getTypes();
+        $regions = [];
+
+        foreach ($locations as $id => $location) {
+            if ($location['parent_id'] !== null) {
+                continue;
+            }
+
+            if ($this->country_code && $location['code'] !== $this->country_code) {
+                continue;
+            }
+
+            $regions[$id] = $location['name'];
+        }
+
+        // Anything that does not resolve to a listed region (missing location, parent cycle,
+        // country mismatch) falls into the "no location" bucket instead of silently vanishing.
+        $regionOf = static function (?int $id) use ($locations, $regions): int {
+            if ($id === null) {
+                return self::COVERAGE_NO_LOCATION_KEY;
+            }
+
+            $visited = [];
+
+            while (isset($locations[$id]) && !isset($visited[$id])) {
+                $visited[$id] = true;
+                $parentId = $locations[$id]['parent_id'];
+
+                if ($parentId === null) {
+                    break;
+                }
+
+                $id = (int) $parentId;
+            }
+
+            return isset($regions[$id]) ? $id : self::COVERAGE_NO_LOCATION_KEY;
+        };
+
+        $supplyQuery = (new Query())
+            ->select(['location_id' => 'e.location_id', 'type' => 's.type', 'total' => 'COUNT(DISTINCT e.id)'])
+            ->from(Executor::tableName() . ' e')
+            ->innerJoin(ExecutorService::tableName() . ' s', 's.executor_id = e.id')
+            ->where(['e.status' => ExecutorStatus::ACTIVE->value])
+            ->groupBy(['e.location_id', 's.type']);
+
+        if ($this->country_code) {
+            $supplyQuery->andWhere(['e.country_code' => $this->country_code]);
+        }
+
+        $supply = [];
+
+        foreach ($supplyQuery->all() as $row) {
+            $region = $regionOf($row['location_id'] !== null ? (int) $row['location_id'] : null);
+            $supply[$region][(int) $row['type']] = ($supply[$region][(int) $row['type']] ?? 0) + (int) $row['total'];
+        }
+
+        $demand = [];
+
+        $demandRows = $this->publishedOrderQuery()
+            ->select(['location_id' => 'o.from_location_id', 'type' => 'o.type', 'total' => 'COUNT(*)'])
+            ->groupBy(['o.from_location_id', 'o.type'])
+            ->all();
+
+        foreach ($demandRows as $row) {
+            $region = $regionOf($row['location_id'] !== null ? (int) $row['location_id'] : null);
+            $demand[$region][(int) $row['type']] = ($demand[$region][(int) $row['type']] ?? 0) + (int) $row['total'];
+        }
+
+        uksort($regions, static function ($a, $b) use ($demand, $regions) {
+            $demandA = array_sum($demand[$a] ?? []);
+            $demandB = array_sum($demand[$b] ?? []);
+
+            return $demandB <=> $demandA ?: strcmp($regions[$a], $regions[$b]);
+        });
+
+        if (isset($supply[self::COVERAGE_NO_LOCATION_KEY]) || isset($demand[self::COVERAGE_NO_LOCATION_KEY])) {
+            $regions[self::COVERAGE_NO_LOCATION_KEY] = Yii::t('app', 'dashboard.coverage.no_location');
+        }
+
+        $rows = [];
+
+        foreach ($regions as $regionId => $name) {
+            $cells = [];
+
+            foreach (array_keys($types) as $type) {
+                $executors = $supply[$regionId][$type] ?? 0;
+                $orders = $demand[$regionId][$type] ?? 0;
+
+                $cells[$type] = [
+                    'executors' => $executors,
+                    'orders' => $orders,
+                    'status' => $this->coverageStatus($executors, $orders)?->value,
+                ];
+            }
+
+            $rows[] = ['name' => $name, 'cells' => $cells];
+        }
+
+        return ['types' => $types, 'rows' => $rows];
+    }
+
+    /**
+     * @return CoverageStatus|null Null when there is neither demand nor supply.
+     */
+    private function coverageStatus(int $executors, int $orders): ?CoverageStatus
+    {
+        if ($orders === 0) {
+            return $executors >= self::COVERAGE_MIN_EXECUTORS ? CoverageStatus::READY : null;
+        }
+
+        if ($executors === 0) {
+            return CoverageStatus::CRITICAL;
+        }
+
+        if ($executors < self::COVERAGE_MIN_EXECUTORS) {
+            return CoverageStatus::LOW;
+        }
+
+        return CoverageStatus::OK;
     }
 
     /**

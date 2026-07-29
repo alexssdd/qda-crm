@@ -13,6 +13,7 @@ use app\modules\order\helpers\OrderHelper;
 /* @var $searchModel DashboardSearch */
 /* @var $stats array */
 /* @var $charts array */
+/* @var $coverage array */
 
 $this->title = Yii::t('app', 'dashboard.title');
 $this->params['breadcrumbs'][] = $this->title;
@@ -198,7 +199,6 @@ $periodLabel = $searchModel->periodLabel();
             <?= Html::input('date', 'date_to', $searchModel->date_to, ['class' => 'form-control dashboard-filter__input']) ?>
             <?= Html::dropDownList('country_code', $searchModel->country_code, OrderHelper::getCountries(), [
                 'class' => 'form-control dashboard-filter__input',
-                'prompt' => Yii::t('app', 'dashboard.filter.country_all'),
             ]) ?>
             <?= Html::submitButton(Yii::t('app', 'dashboard.filter.apply'), ['class' => 'btn btn--primary btn--sm']) ?>
         </div>
@@ -217,6 +217,58 @@ $periodLabel = $searchModel->periodLabel();
                 <div class="chart-card__subtitle"><?= Html::encode($periodLabel) ?></div>
             </div>
             <div class="chart-card__body" id="dashboard-orders-by-day"></div>
+        </div>
+    </div>
+    <div class="chart-card dashboard-coverage">
+        <div class="chart-card__head">
+            <div class="chart-card__title"><?= Html::encode(Yii::t('app', 'dashboard.coverage.title')) ?></div>
+            <div class="chart-card__subtitle"><?= Html::encode(Yii::t('app', 'dashboard.coverage.subtitle') . ' · ' . $periodLabel) ?></div>
+        </div>
+        <div class="coverage-legend">
+            <span class="coverage-legend__item">
+                <span class="coverage-legend__mark coverage-legend__mark--critical"></span>
+                <?= Html::encode(Yii::t('app', 'dashboard.coverage.legend.critical')) ?>
+            </span>
+            <span class="coverage-legend__item">
+                <span class="coverage-legend__mark coverage-legend__mark--low"></span>
+                <?= Html::encode(Yii::t('app', 'dashboard.coverage.legend.low', ['min' => DashboardSearch::COVERAGE_MIN_EXECUTORS])) ?>
+            </span>
+            <span class="coverage-legend__item">
+                <span class="coverage-legend__mark coverage-legend__mark--ok"></span>
+                <?= Html::encode(Yii::t('app', 'dashboard.coverage.legend.ok')) ?>
+            </span>
+            <span class="coverage-legend__item">
+                <span class="coverage-legend__mark coverage-legend__mark--ready"></span>
+                <?= Html::encode(Yii::t('app', 'dashboard.coverage.legend.ready', ['min' => DashboardSearch::COVERAGE_MIN_EXECUTORS])) ?>
+            </span>
+        </div>
+        <div class="coverage-scroll">
+            <table class="coverage-table">
+                <thead>
+                    <tr>
+                        <th class="coverage-table__region"><?= Html::encode(Yii::t('app', 'dashboard.coverage.region')) ?></th>
+                        <?php foreach ($coverage['types'] as $typeName) : ?>
+                            <th><?= Html::encode($typeName) ?></th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($coverage['rows'] as $row) : ?>
+                        <tr>
+                            <td class="coverage-table__region"><?= Html::encode($row['name']) ?></td>
+                            <?php foreach ($row['cells'] as $cell) : ?>
+                                <td class="coverage-table__cell<?= $cell['status'] ? ' coverage-table__cell--' . $cell['status'] : '' ?>">
+                                    <?php if ($cell['executors'] === 0 && $cell['orders'] === 0) : ?>
+                                        <span class="coverage-table__empty">—</span>
+                                    <?php else : ?>
+                                        <?= (int) $cell['executors'] ?> <span class="coverage-table__sep">/</span> <?= (int) $cell['orders'] ?>
+                                    <?php endif; ?>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
     <?php foreach ($kpiGroups as $group) : ?>

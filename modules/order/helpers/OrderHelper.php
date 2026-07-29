@@ -33,6 +33,7 @@ class OrderHelper
     public static function getCountries(): array
     {
         $countries = Country::find()
+            ->orderBy(['sort' => SORT_ASC, 'name' => SORT_ASC])
             ->all();
 
         $result = [];
