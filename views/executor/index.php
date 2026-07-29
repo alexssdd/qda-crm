@@ -37,7 +37,15 @@ ExecutorAsset::register($this);
             [
                 'attribute' => 'name',
                 'label' => Yii::t('app', 'Executor Name'),
+                'format' => 'raw',
                 'options' => ['width' => 220],
+                'value' => static function (Executor $model): string {
+                    return Html::a(
+                        Html::encode($model->name),
+                        ['update', 'id' => $model->id],
+                        ['class' => 'js-view-modal', 'data-pjax' => 0]
+                    );
+                },
             ],
             [
                 'attribute' => 'phone',

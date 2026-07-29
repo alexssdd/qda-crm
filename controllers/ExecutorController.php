@@ -3,11 +3,15 @@
 namespace app\controllers;
 
 use Yii;
+use Throwable;
+use DomainException;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use app\forms\ExecutorUpdateForm;
 use app\search\ExecutorSearch;
+use app\services\ExecutorProfileService;
 use app\core\helpers\UserHelper;
 use app\core\helpers\PhoneHelper;
 use yii\web\NotFoundHttpException;
@@ -44,6 +48,34 @@ class ExecutorController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * @throws NotFoundHttpException
+     */
+    public function actionUpdate(int $id): Response|string
+    {
+        $executor = $this->getExecutor($id);
+        $form = new ExecutorUpdateForm($executor);
+
+        if ($form->load(Yii::$app->request->post())) {
+            try {
+                if (!$form->validate()) {
+                    throw new DomainException($form->getErrorSummary(true)[0]);
+                }
+
+                (new ExecutorProfileService())->update($executor, $form);
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Changes successfully saved'));
+            } catch (Throwable $e) {
+                Yii::$app->session->setFlash('error', $e->getMessage());
+            }
+
+            return $this->redirect(Yii::$app->request->referrer ?: ['index']);
+        }
+
+        return $this->renderAjax('_update', [
+            'model' => $form,
         ]);
     }
 
