@@ -4,6 +4,7 @@ use yii\web\View;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\forms\ExecutorUpdateForm;
+use conquer\select2\Select2Widget;
 
 /* @var $this View */
 /* @var $model ExecutorUpdateForm */
@@ -22,10 +23,18 @@ use app\forms\ExecutorUpdateForm;
     <div class="modal__body">
         <div class="modal-form">
             <div class="modal-form__row">
-                <?= $form->field($model, 'location_id')->dropDownList(
-                    $model->getLocationOptions(),
-                    ['prompt' => 'Не указана']
-                ) ?>
+                <?= $form->field($model, 'location_id')->widget(Select2Widget::class, [
+                    'items' => ['' => ''] + $model->getLocationOptions(),
+                    'placeholder' => 'Не указана',
+                    'bootstrap' => false,
+                    'settings' => [
+                        'allowClear' => true,
+                        'width' => '100%',
+                    ],
+                    'options' => [
+                        'class' => 'form-control executor-location-select',
+                    ],
+                ]) ?>
             </div>
             <div class="modal-form__row">
                 <?= $form->field($model, 'service_types')->checkboxList(
