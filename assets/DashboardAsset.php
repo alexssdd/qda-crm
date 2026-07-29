@@ -15,7 +15,6 @@ class DashboardAsset extends AssetBundle
 
     /** @var string[] */
     public $css = [
-        'css/animate.css',
         'css/dashboard/dashboard.css',
     ];
 
@@ -27,7 +26,7 @@ class DashboardAsset extends AssetBundle
     /** @var string[] */
     public $depends = [
         'app\assets\AppAsset',
-        'app\assets\DateRangePickerAsset',
+        'app\assets\ApexChartsAsset',
         'yii\web\YiiAsset',
     ];
 }

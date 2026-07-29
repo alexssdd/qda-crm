@@ -12,6 +12,7 @@ use app\core\helpers\UserHelper;
 $user = UserHelper::getIdentity();
 $isAdmin = UserHelper::isAdmin();
 $canManageEmployees = $isAdmin || UserHelper::isAdministrator();
+$canViewDashboard = $isAdmin || UserHelper::isAdministrator();
 $canViewExecutors = $canManageEmployees || UserHelper::isOperator();
 $isOperator = false;
 $isOnline = false
@@ -34,6 +35,12 @@ $isOnline = false
                     'label' => '<i class="header-menu__icon icon-local_grocery_store" aria-hidden="true"></i>',
                     'url' => ['/order/index'],
                     'template' => '<a class="header-menu__link" href="{url}" title="Заказы" aria-label="Заказы">{label}</a>',
+                ],
+                [
+                    'label' => '<i class="header-menu__icon icon-analytics" aria-hidden="true"></i>',
+                    'url' => ['/dashboard/index'],
+                    'visible' => $canViewDashboard,
+                    'template' => '<a class="header-menu__link" href="{url}" title="Дашборды" aria-label="Дашборды">{label}</a>',
                 ],
                 [
                     'label' => '<i class="header-menu__icon icon-storage" aria-hidden="true"></i>',

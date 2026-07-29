@@ -1,120 +1,204 @@
-/* Document ready
+/* Dashboard
 ----------------------------------------*/
-$(function () {
-    ChannelExport.init();
+let Dashboard = {
 
-    // Submit form
-    let submitForms = [
-        'form.page-filter'
-    ];
+    payload: null,
+    charts: [],
 
-    // Sale
-    $('body').on('change', submitForms.join(', '), function (e) {
-        $(this).submit();
-    });
-
-    // Date range
-    let dateRangeInputs = [
-        '#date_range',
-    ];
-    $(dateRangeInputs.join(', ')).daterangepicker({
-        autoUpdateInput: false,
-        ranges: {
-            'Сегодня': [moment(), moment()],
-            'Вчера': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'За 7 Дней': [moment().subtract(6, 'days'), moment()],
-            'За 30 Дней': [moment().subtract(29, 'days'), moment()],
-            'Этот Месяц': [moment().startOf('month'), moment().endOf('month')],
-            'Посл Месяц': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+    palettes: {
+        light: {
+            series: ['#2a78d6', '#eb6834'],
+            bar: '#2a78d6',
+            funnel: ['#86b6ef', '#5598e7', '#2a78d6', '#1c5cab']
         },
-        "locale": {
-            "format": "DD.MM.YYYY HH:mm",
-            "applyLabel": "Применить",
-            "cancelLabel": "Очистить",
-            "firstDay": 1,
-            "monthNames": [
-                "Январь",
-                "Февраль",
-                "Март",
-                "Апрель",
-                "Май",
-                "Июнь",
-                "Июль",
-                "Август",
-                "Сентябрь",
-                "Октябрь",
-                "Ноябрь",
-                "Декабрь"
-            ],
-        },
-        "alwaysShowCalendars": true,
-        "opens": "left"
-    });
-    // Filter date range apply
-    $(dateRangeInputs.join(', ')).on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('DD.MM.YYYY HH:mm') + ' - ' + picker.endDate.format('DD.MM.YYYY HH:mm'));
-        $(this).change();
-    });
-
-    // Filter date range clear
-    $(dateRangeInputs.join(', ')).on('cancel.daterangepicker', function (ev, picker) {
-        $(this).val('');
-        $(this).change();
-    });
-});
-
-// Channel export
-window.ChannelExport = {
-    data: {},
-
-    // Methods
-    init: function (){
-        let body = $('body');
-
-        body.off('click.channelExportCity', '.js-channel-export-city');
-        body.on('click.channelExportCity', '.js-channel-export-city', function (){
-            ChannelExport.detailCity($(this).attr('data-city-id'));
-        });
-
-        body.off('click.channelExportStore', '.js-channel-export-store');
-        body.on('click.channelExportStore', '.js-channel-export-store', function (){
-            ChannelExport.detailStore(
-                $(this).attr('data-city-id'),
-                $(this).attr('data-store-id')
-            );
-        });
+        dark: {
+            series: ['#3987e5', '#d95926'],
+            bar: '#3987e5',
+            funnel: ['#9ec5f4', '#6da7ec', '#3987e5', '#256abf']
+        }
     },
-    detailCity: function (id){
-        let data = ChannelExport.data[id];
-        
-        // Detail open
-        ChannelExport.detailOpen(data);
-    },
-    detailStore: function (cityId, id){
-        let data = ChannelExport.data[cityId]['stores'][id];
-        
-        // Detail open
-        ChannelExport.detailOpen(data);
-    },
-    detailOpen: function (data){
-        let modal = $('.modal-main');
 
-        // Prepare modal
-        let template = $($('#templateDetail').html());
-        template.find('.js-channel-export-name').text(data['name'] || '');
-        modal.empty().append(template);
+    init: function (payload) {
+        this.payload = payload;
+        this.render();
+        this.observeTheme();
+    },
 
-        // Prepare rows
-        window.dias = data['all'];
-        for (const [key, channel] of Object.entries(data['all'])){
-            let templateRow = $($('#templateDetailRow').html());
-            templateRow.find('.js-channel-export-name').text(channel['name'] || '');
-            templateRow.find('.js-channel-export-value').text(channel['export_label'] || '');
-            templateRow.find('.js-channel-stock-value').text(channel['stock_label'] || '');
-            modal.find('tbody').append(templateRow);
+    render: function () {
+        let theme = this.theme();
+        let palette = this.palettes[theme];
+        let charts = this.payload.charts;
+        let labels = this.payload.labels;
+
+        this.line('dashboard-orders-by-day', charts.ordersByDay.categories, [
+            {name: labels.created, data: charts.ordersByDay.created},
+            {name: labels.completed, data: charts.ordersByDay.completed}
+        ], palette.series, 300);
+
+        this.line('dashboard-registrations-by-day', charts.registrationsByDay.categories, [
+            {name: labels.customers, data: charts.registrationsByDay.customers},
+            {name: labels.executors, data: charts.registrationsByDay.executors}
+        ], palette.series, 280);
+
+        this.column('dashboard-bids-by-day', charts.bidsByDay.categories, {
+            name: labels.bids,
+            data: charts.bidsByDay.bids
+        }, palette.bar, 280);
+
+        this.bars('dashboard-funnel', charts.funnel.labels, {
+            name: labels.orders,
+            data: charts.funnel.values
+        }, palette.funnel, true, 280);
+
+        this.bars('dashboard-orders-by-type', charts.ordersByType.labels, {
+            name: labels.orders,
+            data: charts.ordersByType.values
+        }, [palette.bar], false, 280);
+
+        this.bars('dashboard-orders-by-status', charts.ordersByStatus.labels, {
+            name: labels.orders,
+            data: charts.ordersByStatus.values
+        }, [palette.bar], false, 280);
+
+        this.bars('dashboard-top-locations', charts.topLocations.labels, {
+            name: labels.orders,
+            data: charts.topLocations.values
+        }, [palette.bar], false, 320);
+    },
+
+    line: function (id, categories, series, colors, height) {
+        this.make(id, Object.assign(this.common(height), {
+            chart: this.chartBase('line', height),
+            series: series,
+            colors: colors,
+            dataLabels: {enabled: false},
+            stroke: {width: 2, curve: 'smooth'},
+            markers: {size: 0, hover: {size: 4}},
+            xaxis: this.timeAxis(categories),
+            yaxis: {labels: {formatter: this.integer}},
+            legend: {show: true, position: 'bottom'}
+        }));
+    },
+
+    column: function (id, categories, series, color, height) {
+        this.make(id, Object.assign(this.common(height), {
+            chart: this.chartBase('bar', height),
+            series: [series],
+            colors: [color],
+            dataLabels: {enabled: false},
+            plotOptions: {bar: {columnWidth: '60%', borderRadius: 2}},
+            xaxis: this.timeAxis(categories),
+            yaxis: {labels: {formatter: this.integer}},
+            legend: {show: false}
+        }));
+    },
+
+    bars: function (id, categories, series, colors, distributed, height) {
+        let max = Math.max.apply(null, series.data.concat([0]));
+
+        this.make(id, Object.assign(this.common(height), {
+            chart: this.chartBase('bar', height),
+            series: [series],
+            colors: colors,
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    distributed: distributed,
+                    borderRadius: 2,
+                    barHeight: '65%',
+                    dataLabels: {position: 'top'}
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                textAnchor: 'start',
+                offsetX: 28,
+                formatter: this.integer,
+                style: {colors: [this.ink()], fontWeight: 600}
+            },
+            xaxis: {
+                categories: categories,
+                max: max > 0 ? Math.ceil(max * 1.15) : undefined,
+                labels: {formatter: this.integer}
+            },
+            yaxis: {labels: {maxWidth: 180}},
+            legend: {show: false}
+        }));
+    },
+
+    make: function (id, options) {
+        let element = document.getElementById(id);
+
+        if (!element) {
+            return;
         }
 
-        // Modal
-        Modal.open('.modal-main');
+        let chart = new ApexCharts(element, options);
+        chart.render();
+        this.charts.push(chart);
+    },
+
+    common: function (height) {
+        return {
+            grid: {borderColor: this.cssVar('--theme-border')},
+            tooltip: {theme: this.theme()},
+            noData: {text: this.payload.labels.noData || ''}
+        };
+    },
+
+    chartBase: function (type, height) {
+        return {
+            type: type,
+            height: height,
+            fontFamily: 'inherit',
+            foreColor: this.cssVar('--theme-text-muted'),
+            toolbar: {show: false},
+            animations: {speed: 400}
+        };
+    },
+
+    timeAxis: function (categories) {
+        return {
+            categories: categories,
+            tickAmount: Math.min(categories.length, 8),
+            labels: {rotate: 0, hideOverlappingLabels: true, trim: false}
+        };
+    },
+
+    integer: function (value) {
+        return value === null || value === undefined ? '' : Math.round(value).toString();
+    },
+
+    theme: function () {
+        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    },
+
+    ink: function () {
+        return this.cssVar('--theme-text');
+    },
+
+    cssVar: function (name) {
+        return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    },
+
+    observeTheme: function () {
+        let self = this;
+
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.attributeName === 'data-theme') {
+                    self.rebuild();
+                }
+            });
+        }).observe(document.documentElement, {attributes: true});
+    },
+
+    rebuild: function () {
+        this.charts.forEach(function (chart) {
+            chart.destroy();
+        });
+        this.charts = [];
+        this.render();
     }
-}
+
+};
