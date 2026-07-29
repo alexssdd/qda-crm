@@ -28,6 +28,7 @@ class DashboardSearch extends Model
     const TOP_LOCATIONS_LIMIT = 10;
     const WEEKDAY_LABEL_MAX_DAYS = 7;
     const COVERAGE_MIN_EXECUTORS = 3;
+    const COVERAGE_READY_EXECUTORS = 10;
     const COVERAGE_NO_LOCATION_KEY = 0;
     const DEFAULT_COUNTRY = 'kz';
 
@@ -551,7 +552,7 @@ class DashboardSearch extends Model
     private function coverageStatus(int $executors, int $orders): ?CoverageStatus
     {
         if ($orders === 0) {
-            return $executors >= self::COVERAGE_MIN_EXECUTORS ? CoverageStatus::READY : null;
+            return $executors >= self::COVERAGE_READY_EXECUTORS ? CoverageStatus::READY : null;
         }
 
         if ($executors === 0) {

@@ -239,7 +239,7 @@ $periodLabel = $searchModel->periodLabel();
             </span>
             <span class="coverage-legend__item">
                 <span class="coverage-legend__mark coverage-legend__mark--ready"></span>
-                <?= Html::encode(Yii::t('app', 'dashboard.coverage.legend.ready', ['min' => DashboardSearch::COVERAGE_MIN_EXECUTORS])) ?>
+                <?= Html::encode(Yii::t('app', 'dashboard.coverage.legend.ready', ['min' => DashboardSearch::COVERAGE_READY_EXECUTORS])) ?>
             </span>
         </div>
         <div class="coverage-scroll">
