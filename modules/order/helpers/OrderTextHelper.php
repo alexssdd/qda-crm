@@ -41,10 +41,6 @@ class OrderTextHelper
 
             $header = 'Подбор исполнителей';
 
-            if ($matched === 0) {
-                return self::renderEvent($header, "<span class='order-chat__detail'>Найдено: 0</span>");
-            }
-
             $sources = [];
             foreach (ExecutorMatchSource::cases() as $source) {
                 $count = (int) ($breakdown[$source->value] ?? 0);
