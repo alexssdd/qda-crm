@@ -2,9 +2,7 @@
 
 namespace app\modules\order\helpers;
 
-use Yii;
-use Exception;
-use yii\helpers\ArrayHelper;
+use app\modules\order\enums\OrderHistoryEvent;
 
 /**
  * Order event helper
@@ -20,25 +18,27 @@ class OrderEventHelper
     /**
      * @param $type
      * @return string|null
-     * @throws Exception
      */
     public static function getIconClass($type): ?string
     {
-        $data = [];
+        // прямой доступ вместо ArrayHelper::getValue — у ключей с точками (executors.notified)
+        // на отсутствующем ключе сработал бы неявный dot-path fallback
+        $data = [
+            OrderHistoryEvent::EXECUTORS_NOTIFIED->value => 'icon-search',
+        ];
 
-        return ArrayHelper::getValue($data, $type);
+        return $data[$type] ?? null;
     }
 
     /**
      * @param $type
      * @return string|null
-     * @throws Exception
      */
     public static function getImage($type): ?string
     {
         $data = [];
 
-        return ArrayHelper::getValue($data, $type);
+        return $data[$type] ?? null;
     }
 
     /**

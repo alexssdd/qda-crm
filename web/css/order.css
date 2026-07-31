@@ -694,7 +694,8 @@
     font-size: 16px;
     display: inline-block;
     vertical-align: text-top;
-    color: var(--color-nice);
+    margin-right: 4px;
+    color: var(--color-muted);
 }
 .order-chat__image {
     width: 20px;
@@ -706,7 +707,7 @@
 }
 .order-chat__detail {
     display: block;
-    color: #828282;
+    color: var(--color-muted);
 }
 .order-chat__item--important{
     border-left: 2px solid #ffec3a;
@@ -726,7 +727,7 @@
 }
 .order-chat__item_detail {
     display: block;
-    color: #828282;
+    color: var(--color-muted);
 }
 
 .order-chat__assembly {

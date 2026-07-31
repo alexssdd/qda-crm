@@ -29,7 +29,7 @@ class OrderTextHelper
                 $body .= "<span class='order-chat__detail'>Цена: " . Html::encode((string) $price) . "</span>";
             }
 
-            return $header . "<div class='order-chat__details'>" . $body . '</div>';
+            return self::renderEvent($header, $body);
         }
 
         // Итоги матчинга исполнителей (отчёт pro-инстанса)
@@ -39,11 +39,11 @@ class OrderTextHelper
             $night = (bool) ArrayHelper::getValue($event->data, 'night', false);
             $breakdown = (array) ArrayHelper::getValue($event->data, 'breakdown', []);
 
-            if ($matched === 0) {
-                return 'Подходящих исполнителей не найдено';
-            }
+            $header = 'Подбор исполнителей';
 
-            $header = 'Уведомлены исполнители';
+            if ($matched === 0) {
+                return self::renderEvent($header, "<span class='order-chat__detail'>Подходящих исполнителей не найдено</span>");
+            }
 
             $sources = [];
             foreach (ExecutorMatchSource::cases() as $source) {
@@ -69,9 +69,14 @@ class OrderTextHelper
             }
             $body .= "<span class='order-chat__detail'>" . Html::encode($pushLine) . "</span>";
 
-            return $header . "<div class='order-chat__details'>" . $body . '</div>';
+            return self::renderEvent($header, $body);
         }
 
         return Html::encode($event->message);
+    }
+
+    private static function renderEvent(string $header, string $body): string
+    {
+        return $header . "<div class='order-chat__details'>" . $body . '</div>';
     }
 }
