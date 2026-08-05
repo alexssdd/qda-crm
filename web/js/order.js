@@ -289,21 +289,27 @@ window.Order = {
         // выполняется на каждый открытый заказ — без namespace хендлеры копятся.
         $('body').off('click.orderShare').on('click.orderShare', '.order-header__share', function (e){
             e.preventDefault();
+            Modal.openUrl(UrlManager.to('order', 'share', {id: Order.id}));
+        });
 
-            let link = $(this);
-            let url = link.data('share-url');
+        // Кнопка внутри модалки — делегирование на body, контент грузится позже.
+        $('body').off('click.orderShareCopy').on('click.orderShareCopy', '.js-share-copy', function (e){
+            e.preventDefault();
+
+            let btn = $(this);
+            let text = btn.data('message');
 
             if (!navigator.clipboard) {
-                window.prompt('Скопируйте ссылку:', url);
+                window.prompt('Скопируйте текст:', text);
                 return;
             }
 
-            navigator.clipboard.writeText(url).then(function (){
-                let original = link.text();
-                link.text('Скопировано');
-                setTimeout(function (){ link.text(original); }, 1500);
+            navigator.clipboard.writeText(text).then(function (){
+                let original = btn.text();
+                btn.text('Скопировано');
+                setTimeout(function (){ btn.text(original); }, 1500);
             }).catch(function (){
-                window.prompt('Скопируйте ссылку:', url);
+                window.prompt('Скопируйте текст:', text);
             });
         });
     },

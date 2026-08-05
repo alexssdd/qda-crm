@@ -386,6 +386,22 @@
 .order-header__share:hover{
     text-decoration: underline;
 }
+.order-share__preview{
+    margin: 0 0 15px;
+    padding: 12px;
+    background: var(--color-background, #f5f5f5);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.order-share__actions{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 .order-header__time{
     margin-top: 0;
 }

@@ -23,9 +23,9 @@ use app\modules\order\helpers\OrderHelper;
             <span class="order-header__label">Ответственный:</span>
             <span class="order-header__value" title="<?= Html::encode($order->handler?->name ?: 'Бот') ?>"><?= Html::encode($order->handler?->name ?: 'Бот') ?></span>
         </div>
-        <?php if ($shareUrl = OrderHelper::getShareUrl($order)): ?>
+        <?php if (OrderHelper::getShareUrl($order)): ?>
         <div class="order-header__item">
-            <a href="#" class="order-header__share" data-share-url="<?= Html::encode($shareUrl) ?>" title="Скопировать ссылку на заказ для исполнителя">Скопировать ссылку</a>
+            <a href="#" class="order-header__share" title="Отправить заказ исполнителю">Поделиться</a>
         </div>
         <?php endif; ?>
     </div>

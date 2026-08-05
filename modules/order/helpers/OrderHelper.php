@@ -3,9 +3,11 @@ namespace app\modules\order\helpers;
 
 use app\helpers\PriceFormatter;
 use app\modules\location\models\Country;
+use app\modules\location\helpers\LocationHelper;
 use app\modules\order\enums\OrderStatus;
 use app\modules\order\enums\OrderChannel;
 use app\modules\order\enums\OrderType;
+use app\modules\order\enums\PaymentMethod;
 use app\modules\order\enums\PriceType;
 use app\modules\order\models\Order;
 use Yii;
@@ -118,6 +120,69 @@ class OrderHelper
     public static function getShareUrl(Order $order): ?string
     {
         return $order->public_id ? 'https://goqda.com/order/' . $order->public_id : null;
+    }
+
+    /**
+     * Готовый текст для отправки исполнителю. Формат и форматирование
+     * зеркалят OG-карточку ссылки (site OrderPreviewService) — оператор видит
+     * оба варианта в одном сообщении WhatsApp, расходиться им нельзя.
+     */
+    public static function getShareMessage(Order $order, bool $withUrl = true): ?string
+    {
+        $url = static::getShareUrl($order);
+        if (!$url) {
+            return null;
+        }
+
+        $head = implode(' · ', array_filter([
+            static::getTypeName($order->type),
+            static::getSharePriceLabel($order),
+            $order->payment_method ? PaymentMethod::getLabelById((int) $order->payment_method) : null,
+        ]));
+
+        $route = implode(' → ', array_unique(array_filter([
+            $order->locationFrom ? LocationHelper::getName($order->locationFrom->extra_fields, $order->locationFrom->name) : null,
+            $order->locationTo ? LocationHelper::getName($order->locationTo->extra_fields, $order->locationTo->name) : null,
+        ])));
+
+        $lines = ['🔥 Заказ: ' . $head];
+        if ($route !== '') {
+            $lines[] = 'Направление: ' . $route;
+        }
+        if ($withUrl) {
+            $lines[] = $url;
+        }
+
+        return implode("\n", $lines);
+    }
+
+    /**
+     * Цена как в OG-карточке: полное число + «тг»/«сум», без «млн»-сокращений.
+     */
+    private static function getSharePriceLabel(Order $order): ?string
+    {
+        // Строки — как в site-словаре OG-карточки, не как CRM-шные
+        // («По запросу»): в WhatsApp текст и карточка стоят рядом.
+        $label = match ($order->price_type) {
+            PriceType::REQUEST_ID => 'Цена по запросу',
+            PriceType::CONTRACT_ID => 'Договорная',
+            default => null,
+        };
+
+        if ($label !== null) {
+            return $label;
+        }
+
+        if ($order->price === null) {
+            return null;
+        }
+
+        $currency = match ($order->country_code) {
+            'uz' => 'сум',
+            default => 'тг',
+        };
+
+        return number_format((float) $order->price, 0, '.', ' ') . ' ' . $currency;
     }
 
     public static function getFromCountry(Order $order): ?string

@@ -22,6 +22,7 @@ use app\services\ConsoleService;
 use app\core\helpers\UserHelper;
 use app\core\helpers\StoreHelper;
 use app\core\helpers\OrderHelper;
+use app\modules\order\helpers\OrderHelper as OrderModuleHelper;
 use app\services\OperatorService;
 use yii\web\NotFoundHttpException;
 use app\modules\order\models\Order;
@@ -433,6 +434,17 @@ class OrderController extends Controller
 
         return $this->renderPartial('_search_result', [
             'result' => $result
+        ]);
+    }
+
+    public function actionShare($id): string
+    {
+        $order = $this->getOrder($id);
+
+        return $this->renderAjax('_share', [
+            'message' => OrderModuleHelper::getShareMessage($order),
+            'messageWithoutUrl' => OrderModuleHelper::getShareMessage($order, false),
+            'shareUrl' => OrderModuleHelper::getShareUrl($order),
         ]);
     }
 
