@@ -23,6 +23,11 @@ use app\modules\order\helpers\OrderHelper;
             <span class="order-header__label">Ответственный:</span>
             <span class="order-header__value" title="<?= Html::encode($order->handler?->name ?: 'Бот') ?>"><?= Html::encode($order->handler?->name ?: 'Бот') ?></span>
         </div>
+        <?php if ($shareUrl = OrderHelper::getShareUrl($order)): ?>
+        <div class="order-header__item">
+            <a href="#" class="order-header__share" data-share-url="<?= Html::encode($shareUrl) ?>" title="Скопировать ссылку на заказ для исполнителя">Скопировать ссылку</a>
+        </div>
+        <?php endif; ?>
     </div>
     <div class="order-header__right">
         <div class="order-header__time"></div>
@@ -43,6 +48,7 @@ $js = <<<JS
 Order.id = $order->id;
 Order.initTime($seconds, $stop);
 Order.initCancel();
+Order.initShare();
 
 JS;
 

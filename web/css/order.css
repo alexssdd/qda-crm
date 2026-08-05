@@ -377,6 +377,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.order-header__share{
+    color: var(--color-nice);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+.order-header__share:hover{
+    text-decoration: underline;
+}
 .order-header__time{
     margin-top: 0;
 }

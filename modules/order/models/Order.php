@@ -15,6 +15,7 @@ use app\core\helpers\OrderHelper;
  * This is the model class for table "{{%order}}".
  *
  * @property int $id
+ * @property string|null $public_id
  * @property string $country_code
  * @property int $source_id
  * @property int $channel

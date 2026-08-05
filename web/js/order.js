@@ -284,6 +284,30 @@ window.Order = {
             block.timeTo('stop');
         }
     },
+    initShare: function (){
+        // off перед on: хедер перерисовывается через pjax, и registerJs
+        // выполняется на каждый открытый заказ — без namespace хендлеры копятся.
+        $('body').off('click.orderShare').on('click.orderShare', '.order-header__share', function (e){
+            e.preventDefault();
+
+            let link = $(this);
+            let url = link.data('share-url');
+
+            if (!navigator.clipboard) {
+                window.prompt('Скопируйте ссылку:', url);
+                return;
+            }
+
+            navigator.clipboard.writeText(url).then(function (){
+                let original = link.text();
+                link.text('Скопировано');
+                setTimeout(function (){ link.text(original); }, 1500);
+            }).catch(function (){
+                window.prompt('Скопируйте ссылку:', url);
+            });
+        });
+    },
+
     initCancel: function (){
         // Variables
         let body = $('body');

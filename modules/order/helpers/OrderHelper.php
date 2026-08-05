@@ -115,6 +115,11 @@ class OrderHelper
         return Yii::$app->formatter->asDatetime($order->created_at);
     }
 
+    public static function getShareUrl(Order $order): ?string
+    {
+        return $order->public_id ? 'https://goqda.com/order/' . $order->public_id : null;
+    }
+
     public static function getFromCountry(Order $order): ?string
     {
         if (!$order->locationFrom) {
