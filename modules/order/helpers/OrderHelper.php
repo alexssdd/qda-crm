@@ -123,11 +123,10 @@ class OrderHelper
     }
 
     /**
-     * Готовый текст для отправки исполнителю. Формат и форматирование
-     * зеркалят OG-карточку ссылки (site OrderPreviewService) — оператор видит
-     * оба варианта в одном сообщении WhatsApp, расходиться им нельзя.
+     * Предпросмотр OG-карточки ссылки для оператора: в мессенджер уходит только
+     * ссылка, карточку рисует site (OrderPreviewService) — формат тот же.
      */
-    public static function getShareMessage(Order $order, bool $withUrl = true): ?string
+    public static function getShareMessage(Order $order): ?string
     {
         $url = static::getShareUrl($order);
         if (!$url) {
@@ -149,9 +148,6 @@ class OrderHelper
         if ($route !== '') {
             $lines[] = 'Направление: ' . $route;
         }
-        if ($withUrl) {
-            $lines[] = $url;
-        }
 
         return implode("\n", $lines);
     }
@@ -161,8 +157,8 @@ class OrderHelper
      */
     private static function getSharePriceLabel(Order $order): ?string
     {
-        // Строки — как в site-словаре OG-карточки, не как CRM-шные
-        // («По запросу»): в WhatsApp текст и карточка стоят рядом.
+        // Формулировки из site-словаря OG-карточки, не CRM-шные («По запросу»),
+        // чтобы предпросмотр совпадал с тем, что увидит исполнитель.
         $label = match ($order->price_type) {
             PriceType::REQUEST_ID => 'Цена по запросу',
             PriceType::CONTRACT_ID => 'Договорная',

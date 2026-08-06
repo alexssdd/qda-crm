@@ -442,8 +442,7 @@ class OrderController extends Controller
         $order = $this->getOrder($id);
 
         return $this->renderAjax('_share', [
-            'message' => OrderModuleHelper::getShareMessage($order),
-            'messageWithoutUrl' => OrderModuleHelper::getShareMessage($order, false),
+            'preview' => OrderModuleHelper::getShareMessage($order),
             'shareUrl' => OrderModuleHelper::getShareUrl($order),
         ]);
     }

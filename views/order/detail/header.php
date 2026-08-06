@@ -23,13 +23,11 @@ use app\modules\order\helpers\OrderHelper;
             <span class="order-header__label">Ответственный:</span>
             <span class="order-header__value" title="<?= Html::encode($order->handler?->name ?: 'Бот') ?>"><?= Html::encode($order->handler?->name ?: 'Бот') ?></span>
         </div>
-        <?php if (OrderHelper::getShareUrl($order)): ?>
-        <div class="order-header__item">
-            <a href="#" class="order-header__share" title="Отправить заказ исполнителю">Поделиться</a>
-        </div>
-        <?php endif; ?>
     </div>
     <div class="order-header__right">
+        <?php if (OrderHelper::getShareUrl($order)): ?>
+            <a href="#" class="btn btn--default order-header__share" title="Отправить заказ исполнителю">Поделиться</a>
+        <?php endif; ?>
         <div class="order-header__time"></div>
     </div>
 </div>
