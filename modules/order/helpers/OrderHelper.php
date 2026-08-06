@@ -3,11 +3,9 @@ namespace app\modules\order\helpers;
 
 use app\helpers\PriceFormatter;
 use app\modules\location\models\Country;
-use app\modules\location\helpers\LocationHelper;
 use app\modules\order\enums\OrderStatus;
 use app\modules\order\enums\OrderChannel;
 use app\modules\order\enums\OrderType;
-use app\modules\order\enums\PaymentMethod;
 use app\modules\order\enums\PriceType;
 use app\modules\order\models\Order;
 use Yii;
@@ -120,65 +118,6 @@ class OrderHelper
     public static function getShareUrl(Order $order): ?string
     {
         return $order->public_id ? 'https://goqda.com/order/' . $order->public_id : null;
-    }
-
-    /**
-     * Предпросмотр OG-карточки ссылки для оператора: в мессенджер уходит только
-     * ссылка, карточку рисует site (OrderPreviewService) — формат тот же.
-     */
-    public static function getShareMessage(Order $order): ?string
-    {
-        $url = static::getShareUrl($order);
-        if (!$url) {
-            return null;
-        }
-
-        $head = implode(' · ', array_filter([
-            static::getTypeName($order->type),
-            static::getSharePriceLabel($order),
-            $order->payment_method ? PaymentMethod::getLabelById((int) $order->payment_method) : null,
-        ]));
-
-        $route = implode(' → ', array_unique(array_filter([
-            $order->locationFrom ? LocationHelper::getName($order->locationFrom->extra_fields, $order->locationFrom->name) : null,
-            $order->locationTo ? LocationHelper::getName($order->locationTo->extra_fields, $order->locationTo->name) : null,
-        ])));
-
-        $lines = ['🔥 Заказ: ' . $head];
-        if ($route !== '') {
-            $lines[] = 'Направление: ' . $route;
-        }
-
-        return implode("\n", $lines);
-    }
-
-    /**
-     * Цена как в OG-карточке: полное число + «тг»/«сум», без «млн»-сокращений.
-     */
-    private static function getSharePriceLabel(Order $order): ?string
-    {
-        // Формулировки из site-словаря OG-карточки, не CRM-шные («По запросу»),
-        // чтобы предпросмотр совпадал с тем, что увидит исполнитель.
-        $label = match ($order->price_type) {
-            PriceType::REQUEST_ID => 'Цена по запросу',
-            PriceType::CONTRACT_ID => 'Договорная',
-            default => null,
-        };
-
-        if ($label !== null) {
-            return $label;
-        }
-
-        if ($order->price === null) {
-            return null;
-        }
-
-        $currency = match ($order->country_code) {
-            'uz' => 'сум',
-            default => 'тг',
-        };
-
-        return number_format((float) $order->price, 0, '.', ' ') . ' ' . $currency;
     }
 
     public static function getFromCountry(Order $order): ?string

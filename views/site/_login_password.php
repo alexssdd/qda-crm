@@ -19,9 +19,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'id' => 'login-password-form',
         'action' => ['login-password'],
-        'validateOnChange' => false,
-        'validateOnBlur' => false,
-        'validateOnSubmit' => true,
+        // Правило phone идёт после PHP-фильтра, который JS не воспроизводит.
+        'enableClientValidation' => false,
         'fieldConfig' => [
             'options' => ['class' => 'login-form__group'],
             'template' => "{input}\n{hint}",

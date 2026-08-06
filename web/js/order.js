@@ -285,19 +285,14 @@ window.Order = {
         }
     },
     initShare: function (){
-        // off перед on: хедер перерисовывается через pjax, и registerJs
-        // выполняется на каждый открытый заказ — без namespace хендлеры копятся.
-        $('body').off('click.orderShare').on('click.orderShare', '.order-header__share', function (e){
-            e.preventDefault();
-            Modal.openUrl(UrlManager.to('order', 'share', {id: Order.id}));
-        });
-
-        // Кнопка внутри модалки — делегирование на body, контент грузится позже.
+        // Открытие модалки — штатным js-view-modal из пункта «Действия».
+        // Здесь только копирование ссылки: контент модалки грузится позже,
+        // поэтому делегируем на body. off перед on — против дублей при pjax.
         $('body').off('click.orderShareCopy').on('click.orderShareCopy', '.js-share-copy', function (e){
             e.preventDefault();
 
             let btn = $(this);
-            let text = btn.data('message');
+            let text = btn.data('url');
 
             if (!navigator.clipboard) {
                 window.prompt('Скопируйте текст:', text);
