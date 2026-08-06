@@ -285,27 +285,59 @@ window.Order = {
         }
     },
     initShare: function (){
-        // Открытие модалки — штатным js-view-modal из пункта «Действия».
-        // Здесь только копирование ссылки: контент модалки грузится позже,
-        // поэтому делегируем на body. off перед on — против дублей при pjax.
+        // Открытие модалки — штатным js-view-modal. Здесь только копирование:
+        // контент грузится позже, поэтому делегируем на body. off — против
+        // дублей при pjax-перерисовке.
         $('body').off('click.orderShareCopy').on('click.orderShareCopy', '.js-share-copy', function (e){
             e.preventDefault();
 
             let btn = $(this);
-            let text = btn.data('url');
+            let url = btn.data('url');
+            let label = btn.find('.js-share-copy-label');
 
-            if (!navigator.clipboard) {
-                window.prompt('Скопируйте текст:', text);
+            // Исходный текст держим в data: повторный клик до конца анимации
+            // иначе запомнил бы «Скопировано» как исходное и залипал.
+            if (!btn.data('label')) {
+                btn.data('label', label.text());
+            }
+
+            let flash = function (message, cssClass){
+                clearTimeout(btn.data('flashTimer'));
+
+                btn.removeClass('is-copied is-copy-failed').addClass(cssClass);
+                label.text(message);
+
+                btn.data('flashTimer', setTimeout(function (){
+                    btn.removeClass(cssClass);
+                    label.text(btn.data('label'));
+                }, 1500));
+            };
+
+            let done = function (){ flash('Скопировано', 'is-copied'); };
+
+            // Копирование могут запретить (фоновая вкладка, старый браузер) —
+            // тогда выделяем ссылку, чтобы юзер забрал её Ctrl+C.
+            let failed = function (){
+                let link = btn.closest('.modal__body').find('.order-share__link')[0];
+                if (link && window.getSelection) {
+                    let range = document.createRange();
+                    range.selectNodeContents(link);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                }
+                flash('Нажмите Ctrl+C', 'is-copy-failed');
+            };
+
+            // Clipboard API есть только в secure context (https/localhost),
+            // на http-локалке падаем на execCommand — он работает везде.
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(done).catch(function (){
+                    Clipboard.copy(url) ? done() : failed();
+                });
                 return;
             }
 
-            navigator.clipboard.writeText(text).then(function (){
-                let original = btn.text();
-                btn.text('Скопировано');
-                setTimeout(function (){ btn.text(original); }, 1500);
-            }).catch(function (){
-                window.prompt('Скопируйте текст:', text);
-            });
+            Clipboard.copy(url) ? done() : failed();
         });
     },
 

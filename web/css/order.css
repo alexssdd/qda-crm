@@ -417,6 +417,23 @@
     gap: 10px;
     flex-wrap: wrap;
 }
+.order-share__actions .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.order-share__icon{
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+.js-share-copy.is-copied{
+    color: var(--color-green);
+    border-color: var(--color-green);
+}
+.js-share-copy.is-copy-failed{
+    color: var(--color-nice);
+}
 .order-header__time{
     margin-top: 0;
 }

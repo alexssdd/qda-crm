@@ -253,6 +253,26 @@ window.PasswordGenerator = {
     }
 }
 
+/* Clipboard
+----------------------------------------*/
+window.Clipboard = {
+    // Fallback для insecure context (http): navigator.clipboard там недоступен.
+    // Поле не прячем через opacity/display — из скрытого копирование не идёт.
+    copy: function (text){
+        let area = $('<textarea readonly>').val(text)
+            .css({position: 'fixed', left: '-9999px', top: '0'});
+
+        $('body').append(area);
+        area[0].select();
+
+        let ok = false;
+        try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+        area.remove();
+
+        return ok;
+    }
+};
+
 /* Modal
 ----------------------------------------*/
 window.Modal = {
